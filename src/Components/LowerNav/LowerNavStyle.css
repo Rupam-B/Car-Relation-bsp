@@ -1,0 +1,40 @@
+.LowerNav-main-div{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    background-color: rgb(30, 21, 114);
+    padding: 0 5vw;
+}
+.Lower-Nav-Sub-div input{
+ width: 17vw;
+ height: 6vh;
+ margin-right: 3vw;
+ border-radius: 5px;
+}
+.Lower-Nav-Sub-div button{
+ width: 8vw;
+ height: 6vh;
+ /* margin-right: 3vw; */
+ border-radius: 5px;
+ background-color: rgb(255, 174, 0);
+}
+
+@media screen and (max-width:500px) {
+    .LowerNav-main-div{
+        height: 45vh;
+
+    }
+    .Lower-Nav-Sub-div input{
+        width: 87vw;
+        height: 6vh;
+        margin-right: 3vw;
+        border-radius: 8px;
+        margin-top: 2vh;
+       }
+       .Lower-Nav-Sub-div button{
+        width: 58vw;
+        height: 6vh;
+        margin-top: 2vh;
+        border-radius: 5px;
+       }
+}

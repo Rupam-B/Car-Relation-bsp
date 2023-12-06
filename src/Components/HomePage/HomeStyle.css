@@ -1,0 +1,69 @@
+.Home-Main-div{
+    padding: 0 5vw;
+}
+.Home-Listing-Header{
+    margin: 2vh 0 4vh 0;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 3vw;
+}
+.Home-Listing-Header h1{
+    color: rgb(74, 1, 74);
+}
+.buy-sell-btn-one{
+    width: 3vw;
+    height: 3vh;
+    background-color: yellow;
+    border: none;
+    font-weight: bolder;
+    color: red;
+    padding: 0.4rem 0.6rem;
+    text-decoration: none;
+    border-radius: 1rem 0 0 1rem;
+}
+.buy-sell-btn-one:hover{
+    transform: scale(1.1);
+}
+.buy-sell-btn-two{
+    width: 3vw;
+    height: 3vh;
+    background-color: green;
+    border: none;
+    font-weight: bolder;
+    color: white;
+    padding: 0.4rem 0.6rem;
+    text-decoration: none;
+    border-radius: 0 1rem 1rem 0;
+}
+.buy-sell-btn-two:hover{
+    transform: scale(1.1);
+}
+
+.Home-middle-content{
+    display: grid;
+    grid-template-columns: repeat(4 , 1fr);
+    gap: 5vh;
+}
+.Home-middle-content:hover{
+    cursor: pointer;
+}
+.card-width-18{
+    width: 18rem;
+}
+
+
+
+
+@media screen and (max-width: 500px) {
+
+    .Home-middle-content{
+        display: grid;
+        grid-template-columns: repeat(1 , 1fr);
+        justify-content: center;
+        align-content: center;
+    }
+    .card-width-18{
+        width: 90vw;
+    }
+    
+    }

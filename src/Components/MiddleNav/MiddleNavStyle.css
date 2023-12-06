@@ -1,0 +1,32 @@
+.Middle-nav-sub-div{
+    display: flex;
+    padding: 0 5vw;
+    justify-content: space-between;
+    align-items: center;
+    height: 8vh;
+}
+.Middle-nav-left-div{
+    display: flex;
+}
+.Middle-nav-left-div img{
+    width: 8vh;
+    height: 5vh;
+    border-radius: 1rem;
+}
+.Middle-nav-left-div h2{
+    color: rgb(14, 14, 126);
+    font-weight: bolder;
+}
+
+.Middle-nav-right-div a{
+    text-decoration: none;
+    margin-right: 3vw;
+    color:black;
+}
+
+@media screen and (max-width:500px) {
+    .Middle-nav-sub-div{
+        padding: 0 1vw;
+    }
+    
+}
