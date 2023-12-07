@@ -1,4 +1,4 @@
-.LowerNav-main-div{
+/* .LowerNav-main-div{
     height: 10vh;
     display: flex;
     align-items: center;
@@ -14,13 +14,28 @@
 .Lower-Nav-Sub-div button{
  width: 8vw;
  height: 6vh;
- /* margin-right: 3vw; */
  border-radius: 5px;
  background-color: rgb(255, 174, 0);
+} */
+.LowerNav-main-div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height:60vh;
+    margin-bottom: 5vh;
+}
+
+.Lowenav-add-showing-div{
+    height: 60vh;
+    width: 80vw;
+}
+.Lowenav-add-showing-div img{
+    height: 60vh;
+    width: 80vw;
 }
 
 @media screen and (max-width:500px) {
-    .LowerNav-main-div{
+    /* .LowerNav-main-div{
         height: 45vh;
 
     }
@@ -36,5 +51,22 @@
         height: 6vh;
         margin-top: 2vh;
         border-radius: 5px;
-       }
+       } */
+
+       .LowerNav-main-div{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        height:40vh;
+        margin-bottom: 5vh;
+    }
+    
+    .Lowenav-add-showing-div{
+        height: 40vh;
+        width: 95vw;
+    }
+    .Lowenav-add-showing-div img{
+        height: 40vh;
+        width: 95vw;
+    }
 }
