@@ -32,9 +32,11 @@
     }
     .Middle-nav-right-div{
     
-        margin-top: 7vh;
+        margin-top: 6vh;
         padding-right: 1vw;
         margin-right: 4vw;
+        position: absolute;
+        right: 1vw;
     }
     
 }
