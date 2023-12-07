@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import './sellcarStyle.css'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify';
@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const SellCar = () => {
   const [selectedImages, setSelectedImages] = useState([]);
+  const inputRef = useRef(null);
 
   const handleFileChange = (event) => {
     const files = event.target.files;
@@ -19,7 +20,7 @@ const SellCar = () => {
     setSelectedImages(selectedImagesArray);
 
   };
-  const UploadAdd = () => {
+  const UploadApp = () => {
     toast.success('You App is Under Process, Will be Uploaded after verification',{
       position: 'top-center',
       autoClose: 3000,
@@ -29,6 +30,9 @@ const SellCar = () => {
       draggable: true,
       progress: undefined,
     });
+  }
+  const handleClickOnImagediv =()=>{
+      inputRef.current.click()
   }
   return (
     <div className='SellCar-main-div'>
@@ -43,12 +47,12 @@ const SellCar = () => {
 
         <div className='Sell-car-main-content'>
           <div className='Sell-car-image-upload'>
-            <div className='show-uploaded-image'>
+            <div onClick={handleClickOnImagediv} className='show-uploaded-image'>
               {selectedImages.length > 0 ? selectedImages.map((imageUrl, index) => (
                 <img key={index} src={imageUrl} alt={`uploaded-${index}`} />
               )) : <h3 className='substitute-image-text'>Add Images here</h3>}
             </div>
-            <input type="file" placeholder='image' multiple onChange={handleFileChange} />
+            <input type="file" placeholder='image' multiple onChange={handleFileChange} ref={inputRef} />
           </div>
           <div className='Sell-car-details-fill'>
             <div className='Sell-car-details-fill-main-div'>
@@ -73,7 +77,9 @@ const SellCar = () => {
               <label htmlFor="Insurance">Insurance</label>
               <input type="text" id="Insurance" name="Insurance" />
             </div>
-            <button onClick={UploadAdd} className='Add-Upload-button'>Upload Add</button>
+            <div className='Upload-btn'>
+            <button onClick={UploadApp} className='Add-Upload-button'>Upload Add</button>
+            </div>
           </div>
         </div>
       </div>

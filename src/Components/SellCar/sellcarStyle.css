@@ -28,6 +28,9 @@
     margin-left: 8vw;
     margin-top: 10vh;
 }
+.show-uploaded-image{
+    cursor: pointer;
+}
 .show-uploaded-image img{
     width: 5vw;
     height: 8vh;
@@ -35,29 +38,29 @@
     margin: 3px;
 }
 .Sell-car-details-fill-main-div{
-    width: 50vw;
+    width: 40vw;
     border: 1px solid rgb(12, 12, 12,0.1);
     padding: 1rem 2rem;
 }
 .Sell-car-details-fill-main-div input{
-    margin-right: 6vw;
     margin-bottom: 4vh;
-    border: 1px solid rgba(255, 0, 0, 0.3);
-    border-radius: 1rem;
+    border: 2px solid rgba(7, 7, 7, 0.4);
+    border-radius: 3px;
     padding-left: 1vw;
+    width: 20vw;
 }
 .Sell-car-details-fill-main-div label{
     margin-right: 1vw;
-    width: 20vw;
+    width: 13vw;
 }
 .Add-Upload-button{
     margin-top: 5vh;
-    width: 50vw;
+    width: 20vw;
     height: 7vh;
-    background-color: red;
-    color: yellow;
-    border-radius: 2rem;
-    font-size:1.8rem;
+    background-color: rgba(12, 12, 12, 0.8);
+    color: white;
+    border-radius: 3px;
+    font-size:1.5rem;
     font-weight: bolder;
     border: none;
 }
@@ -93,28 +96,36 @@
     }
     .Sell-car-details-fill-main-div{
         width: 90vw;
-        border: 1px solid rgb(12, 12, 12,0.1);
+        border: 2px solid rgb(12, 12, 12,0.1);
         padding: 1rem 2vw;
         margin-top: 5vh;
     }
     .Sell-car-details-fill-main-div input{
-        margin-right: 8vw;
-        margin-bottom: 4vh;
-        border: 1px solid rgba(255, 0, 0, 0.3);
-        border-radius: 1rem;
+        width: 85vw;
+        border: 1px solid rgba(0, 0, 0, 0.4);
+        border-radius: 2px;
+        height: 5vh;
     }
     .Sell-car-details-fill-main-div label{
-        margin-right: 3vw;
+        /* margin: auto; */
         width: 25vw;
+        display: block;
+    }
+    .Upload-btn{
+        width: 90vw;
+        display: flex;
+        justify-content: center;
     }
     .Add-Upload-button{
-        margin-top: 5vh;
-        width: 70vw;
-        height: 5vh;
-        background-color: red;
-        color: yellow;
-        border-radius: 1rem;
-        font-size: 1rem;font-weight: bolder;
+        justify-self: center;
+        margin-top: 3vh;
+        width: 40vw;
+        height: 6vh;
+        background-color: rgba(12, 12, 12, 0.8);
+        color: white;
+        border-radius: 3px;
+        font-size: 1rem;
+        font-weight: bolder;
         border: none;
     }
     

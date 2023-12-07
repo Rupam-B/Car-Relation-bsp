@@ -29,7 +29,7 @@ const Home = () => {
               <p className="card-text">
                 {items.Description}
               </p>
-              <Link onClick={()=>HomeDispatch(addThisImage(items.src))} to={'/DisplayCarDetails'} className="btn btn-danger">See Details</Link>
+              <Link onClick={()=>HomeDispatch(addThisImage(items.src))} to={'/DisplayCarDetails'} className="btn car-details-btn">See Details</Link>
             </div>
           </div>
           ))}
