@@ -9,6 +9,9 @@ import FootterDown from './Components/Footter/FootterDown';
 import SellCar from './Components/SellCar/SellCar';
 import OtherService from './Components/OtherServices/OtherService';
 import MainAdvert from './Components/AdvertisementMain/MainAdvert';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   return (
@@ -24,6 +27,7 @@ function App() {
       <OtherService/>
       <MainAdvert/>
       <FootterDown/>
+      <ToastContainer/>
     </div>
   );
 }
