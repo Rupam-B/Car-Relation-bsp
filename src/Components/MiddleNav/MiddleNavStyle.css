@@ -9,12 +9,12 @@
     display: flex;
 }
 .Middle-nav-left-div img{
-    width: 10vh;
-    height: 5vh;
+    width: 15vh;
+    height: 8vh;
     border-radius: 2px;
     margin-right: 2px;
 }
-.Middle-nav-left-div h3{
+.Middle-nav-left-div h2{
     color: black;
     font-weight: bolder;
 }
@@ -27,6 +27,15 @@
 }
 
 @media screen and (max-width:500px) {
+    .Middle-nav-left-div{
+        margin-bottom: 2vh;
+    }
+    .Middle-nav-left-div img{
+        width: 25vw;
+        height: 8vh;
+        border-radius: 2px;
+        margin-right: 2px;
+    }
     .Middle-nav-sub-div{
         padding: 0 1vw;
     }
