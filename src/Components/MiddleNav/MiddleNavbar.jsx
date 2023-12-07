@@ -1,6 +1,6 @@
 import React from 'react'
 import './MiddleNavStyle.css'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 
 const MiddleNavbar = () => {
