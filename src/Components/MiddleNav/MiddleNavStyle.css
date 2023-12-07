@@ -15,8 +15,14 @@
     margin-right: 2px;
 }
 .Middle-nav-left-div h2{
-    color: black;
+    color: #be0027;
     font-weight: bolder;
+    margin-top: 5vh;
+    margin-left:5vw;
+}
+.Middle-nav-left-div h2 i{
+    color: #335238;
+    margin-right: 2vw;
 }
 
 
@@ -31,7 +37,7 @@
         margin-bottom: 2vh;
     }
     .Middle-nav-left-div img{
-        width: 35vw;
+        width: 45vw;
         height: 10vh;
         border-radius: 2px;
         margin-right: 2px;
