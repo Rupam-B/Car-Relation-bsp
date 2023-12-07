@@ -22,6 +22,7 @@ const UpperNavbar = () => {
     <div className='Up-Navbar-Main-div'>
         <div className='Up-Navbar-Sub-div'>
         <div className="Up-Nav-left-div">
+          
         <i className="fa-solid fa-phone"></i>
         <p>1-800-458-56789</p>
         <i className="fa-solid fa-book"></i>
@@ -30,9 +31,11 @@ const UpperNavbar = () => {
         <p>Mon - Fri 8:00 - 18:00</p>
         </div>
         <div className="Up-Nav-right-div">
-        <i className="fa-brands fa-facebook"></i>
-        <i className="fa-brands fa-instagram"></i>
-        <i className="fa-brands fa-twitter"></i>
+        <a href="https://www.facebook.com/"><i className="fa-brands fa-facebook"></i></a>
+        <a href="https://www.instagram.com/"><i className="fa-brands fa-instagram"></i></a>
+        <a href="https://www.google.com/"><i className="fa-brands fa-twitter"></i></a>
+        
+        
         <h6 onClick={()=>setAdminLogin(true)}>Admin</h6>
         </div>
         </div>
