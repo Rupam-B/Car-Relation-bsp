@@ -3,21 +3,22 @@
     padding: 0 5vw;
     justify-content: space-between;
     align-items: center;
-    height: 8vh;
+    height: 12vh;
 }
 .Middle-nav-left-div{
     display: flex;
 }
 .Middle-nav-left-div img{
-    width: 8vh;
+    width: 10vh;
     height: 5vh;
     border-radius: 2px;
     margin-right: 2px;
 }
-.Middle-nav-left-div h2{
+.Middle-nav-left-div h3{
     color: black;
     font-weight: bolder;
 }
+
 
 .Middle-nav-right-div a{
     text-decoration: none;
@@ -28,6 +29,11 @@
 @media screen and (max-width:500px) {
     .Middle-nav-sub-div{
         padding: 0 1vw;
+    }
+    .Middle-nav-right-div{
+    
+        margin-top: 4vh;
+        padding-right: 1vw;
     }
     
 }
