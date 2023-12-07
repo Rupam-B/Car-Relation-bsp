@@ -8,9 +8,9 @@ const MiddleNavbar = () => {
     <div className='Middle-nav-main-div'>
         <div className='Middle-nav-sub-div'>
             <div className='Middle-nav-left-div'>
-                <img src="https://purepng.com/public/uploads/large/purepng.com-ford-focus-yellow-carcarvehicletransportford-961524665802mhbcd.png" alt="" />
-                {/* <img src={process.env.PUBLIC_URL + '/company-logo.jpeg'} alt="" /> */}
-                <h2>Car Resell</h2>
+                {/* <img src="https://purepng.com/public/uploads/large/purepng.com-ford-focus-yellow-carcarvehicletransportford-961524665802mhbcd.png" alt="" /> */}
+                <img src={process.env.PUBLIC_URL + '/Carrelation-logo.jpeg'} alt="" />
+                <h2>CarRelation</h2>
             </div>
             <div className='Middle-nav-right-div'>
                 <Link to={'/'}>Home</Link>

@@ -11,10 +11,11 @@
 .Middle-nav-left-div img{
     width: 8vh;
     height: 5vh;
-    border-radius: 1rem;
+    border-radius: 2px;
+    margin-right: 2px;
 }
 .Middle-nav-left-div h2{
-    color: rgb(14, 14, 126);
+    color: black;
     font-weight: bolder;
 }
 
