@@ -10,32 +10,77 @@
 .Home-Listing-Header h1{
     color: rgb(74, 1, 74);
 }
+.buy-sell-btn{
+    width: 12vw;
+    background-color: rgb(252, 219, 176,0.1);
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
 .buy-sell-btn-one{
-    width: 3vw;
-    height: 3vh;
-    background-color: yellow;
-    border: none;
-    font-weight: bolder;
-    color: red;
-    padding: 0.4rem 0.6rem;
+    width: 5vw;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
-    border-radius: 1rem 0 0 1rem;
+    margin-right: 2px;
+    border-radius: 5px;
+    background-color: purple;
+    color: white;
+    font-weight: bolder
+}
+.buy-sell-btn-one-inactive{
+    width: 5vw;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    margin-right: 2px;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    font-weight: bolder
 }
 .buy-sell-btn-one:hover{
     transform: scale(1.1);
 }
 .buy-sell-btn-two{
-    width: 3vw;
-    height: 3vh;
-    background-color: green;
-    border: none;
-    font-weight: bolder;
-    color: white;
-    padding: 0.4rem 0.6rem;
+    width: 5vw;
+    width: 5vw;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
-    border-radius: 0 1rem 1rem 0;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    font-weight: bolder
+}
+.buy-sell-btn-two-active{
+    width: 5vw;
+    width: 5vw;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: purple;
+    color: white;
+    font-weight: bolder
 }
 .buy-sell-btn-two:hover{
+    transform: scale(1.1);
+}
+.buy-sell-btn-one-inactive:hover{
+    transform: scale(1.1);
+}
+.buy-sell-btn-two-active:hover{
     transform: scale(1.1);
 }
 
@@ -57,6 +102,7 @@
 
 
 
+
 @media screen and (max-width: 500px) {
 
     .Home-middle-content{
@@ -68,5 +114,32 @@
     .card-width-18{
         width: 90vw;
     }
-    
+    .buy-sell-btn{
+        width: 30vw;
+        background-color: rgb(250, 226, 194,0.2);
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+    }
+    .buy-sell-btn-one{
+        width: 13vw;
+        height: 5vh;
+        margin-right: 3px;
+    }
+    .buy-sell-btn-one-inactive{
+        width: 13vw;
+        height: 5vh;
+        
+    }
+    .buy-sell-btn-two{
+        width: 13vw;
+        height: 5vh;
+    }
+    .buy-sell-btn-two-active{
+        width: 13vw;
+        height: 5vh;
+        margin-left: 3px;
+    }
     }

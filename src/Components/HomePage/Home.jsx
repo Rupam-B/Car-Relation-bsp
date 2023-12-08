@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './HomeStyle.css'
 import carMainData from './carUrls'
 import { Link } from 'react-router-dom'
@@ -8,6 +8,7 @@ import { addThisImage } from "../../Reduxs/action";
 
 const Home = () => {
   const HomeDispatch = useDispatch()
+  const [buttonActive,setButtonActive] = useState(false)
 
   const carReqData = carMainData.carMainData
   return (
@@ -16,8 +17,8 @@ const Home = () => {
         <div className="Home-Listing-Header">
           <h1>Car-Listing</h1>
           <div className='buy-sell-btn'>
-            <Link to={'/SellCarPortal'} className='buy-sell-btn-one'>Sell</Link>
-            <Link to={'/'} className='buy-sell-btn-two'>Buy</Link>
+            <Link onClick={()=>setButtonActive(false)} to={'/SellCarPortal'} className={buttonActive?'buy-sell-btn-one':'buy-sell-btn-one-inactive'}>Sell</Link>
+            <Link onClick={()=>setButtonActive(true)} to={'/'} className={buttonActive?'buy-sell-btn-two':'buy-sell-btn-two-active'}>Buy</Link>
           </div>
         </div>
         <div className="Home-middle-content">
