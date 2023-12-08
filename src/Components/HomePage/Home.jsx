@@ -9,6 +9,19 @@ import { addThisImage } from "../../Reduxs/action";
 const Home = () => {
   const HomeDispatch = useDispatch()
   const [buttonActive,setButtonActive] = useState(false)
+  const [favouriteactive,setFavouriteactive] = useState(false)
+  const [favouriteid,setFavouriteId] = useState('')
+  const [bookmarkactive,setBookmarkactive] = useState(false)
+  const [bookmarkid,setBookmarkId] = useState('')
+
+  const handleFavouriteActive =(favid)=>{
+    setFavouriteactive(!favouriteactive)
+    setFavouriteId(favid)
+  }
+  const handleBookmarkActive =(favid)=>{
+    setBookmarkactive(!bookmarkactive)
+    setBookmarkId(favid)
+  }
 
   const carReqData = carMainData.carMainData
   return (
@@ -27,6 +40,13 @@ const Home = () => {
             <img src={items.src} className="card-img-top" alt=""/>
             <div className="card-body">
               <h5 className="card-title">{items.rating}</h5>
+              <i onClick={()=>handleFavouriteActive(items.id)}
+              className={favouriteactive&&favouriteid===items.id?"fa-solid fa-heart favourites-icon-active":'fa-solid fa-heart favourites-icon-inactive'}></i>
+              <i onClick={()=>handleBookmarkActive(items.id)}
+               className=
+                {bookmarkactive&&bookmarkid===items.id?"fa-regular fa-bookmark bookmark-icon-active":'fa-regular fa-bookmark bookmark-icon-inactive'}>
+               </i>
+              <p className='Date-icon'>9 Dec</p>
               <p className="card-text">
                 {items.Description}
               </p>
