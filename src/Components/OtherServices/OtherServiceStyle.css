@@ -22,13 +22,14 @@
  position: relative;
   display: flex;
   width: 78vw;
+  height: 40vh;
 }
 .Finance-sec-image-conatainer{
      position: absolute;
      top: 0;
      right: 0;
      width: 20vw; 
-     height: 22vh;
+     height: 35vh;
 
 }
 .Finance-sec-image-conatainer img{
