@@ -22,7 +22,7 @@
  position: relative;
   display: flex;
   width: 78vw;
-  height: 40vh;
+  height:auto;
 }
 .Finance-sec-image-conatainer{
      position: absolute;
@@ -34,7 +34,7 @@
 }
 .Finance-sec-image-conatainer img{
      width: 100%;
-  height: 100%;
+  height: auto;
 }
 .Finance-sec-text-conatainer{
      width: 56vw;
@@ -54,6 +54,7 @@
        .Finance-sector-sub{
            flex-direction: column;
            width: 90vw;
+           height: auto;
          }
          .Finance-sec-image-conatainer{
           position: relative;
