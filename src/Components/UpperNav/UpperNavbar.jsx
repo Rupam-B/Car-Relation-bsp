@@ -39,7 +39,7 @@ const UpperNavbar = () => {
         <h6 onClick={()=>setAdminLogin(true)}>Admin</h6>
         </div>
         </div>
-        <hr style={{marginTop:'-0.2vh'}}/>
+        <hr style={{marginTop:'-0.2vh',marginBottom:'0'}}/>
 
         {/* ------Admin Login Section------ */}
         <div  className={adminLogin?'Admin-Login-show':'Admin-Login-hide'}>
