@@ -39,7 +39,7 @@
         height: 25vh;
     }
     .Middle-nav-left-div{
-        margin-bottom: 2vh;
+        margin-bottom:0;
         width: 100vw;
         padding: 0 5px 0 0;
 
@@ -51,11 +51,15 @@
         height: auto;
         border-radius: 2px;
         margin-right: 2px;
+        margin-bottom: 1vh;
     }
     .Middle-nav-left-div h2 i{
         color: #335238;
         margin-right: 1vw;
     }
+    /* .Middle-nav-left-div h2{
+       margin-top: vh;
+    } */
     /* .Middle-nav-right-div{
     
         margin-top: 6vh;
