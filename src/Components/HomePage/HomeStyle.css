@@ -13,7 +13,7 @@
 .buy-sell-btn{
     width: 12vw;
     background-color: rgb(252, 219, 176,0.1);
-    padding: 3px;
+    padding: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,7 +21,7 @@
 }
 .buy-sell-btn-one{
     width: 5vw;
-    height: 5vh;
+    height: 7vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,7 +34,7 @@
 }
 .buy-sell-btn-one-inactive{
     width: 5vw;
-    height: 5vh;
+    height: 7vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,8 +50,7 @@
 }
 .buy-sell-btn-two{
     width: 5vw;
-    width: 5vw;
-    height: 5vh;
+    height: 7vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,8 +62,7 @@
 }
 .buy-sell-btn-two-active{
     width: 5vw;
-    width: 5vw;
-    height: 5vh;
+    height: 7vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -117,29 +115,29 @@
     .buy-sell-btn{
         width: 30vw;
         background-color: rgb(250, 226, 194,0.2);
-        padding: 5px;
+        padding: 1px;
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 5px;
     }
     .buy-sell-btn-one{
-        width: 13vw;
-        height: 5vh;
+        width: 13.5vw;
+        height: 5.5vh;
         margin-right: 3px;
     }
     .buy-sell-btn-one-inactive{
-        width: 13vw;
-        height: 5vh;
+        width: 13.5vw;
+        height: 5.5vh;
         
     }
     .buy-sell-btn-two{
-        width: 13vw;
-        height: 5vh;
+        width: 13.5vw;
+        height: 5.5vh;
     }
     .buy-sell-btn-two-active{
-        width: 13vw;
-        height: 5vh;
+        width: 13.5vw;
+        height: 5.5vh;
         margin-left: 3px;
     }
     }
