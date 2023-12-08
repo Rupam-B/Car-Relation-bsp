@@ -40,14 +40,17 @@
     .Middle-nav-left-div{
         margin-bottom: 2vh;
         width: 100vw;
-        border: 1px solid blueviolet;
-        padding: 0 5px;
+        padding: 0 5px 0 0;
     }
     .Middle-nav-left-div img{
-        width: 45vw;
+        width: 43vw;
         height: 12vh;
         border-radius: 2px;
         margin-right: 2px;
+    }
+    .Middle-nav-left-div h2 i{
+        color: #335238;
+        margin-right: 1vw;
     }
     /* .Middle-nav-right-div{
     
