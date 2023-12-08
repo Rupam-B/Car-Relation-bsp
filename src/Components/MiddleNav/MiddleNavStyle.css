@@ -36,6 +36,7 @@
 @media screen and (max-width:500px) {
     .Middle-nav-sub-div{
         padding: 0 1vw;
+        height: 25vh;
     }
     .Middle-nav-left-div{
         margin-bottom: 2vh;
@@ -47,7 +48,7 @@
     .Middle-nav-left-div img{
         width: 80vw;
         /* width: 48vw; */
-        height: 12vh;
+        height: 18vh;
         border-radius: 2px;
         margin-right: 2px;
     }
