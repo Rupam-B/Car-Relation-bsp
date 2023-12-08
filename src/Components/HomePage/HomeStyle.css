@@ -120,7 +120,7 @@
 .bookmark-icon-inactive{
     position: absolute;
     right: 1vw;
-    bottom: 12vh;
+    bottom: 11vh;
     border: 1px solid rgb(0, 0, 0,0.5);
     color: rgb(0, 0, 0,0.5);
     border-radius: 50%;
@@ -129,7 +129,7 @@
 .bookmark-icon-active{
     position: absolute;
     right: 1vw;
-    bottom: 12vh;
+    bottom: 11vh;
     border: 1px solid rgb(255, 145, 0);
     border-radius: 50%;
     padding: 0.5rem 0.6rem;
@@ -190,9 +190,11 @@
     }
     .favourites-icon-active{
         right: 3vw;
+        bottom: 12vh;
     }
     .bookmark-icon-inactive{
         right: 3vw;
+        bottom: 12vh;
     }
     .bookmark-icon-active{
         right: 3vw;
