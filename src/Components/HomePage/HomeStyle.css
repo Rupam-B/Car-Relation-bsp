@@ -123,21 +123,21 @@
     }
     .buy-sell-btn-one{
         width: 13.5vw;
-        height: 5.5vh;
+        height: 5vh;
         margin-right: 3px;
     }
     .buy-sell-btn-one-inactive{
         width: 13.5vw;
-        height: 5.5vh;
+        height: 5vh;
         
     }
     .buy-sell-btn-two{
         width: 13.5vw;
-        height: 5.5vh;
+        height: 5vh;
     }
     .buy-sell-btn-two-active{
         width: 13.5vw;
-        height: 5.5vh;
+        height: 5vh;
         margin-left: 3px;
     }
     }
