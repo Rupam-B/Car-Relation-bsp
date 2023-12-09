@@ -6,7 +6,7 @@
     height: 15vh;
 }
 .Middle-nav-left-div{
-    width: 86vw;
+    width: 87vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,7 +23,7 @@
 }
 .Middle-nav-left-div h2 i{
     color: #335238;
-    margin-right: 2vw;
+    margin-right: 0;
 }
 
 
