@@ -11,6 +11,7 @@ import OtherService from './Components/OtherServices/OtherService';
 import MainAdvert from './Components/AdvertisementMain/MainAdvert';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ScrollToTop from './Components/scrollToTop';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <UpperNavbar/>
       <MiddleNavbar/>
       <LowerNavBar/>
+      <ScrollToTop/>
       <Routes>
         <Route path='/' element={<Home/>}/>      
         <Route path='/DisplayCarDetails' element={<DispCarDetails/>}/>
