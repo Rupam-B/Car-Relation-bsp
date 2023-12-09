@@ -40,16 +40,22 @@ const Home = () => {
 
            <Link onClick={()=>HomeDispatch(addThisImage(items.src))} to={'/DisplayCarDetails'}><img src={items.src} className="card-img-top" alt=""/></Link>
             <div className="card-body home-card-body">
-              <h5 className="card-title">{items.rating}</h5>
-              <i onClick={()=>handleFavouriteActive(items.id)}
-              className={favouriteactive&&favouriteid===items.id?"fa-solid fa-heart favourites-icon-active":'fa-solid fa-heart favourites-icon-inactive'}></i>
+              <div className='car-home-main-title-div'>
+              <h6 className="card-title car-home-main-title">{items.title.length>23?`${items.title.slice(0,23)}...`:items.title}</h6>
               <i onClick={()=>handleBookmarkActive(items.id)}
                className=
                 {bookmarkactive&&bookmarkid===items.id?"fa-regular fa-bookmark bookmark-icon-active":'fa-regular fa-bookmark bookmark-icon-inactive'}>
                </i>
+              </div>
+              <i onClick={()=>handleFavouriteActive(items.id)}
+              className={favouriteactive&&favouriteid===items.id?"fa-solid fa-heart favourites-icon-active":'fa-solid fa-heart favourites-icon-inactive'}></i>
               {/* <p className='Date-icon'>9 Dec</p> */}
               <p className="card-text">
-                {items.Description}
+              {items.model.length>20?`${items.model.slice(0,20)}...`:items.model}
+              <div className='car-cost-heading-div'>
+              <h5 className='car-cost-heading5'>₹{items.cost}</h5>
+              <p>{items.kilometres}kms</p>
+              </div>
               </p>
               <div className='car-details-multibtn-div'>
                 <button className='car-details-multi-btn multi-button-phone'><i class="fa-solid fa-phone multi-btn-phone"></i></button>
