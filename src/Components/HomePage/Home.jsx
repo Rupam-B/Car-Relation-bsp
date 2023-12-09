@@ -37,8 +37,9 @@ const Home = () => {
         <div className="Home-middle-content">
           {carReqData.map((items)=>(
           <div key={items.id} className="card card-width-18">
-            <img src={items.src} className="card-img-top" alt=""/>
-            <div className="card-body">
+
+           <Link onClick={()=>HomeDispatch(addThisImage(items.src))} to={'/DisplayCarDetails'}><img src={items.src} className="card-img-top" alt=""/></Link>
+            <div className="card-body home-card-body">
               <h5 className="card-title">{items.rating}</h5>
               <i onClick={()=>handleFavouriteActive(items.id)}
               className={favouriteactive&&favouriteid===items.id?"fa-solid fa-heart favourites-icon-active":'fa-solid fa-heart favourites-icon-inactive'}></i>
@@ -46,11 +47,15 @@ const Home = () => {
                className=
                 {bookmarkactive&&bookmarkid===items.id?"fa-regular fa-bookmark bookmark-icon-active":'fa-regular fa-bookmark bookmark-icon-inactive'}>
                </i>
-              <p className='Date-icon'>9 Dec</p>
+              {/* <p className='Date-icon'>9 Dec</p> */}
               <p className="card-text">
                 {items.Description}
               </p>
-              <Link onClick={()=>HomeDispatch(addThisImage(items.src))} to={'/DisplayCarDetails'} className="btn car-details-btn">See Details</Link>
+              <div className='car-details-multibtn-div'>
+                <button className='car-details-multi-btn multi-button-phone'><i class="fa-solid fa-phone multi-btn-phone"></i></button>
+                <button className='car-details-multi-btn multi-button-whatsapp'><i class="fa-brands fa-whatsapp multi-btn-whatsapp"></i></button>
+                <button className='car-details-multi-btn multi-button-enquiry'><i class="fa-brands fa-telegram multi-btn-enquiry"></i></button>
+              </div>
             </div>
           </div>
           ))}

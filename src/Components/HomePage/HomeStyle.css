@@ -92,6 +92,100 @@
 }
 .card-width-18{
     width: 18rem;
+    overflow: hidden;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+.card-width-18 a{
+    overflow: hidden;
+}
+.card-width-18 img:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+}
+.car-details-multibtn-div{
+    /* background: #fafafa;
+  border: 1px solid #eaeaea;
+  padding: 20px;
+  border-radius: 50px; */
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+}
+.car-details-multibtn-div button{
+    width: 50px;
+  height: 50px;
+  color: gray;
+  background: #efefef;
+  border-radius: 100%;
+  border: 1px solid gray;
+  transition: 1s;
+  outline: none;
+  /* -webkit-box-shadow: -2px 2px 10px 0px rgba(92,92,92,1);
+  -moz-box-shadow: -2px 2px 10px 0px rgba(92,92,92,1);
+  box-shadow: -2px 2px 10px 0px rgba(92,92,92,1); */
+    
+}
+/* .car-details-multibtn-div button:hover{
+    background: #dadada;
+    transition: 1s;   
+} */
+.multi-button-phone{
+    -webkit-box-shadow: -2px 2px 5px 0px rgb(47, 0, 255);
+  -moz-box-shadow: -2px 2px 5px 0px rgb(47, 0, 255);
+  box-shadow: 0 2px 10px 0px rgb(47, 0, 255);
+    /* background: rgb(2, 2, 248,0.9);
+    transition: 1s; */
+
+}
+.multi-button-phone:hover{
+    background: rgb(2, 2, 248,0.2);
+    transition: 1s;
+
+}
+.multi-button-whatsapp{
+    -webkit-box-shadow: -2px 2px 5px 0px rgb(0, 163, 0);
+  -moz-box-shadow: -2px 2px 5px 0px rgb(0, 163, 0);
+  box-shadow:  0 2px 10px 0px rgb(0, 163, 0);
+
+}
+.multi-button-whatsapp:hover{
+    background: rgba(93, 143, 0, 0.3);
+    transition: 1s;
+
+}
+.multi-button-enquiry{
+    -webkit-box-shadow: -2px 2px 5px 0px red;
+  -moz-box-shadow: -2px 2px 5px 0px red;
+  box-shadow: 0 2px 10px 0px red;
+    /* background: rgb(2, 2, 248,0.9);
+    transition: 1s; */
+
+}
+.multi-button-enquiry:hover{
+    background: rgba(255, 0, 0, 0.2);
+    transition: 1s;
+}
+/* .car-details-multibtn-div button:focus{
+    color: black;
+    background: #dadada;
+    border: 1px solid black;
+    -webkit-box-shadow: inset -2px 2px 10px 0px rgba(92,92,92,1);
+    -moz-box-shadow: inset -2px 2px 10px 0px rgba(92,92,92,1);
+    box-shadow: inset -2px 2px 10px 0px rgba(92,92,92,1); 
+} */
+.multi-btn-phone{
+    color: blue;
+    font-size: 1.2rem;
+}
+.multi-btn-whatsapp{
+    color: rgb(0, 173, 0);
+    font-size: 1.2rem;
+}
+.multi-btn-enquiry{
+    color: red;
+    font-size: 1.2rem;
 }
 .car-details-btn{
     /* background-color: rgba(12, 12, 12, 0.7);
@@ -206,5 +300,8 @@
     }
     .Date-icon{
         right: 3vw;
+    }
+    .car-details-multibtn-div{
+      width: 50%;
     }
     }
