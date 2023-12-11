@@ -88,7 +88,7 @@ const Home = () => {
                 onMouseEnter={()=>handlePhoneTooltip(items.id)} 
                 onMouseLeave={()=>setPhonneToolTip(false)} 
                 className='car-details-multi-btn multi-button-phone'>
-                  <i className="fa-solid fa-phone multi-btn-phone"></i>
+                  <i style={{fontSize:'1.4rem'}} className="fa-solid fa-phone multi-btn-phone"></i>
                   </button>
                 </div>
                 <div className='multi-whatsapp-combining-div'>
@@ -96,23 +96,21 @@ const Home = () => {
                 <button
                  onMouseEnter={()=>handleWhatsappTooltip(items.id)} 
                  onMouseLeave={()=>setWhatsappToolTip(false)} 
-                className='car-details-multi-btn multi-button-whatsapp'><i className="fa-brands fa-whatsapp multi-btn-whatsapp"></i></button>
+                className='car-details-multi-btn multi-button-whatsapp'><i style={{fontSize:'1.5rem'}} className="fa-brands fa-whatsapp multi-btn-whatsapp"></i></button>
                 </div>
                 <div className='multi-Enquiry-combining-div'>
                 <div className={enquiryToolTip&&phoneId===items.id?'phone-tooltip':'phone-tooltip-inactive'}>Enquiry</div>
                 <button
                 onMouseEnter={()=>handleEnquiryTooltip(items.id)} 
                 onMouseLeave={()=>setEnquiryToolTip(false)}
-                 className='car-details-multi-btn multi-button-enquiry'><span style={{fontSize:'1.8rem'}} className="material-symbols-outlined multi-btn-enquiry">
-                 data_info_alert
-                 </span></button>
+                 className='car-details-multi-btn multi-button-enquiry'><i style={{fontSize:'1.5rem'}} class="fa-regular fa-envelope multi-btn-enquiry"></i></button>
                 </div>
                 <div className='multi-Enquiry-combining-div'>
                 <div className={viewToolTip&&phoneId===items.id?'phone-tooltip':'phone-tooltip-inactive'}>View Details</div>
                 <button
                 onMouseEnter={()=>handleViewTooltip(items.id)} 
                 onMouseLeave={()=>setViewToolTip(false)}
-                 className='car-details-multi-btn multi-button-enquiry'><i className="fa-solid fa-eye multi-btn-View"></i></button>
+                 className='car-details-multi-btn multi-button-enquiry'><i style={{fontSize:'1.45rem'}} className="fa-solid fa-eye multi-btn-View"></i></button>
                 </div>
               </div>
             </div>

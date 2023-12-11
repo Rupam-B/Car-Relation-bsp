@@ -8,7 +8,7 @@
     padding-right: 3vw;
 }
 .Home-Listing-Header h1{
-    color: rgb(74, 1, 74);
+    color: #be0027;
 }
 .buy-sell-btn{
     width: 12vw;
@@ -28,7 +28,7 @@
     text-decoration: none;
     margin-right: 2px;
     border-radius: 5px;
-    background-color: purple;
+    background-color: #be0027;
     color: white;
     font-weight: bolder
 }
@@ -68,7 +68,7 @@
     align-items: center;
     text-decoration: none;
     border-radius: 5px;
-    background-color: purple;
+    background-color: #be0027;
     color: white;
     font-weight: bolder
 }
@@ -139,7 +139,7 @@
 
 }
 .multi-btn-phone{
-    color: blue;
+    color: #193725;
     font-size: 1.2rem;
 }
 .phone-tooltip{
@@ -206,7 +206,7 @@
     transition: 1s;
 }
 .multi-btn-enquiry{
-    color: red;
+    color: #be0027;
     font-size: 1.2rem;
 }
 
