@@ -104,6 +104,13 @@
 .Enquiry-Submit-btn:hover{
     transform: scale(1.1);
 }
+.disp-car-extra-class{
+    width: 50vw;
+    margin-top: 2vh;
+    display: flex;
+    justify-content: center;
+    margin-left: 4.5vw;
+}
 
 
 
@@ -143,11 +150,12 @@
         position: relative;
         top: 0;
         right: 0;
+        margin-top: 3vh;
     }
     .Car-EnquiryForm-div input{
-        width: 93%;
-        height: 6.5vh;
-        margin-top: 5vh;
+        width: 80%;
+        height: 5vh;
+        margin-top: 3vh;
         border-radius: 0.2rem;
         background-color: rgb(255, 255, 255,0.3);
     }
@@ -169,6 +177,14 @@
     }
     .Enquiry-Submit-btn{
         margin-top: 3vh;   
+    }
+
+    .disp-car-extra-class{
+        width: 80vw;
+        margin-top: 0.5vh;
+        display: flex;
+        justify-content: center;
+        margin-left: 4.5vw;
     }
     
    

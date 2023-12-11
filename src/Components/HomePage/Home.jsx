@@ -20,6 +20,8 @@ const Home = () => {
   const [enquiryToolTip,setEnquiryToolTip] = useState(false)
   const [viewToolTip,setViewToolTip] = useState(false)
   const [phoneId,setPhonneId] = useState("")
+  
+  const [enqEnable,setEnqEnable] = useState(false)
 
 
   const handleFavouriteActive =(favid)=>{
@@ -56,6 +58,22 @@ const Home = () => {
           <div className='buy-sell-btn'>
             <Link onClick={()=>setSellButtonActive(false)} to={'/SellCarPortal'} className={sellbuttonActive?'buy-sell-btn-one':'buy-sell-btn-one-inactive'}>Sell</Link>
             <Link onClick={()=>setBuyButtonActive(true)} to={'/'} className={buybuttonActive?'buy-sell-btn-two-active':'buy-sell-btn-two'}>Buy</Link>
+          </div>
+          <div className={enqEnable?'Enquiry-form active':'Enquiry-form-inactive'}>
+            <div className='Enquiry-form-sub-div'>
+              <h3>Enquiry</h3>
+              <form className='Enquiry-form-tag' action="">
+              <i onClick={()=>setEnqEnable(false)} class="fa-solid fa-xmark enquiry-close-icon"></i>
+              <label htmlFor="User-Name">Name</label>
+              <input type="text" id="User-Name" name="Kilo-meters" />
+              <label htmlFor="User-Email">Email</label>
+              <input type="text" id="User-Email" name="Kilo-meters" />
+              <label htmlFor="User-Mobile">Mobile no.</label>
+              <input type="text" id="User-Mobile" name="Kilo-meters" />
+              <label htmlFor="User-Querry">Querry</label>
+              <textarea name="User-Querry" id="" cols="30" rows="5"></textarea>
+              </form>
+            </div>
           </div>
         </div>
         <div className="Home-middle-content">
@@ -103,6 +121,7 @@ const Home = () => {
                 <button
                 onMouseEnter={()=>handleEnquiryTooltip(items.id)} 
                 onMouseLeave={()=>setEnquiryToolTip(false)}
+                onClick={()=>setEnqEnable(true)}
                  className='car-details-multi-btn multi-button-enquiry'><i style={{fontSize:'1.5rem'}} class="fa-regular fa-envelope multi-btn-enquiry"></i></button>
                 </div>
                 <div className='multi-Enquiry-combining-div'>

@@ -270,6 +270,70 @@
     margin-top: 2vh;
 }
 
+/* ----------Enquary Form -------- */
+.Enquiry-form{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0,0.6);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: width 0.5s ease-in,height 0.5s ease-in;
+
+   
+}
+
+.Enquiry-form-inactive{
+   width: 0;
+   height:0;
+   transition: width 0.3s ease-out,height 0.3s ease-out;
+   overflow: hidden;
+   position: absolute;
+   right: -50vw;
+   top: 0;
+}
+.Enquiry-form-sub-div{
+    width: 50%;
+    background-color: rgb(0, 0, 0,0.8);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: whitesmoke;
+    border-radius: 6px;
+    position: relative;
+    height: auto;
+    padding-bottom: 8vh;
+}
+.Enquiry-form-sub-div h3{
+    margin-top: 3vh;
+    margin-bottom: 5vh;
+}
+.Enquiry-form-tag{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    
+}
+.enquiry-close-icon{
+    position: absolute;
+    top: 1vh;
+    right: 1vw;
+    cursor: pointer;
+    color: red;
+}
+.enquiry-close-icon:hover{
+    transform: scale(1.1);
+}
+.Enquiry-form-tag input{
+    margin-bottom: 2vh;
+}
+
 
 
 @media screen and (max-width: 500px) {
@@ -340,4 +404,21 @@
         width: 30vw;
         padding: 1vh 2vw;
     }
+
+    /* ----------Enquary Form -------- */
+
+.Enquiry-form-sub-div{
+    width: 80%;
+    height: auto;
+    padding-bottom: 5vh;
+}
+.enquiry-close-icon{
+    position: absolute;
+    top: 1vh;
+    right: 2vw;
+    cursor: pointer;
+    color: red;
+}
+
+
     }
