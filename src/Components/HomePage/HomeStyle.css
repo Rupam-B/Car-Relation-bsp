@@ -97,7 +97,7 @@
 }
 .card-width-18{
     width: 18rem;
-    overflow: hidden;
+    /* overflow: hidden; */
     transform: scale(1);
     transition: transform 0.3s ease-in-out;
 }
@@ -109,25 +109,28 @@
     transition: transform 0.3s ease-in-out;
     overflow: hidden;
 }
-/* ---------- */
+
+
+/* -----Multi - Button CSS  - Starts Here----- */
+/* Phone */
 .car-details-multibtn-div{
-  width: 95%;
+  width: 100%;
   display: flex;
   justify-content: center;
-  /* background-color: yellow; */
+}
+.multi-phone-combining-div{
+    width: 30%;
+    position: relative;
 }
 
 .multi-button-phone{
-    width: 30%;
+    width: 100%;
   height: 5.5vh;
   border: none;
   transition: 1s;
   outline: none;
   background-color: transparent;
   border: 1px solid rgb(13, 13, 13,0.1);
-  /* -webkit-box-shadow: -2px 2px 5px 0pxrgb(47, 0, 255);
-  -moz-box-shadow: -2px 2px 5px 0px rgb(47, 0, 255);
-  box-shadow:  0 2px 10px 0px rgb(47, 0, 255); */
 
 }
 .multi-button-phone:hover{
@@ -135,14 +138,41 @@
     transition: 1s;
 
 }
+.multi-btn-phone{
+    color: blue;
+    font-size: 1.2rem;
+}
+.phone-tooltip{
+    position: absolute;
+    top: -130%;
+    right: 0;
+    background-color: whitesmoke;
+    font-weight: 900;
+    z-index: 1;
+    padding: 1vh 1vw;
+    border: 1px solid rgb(10, 10, 10,0.1);
+    border-radius: 4px;
+    width: 10vw;
+    box-shadow: inset 0 0 3px 0.5px greenyellow;
+}
+.phone-tooltip-inactive{
+    display: none;
+}
+
+/* Whatsapp */
 .multi-button-whatsapp{
-    width: 30%;
+    width: 100%;
   height: 5.5vh;
   border: none;
   transition: 1s;
   outline: none;
   background-color: transparent;
   border: 1px solid rgb(13, 13, 13,0.1);
+
+}
+.multi-whatsapp-combining-div{
+    width: 30%;
+    position: relative;
 
 }
 .multi-button-whatsapp:hover{
@@ -150,8 +180,14 @@
     transition: 1s;
 
 }
+.multi-btn-whatsapp{
+    color: rgb(0, 173, 0);
+    font-size: 1.2rem;
+}
+
+/* Enqury */
 .multi-button-enquiry{
-    width: 30%;
+    width: 100%;
   height: 5.5vh;
   border: none;
   transition: 1s;
@@ -160,22 +196,23 @@
   border: 1px solid rgb(13, 13, 13,0.1);
 
 }
+.multi-Enquiry-combining-div{
+    width: 30%;
+    position: relative;
+
+}
 .multi-button-enquiry:hover{
     background: rgba(255, 0, 0, 0.2);
     transition: 1s;
-}
-.multi-btn-phone{
-    color: blue;
-    font-size: 1.2rem;
-}
-.multi-btn-whatsapp{
-    color: rgb(0, 173, 0);
-    font-size: 1.2rem;
 }
 .multi-btn-enquiry{
     color: red;
     font-size: 1.2rem;
 }
+
+/* -----Multi button ends here----- */
+
+
 .favourites-icon-inactive{
     position: absolute;
     right: 1vw;
@@ -293,9 +330,14 @@
         right: 3vw;
     }
     .car-details-multibtn-div{
-      width: 95%;
+      width: 100%;
     }
     .car-home-main-title{
         font-size: 1.3rem;
+    }
+    .phone-tooltip{
+        
+        width: 30vw;
+        padding: 1vh 2vw;
     }
     }

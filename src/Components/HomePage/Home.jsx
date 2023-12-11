@@ -13,6 +13,13 @@ const Home = () => {
   const [favouriteid,setFavouriteId] = useState('')
   const [bookmarkactive,setBookmarkactive] = useState(false)
   const [bookmarkid,setBookmarkId] = useState('')
+  
+  const [phoneToolTip,setPhonneToolTip] = useState(false)
+  const [whatsappToolTip,setWhatsappToolTip] = useState(false)
+  const [enquiryToolTip,setEnquiryToolTip] = useState(false)
+  const [viewToolTip,setViewToolTip] = useState(false)
+  const [phoneId,setPhonneId] = useState("")
+
 
   const handleFavouriteActive =(favid)=>{
     setFavouriteactive(!favouriteactive)
@@ -21,6 +28,22 @@ const Home = () => {
   const handleBookmarkActive =(favid)=>{
     setBookmarkactive(!bookmarkactive)
     setBookmarkId(favid)
+  }
+  const handlePhoneTooltip =(toolid)=>{
+    setPhonneToolTip(true)
+    setPhonneId(toolid)
+  }
+  const handleWhatsappTooltip =(toolid)=>{
+    setWhatsappToolTip(true)
+    setPhonneId(toolid)
+  }
+  const handleEnquiryTooltip =(toolid)=>{
+    setEnquiryToolTip(true)
+    setPhonneId(toolid)
+  }
+  const handleViewTooltip =(toolid)=>{
+    setViewToolTip(true)
+    setPhonneId(toolid)
   }
 
   const carReqData = carMainData.carMainData
@@ -58,9 +81,38 @@ const Home = () => {
               </div>
               </p>
               <div className='car-details-multibtn-div'>
-                <button className='car-details-multi-btn multi-button-phone'><i class="fa-solid fa-phone multi-btn-phone"></i></button>
-                <button className='car-details-multi-btn multi-button-whatsapp'><i class="fa-brands fa-whatsapp multi-btn-whatsapp"></i></button>
-                <button className='car-details-multi-btn multi-button-enquiry'><i class="fa-brands fa-telegram multi-btn-enquiry"></i></button>
+                <div className='multi-phone-combining-div'>
+                <div className={phoneToolTip&&phoneId===items.id?'phone-tooltip':'phone-tooltip-inactive'}>Call</div>
+                <button 
+                onMouseEnter={()=>handlePhoneTooltip(items.id)} 
+                onMouseLeave={()=>setPhonneToolTip(false)} 
+                className='car-details-multi-btn multi-button-phone'>
+                  <i className="fa-solid fa-phone multi-btn-phone"></i>
+                  </button>
+                </div>
+                <div className='multi-whatsapp-combining-div'>
+                <div className={whatsappToolTip&&phoneId===items.id?'phone-tooltip':'phone-tooltip-inactive'}>Whatsapp</div>
+                <button
+                 onMouseEnter={()=>handleWhatsappTooltip(items.id)} 
+                 onMouseLeave={()=>setWhatsappToolTip(false)} 
+                className='car-details-multi-btn multi-button-whatsapp'><i className="fa-brands fa-whatsapp multi-btn-whatsapp"></i></button>
+                </div>
+                <div className='multi-Enquiry-combining-div'>
+                <div className={enquiryToolTip&&phoneId===items.id?'phone-tooltip':'phone-tooltip-inactive'}>Enquiry</div>
+                <button
+                onMouseEnter={()=>handleEnquiryTooltip(items.id)} 
+                onMouseLeave={()=>setEnquiryToolTip(false)}
+                 className='car-details-multi-btn multi-button-enquiry'><span style={{fontSize:'1.8rem'}} className="material-symbols-outlined multi-btn-enquiry">
+                 data_info_alert
+                 </span></button>
+                </div>
+                <div className='multi-Enquiry-combining-div'>
+                <div className={viewToolTip&&phoneId===items.id?'phone-tooltip':'phone-tooltip-inactive'}>View Details</div>
+                <button
+                onMouseEnter={()=>handleViewTooltip(items.id)} 
+                onMouseLeave={()=>setViewToolTip(false)}
+                 className='car-details-multi-btn multi-button-enquiry'><i className="fa-solid fa-eye multi-btn-View"></i></button>
+                </div>
               </div>
             </div>
           </div>
