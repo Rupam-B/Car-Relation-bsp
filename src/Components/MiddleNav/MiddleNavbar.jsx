@@ -10,7 +10,7 @@ const MiddleNavbar = () => {
             <div className='Middle-nav-left-div'>
                 {/* <img src="https://purepng.com/public/uploads/large/purepng.com-ford-focus-yellow-carcarvehicletransportford-961524665802mhbcd.png" alt="" /> */}
                 <img src={process.env.PUBLIC_URL + '/NEW-LOGO2.png'} alt="" />
-                <h2><i class="fa-solid fa-phone-volume"></i>1231231230</h2>
+                <h2><i className="fa-solid fa-phone-volume"></i>1231231230</h2>
             </div>
             {/* <div className='Middle-nav-right-div'>
                 <Link to={'/'}>Home</Link>

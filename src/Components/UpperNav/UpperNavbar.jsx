@@ -44,7 +44,7 @@ const UpperNavbar = () => {
         {/* ------Admin Login Section------ */}
         <div  className={adminLogin?'Admin-Login-show':'Admin-Login-hide'}>
           <div className='Admin-login-sub-div'>
-          <i onClick={()=>setAdminLogin(false)} class="fa-solid fa-x"></i>
+          <i onClick={()=>setAdminLogin(false)} className="fa-solid fa-x"></i>
             <h1>Admin Login</h1>
             <input value={adminLoginId} onChange={(e)=>setAdminLoginId(e.target.value)} type="text" placeholder='User Id' />
             <input value={adminLoginpassword} onChange={(e)=>setAdminLoginpassword(e.target.value)} type="text" placeholder='Password' />
@@ -54,7 +54,7 @@ const UpperNavbar = () => {
 
          {/* ------Admin DashBoard Section------ */}
          <div  className={adminDashboardShow?'Admin-Dashboard-show':'Admin-Dashboard-hide'}>
-         <i onClick={()=>setAdminDashboardShow(false)} class="fa-solid fa-x"></i>
+         <i onClick={()=>setAdminDashboardShow(false)} className="fa-solid fa-x"></i>
           <h1>Welcome Admin</h1>
 
          </div>

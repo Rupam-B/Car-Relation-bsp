@@ -1,6 +1,9 @@
-export const addThisImage = (img)=>{
+export const addThisImage = (img,title)=>{
     return{
         type:'Add-Image',
-        payload:img
+        payload:{
+            img:img,
+            title:title
+        }
     }
 }

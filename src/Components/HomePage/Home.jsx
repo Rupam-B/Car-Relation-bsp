@@ -21,7 +21,10 @@ const Home = () => {
   const [viewToolTip,setViewToolTip] = useState(false)
   const [phoneId,setPhonneId] = useState("")
   
+  const [carQuerry,setCarQuerry] = useState("")
+
   const [enqEnable,setEnqEnable] = useState(false)
+
 
 
   const handleFavouriteActive =(favid)=>{
@@ -49,6 +52,12 @@ const Home = () => {
     setPhonneId(toolid)
   }
 
+  const HandleEnquiryFunc =(querryData)=>{
+    setEnqEnable(true)
+    setCarQuerry(querryData)
+
+  }
+
   const carReqData = carMainData.carMainData
   return (
     <div className="Home-Main-div">
@@ -63,15 +72,14 @@ const Home = () => {
             <div className='Enquiry-form-sub-div'>
               <h3>Enquiry</h3>
               <form className='Enquiry-form-tag' action="">
-              <i onClick={()=>setEnqEnable(false)} class="fa-solid fa-xmark enquiry-close-icon"></i>
+              <i onClick={()=>setEnqEnable(false)} className="fa-solid fa-xmark enquiry-close-icon"></i>
               <label htmlFor="User-Name">Name</label>
               <input type="text" id="User-Name" name="Kilo-meters" />
-              <label htmlFor="User-Email">Email</label>
-              <input type="text" id="User-Email" name="Kilo-meters" />
               <label htmlFor="User-Mobile">Mobile no.</label>
               <input type="text" id="User-Mobile" name="Kilo-meters" />
               <label htmlFor="User-Querry">Querry</label>
-              <textarea name="User-Querry" id="" cols="30" rows="5"></textarea>
+              <input type="text" defaultValue={carQuerry}  id="User-Querry" />
+              <button className='btn enquiry-form-submit-btn'>Submit</button>
               </form>
             </div>
           </div>
@@ -80,7 +88,7 @@ const Home = () => {
           {carReqData.map((items)=>(
           <div key={items.id} className="card card-width-18">
 
-           <Link onClick={()=>HomeDispatch(addThisImage(items.src))} to={'/DisplayCarDetails'}><img src={items.src} className="card-img-top" alt=""/></Link>
+           <Link onClick={()=>HomeDispatch(addThisImage(items.src,items.title))} to={'/DisplayCarDetails'}><img src={items.src} className="card-img-top" alt=""/></Link>
             <div className="card-body home-card-body">
               <div className='car-home-main-title-div'>
               <h6 className="card-title car-home-main-title">{items.title.length>23?`${items.title.slice(0,23)}...`:items.title}</h6>
@@ -91,14 +99,13 @@ const Home = () => {
               </div>
               <i onClick={()=>handleFavouriteActive(items.id)}
               className={favouriteactive&&favouriteid===items.id?"fa-solid fa-heart favourites-icon-active":'fa-solid fa-heart favourites-icon-inactive'}></i>
-              {/* <p className='Date-icon'>9 Dec</p> */}
-              <p className="card-text">
+              <div className="card-text">
               {items.model.length>20?`${items.model.slice(0,20)}...`:items.model}
               <div className='car-cost-heading-div'>
               <h5 className='car-cost-heading5'>₹{items.cost}</h5>
               <p>{items.kilometres}kms</p>
               </div>
-              </p>
+              </div>
               <div className='car-details-multibtn-div'>
                 <div className='multi-phone-combining-div'>
                 <div className={phoneToolTip&&phoneId===items.id?'phone-tooltip':'phone-tooltip-inactive'}>Call</div>
@@ -121,8 +128,8 @@ const Home = () => {
                 <button
                 onMouseEnter={()=>handleEnquiryTooltip(items.id)} 
                 onMouseLeave={()=>setEnquiryToolTip(false)}
-                onClick={()=>setEnqEnable(true)}
-                 className='car-details-multi-btn multi-button-enquiry'><i style={{fontSize:'1.5rem'}} class="fa-regular fa-envelope multi-btn-enquiry"></i></button>
+                onClick={()=>HandleEnquiryFunc(items.title)}
+                 className='car-details-multi-btn multi-button-enquiry'><i style={{fontSize:'1.5rem'}} className="fa-regular fa-envelope multi-btn-enquiry"></i></button>
                 </div>
                 <div className='multi-Enquiry-combining-div'>
                 <div className={viewToolTip&&phoneId===items.id?'phone-tooltip':'phone-tooltip-inactive'}>View Details</div>

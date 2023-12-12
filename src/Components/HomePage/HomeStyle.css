@@ -333,6 +333,13 @@
 .Enquiry-form-tag input{
     margin-bottom: 2vh;
 }
+.enquiry-form-submit-btn{
+    background-color: rgb(245, 244, 244,0.8);
+    width:  50%;
+    margin: auto;
+    margin-top: 3vh;
+    font-weight: bold;
+}
 
 
 
@@ -410,6 +417,7 @@
 .Enquiry-form-sub-div{
     width: 80%;
     height: auto;
+    padding: 0 5vh;
     padding-bottom: 5vh;
 }
 .enquiry-close-icon{

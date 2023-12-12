@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 
 const DispCarDetails = () => {
 
-    const imageDispaly = useSelector((state)=>state.imageAdder.src)
+    const imageDispaly = useSelector((state)=>state.imageAdder)
 
     const [phoneToolTip,setPhonneToolTip] = useState(false)
   const [whatsappToolTip,setWhatsappToolTip] = useState(false)
@@ -13,37 +13,34 @@ const DispCarDetails = () => {
   const [enqEnable,setEnqEnable] = useState(false)
  
 
-
-
     
   return (
     <div className='DisplayCar-Main-div'>
         <div className='DisplayCar-Sub-div'>
             <div className='Display-car-main-img-div'>
-                <img src={imageDispaly} alt="" />
+                <img src={imageDispaly.src} alt="" />
             </div>
             <div className={enqEnable?'Enquiry-form active':'Enquiry-form-inactive'}>
             <div className='Enquiry-form-sub-div'>
               <h3>Enquiry</h3>
               <form className='Enquiry-form-tag' action="">
-              <i onClick={()=>setEnqEnable(false)} class="fa-solid fa-xmark enquiry-close-icon"></i>
+              <i onClick={()=>setEnqEnable(false)} className="fa-solid fa-xmark enquiry-close-icon"></i>
               <label htmlFor="User-Name">Name</label>
               <input type="text" id="User-Name" name="Kilo-meters" />
-              <label htmlFor="User-Email">Email</label>
-              <input type="text" id="User-Email" name="Kilo-meters" />
               <label htmlFor="User-Mobile">Mobile no.</label>
               <input type="text" id="User-Mobile" name="Kilo-meters" />
               <label htmlFor="User-Querry">Querry</label>
-              <textarea name="User-Querry" id="" cols="30" rows="5"></textarea>
+              <input type="text" defaultValue={imageDispaly.title}  id="User-Querry" />
+              <button className='btn enquiry-form-submit-btn'>Submit</button>
               </form>
             </div>
           </div>
             <div className='Display-car-Extended-img-div'>
-                <img src={imageDispaly} alt="" />
-                <img src={imageDispaly} alt="" />
-                <img src={imageDispaly} alt="" />
-                <img src={imageDispaly} alt="" />
-                <img src={imageDispaly} alt="" />
+                <img src={imageDispaly.src} alt="" />
+                <img src={imageDispaly.src} alt="" />
+                <img src={imageDispaly.src} alt="" />
+                <img src={imageDispaly.src} alt="" />
+                <img src={imageDispaly.src} alt="" />
                
             </div>
             <div style={{marginBottom:'3vh'}} className='car-details-multibtn-div disp-car-extra-class'>
@@ -69,7 +66,7 @@ const DispCarDetails = () => {
                 onMouseEnter={()=>setEnquiryToolTip(true)} 
                 onMouseLeave={()=>setEnquiryToolTip(false)}
                 onClick={()=>setEnqEnable(true)}
-                 className='car-details-multi-btn multi-button-enquiry'><i style={{fontSize:'1.5rem'}} class="fa-regular fa-envelope multi-btn-enquiry"></i></button>
+                 className='car-details-multi-btn multi-button-enquiry'><i style={{fontSize:'1.5rem'}} className="fa-regular fa-envelope multi-btn-enquiry"></i></button>
                 </div>
               </div>
             
