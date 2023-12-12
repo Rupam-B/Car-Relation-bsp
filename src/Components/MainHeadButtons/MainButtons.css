@@ -1,0 +1,116 @@
+.buy-sell-btn-main-div{
+    padding: 1vh 5vw;
+}
+.buy-sell-btn{
+    width: 40vw;
+    background-color: rgb(252, 219, 176,0.1);
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+.buy-sell-btn-one{
+    width: 10vw;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    margin-right: 2px;
+    border-radius: 5px;
+    background-color: #be0027;
+    color: white;
+    font-weight: bolder;
+    padding: 0 1vw;
+}
+.buy-sell-btn-one-inactive{
+    width: 10vw;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    margin-right: 2px;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    font-weight: bolder;
+    padding: 0 1vw;
+}
+.buy-sell-btn-one:hover{
+    transform: scale(1.1);
+}
+.buy-sell-btn-two{
+    width: 10vw;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    font-weight: bolder;
+    padding: 0 1vw;
+}
+.buy-sell-btn-two-active{
+    width: 10vw;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #be0027;
+    color: white;
+    font-weight: bolder;
+    padding: 0 1vw;
+}
+.buy-sell-btn-two:hover{
+    transform: scale(1.1);
+}
+.buy-sell-btn-one-inactive:hover{
+    transform: scale(1.1);
+}
+.buy-sell-btn-two-active:hover{
+    transform: scale(1.1);
+}
+
+
+
+
+@media screen and (max-width: 500px) {
+    .buy-sell-btn-main-div{
+        padding: 1vh 5vw;
+    }
+    .buy-sell-btn{
+        width: 100%;
+        background-color: rgb(250, 226, 194,0.2);
+        padding: 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+    }
+    .buy-sell-btn-one{
+        width: 23.5vw;
+        height: 5vh;
+        margin-right: 3px;
+    }
+    .buy-sell-btn-one-inactive{
+        width: 23.5vw;
+        height: 5vh;
+        
+    }
+    .buy-sell-btn-two{
+        width: 23.5vw;
+        height: 5vh;
+    }
+    .buy-sell-btn-two-active{
+        width: 23.5vw;
+        height: 5vh;
+        margin-left: 3px;
+    }
+    
+}

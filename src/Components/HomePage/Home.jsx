@@ -8,8 +8,8 @@ import { addThisImage } from "../../Reduxs/action";
 
 const Home = () => {
   const HomeDispatch = useDispatch()
-  const [sellbuttonActive,setSellButtonActive] = useState(false)
-  const [buybuttonActive,setBuyButtonActive] = useState(true)
+  // const [sellbuttonActive,setSellButtonActive] = useState(false)
+  // const [buybuttonActive,setBuyButtonActive] = useState(true)
   const [favouriteactive,setFavouriteactive] = useState(false)
   const [favouriteid,setFavouriteId] = useState('')
   const [bookmarkactive,setBookmarkactive] = useState(false)
@@ -63,11 +63,6 @@ const Home = () => {
     <div className="Home-Main-div">
       <div className="Home-sub-div">
         <div className="Home-Listing-Header">
-          <h1>Car-Listing</h1>
-          <div className='buy-sell-btn'>
-            <Link onClick={()=>setSellButtonActive(false)} to={'/SellCarPortal'} className={sellbuttonActive?'buy-sell-btn-one':'buy-sell-btn-one-inactive'}>Sell</Link>
-            <Link onClick={()=>setBuyButtonActive(true)} to={'/'} className={buybuttonActive?'buy-sell-btn-two-active':'buy-sell-btn-two'}>Buy</Link>
-          </div>
           <div className={enqEnable?'Enquiry-form active':'Enquiry-form-inactive'}>
             <div className='Enquiry-form-sub-div'>
               <h3>Enquiry</h3>

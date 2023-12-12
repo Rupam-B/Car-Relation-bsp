@@ -10,77 +10,6 @@
 .Home-Listing-Header h1{
     color: #be0027;
 }
-.buy-sell-btn{
-    width: 12vw;
-    background-color: rgb(252, 219, 176,0.1);
-    padding: 2px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-}
-.buy-sell-btn-one{
-    width: 5vw;
-    height: 7vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    margin-right: 2px;
-    border-radius: 5px;
-    background-color: #be0027;
-    color: white;
-    font-weight: bolder
-}
-.buy-sell-btn-one-inactive{
-    width: 5vw;
-    height: 7vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    margin-right: 2px;
-    border-radius: 5px;
-    background-color: white;
-    color: black;
-    font-weight: bolder
-}
-.buy-sell-btn-one:hover{
-    transform: scale(1.1);
-}
-.buy-sell-btn-two{
-    width: 5vw;
-    height: 7vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    border-radius: 5px;
-    background-color: white;
-    color: black;
-    font-weight: bolder
-}
-.buy-sell-btn-two-active{
-    width: 5vw;
-    height: 7vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    border-radius: 5px;
-    background-color: #be0027;
-    color: white;
-    font-weight: bolder
-}
-.buy-sell-btn-two:hover{
-    transform: scale(1.1);
-}
-.buy-sell-btn-one-inactive:hover{
-    transform: scale(1.1);
-}
-.buy-sell-btn-two-active:hover{
-    transform: scale(1.1);
-}
 
 .Home-middle-content{
     display: grid;
@@ -234,29 +163,20 @@
     border-radius: 50%;
 }
 .bookmark-icon-inactive{
-    /* position: absolute;
-    right: 1vw;
-    bottom: 11vh; */
+  
     border: 1px solid rgb(0, 0, 0,0.5);
     color: rgb(0, 0, 0,0.5);
     border-radius: 50%;
     padding: 0.5rem 0.6rem;
 }
 .bookmark-icon-active{
-    /* position: absolute;
-    right: 1vw;
-    bottom: 11vh; */
+
     border: 1px solid rgb(255, 145, 0);
     border-radius: 50%;
     padding: 0.5rem 0.6rem;
     color: rgb(255, 145, 0);
 }
-/* .Date-icon{
-    position: absolute;
-    right: 1vw;
-    bottom: 0.1vh;
-    color: green;
-} */
+
 .car-cost-heading5{
     font-weight: bolder;
 }
@@ -354,34 +274,7 @@
     .card-width-18{
         width: 90vw;
     }
-    .buy-sell-btn{
-        width: 30vw;
-        background-color: rgb(250, 226, 194,0.2);
-        padding: 1px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 5px;
-    }
-    .buy-sell-btn-one{
-        width: 13.5vw;
-        height: 5vh;
-        margin-right: 3px;
-    }
-    .buy-sell-btn-one-inactive{
-        width: 13.5vw;
-        height: 5vh;
-        
-    }
-    .buy-sell-btn-two{
-        width: 13.5vw;
-        height: 5vh;
-    }
-    .buy-sell-btn-two-active{
-        width: 13.5vw;
-        height: 5vh;
-        margin-left: 3px;
-    }
+    
     .favourites-icon-inactive{
         
         right: 3vw;

@@ -12,7 +12,9 @@ import MainAdvert from './Components/AdvertisementMain/MainAdvert';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ScrollToTop from './Components/scrollToTop';
-
+import Financepage from './Components/FinancePage/Financepage';
+import Insurancepage from './Components/InsurancePage/Insurancepage';
+import MainHeadBtns from './Components/MainHeadButtons/MainHeadBtns';
 
 function App() {
   return (
@@ -21,15 +23,18 @@ function App() {
       <MiddleNavbar/>
       <LowerNavBar/>
       <ScrollToTop/>
+      <MainHeadBtns/>
       <Routes>
         <Route path='/' element={<Home/>}/>      
         <Route path='/DisplayCarDetails' element={<DispCarDetails/>}/>
         <Route path='/SellCarPortal' element={<SellCar/>}/>
+        <Route path='/FinancePage' element={<Financepage/>}/>
+        <Route path='/InsurancePage' element={<Insurancepage/>}/>
       </Routes>
       <OtherService/>
       <MainAdvert/>
       <FootterDown/>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 }
