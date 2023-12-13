@@ -27,8 +27,9 @@ const Insurancepage = () => {
 
     if (termsChecked) {
       toast.success("Enquiry Subbmitted")
+      setTermsChecked(false)
     } else {
-      toast.error("Captcha Required")
+      toast.error("Verification Required")
     }
   };
 
@@ -54,7 +55,7 @@ const Insurancepage = () => {
               checked={termsChecked}
               onChange={handleCheckboxChange}
             />
-            <label htmlFor="termsCheckbox">I agree to the terms and conditions</label>
+            <label htmlFor="termsCheckbox">Verify that you are not a Robot</label>
               </div>
               </form>
             </div>

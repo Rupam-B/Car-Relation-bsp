@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import './FinancePgstyle.css'
 import FinanceCompanyImages from './FinanceImgs'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Financepage = () => {
 
@@ -11,6 +13,22 @@ const Financepage = () => {
   const [enquiryToolTip,setEnquiryToolTip] = useState(false)
 
   const [enqEnable,setEnqEnable] = useState(false)
+
+  const [termsChecked, setTermsChecked] = useState(false);
+  const handleCheckboxChange = () => {
+    setTermsChecked(!termsChecked);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (termsChecked) {
+      toast.success("Enquiry Subbmitted")
+      setTermsChecked(false)
+    } else {
+      toast.error("Verification Required")
+    }
+  };
 
   return (
     <div className='Finance-page-main-div'>
@@ -25,7 +43,17 @@ const Financepage = () => {
               <input type="text" id="User-Mobile" name="Kilo-meters" />
               <label htmlFor="User-Querry">Querry</label>
               <input type="text" defaultValue="Finance Querry"  id="User-Querry" />
-              <button className='btn enquiry-form-submit-btn'>Submit</button>
+              <button onClick={handleSubmit} className='btn enquiry-form-submit-btn'>Submit</button>
+              <div className='captcha-div'>
+              <input
+              className='Terms-conditions-checkbox'
+              type="checkbox"
+              id="termsCheckbox"
+              checked={termsChecked}
+              onChange={handleCheckboxChange}
+            />
+            <label htmlFor="termsCheckbox">Verify that you are not a Robot</label>
+              </div>
               </form>
             </div>
           </div>

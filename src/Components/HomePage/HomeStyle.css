@@ -260,6 +260,18 @@
     margin-top: 3vh;
     font-weight: bold;
 }
+.enquiry-form-submit-btn:hover{
+    border: 2px solid white;
+}
+.Terms-conditions-checkbox{
+    margin-top: 3vh;
+}
+.captcha-div label{
+    font-size: 0.9rem;
+    margin-left: 1vw;
+    color: #be0027;
+    font-weight: 700;
+}
 
 
 
@@ -320,6 +332,12 @@
     cursor: pointer;
     color: red;
 }
+.captcha-div label{
+    font-size: 0.7rem;
+    margin-left: 2vw;
+    color: #be0027;
+    font-weight: bold;
+}
 
   }
 
@@ -331,6 +349,12 @@
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         justify-content: center;
         align-content: center;
+    }
+    .captcha-div label{
+        font-size: 0.7rem;
+        margin-left: 2vw;
+        color: #be0027;
+        font-weight: bold;
     }
     
 

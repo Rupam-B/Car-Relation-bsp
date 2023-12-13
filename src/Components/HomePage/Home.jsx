@@ -4,12 +4,12 @@ import carMainData from './carUrls'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addThisImage } from "../../Reduxs/action";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Home = () => {
   const HomeDispatch = useDispatch()
-  // const [sellbuttonActive,setSellButtonActive] = useState(false)
-  // const [buybuttonActive,setBuyButtonActive] = useState(true)
   const [favouriteactive,setFavouriteactive] = useState(false)
   const [favouriteid,setFavouriteId] = useState('')
   const [bookmarkactive,setBookmarkactive] = useState(false)
@@ -24,6 +24,25 @@ const Home = () => {
   const [carQuerry,setCarQuerry] = useState("")
 
   const [enqEnable,setEnqEnable] = useState(false)
+
+
+  
+  const [termsChecked, setTermsChecked] = useState(false);
+
+  const handleCheckboxChange = () => {
+    setTermsChecked(!termsChecked);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (termsChecked) {
+      toast.success("Enquiry Subbmitted")
+      setTermsChecked(false)
+    } else {
+      toast.error("Verification Required")
+    }
+  };
 
 
 
@@ -74,7 +93,17 @@ const Home = () => {
               <input type="text" id="User-Mobile" name="Kilo-meters" />
               <label htmlFor="User-Querry">Querry</label>
               <input type="text" defaultValue={carQuerry}  id="User-Querry" />
-              <button className='btn enquiry-form-submit-btn'>Submit</button>
+              <button onClick={handleSubmit} className='btn enquiry-form-submit-btn'>Submit</button>
+              <div className='captcha-div'>
+              <input
+              className='Terms-conditions-checkbox'
+              type="checkbox"
+              id="termsCheckbox"
+              checked={termsChecked}
+              onChange={handleCheckboxChange}
+            />
+            <label htmlFor="termsCheckbox">Verify that you are not a Robot</label>
+              </div>
               </form>
             </div>
           </div>
