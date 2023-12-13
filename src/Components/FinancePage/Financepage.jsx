@@ -78,7 +78,7 @@ const Financepage = () => {
 
             <div className='Finance-Documents-Req-div'>
                 <h4>Documents Required</h4>
-            </div>border: 1px solid rgb(10, 10, 10,0.2);
+            </div>
         </div>
     </div>
   )
