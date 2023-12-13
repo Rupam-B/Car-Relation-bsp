@@ -134,5 +134,9 @@
     }
     .Finance-company-input-div select{
         background: transparent;
+        padding-right: 2vw;
+        width: 32vw;
+        margin-left: 0;
+        margin-top: 0.2vh;
     }
 }
