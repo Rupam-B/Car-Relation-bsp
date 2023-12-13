@@ -46,7 +46,7 @@
     height: 100vh;
     background-color: rgb(0, 0, 0,0.8);
     position: fixed;
-    top: 100vh;
+    top: 150vh;
     left: 0;
     z-index: 2;
     display: flex;
@@ -134,9 +134,33 @@
     align-items: center;
     transition: top 1s ease-in-out;
 }
+
+
+@media screen and (min-width: 601px) and (max-width: 1280px) {
+    
+    
+    .Admin-Login-hide{
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(0, 0, 0,0.8);
+        position: fixed;
+        top: 300vh;
+        left: 0;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: top 1s ease-in-out;
+        
+    }
+    .Up-Navbar-Sub-div{
+        display: none;
+        }
+}
 @media screen and (max-width:600px) {
 
     .Up-Navbar-Sub-div{
     display: none;
     }
+    
 }

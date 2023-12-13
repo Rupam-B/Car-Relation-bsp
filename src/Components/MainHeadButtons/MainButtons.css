@@ -80,7 +80,7 @@
 
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px) {
     .buy-sell-btn-main-div{
         padding: 1vh 5vw;
     }

@@ -1,80 +1,81 @@
 .OtherServices-main-div{
- padding: 0 5vw;
- background-color: whitesmoke;
-}
-
-.Other-services-sub-div{
-    margin-top: 5vh;
-    padding: 1vh 5vw;
-    background-color: #003366;
-    color: white;
-}
-.Finance-sector p{
-     color:rgb(255, 255, 255,0.7);
-}
-.Exchange-sector p{
-     color: rgb(250, 235, 215,0.7);
-}
-.Insurance-sector p{
-     color: rgb(250, 235, 215,0.7);
-}
-.Finance-sector-sub{
- position: relative;
-  display: flex;
-  width: 78vw;
-  height: 40vh;
-}
-.Finance-sec-image-conatainer{
-     position: absolute;
-     top: 0;
-     right: 0;
-     width: 20vw; 
-     height: 35vh;
-
-}
-.Finance-sec-image-conatainer img{
-     width: 20vw;
-  height: 100%;
-}
-.Finance-sec-text-conatainer{
-     width: 56vw;
-     text-align: justify;
-
-}
-.Finance-sec-text-conatainer p{
-     margin: 0;
-}
-
-@media screen and (max-width: 500px) {
-
-    .OtherServices-main-div{
-        padding: 0;
-        background-color: whitesmoke;
-       }
-       .Finance-sector-sub{
-           flex-direction: column;
-           width: 90vw;
-           height: auto;
-         }
-         .Finance-sec-image-conatainer{
-          position: relative;
-          /* top: 0;
-          right: 0; */
-          width: 90vw; 
-          height: 35vh;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-     
-     }
-     .Finance-sec-image-conatainer img{
-          width: 60%;
-       height: 80%;
-     }
-     .Finance-sec-text-conatainer{
-          width: 90vw;
-          text-align: justify;
-     
-     }
+     padding: 0 5vw;
+     background-color: whitesmoke;
+    }
+    
+    .Other-services-sub-div{
+        margin-top: 5vh;
+        padding: 1vh 5vw;
+        background-color: #003366;
+        color: white;
+    }
+    .Finance-sector p{
+         color:rgb(255, 255, 255,0.7);
+    }
+    .Exchange-sector p{
+         color: rgb(250, 235, 215,0.7);
+    }
+    .Insurance-sector p{
+         color: rgb(250, 235, 215,0.7);
+    }
+    .Finance-sector-sub{
+     position: relative;
+      display: flex;
+      width: 78vw;
+      height: 40vh;
+    }
+    .Finance-sec-image-conatainer{
+         position: absolute;
+         top: 0;
+         right: 0;
+         width: 20vw; 
+         height: 35vh;
+         overflow: hidden;
     
     }
+    .Finance-sec-image-conatainer img{
+         width: 20vw;
+      height: auto;
+    }
+    .Finance-sec-text-conatainer{
+         width: 56vw;
+         text-align: justify;
+    
+    }
+    .Finance-sec-text-conatainer p{
+         margin: 0;
+    }
+    
+    @media screen and (max-width: 900px) {
+    
+        .OtherServices-main-div{
+            padding: 0;
+            background-color: whitesmoke;
+           }
+           .Finance-sector-sub{
+               flex-direction: column;
+               width: 90vw;
+               height: auto;
+             }
+             .Finance-sec-image-conatainer{
+              position: relative;
+              /* top: 0;
+              right: 0; */
+              width: 90vw; 
+              height: 35vh;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+         
+         }
+         .Finance-sec-image-conatainer img{
+              width: 60%;
+           height: 80%;
+         }
+         .Finance-sec-text-conatainer{
+              width: 90vw;
+              text-align: justify;
+         
+         }
+        
+        }

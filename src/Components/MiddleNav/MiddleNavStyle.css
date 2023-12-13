@@ -23,7 +23,7 @@
 }
 .Middle-nav-left-div h2 i{
     color: #335238;
-    margin-right: 0;
+    margin-right: 2vw;
 }
 
 
@@ -33,7 +33,7 @@
     color:black;
 } */
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:700px) {
     .Middle-nav-sub-div{
         padding: 0 1vw;
         height: 25vh;

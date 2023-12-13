@@ -34,24 +34,7 @@
     width: 100%;
 }
 
-@media screen and (max-width:500px) {
-    /* .LowerNav-main-div{
-        height: 45vh;
-
-    }
-    .Lower-Nav-Sub-div input{
-        width: 87vw;
-        height: 6vh;
-        margin-right: 3vw;
-        border-radius: 8px;
-        margin-top: 2vh;
-       }
-       .Lower-Nav-Sub-div button{
-        width: 58vw;
-        height: 6vh;
-        margin-top: 2vh;
-        border-radius: 5px;
-       } */
+@media screen and (max-width:1280px) {
 
        .LowerNav-main-div{
         width: 100%;

@@ -87,7 +87,7 @@
 }
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1000px) {
 
     .SellCar-sub-div{
         margin-bottom: 5vh;
