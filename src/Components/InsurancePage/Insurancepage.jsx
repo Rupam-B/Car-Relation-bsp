@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import './InsurancePgstyle.css'
 import  InsuranceCompanyImages from './InsuranceImgs'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -13,6 +15,22 @@ const Insurancepage = () => {
   const [enquiryToolTip,setEnquiryToolTip] = useState(false)
 
   const [enqEnable,setEnqEnable] = useState(false)
+
+  const [termsChecked, setTermsChecked] = useState(false);
+
+  const handleCheckboxChange = () => {
+    setTermsChecked(!termsChecked);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (termsChecked) {
+      toast.success("Enquiry Subbmitted")
+    } else {
+      toast.error("Captcha Required")
+    }
+  };
 
   return (
     <div className='Finance-page-main-div'>
@@ -27,7 +45,17 @@ const Insurancepage = () => {
               <input type="text" id="User-Mobile" name="Kilo-meters" />
               <label htmlFor="User-Querry">Querry</label>
               <input type="text" defaultValue="Insurance Querry"  id="User-Querry" />
-              <button className='btn enquiry-form-submit-btn'>Submit</button>
+              <button onClick={handleSubmit} className='btn enquiry-form-submit-btn'>Submit</button>
+              <div className='captcha-div'>
+              <input
+              className='Terms-conditions-checkbox'
+              type="checkbox"
+              id="termsCheckbox"
+              checked={termsChecked}
+              onChange={handleCheckboxChange}
+            />
+            <label htmlFor="termsCheckbox">I agree to the terms and conditions</label>
+              </div>
               </form>
             </div>
           </div>
@@ -41,7 +69,7 @@ const Insurancepage = () => {
               ))}
             </div>
             <div className='Finance-company-input-div'>
-              <label htmlFor="Finance-company-options">Select Insurance Company</label>
+              <label htmlFor="Finance-company-options">Select Insurance Company :</label>
               <select  id="Finance-company-options">
               <option value="All">All</option>
               {CompanyDetails.map((itemss)=>(

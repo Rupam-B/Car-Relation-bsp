@@ -30,17 +30,17 @@ const Financepage = () => {
             </div>
           </div>
         <div className='Finance-page-sub-div'>
-            <div className='Finance-company-images-div'>
+            <div className='Finance-company-images-div' >
               {CompanyDetails.map((itam)=>(
-                <div className='Finance-company-image-showing-div' key={itam.id}>
+                <div className='Finance-company-image-showing-div' tabIndex={0} key={itam.id}>
                   <img src={itam.src} alt="" />
 
                 </div>
               ))}
             </div>
-            <div className='Finance-company-input-div'>
-              <label htmlFor="Finance-company-options">Select Finance Company</label>
-              <select  id="Finance-company-options">
+            <div className='Finance-company-input-div' >
+              <label className='Finance-company-name-label' htmlFor="Finance-company-options">Select Finance Company :</label>
+              <select className='Finance-company-name-select'  id="Finance-company-options">
               <option value="All">All</option>
               {FinanceCompanyImages.map((itemss)=>(
                 <option key={itemss.id} value={itemss.name}>{itemss.name}</option>
@@ -78,7 +78,7 @@ const Financepage = () => {
 
             <div className='Finance-Documents-Req-div'>
                 <h4>Documents Required</h4>
-            </div>
+            </div>border: 1px solid rgb(10, 10, 10,0.2);
         </div>
     </div>
   )
