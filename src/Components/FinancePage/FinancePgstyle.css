@@ -130,6 +130,7 @@
     }
     .Finance-company-input-div{
         width: 100%;
+        padding-right: 2vw;
     }
     .Finance-company-input-div select{
         background: transparent;
