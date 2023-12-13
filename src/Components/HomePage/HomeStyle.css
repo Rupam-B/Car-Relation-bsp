@@ -218,16 +218,18 @@
    top: 0;
 }
 .Enquiry-form-sub-div{
-    width: 50%;
-    background-color: rgb(0, 0, 0,0.8);
+    width: auto;
+    background-color: rgb(0, 0, 0,0.9);
     display: flex;
     align-items: center;
     flex-direction: column;
     color: whitesmoke;
-    border-radius: 6px;
+    border-radius: 12px;
     position: relative;
     height: auto;
     padding-bottom: 8vh;
+    padding: 4rem;
+    border: 2px solid gray;
 }
 .Enquiry-form-sub-div h3{
     margin-top: 3vh;
@@ -252,6 +254,9 @@
 }
 .Enquiry-form-tag input{
     margin-bottom: 2vh;
+    border: 2px solid whitesmoke;
+    margin-top: 1vh;
+    padding: 0.3rem;
 }
 .enquiry-form-submit-btn{
     background-color: rgb(245, 244, 244,0.8);
@@ -269,7 +274,7 @@
 .captcha-div label{
     font-size: 0.9rem;
     margin-left: 1vw;
-    color: #be0027;
+    color: rgb(187, 0, 47,0.6);
     font-weight: 700;
 }
 
@@ -335,8 +340,9 @@
 .captcha-div label{
     font-size: 0.7rem;
     margin-left: 2vw;
-    color: #be0027;
+    color: rgb(187, 0, 47,0.6);
     font-weight: bold;
+    margin-top: 2vh;
 }
 
   }
@@ -352,9 +358,10 @@
     }
     .captcha-div label{
         font-size: 0.7rem;
-        margin-left: 1vw;
-        color: #be0027;
+        margin-left: 2vw;
+        color: rgb(187, 0, 47,0.6);
         font-weight: bold;
+        margin-top: 2vh;
     }
     
 
