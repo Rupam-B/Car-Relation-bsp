@@ -28,9 +28,9 @@
     border-radius: 5px;
 }
 .Finance-company-input-div{
-    padding: 2vh 2vw;
+    padding: 2vh 1vw;
     border-radius: 5px;
-    width: 55%;
+    width: 38%;
     box-shadow: 1px 1px 1px 2px #be0027;
     margin: auto;
     display: flex;
@@ -42,7 +42,7 @@
 .Finance-company-input-div select{
     width: 50%;
     border: none;
-    margin-left: 3vw;
+    margin-left: 1vw;
     background: transparent;
 }
 
@@ -92,7 +92,7 @@
         border-radius: 5px;
     }
     .Finance-company-input-div{
-        width: 80%;
+        width: 55%;
     }
     .Finance-company-input-div select{
         background: transparent;
