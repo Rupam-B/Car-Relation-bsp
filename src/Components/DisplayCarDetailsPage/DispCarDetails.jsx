@@ -112,7 +112,6 @@ const DispCarDetails = () => {
                   strokeColor="#aea400"
                   trailColor='#f3f4f7'
                   trailWidth={14}
-                  gapDegree={40}
                   gapPosition='top'
                 />
                 <div className='percentage-text' style={{color:'#aea400'}}>
@@ -133,7 +132,6 @@ const DispCarDetails = () => {
                   strokeColor="#037ef3"
                   trailColor='#f3f4f7'
                   trailWidth={14}
-                  gapDegree={40}
                   gapPosition='top'
                 />
                 <div className='percentage-text' style={{color:'#037ef3'}}>
@@ -154,7 +152,6 @@ const DispCarDetails = () => {
                   strokeColor="#da1884"
                   trailColor='#f3f4f7'
                   trailWidth={14}
-                  gapDegree={40}
                   gapPosition='top'
                 />
                 <div className='percentage-text' style={{color:'#da1884'}}>
@@ -175,7 +172,6 @@ const DispCarDetails = () => {
                   strokeColor="#613854"
                   trailColor='#f3f4f7'
                   trailWidth={14}
-                  gapDegree={40}
                   gapPosition='top'
                 />
                 <div className='percentage-text' style={{color:'#613854'}}>
