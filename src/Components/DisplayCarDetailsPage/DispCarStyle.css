@@ -204,16 +204,18 @@
     .circular-progress-main-div{
         margin-bottom: 5vh;
         width:88%;
-        height: 40vh;
+        height: auto;
     }
     .circular-circle-div{
-        height: 70%;
+        height: 77%;
         width:80%;
     }
     .circular-progress-upper-div{
         width: 100%;
-        height: 70%;
-        padding: 1.5rem;
+        height: 80%;
+        padding: 1rem;
+        padding-bottom: 1.5rem;
+        padding-top: 0.5rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -221,7 +223,7 @@
     }
     .percentage-text {
         position: absolute;
-        top: 50%;
+        top: 60%;
         left: 50%;
         transform: translate(-50%, -50%);
         font-size: 20px;
@@ -230,7 +232,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 30%;
+        height: 23%;
         
     }
 
