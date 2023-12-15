@@ -104,7 +104,7 @@ const DispCarDetails = () => {
         {/* ----------------------Disp-Condition-div----------------- */}
         <div className='Disp-car-condition-div border'>
           {/* <div className="row"> */}
-          <div className=" text-center circular-progress-main-div border mx-3">
+          <div className=" text-center circular-progress-main-div border mx-3" style={{boxShadow:'inset 1px 1px 5px 0 #aea400',borderRadius:'5px'}}>
             <div className='circular-progress-upper-div'>
               <div className='circular-circle-div'>
                 <Circle percent={80}
@@ -120,12 +120,12 @@ const DispCarDetails = () => {
                 </div>
               </div>
             </div>
-            <hr style={{ marginBottom: '0', marginTop: '0' }} />
+            <hr style={{ width:'80%', margin:"auto",marginBottom: '0', marginTop: '0',height:'0' }} />
             <div className="knob-label">
-              <h5><b>Overall</b></h5>
+              <p><b>Overall</b></p>
             </div>
           </div>
-          <div className=" text-center border circular-progress-main-div mx-3">
+          <div className=" text-center border circular-progress-main-div mx-3" style={{boxShadow:'inset 1px 1px 5px 0 #037ef3',borderRadius:'5px'}}>
             <div className='circular-progress-upper-div'>
               <div className='circular-circle-div'>
                 <Circle percent={60}
@@ -141,12 +141,12 @@ const DispCarDetails = () => {
                 </div>
               </div>
             </div>
-            <hr style={{ marginBottom: '0', marginTop: '0' }} />
+            <hr style={{ width:'80%', margin:"auto",marginBottom: '0', marginTop: '0',height:'0' }} />
             <div className="knob-label">
-              <h5><b>Engine</b></h5>
+              <p><b>Engine</b></p>
             </div>
           </div>
-          <div className=" text-center border circular-progress-main-div mx-3">
+          <div className=" text-center border circular-progress-main-div mx-3" style={{boxShadow:'inset 1px 1px 5px 0 #da1884',borderRadius:'5px'}} >
             <div className='circular-progress-upper-div'>
               <div className='circular-circle-div'>
                 <Circle percent={40}
@@ -162,12 +162,12 @@ const DispCarDetails = () => {
                 </div>
               </div>
             </div>
-            <hr style={{ marginBottom: '0', marginTop: '0' }} />
+            <hr style={{ width:'80%', margin:"auto",marginBottom: '0', marginTop: '0',height:'0' }} />
             <div className="knob-label">
-              <h5><b>Tyres</b></h5>
+              <p><b>Tyres</b></p>
             </div>
           </div>
-          <div className=" text-center border circular-progress-main-div mx-3">
+          <div className=" text-center border circular-progress-main-div mx-3" style={{boxShadow:'inset 1px 1px 5px 0 #613854',borderRadius:'5px'}}>
             <div className='circular-progress-upper-div'>
               <div className='circular-circle-div'>
                 <Circle percent={95}
@@ -183,9 +183,9 @@ const DispCarDetails = () => {
                 </div>
               </div>
             </div>
-            <hr style={{ marginBottom: '0', marginTop: '0' }} />
+            <hr style={{ width:'80%', margin:"auto",marginBottom: '0', marginTop: '0',height:'0' }} />
             <div className="knob-label">
-              <h5><b>AC</b></h5>
+              <p><b>AC</b></p>
             </div>
             {/* </div> */}
           </div>
