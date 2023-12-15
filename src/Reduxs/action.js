@@ -7,3 +7,12 @@ export const addThisImage = (img,title)=>{
         }
     }
 }
+export const addThisPendingDetails = (img,title)=>{
+    return{
+        type:'Add-Details',
+        payload:{
+            img:img,
+            title:title
+        }
+    }
+}

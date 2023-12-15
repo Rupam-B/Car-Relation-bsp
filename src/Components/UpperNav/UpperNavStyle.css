@@ -93,6 +93,9 @@
 .Admin-login-sub-div i:hover{
     transform: scale(1.1);
 }
+
+
+/* ----Admin-Dashboard ------- */
 .Admin-Dashboard-show{
     width: 100vw;
     height: 100vh;
@@ -105,18 +108,19 @@
     justify-content: center;
     align-items: center;
     transition: top 1.2s ease-in-out;
+    flex-direction: column;
 }
-.Admin-Dashboard-show h1{
-    color: yellow;
+.Admin-Dashboard-show h3{
+    color: rgba(245, 245, 245, 0.8);
     position: relative;
     
 }
-.Admin-Dashboard-show i{
+.Admin-Dashboard-close{
     position: absolute;
     top: 1vh;
     right: 2vw;
     color: Red;
-    font-size: 2rem;
+    font-size: 1rem;
     cursor: pointer;
     font-weight: bold;
 
@@ -134,6 +138,218 @@
     align-items: center;
     transition: top 1s ease-in-out;
 }
+.Admin-dashboard-sub-div{
+    background-color: whitesmoke;
+    opacity: 0.8;
+    width: 92%;
+    height: 90%;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+
+
+/* ----Pending Add section ------- */
+.Pending-add-heading{
+    width: 100%;
+    height: 10%;
+    background-color: rgb(15, 2, 2);
+    color: whitesmoke;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 2px solid gray;
+}
+.Pending-Adds-Content-section{
+    width: 100%;
+    height: 81vh;
+    box-shadow: inset 1px 1px 8px 0 gray;
+}
+.Pending-add-content-sub{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x:hidden ;
+    margin-bottom: 2vh;
+}
+.Pending-add-content-sub::-webkit-scrollbar {
+    width: 8px;
+}
+.Pending-add-showing-div{
+    width: 92%;
+    height: 17vh;
+    box-shadow: inset 1px 1px 6px 0 gray;
+    padding: 1vh 1vw;
+    display: flex;
+    margin: 2vh 1vw;
+}
+.Pending-add-showing-div:hover{
+    box-shadow: inset 2px 2px 6px 0 rgba(68, 22, 22, 0.6);
+ transform: scale(1.05);
+}
+.Pending-add-showing-div img{
+    width: 8vw;
+    height: auto;
+    border-radius: 5px;
+}
+.Pending-adds-info-div{
+    width: 68%;
+    margin-left: 0.8vw;
+}
+.Pending-adds-info-div-sub{
+    display: flex;
+    width: 100%;
+    height: 6vh;
+    padding-top: 1vh;
+    justify-content: space-between;
+    align-items: center;
+}
+.Pending-adds-info-div-sub button{
+    width: 50%;
+    height: 6vh;
+}
+.Pending-adds-info-div-sub button:hover{
+    transform: scale(1.1);
+}
+.Pending-adds-info-div-sub p{
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.Pending-add-showing-div-Extended{
+    margin: 1vh 1vw;
+   
+}
+.Pending-add-showing-div-Extended img{
+    width: 100%;
+    height: auto;
+}
+.Pending-Add-Extended-close{
+    color: rgb(136, 2, 2);
+    margin-left: 97%;
+    margin-bottom: 1vh;
+    cursor: pointer;
+}
+.Pending-images-extended{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+    margin-top: 1.5vh;
+}
+.Pending-images-extended img{
+   width: 19%;
+   height: auto;
+   border-radius: 5px;
+}
+.Pending-Extended-car-details{
+    width: 100%;
+    height: auto;
+    margin-top: 2vh;
+    padding: 0.6vh 0;
+    border-radius: 3px;
+}
+.Pending-Extended-car-details span{
+    color: rgb(99, 0, 0);
+}
+.Add-Approve-Reject-button-div{
+    width: 100%;
+    height: auto;
+    padding: 1vh 5vw;
+    display: flex;
+    justify-content: space-between;
+    margin: 2vh 0;
+}
+/* -----Admin Control Center------- */
+.Control-Centre-Heading{
+    width: 100%;
+    height: 10%;
+    background-color: rgb(15, 2, 2);
+    color: whitesmoke;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 2px solid gray;
+
+}
+.Admin-Controls-content{
+    width: 100%;
+    height: 81vh;
+    box-shadow: inset 1px 1px 8px 0 gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4vh 1vw;
+}
+.Admin-content-settings{
+    width: 95%;
+    height: 20vh;
+    margin-bottom: 4vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.Admin-content-settings:hover{
+ box-shadow: inset 2px 2px 6px 0 rgb(255, 0, 0,0.6);
+ transform: scale(1.05);
+}
+.Admin-content-settings i{
+    font-size: 2.5rem;
+    color: rgb(0, 0, 0,0.5);
+}
+.Admin-content-settings h1{
+    color: rgb(0, 0, 0,0.5);
+    margin-left: 2vw;
+}
+
+
+/* ------Mislenious------ */
+.Misleneous-heading{
+    width: 100%;
+    height: 10%;
+    background-color: rgb(15, 2, 2);
+    color: whitesmoke;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Misleneous-control-Content{
+    width: 100%;
+    height: 81vh;
+    box-shadow: inset 1px 1px 8px 0 gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4vh 1vw;
+}
+.Misleneous-details{
+    width: 95%;
+    height: 14vh;
+    margin-bottom: 4vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.Misleneous-details:hover{
+    box-shadow: inset 2px 2px 6px 0 rgba(255, 115, 0, 0.6);
+    transform: scale(1.05);
+   }
+   .Misleneous-details i{
+       font-size: 2.3rem;
+       color: rgb(0, 0, 0,0.5);
+   }
+   .Misleneous-details h2{
+       color: rgb(0, 0, 0,0.5);
+       margin-left: 2vw;
+   }
+
 
 
 @media screen and (min-width: 601px) and (max-width: 1280px) {
