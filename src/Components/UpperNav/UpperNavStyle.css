@@ -139,7 +139,8 @@
     transition: top 1s ease-in-out;
 }
 .Admin-dashboard-sub-div{
-    background-color: whitesmoke;
+    background-color: white;
+    opacity: 10;
     opacity: 0.8;
     width: 92%;
     height: 90%;
