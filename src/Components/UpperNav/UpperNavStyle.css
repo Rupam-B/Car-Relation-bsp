@@ -350,6 +350,82 @@
        margin-left: 2vw;
    }
 
+   @media screen and (min-width: 1001px) and (max-width: 1300px) {
+
+    
+    .Pending-Adds-Content-section{
+        height: 81vh;
+    }
+    .Pending-add-showing-div{
+        height: 14vh;
+        padding: 1vh 1vw;
+        margin: 2vh 1vw;
+    }
+    .Pending-adds-info-div{
+        width: 68%;
+        margin-left: 0.8vw;
+    }
+    .Pending-adds-info-div-sub{
+        display: flex;
+        width: 100%;
+        height: 6vh;
+        padding-top: 1vh;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .Pending-adds-info-div-sub button{
+        width: 50%;
+        height: 4vh;
+        padding: 0 0.5vw;
+    }
+    
+    .Pending-add-showing-div-Extended{
+        margin: 1vh 1vw;
+       
+    }
+    .Pending-add-showing-div-Extended img{
+        width: 100%;
+        height: auto;
+    }
+    .Pending-Add-Extended-close{
+        color: rgb(136, 2, 2);
+        margin-left: 97%;
+        margin-bottom: 1vh;
+        cursor: pointer;
+    }
+    .Pending-images-extended{
+        display: flex;
+        width: 100%;
+        height: auto;
+        justify-content: space-between;
+        margin-top: 1.5vh;
+    }
+    .Pending-images-extended img{
+       width: 19%;
+       height: auto;
+       border-radius: 5px;
+    }
+    .Pending-Extended-car-details{
+        width: 100%;
+        height: auto;
+        margin-top: 2vh;
+        padding: 0.6vh 0;
+        border-radius: 3px;
+    }
+    .Pending-Extended-car-details span{
+        color: rgb(99, 0, 0);
+    }
+    .Add-Approve-Reject-button-div{
+        width: 100%;
+        height: auto;
+        padding: 1vh 3vw;
+        display: flex;
+        justify-content: space-between;
+        margin: 2vh 0;
+    }
+
+   }
+
 
 
 @media screen and (min-width: 601px) and (max-width: 1000px) {
