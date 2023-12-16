@@ -141,7 +141,6 @@
 .Admin-dashboard-sub-div{
     background-color: white;
     opacity: 10;
-    opacity: 0.8;
     width: 92%;
     height: 90%;
     border-radius: 5px;
@@ -358,7 +357,7 @@
         height: 81vh;
     }
     .Pending-add-showing-div{
-        height: 14vh;
+        height: 16vh;
         padding: 1vh 1vw;
         margin: 2vh 1vw;
     }
