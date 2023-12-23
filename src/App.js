@@ -15,6 +15,8 @@ import ScrollToTop from './Components/scrollToTop';
 import Financepage from './Components/FinancePage/Financepage';
 import Insurancepage from './Components/InsurancePage/Insurancepage';
 import MainHeadBtns from './Components/MainHeadButtons/MainHeadBtns';
+import UserMainPanel from './Components/UserPanel/UserMainPanel';
+import { UserDashboard } from './Components/UserDashboard/UserDashboard';
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
         <Route path='/SellCarPortal' element={<SellCar/>}/>
         <Route path='/FinancePage' element={<Financepage/>}/>
         <Route path='/InsurancePage' element={<Insurancepage/>}/>
+        <Route path='/UserMainPanel' element={<UserMainPanel/>}/>
+        <Route path='/UserDashboard' element={<UserDashboard/>}/>
       </Routes>
       <OtherService/>
       <MainAdvert/>

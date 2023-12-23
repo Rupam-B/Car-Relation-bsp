@@ -145,17 +145,17 @@ const UpperNavbar = () => {
             </div>
             <div className='Admin-Controls-content'>
               <div className='Admin-content-settings border'>
-              <i class="fa-solid fa-gear"></i>
+              <i className="fa-solid fa-gear"></i>
               <h1>Settings</h1>
 
               </div>
               <div className='Admin-content-settings border'>
-              <i class="fa-solid fa-user"></i>
+              <i className="fa-solid fa-user"></i>
               <h1>Profile</h1>
 
               </div>
               <div className='Admin-content-settings border'>
-              <i class="fa-solid fa-location-arrow"></i>
+              <i className="fa-solid fa-location-arrow"></i>
               <h1>Location</h1>
               
 
@@ -170,19 +170,19 @@ const UpperNavbar = () => {
             </div>
             <div className="Misleneous-control-Content">
             <div className='Misleneous-details border'>
-            <i class="fa-solid fa-spinner"></i>
+            <i className="fa-solid fa-spinner"></i>
               <h2>Enquiries</h2>
               </div>
             <div className='Misleneous-details border'>
-            <i class="fa-brands fa-themeisle"></i>
+            <i className="fa-brands fa-themeisle"></i>
               <h2>Themes</h2>
               </div>
             <div className='Misleneous-details border'>
-            <i class="fa-solid fa-language"></i>
+            <i className="fa-solid fa-language"></i>
               <h2>Language</h2>
               </div>
             <div className='Misleneous-details border'>
-            <i class="fa-solid fa-power-off"></i>
+            <i className="fa-solid fa-power-off"></i>
               <h2>Log Out</h2>
               </div>
 

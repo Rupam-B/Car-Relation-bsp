@@ -2,7 +2,9 @@ import React from 'react'
 
 const AdmindashBoard = () => {
   return (
-    <div>AdmindashBoard</div>
+    <div>
+       
+    </div>
   )
 }
 

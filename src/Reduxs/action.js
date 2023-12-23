@@ -16,3 +16,9 @@ export const addThisPendingDetails = (img,title)=>{
         }
     }
 }
+export const isUserLoggedin = (bool)=>{
+    return{
+        type:'bool-verify',
+        payload:bool
+    }
+}
