@@ -22,6 +22,7 @@
         height: 100%;
         background-color: rgb(248, 248, 248);
         padding-top: 1vh;
+       
     }
     .User-Dashboard-header-div{
         display: flex;
@@ -94,6 +95,7 @@
         /* border: 2px solid green; */
         display: flex;
         justify-content: space-between;
+        width: 90%;
     }
 
 

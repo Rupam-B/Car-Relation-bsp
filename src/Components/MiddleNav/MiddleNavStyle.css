@@ -122,11 +122,11 @@
     .mobile-user-login-div {
         display: block;
         position: absolute;
-        top: 1vh;
+        top: -1vh;
         left: 5vw;
-        background-color: whitesmoke;
-        height: 6vh;
-        width: 12vw;
+        background-color: rgb(247, 247, 247);
+        height: 8vh;
+        width: 15vw;
         /* border: 2px solid rgb(162, 162, 236,0.4); */
         border-radius: 50%;
         color: #b1d4e5;
