@@ -55,6 +55,7 @@
     border: none;
     transition: background-color 0.5s ease-in-out;
     padding: 0 !important;
+    margin-right: 1vw;
     
 
 }
@@ -68,6 +69,7 @@
     border-radius: 35px;
     border: 1px solid rgb(128, 128, 128,0.2);
     transition: background-color 0.5s ease-in-out;
+    margin-right: 1vw;
 
 }
 .Login-Signup-Content-div{
