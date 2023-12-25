@@ -61,7 +61,7 @@ export const UserDashboard = () => {
           <div className='col-md-3 col-sm-3 user-options-details'>
             <div className='user-options-details-inner-div'>
             <i style={{color:'#520099'}} className="fa-brands fa-affiliatetheme"></i>
-          <p>Afflifiation</p>
+          <p>Affliation</p>
             </div>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
@@ -92,10 +92,10 @@ export const UserDashboard = () => {
       <div className="carousel-item active" data-bs-interval="2000">
         <img  src="https://img.freepik.com/premium-vector/people-share-info-about-referral-earn-money-landing-page-template_95505-155.jpg" className="d-block w-100 h-100"  alt="..."/>
       </div>
-      <div className="carousel-item" data-bs-interval="2000">
+      <div className="carousel-item" >
         <img  src="https://www.proideators.com/wp-content/uploads/2022/09/ProiDeators-Media-Referal-Program-Refer-and-Earn-Money.jpg" className="d-block w-100" alt="..."/>
       </div>
-      <div className="carousel-item" data-bs-interval="2000">
+      <div className="carousel-item">
         <img src="https://png.pngtree.com/template/20220407/ourmid/pngtree-refer-a-friend-flat-design-illustration-with-megaphone-on-screen-mobile-image_963487.jpg" className="d-block w-100" alt="..."/>
       </div>
     </div>

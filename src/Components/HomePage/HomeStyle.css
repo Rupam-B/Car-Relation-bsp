@@ -278,6 +278,13 @@
     font-weight: 700;
 }
 
+.share-icon-active{
+    display: block;
+}
+.share-icon-inactive{
+    display: none;
+}
+
 
 
 @media screen and (max-width: 600px) {
@@ -298,6 +305,19 @@
     }
     .favourites-icon-active{
         right: 3vw;
+    }
+    .share-icon-active{
+        position: absolute;
+        display: block;
+        top: 6vh;
+        right: 3vw;
+        color: skyblue;
+        border: 1px solid rgb(135, 206, 235,0.8);
+        padding: 0.5rem;
+        border-radius: 50%;
+    }
+    .share-icon-inactive{
+        display: none !important;
     }
     .bookmark-icon-inactive{
         right: 3vw;

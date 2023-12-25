@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './HomeStyle.css'
 import carMainData from './carUrls'
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addThisImage } from "../../Reduxs/action";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,6 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
   const HomeDispatch = useDispatch()
+  const userVerify =useSelector((state)=>state.verifyingBoolforUser)
+  console.log(userVerify)
   const [favouriteactive,setFavouriteactive] = useState(false)
   const [favouriteid,setFavouriteId] = useState('')
   const [bookmarkactive,setBookmarkactive] = useState(false)
@@ -24,8 +26,7 @@ const Home = () => {
   const [carQuerry,setCarQuerry] = useState("")
 
   const [enqEnable,setEnqEnable] = useState(false)
-
-
+  
   
   const [termsChecked, setTermsChecked] = useState(false);
 
@@ -120,9 +121,11 @@ const Home = () => {
                className=
                 {bookmarkactive&&bookmarkid===items.id?"fa-regular fa-bookmark bookmark-icon-active":'fa-regular fa-bookmark bookmark-icon-inactive'}>
                </i>
+               
               </div>
               <i onClick={()=>handleFavouriteActive(items.id)}
               className={favouriteactive&&favouriteid===items.id?"fa-solid fa-heart favourites-icon-active":'fa-solid fa-heart favourites-icon-inactive'}></i>
+              <i className={userVerify===1?"fa-solid fa-share-nodes share-icon-active":"fa-solid fa-share-nodes share-icon-inactive"}></i>
               <div className="card-text">
               {items.model.length>20?`${items.model.slice(0,20)}...`:items.model}
               <div className='car-cost-heading-div'>
