@@ -307,11 +307,11 @@
         right: 3vw;
     }
     .share-icon-active{
-        position: absolute;
+        /* position: absolute; */
         display: block;
         top: 6vh;
         right: 3vw;
-        color: skyblue;
+        color: #00aaff;
         border: 1px solid rgb(135, 206, 235,0.8);
         padding: 0.5rem;
         border-radius: 50%;

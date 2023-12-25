@@ -124,8 +124,8 @@
         position: absolute;
         top: -1vh;
         left: 5vw;
-        background-color: rgb(247, 247, 247);
-        height: 8vh;
+        background-color: rgb(253, 251, 251);
+        height: 7vh;
         width: 15vw;
         /* border: 2px solid rgb(162, 162, 236,0.4); */
         border-radius: 50%;
@@ -135,7 +135,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-top: 2vh;
+        /* padding-top: 2vh; */
     }
     .user-logged-in-bars{
         position: absolute;

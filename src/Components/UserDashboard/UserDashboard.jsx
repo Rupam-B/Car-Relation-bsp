@@ -30,30 +30,33 @@ export const UserDashboard = () => {
       <hr />
 
       <div className='User-Dashboard-options-div'>
-        <div className='row my-2 grid-row'>
+        <div  className='row my-2 grid-row'>
           <div className='col-md-3 col-sm-3 user-options-details'>
-            <div className='user-options-details-inner-div'>
-          <i style={{color:'#004b79'}} className="fa-solid fa-id-card-clip "></i>
+            <div style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
+          {/* <i style={{color:'white'}} className="fa-solid fa-id-card-clip "></i> */}
+          <i style={{color:'white'}} className="fa-regular fa-user"></i>
+            </div>
           <p>Profile</p>
-            </div>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
-            <div className='user-options-details-inner-div'>
-            <i style={{color:'#44355b'}} className="fa-solid fa-cannabis"></i>
+            <div style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
+            {/* <i style={{color:'#44355b'}} className="fa-solid fa-cannabis"></i> */}
+            <i style={{color:'white'}} class="fa-solid fa-share"></i>
+            </div>
           <p>Referrals</p>
-            </div>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
-            <div className='user-options-details-inner-div'>
-            <i style={{color:'#76daff'}} className="fa-solid fa-gift"></i>
+            <div style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
+            <i style={{color:'white'}} className="fa-solid fa-gift"></i>
+            </div>
           <p>Rewards</p>
-            </div>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
-            <div className='user-options-details-inner-div'>
-            <i style={{color:'#4dc47d'}} className="fa-regular fa-money-bill-1"></i>
-          <p>Earnings</p>
+            <div style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
+            {/* <i style={{color:'#4dc47d'}} className="fa-regular fa-money-bill-1"></i> */}
+            <i style={{color:'white'}} class="fa-solid fa-indian-rupee-sign"></i>
             </div>
+          <p>Earnings</p>
           </div>
           
         </div>
@@ -61,32 +64,32 @@ export const UserDashboard = () => {
           <div className='col-md-3 col-sm-3 user-options-details'>
             <div className='user-options-details-inner-div'>
             <i style={{color:'#520099'}} className="fa-brands fa-affiliatetheme"></i>
-          <p>Affliation</p>
             </div>
+          <p>Affliation</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
             <div className='user-options-details-inner-div'>
             <i style={{color:'#955214'}} className="fa-solid fa-upload"></i>
-          <p>Uploads</p>
             </div>
+          <p>Uploads</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
             <div className='user-options-details-inner-div'>
             <i style={{color:'#264f36'}} className="fa-solid fa-crown"></i>
-          <p>Roaylity</p>
             </div>
+          <p>Roaylity</p>
           </div>
           <div onClick={handleLogOut} className='col-md-3 col-sm-3 user-options-details'>
             <div className='user-options-details-inner-div'>
-            <i style={{color:'red'}} className="fa-solid fa-power-off"></i>
-          <p>LogOut</p>
+            <i style={{fontSize:'1.5rem'}} class="fa-solid fa-ellipsis"></i>
             </div>
+          <p>More</p>
           </div>
           
         </div>
       </div>
       <hr />
-      <div className='User-Dashboard-carousel-div my-3'>
+      <div className='User-Dashboard-carousel-div my-5'>
   <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
     <div className="carousel-inner">
       <div className="carousel-item active" data-bs-interval="2000">
@@ -108,7 +111,7 @@ export const UserDashboard = () => {
       <span className="visually-hidden">Next</span>
     </button>
   </div>
- 
+  
 </div>
 
       
