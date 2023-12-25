@@ -148,9 +148,10 @@
     top: 1vh;
     font-size: 1.5rem;
     color: rgb(170, 125, 125,0.6);
-    border: 1px solid rgb(102, 64, 64,0.6);
+    /* border: 1px solid rgb(102, 64, 64,0.6); */
     padding:  3px;
     border-radius: 50%;
+    background-color: white;
 }
 .favourites-icon-active{
     position: absolute;
@@ -158,9 +159,10 @@
     top: 1vh;
     font-size: 1.5rem;
     color: red;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     padding:  3px;
     border-radius: 50%;
+    background-color: white;
 }
 .bookmark-icon-inactive{
   
@@ -307,7 +309,7 @@
         right: 3vw;
     }
     .share-icon-active{
-        /* position: absolute; */
+        position: absolute;
         display: block;
         top: 6vh;
         right: 3vw;
@@ -315,6 +317,7 @@
         border: 1px solid rgb(135, 206, 235,0.8);
         padding: 0.5rem;
         border-radius: 50%;
+        background-color: white;
     }
     .share-icon-inactive{
         display: none !important;
