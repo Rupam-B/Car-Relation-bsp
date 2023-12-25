@@ -30,7 +30,7 @@ export const UserDashboard = () => {
       <hr />
 
       <div className='User-Dashboard-options-div'>
-        <div className='row grid-row'>
+        <div className='row my-2 grid-row'>
           <div className='col-md-3 col-sm-3 user-options-details'>
             <div className='user-options-details-inner-div'>
           <i style={{color:'#004b79'}} className="fa-solid fa-id-card-clip "></i>
@@ -57,7 +57,7 @@ export const UserDashboard = () => {
           </div>
           
         </div>
-        <div className='row grid-row'>
+        <div className='row my-2 grid-row'>
           <div className='col-md-3 col-sm-3 user-options-details'>
             <div className='user-options-details-inner-div'>
             <i style={{color:'#520099'}} className="fa-brands fa-affiliatetheme"></i>
@@ -86,7 +86,7 @@ export const UserDashboard = () => {
         </div>
       </div>
       <hr />
-      <div className='User-Dashboard-carousel-div my-5'>
+      <div className='User-Dashboard-carousel-div my-3'>
   <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
     <div className="carousel-inner">
       <div className="carousel-item active" data-bs-interval="2000">
