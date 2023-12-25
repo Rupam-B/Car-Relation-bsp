@@ -117,7 +117,7 @@ const Home = () => {
             <div className="card-body home-card-body">
               <div className='car-home-main-title-div'>
               <h6 className="card-title car-home-main-title">{items.title.length>23?`${items.title.slice(0,23)}...`:items.title}</h6>
-              <i className={userVerify===1?"fa-solid fa-share share-icon-active":"fa-solid fa-share-nodes share-icon-inactive"}></i>
+              <i className={userVerify===1?"fa-solid fa-share-nodes share-icon-active":"fa-solid fa-share-nodes share-icon-inactive"}></i>
               <i onClick={()=>handleBookmarkActive(items.id)}
                className=
                 {bookmarkactive&&bookmarkid===items.id?"fa-regular fa-bookmark bookmark-icon-active":'fa-regular fa-bookmark bookmark-icon-inactive'}>
