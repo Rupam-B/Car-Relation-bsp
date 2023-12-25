@@ -47,7 +47,7 @@
 .Login-btn{
     width: 30%;
     height: 80%;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bolder;
     background-color: #eb7a9a;
     color: white;
@@ -62,7 +62,7 @@
 .Login-btn-inactive{
     width: 30%;
     height: 80%;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bolder;
     background-color: white;
     color: rgb(128, 128, 128,0.8);
