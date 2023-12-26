@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import './MainButtons.css'
 import { Link, useLocation } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const MainHeadBtns = () => {
 
   const location = useLocation()
+  const userVerify =useSelector((state)=>state.verifyingBoolforUser)
 
   const [buybuttonActive, setBuyButtonActive] = useState(true)
   const [sellbuttonActive, setSellButtonActive] = useState(false)
@@ -70,7 +72,7 @@ const MainHeadBtns = () => {
     <div className='buy-sell-btn-main-div'>
       <div className='buy-sell-btn'>
         <Link onClick={handleBuyButton} to={'/'} className={buybuttonActive ? 'buy-sell-btn-two-active' : 'buy-sell-btn-two'}>Buy</Link>
-        <Link onClick={handleSellButton} to={'/SellCarPortal'} className={sellbuttonActive ? 'buy-sell-btn-one' : 'buy-sell-btn-one-inactive'}>Sell</Link>
+        <Link onClick={handleSellButton} to={userVerify===1?'/SellCarPortal':'/UserMainPanel'} className={sellbuttonActive ? 'buy-sell-btn-one' : 'buy-sell-btn-one-inactive'}>Sell</Link>
         <Link onClick={handleFinanceButton} to={'/FinancePage'} className={financebuttonActive ? 'buy-sell-btn-one' : 'buy-sell-btn-one-inactive'}>Finance</Link>
         <Link onClick={handleInsuranceButton} to={'/InsurancePage'} className={insurancebutonActive? 'buy-sell-btn-one' : 'buy-sell-btn-one-inactive'}>Insurance</Link>
         
