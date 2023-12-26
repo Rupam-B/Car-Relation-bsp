@@ -1,24 +1,25 @@
 import React from 'react'
 import './UserDashboardStyle.css'
-import { Link, useNavigate} from 'react-router-dom'
-import { isUserLoggedin } from '../../Reduxs/action'
-import { useDispatch } from 'react-redux'
-import { toast } from 'react-toastify';
+import { Link} from 'react-router-dom'
+// import { Link, useNavigate} from 'react-router-dom'
+// import { isUserLoggedin } from '../../Reduxs/action'
+// import { useDispatch } from 'react-redux'
+// import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const UserDashboard = () => {
 
-  const UserDashDispatch = useDispatch()
-  const UserDashNavigate = useNavigate()
+  // const UserDashDispatch = useDispatch()
+  // const UserDashNavigate = useNavigate()
 
 
 
-  const handleLogOut = ()=>{
-    UserDashDispatch(isUserLoggedin(0))
-    toast.success("Logged Out Successfully")
-    UserDashNavigate('/')
+  // const handleLogOut = ()=>{
+  //   UserDashDispatch(isUserLoggedin(0))
+  //   toast.success("Logged Out Successfully")
+  //   UserDashNavigate('/')
 
-  }
+  // }
   return (
     <div className='User-Dashboard-main-div'>
     <div className='User-Dashboard-sub-div'>
@@ -80,11 +81,12 @@ export const UserDashboard = () => {
             </div>
           <p>Roaylity</p>
           </div>
-          <div onClick={handleLogOut} className='col-md-3 col-sm-3 user-options-details'>
-            <div className='user-options-details-inner-div'>
-            <i style={{fontSize:'1.5rem'}} class="fa-solid fa-ellipsis"></i>
+          <div className='col-md-3 col-sm-3 user-options-details'>
+          <Link to={'/SellCarPortal'} className='user-options-details-inner-div'> <div>
+            <i style={{fontSize:'1.5rem',color:'brown'}} class="fa-brands fa-adversal"></i>
             </div>
-          <p>More</p>
+          </Link>
+          <p>Sell</p>
           </div>
           
         </div>

@@ -65,6 +65,7 @@
         border: 1px solid rgb(128, 128, 128,0.2);
         border-radius: 30%;
         margin-bottom: 1.5vh;
+        text-decoration: none;
     }
     .user-options-details-inner-div p{
         font-size: 0.8rem;
