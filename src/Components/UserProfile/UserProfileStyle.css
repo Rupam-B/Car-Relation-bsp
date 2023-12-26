@@ -23,7 +23,14 @@
         border: 1px solid rgb(128, 128, 128,0.2);
         margin-top: 3vh;
         padding-bottom: 5vh;
+        position: relative;
 
+    }
+    .back-to-user-dashboard{
+        position: absolute;
+        color: #eb7a9a;
+        left: 3vw;
+        top: 2vh;
     }
     .Profile-View-top-secton{
         width: 100%;
@@ -67,7 +74,7 @@
         width: 85%;
         border-radius: 10px;
         position: relative;
-        margin-bottom: 7vh;
+        margin-bottom: 4vh;
         font-weight: bold;
 
     }
@@ -87,6 +94,51 @@
         cursor: pointer;
         color: rgb(0, 153, 255,0.8);
         font-weight: 700;
+    }
+
+
+
+    .User-Adhar-input-div-inactive{
+        display: none;
+    }
+    .User-Adhar-input-div-active input{
+        padding: 0.5rem;
+        margin-bottom: 2vh;
+        width: 60%;
+        border: none;
+        border: 1px solid rgb(128, 128, 128,0.2);
+        border-radius: 10px;
+        margin-right: 3vw;
+        margin-bottom: 4vh;
+
+    }
+    .User-Adhar-input-div-active button{
+        border: none;
+            padding: 0.3rem 1rem;
+            margin-right: 2vw;
+            border-radius: 5px;
+            border: 1px solid rgb(128, 128, 128,0.2);
+            color: white;
+
+    }
+
+    .change-user-password-inputs-inactive{
+           display: none;
+    }
+    .change-user-password-inputs-active input{
+            padding: 0.5rem;
+            margin-bottom: 2vh;
+            width: 75%;
+            border: none;
+            border: 1px solid rgb(128, 128, 128,0.2);
+            border-radius: 10px;
+    }
+    .change-user-password-inputs-active button{
+            border: none;
+            padding: 0.3rem 1rem;
+            margin-right: 2vw;
+            border-radius: 5px;
+            border: 1px solid rgb(128, 128, 128,0.2);
     }
 
 }
