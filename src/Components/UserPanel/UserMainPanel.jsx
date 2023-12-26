@@ -29,7 +29,7 @@ const toggleSignup = ()=>{
   setLoginSignup(false)
 }
 const handleLogin = ()=>{
-  if(loginUserName==="SiddhiUser"&&loginPassword==="SiddhiPassword"){
+  if(loginUserName==="U"&&loginPassword==="P"){
     setLoginUserName('')
     setLoginPassword('')
     setIsUserLoggedIn(true)
