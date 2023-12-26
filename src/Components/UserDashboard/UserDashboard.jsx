@@ -31,11 +31,12 @@ export const UserDashboard = () => {
 
       <div className='User-Dashboard-options-div'>
         <div  className='row my-2 grid-row'>
-          <div className='col-md-3 col-sm-3 user-options-details'>
-            <div style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
+     <div className='col-md-3 col-sm-3 user-options-details'>
+        <Link to={'/UserDashboardProfile'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'> <div  >
           {/* <i style={{color:'white'}} className="fa-solid fa-id-card-clip "></i> */}
           <i style={{color:'white'}} className="fa-regular fa-user"></i>
             </div>
+            </Link>
           <p>Profile</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>

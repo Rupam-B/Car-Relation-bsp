@@ -17,6 +17,7 @@ import Insurancepage from './Components/InsurancePage/Insurancepage';
 import MainHeadBtns from './Components/MainHeadButtons/MainHeadBtns';
 import UserMainPanel from './Components/UserPanel/UserMainPanel';
 import { UserDashboard } from './Components/UserDashboard/UserDashboard';
+import UserProfileView from './Components/UserProfile/UserProfileView';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path='/InsurancePage' element={<Insurancepage/>}/>
         <Route path='/UserMainPanel' element={<UserMainPanel/>}/>
         <Route path='/UserDashboard' element={<UserDashboard/>}/>
+        <Route path='/UserDashboardProfile' element={<UserProfileView/>}/>
       </Routes>
       <OtherService/>
       <MainAdvert/>

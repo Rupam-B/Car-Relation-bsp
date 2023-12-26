@@ -1,0 +1,91 @@
+/* .Profile-View-Main-div{
+
+} */
+/* .Profile-View-Sub-div{
+
+} */
+
+
+@media screen and (max-width:800px) {
+    .Profile-View-Main-div{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 50vh;
+
+}
+
+    .Profile-View-Sub-div{
+        width: 98vw;
+        height: 100vh;
+        /* border: 1px solid blue; */
+        padding-top: 3vh;
+        border: 1px solid rgb(128, 128, 128,0.2);
+        margin-top: 3vh;
+
+    }
+    .Profile-View-top-secton{
+        width: 100%;
+        height: 25vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 3vh;
+    }
+    .User-profile-image{
+        width: 35%;
+        height: 80%;
+        margin-bottom: 2vh;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 1px 1px 8px 1px gray;
+        padding: 0.1rem;
+    }
+    .User-profile-image img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .profile-line-down{
+        background-color: rgb(138, 137, 137,0.2);
+        height: 0.1vh;
+        width: 80%;
+        margin: auto;
+        margin-top: 2vh;
+    }
+    .Profile-User-Details{
+        margin-top: 5vh;
+        padding-left: 10vw;
+
+    }
+    .Profile-User-Details p{
+        border: 1px solid rgb(0, 0, 0,0.7);
+        padding: 1rem;
+        width: 85%;
+        border-radius: 10px;
+        position: relative;
+        margin-bottom: 7vh;
+        font-weight: bold;
+
+    }
+    .Profile-User-Details p span{
+        position: absolute;
+        /* border: 1px solid red; */
+        top: -25%;
+        left: 5%;
+        background-color: white;
+        padding: 0 1.5vw;
+        font-weight: 400;
+    }
+    .profile-input-optional{
+        position: absolute;
+        bottom: 50;
+        right: 2vw;
+        cursor: pointer;
+        color: rgb(0, 153, 255,0.8);
+        font-weight: 700;
+    }
+
+}
