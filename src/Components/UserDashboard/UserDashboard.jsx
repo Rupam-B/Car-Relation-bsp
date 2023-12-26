@@ -83,7 +83,7 @@ export const UserDashboard = () => {
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
           <Link to={'/SellCarPortal'} className='user-options-details-inner-div'> <div>
-            <i style={{fontSize:'1.5rem',color:'brown'}} class="fa-brands fa-adversal"></i>
+            <i style={{fontSize:'1.5rem',color:'brown'}} class="fa-brands fa-sellcast"></i>
             </div>
           </Link>
           <p>Sell</p>
