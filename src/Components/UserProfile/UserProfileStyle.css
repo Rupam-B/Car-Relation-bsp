@@ -17,11 +17,12 @@
 
     .Profile-View-Sub-div{
         width: 98vw;
-        height: 100vh;
+        height: auto;
         /* border: 1px solid blue; */
         padding-top: 3vh;
         border: 1px solid rgb(128, 128, 128,0.2);
         margin-top: 3vh;
+        padding-bottom: 5vh;
 
     }
     .Profile-View-top-secton{
