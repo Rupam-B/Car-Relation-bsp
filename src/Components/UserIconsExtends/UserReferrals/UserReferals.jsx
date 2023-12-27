@@ -27,7 +27,7 @@ const UserReferals = () => {
                           <i style={{color:'green'}} class="fa-solid fa-question"></i>
                           <p className='refral-enquiry-quantity'>4</p>
                           </div>
-                          <button><i class="fa-solid fa-xmark"></i> Delete</button>
+                          <button> Delete</button>
                         </div>
                       </div>
 
@@ -47,7 +47,7 @@ const UserReferals = () => {
                           <i style={{color:'green'}} class="fa-solid fa-question"></i>
                           <p className='refral-enquiry-quantity'>3</p>
                           </div>
-                          <button><i class="fa-solid fa-xmark"></i> Delete</button>
+                          <button>Delete</button>
                         </div>
                       </div>
 
