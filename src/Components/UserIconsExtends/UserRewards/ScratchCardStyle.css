@@ -91,7 +91,6 @@
     position: relative;
     align-items: flex-start;
     background: url('https://img.freepik.com/free-vector/couple-winning-prize-man-woman-holding-gift-box-flat-vector-illustration-lottery-present-birthday-party_74855-8307.jpg?w=996&t=st=1703674084~exp=1703674684~hmac=d9eec6e8b43807300b9a76ee8c2cf72ed81550dde57b1c8ca1eb6b73b956325c');
-    background-position: calc(80%,60%);
     background-repeat: no-repeat;
     background-size: contain;
     transition: background-image 1s ease-in;
