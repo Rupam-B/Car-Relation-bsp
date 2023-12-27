@@ -50,9 +50,11 @@ export const UserDashboard = () => {
           <p>Referrals</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
-            <div style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
+            <Link to={'/UserRewardsScratchCard'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
+            <div>
             <i style={{color:'white'}} className="fa-solid fa-gift"></i>
             </div>
+            </Link>
           <p>Rewards</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>

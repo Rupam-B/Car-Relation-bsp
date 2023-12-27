@@ -1,0 +1,115 @@
+/* .User-Rewards-main-div{
+
+} */
+/* .User-Rewards-sub-div{
+
+} */
+
+
+@media screen and (max-width:800px) {
+
+
+    .User-Rewards-main-div{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 50vh;
+        height: 100vh;
+    }
+    .User-Rewards-sub-div{
+        width: 98vw;
+        height: auto;
+        /* border: 1px solid blue; */
+        padding-top: 3vh;
+        border: 1px solid rgb(128, 128, 128,0.2);
+        margin-top: 3vh;
+        padding-bottom: 45vh;
+        position: relative;
+    }
+    .Rewards-Top-Heading{
+       width: 100%;
+       display: flex;
+       justify-content: center;
+       margin-top: 2vh;
+    }
+    .Rewards-top-head-line{
+        background-color: rgb(128, 128, 128,0.2);
+        width: 70%;
+        height: 0.1vh;
+        margin: auto;
+        margin-top: 2vh;
+        margin-bottom: 3vh;
+
+    }
+    .Rewards-add-content-sub{
+        width: 100%;
+    margin-bottom: 2vh;
+    /* border: 1px solid red; */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    }
+    .Rewards-add-showing-div-scratch{
+        width: 85%;
+    height: 20vh;
+    border: 1px solid rgb(128, 128, 128,0.2);
+    border-radius: 5px;
+    padding: 1vh 1vw;
+    display: flex;
+    margin: 2vh 1vw;
+    position: relative;
+    align-items: flex-start;
+    background: url('https://img.freepik.com/premium-vector/gift-sale-give-big-discount-with-balloon-credit-card-shopping-bag-website-banner-poster-background-vector-illustration_2175-1180.jpg?w=1060');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 3vh;
+    transition: background-image 1s ease-in;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+    .Rewards-add-showing-div-scratch::before{
+        content: "";
+        position: absolute;
+        background-color: rgb(12, 12, 12,0.45);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .Rewards-add-showing-div-scratched{
+        width: 85%;
+    height: 20vh;
+    border: 1px solid rgb(128, 128, 128,0.2);
+    border-radius: 5px;
+    padding: 1vh 1vw;
+    display: flex;
+    margin: 2vh 1vw;
+    position: relative;
+    align-items: flex-start;
+    background: url('https://img.freepik.com/free-vector/couple-winning-prize-man-woman-holding-gift-box-flat-vector-illustration-lottery-present-birthday-party_74855-8307.jpg?w=996&t=st=1703674084~exp=1703674684~hmac=d9eec6e8b43807300b9a76ee8c2cf72ed81550dde57b1c8ca1eb6b73b956325c');
+    background-position: calc(80%,60%);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: background-image 1s ease-in;
+
+    }
+
+    .reward-get-h4{
+        position: absolute;
+        right: 5vw;
+        top: 40%;
+    }
+    .Tap-to-see-reward-div{
+        z-index: 3;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+  

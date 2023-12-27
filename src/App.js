@@ -19,6 +19,7 @@ import UserMainPanel from './Components/UserPanel/UserMainPanel';
 import { UserDashboard } from './Components/UserDashboard/UserDashboard';
 import UserProfileView from './Components/UserIconsExtends/UserProfile/UserProfileView';
 import UserReferals from './Components/UserIconsExtends/UserReferrals/UserReferals';
+import RewarsScratchCards from './Components/UserIconsExtends/UserRewards/RewarsScratchCards';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path='/UserDashboard' element={<UserDashboard/>}/>
         <Route path='/UserDashboardProfile' element={<UserProfileView/>}/>
         <Route path='/UserDashboardReferral' element={<UserReferals/>}/>
+        <Route path='/UserRewardsScratchCard' element={<RewarsScratchCards/>}/>
       </Routes>
       <OtherService/>
       <MainAdvert/>
