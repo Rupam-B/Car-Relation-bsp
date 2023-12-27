@@ -17,7 +17,8 @@ import Insurancepage from './Components/InsurancePage/Insurancepage';
 import MainHeadBtns from './Components/MainHeadButtons/MainHeadBtns';
 import UserMainPanel from './Components/UserPanel/UserMainPanel';
 import { UserDashboard } from './Components/UserDashboard/UserDashboard';
-import UserProfileView from './Components/UserProfile/UserProfileView';
+import UserProfileView from './Components/UserIconsExtends/UserProfile/UserProfileView';
+import UserReferals from './Components/UserIconsExtends/UserReferrals/UserReferals';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route path='/UserMainPanel' element={<UserMainPanel/>}/>
         <Route path='/UserDashboard' element={<UserDashboard/>}/>
         <Route path='/UserDashboardProfile' element={<UserProfileView/>}/>
+        <Route path='/UserDashboardReferral' element={<UserReferals/>}/>
       </Routes>
       <OtherService/>
       <MainAdvert/>

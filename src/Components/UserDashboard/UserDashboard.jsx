@@ -41,10 +41,12 @@ export const UserDashboard = () => {
           <p>Profile</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
-            <div style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
+            <Link to={'/UserDashboardReferral'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
+            <div >
             {/* <i style={{color:'#44355b'}} className="fa-solid fa-cannabis"></i> */}
-            <i style={{color:'white'}} class="fa-solid fa-share"></i>
+            <i style={{color:'white'}} className="fa-solid fa-share"></i>
             </div>
+            </Link>
           <p>Referrals</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
@@ -56,7 +58,7 @@ export const UserDashboard = () => {
           <div className='col-md-3 col-sm-3 user-options-details'>
             <div style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
             {/* <i style={{color:'#4dc47d'}} className="fa-regular fa-money-bill-1"></i> */}
-            <i style={{color:'white'}} class="fa-solid fa-indian-rupee-sign"></i>
+            <i style={{color:'white'}} className="fa-solid fa-indian-rupee-sign"></i>
             </div>
           <p>Earnings</p>
           </div>
@@ -83,7 +85,7 @@ export const UserDashboard = () => {
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
           <Link to={'/SellCarPortal'} className='user-options-details-inner-div'> <div>
-            <i style={{fontSize:'1.5rem',color:'brown'}} class="fa-brands fa-sellcast"></i>
+            <i style={{fontSize:'1.5rem',color:'brown'}} className="fa-brands fa-sellcast"></i>
             </div>
           </Link>
           <p>Sell</p>

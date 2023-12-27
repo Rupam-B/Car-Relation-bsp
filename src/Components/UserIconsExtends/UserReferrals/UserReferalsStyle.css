@@ -1,0 +1,140 @@
+/* .User-Referrals-main-div{
+
+} */
+/* .User-Referrals-sub-div{
+
+} */
+
+
+@media screen and (max-width:800px) {
+
+    .User-Referrals-main-div{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 50vh;
+        height: 100vh;
+    }
+    .User-Referrals-sub-div{
+        width: 98vw;
+        height: auto;
+        /* border: 1px solid blue; */
+        padding-top: 3vh;
+        border: 1px solid rgb(128, 128, 128,0.2);
+        margin-top: 3vh;
+        padding-bottom: 5vh;
+        position: relative;
+    }
+    .Referal-Top-Heading{
+       width: 100%;
+       display: flex;
+       justify-content: center;
+    }
+    .Referal-top-head-line{
+        background-color: rgb(128, 128, 128,0.2);
+        width: 70%;
+        height: 0.1vh;
+        margin: auto;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+
+    }
+    .Referal-add-content-sub{
+        width: 100%;
+    margin-bottom: 2vh;
+    /* border: 1px solid red; */
+    overflow: hidden;
+    }
+    .Referal-add-showing-div{
+        width: 98%;
+    height: auto;
+    border: 1px solid rgb(128, 128, 128,0.2);
+    border-radius: 5px;
+    padding: 1vh 1vw;
+    display: flex;
+    margin: 2vh 1vw;
+    position: relative;
+    align-items: flex-start;
+    }
+    /* .Referal-add-showing-div:hover{
+        box-shadow: inset 1px 1px 4px 0 rgba(68, 22, 22, 0.2);
+     transform: scale(1.05);
+    } */
+    .Referal-add-showing-div img{
+        width: 30%;
+        height: auto;
+        border-radius: 5px;
+        margin-right: 2vw;
+        object-fit: contain;
+        margin-top: 0.5vh;
+        margin-bottom: 0.5vh;
+    }
+    .Referal-adds-info-div{
+        width: 56%;
+    margin-left: 0.8vw;
+    }
+    .Referal-adds-info-div-sub{
+        display: flex;
+        flex-direction: column;
+        width: 99%;
+        height: auto;
+        padding-top: 1vh;
+        justify-content: space-between;
+        /* border: 1px solid blue;s */
+    }
+    .refral-share-icon-div{
+        border: 1px solid rgb(128, 128, 128,0.2);
+        position: absolute;
+        right: 2vw;
+        top: 1vh;
+        padding: 0.3rem 0.5rem;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .refral-share-icon{
+        margin-bottom: 0.5vh;
+        color: rgb(0, 140, 255);
+        
+    }
+    .refral-share-quantity{
+       margin-bottom: 0;
+       color: rgb(0, 140, 255);
+    }
+
+    .refral-Enquiry-icon-div{
+        border: 1px solid rgb(128, 128, 128,0.2);
+        position: absolute;
+        right: 2vw;
+        bottom: 1vh;
+        padding:0.3rem 0.5rem;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .refral-enquiry-quantity{
+        margin-bottom: 0;
+        margin-top: 0.8vh;
+        color: green;
+    }
+    .Referal-adds-info-div-sub button{
+        width: 50%;
+        background-color: transparent;
+        color: red;
+        border: 1px solid rgb(255, 0, 0,0.2);
+        border-radius: 5px;
+        padding: 0.3vh 10%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .Referal-adds-info-div-sub button:hover{
+        transform: scale(1.1);
+    }
+
+
+}
