@@ -58,10 +58,12 @@ export const UserDashboard = () => {
           <p>Rewards</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
-            <div style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
+            <Link to={'/UserEarnings'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
+            <div >
             {/* <i style={{color:'#4dc47d'}} className="fa-regular fa-money-bill-1"></i> */}
             <i style={{color:'white'}} className="fa-solid fa-indian-rupee-sign"></i>
             </div>
+            </Link>
           <p>Earnings</p>
           </div>
           

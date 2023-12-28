@@ -1,0 +1,113 @@
+/* .User-Earning-main-div{
+
+} */
+/* .User-Earning-sub-div{
+
+} */
+
+
+@media screen and (max-width:800px) {
+
+
+    .User-Earning-main-div{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 50vh;
+        height: auto;
+    }
+    .User-Earning-sub-div{
+        width: 98vw;
+        height: auto;
+        /* border: 1px solid blue; */
+        padding-top: 3vh;
+        border: 1px solid rgb(128, 128, 128,0.2);
+        margin-top: 3vh;
+        padding-bottom: 45vh;
+        position: relative;
+    }
+    .Earning-Top-Heading{
+       width: 100%;
+       display: flex;
+       justify-content: center;
+       margin-top: 2vh;
+    }
+    .Earning-top-head-line{
+        background-color: rgb(128, 128, 128,0.2);
+        width: 70%;
+        height: 0.1vh;
+        margin: auto;
+        margin-top: 2vh;
+        margin-bottom: 3vh;
+
+    }
+    .Earning-add-content-sub{
+        width: 100%;
+    margin-bottom: 2vh;
+    /* border: 1px solid red; */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    }
+    .Earning-add-showing-div-scratched::before{
+        content: "";
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.85);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .Earning-add-showing-div-scratched{
+    width: 85%;
+    height: 20vh;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 1vh 1vw;
+    /* display: flex; */
+    margin: 2vh 1vw;
+    position: relative;
+    /* align-items: flex-start; */
+    background: url('https://img.freepik.com/free-vector/loyalty-program-concept_74855-6543.jpg?size=626&ext=jpg&ga=GA1.1.1546980028.1703548800&semt=sph');
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: background-image 1s ease-in;
+    color: rgb(12, 12, 12,0.85);
+    }
+
+    .Earning-get-h4{
+        position: absolute;
+        right: 5vw;
+        top: 2vh;
+        width: 90%;
+    }
+    .Earning-h4-span{
+        color: rgb(0, 0, 0,0.7);
+        font-size: 1rem;
+    }
+    .Earning-h4-won{
+        color: green;
+    }
+    .Earning-tx-no-para{
+        position: absolute;
+        right: 5vw;
+        top: 50%;
+        width: 90%;
+        font-weight: bold;
+    }
+    .Earning-tx-no-para span{
+        color: rgba(0, 153, 255, 0.7);
+    }
+    .Earning-add-showing-div-below{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 6vw 0 0;
+        position: absolute;
+        right: 5vw;
+        top: 75%;
+        width: 90%;
+        z-index: 3;
+        font-weight: bold;
+    }
+}
+  

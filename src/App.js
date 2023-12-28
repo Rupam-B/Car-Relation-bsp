@@ -20,6 +20,7 @@ import { UserDashboard } from './Components/UserDashboard/UserDashboard';
 import UserProfileView from './Components/UserIconsExtends/UserProfile/UserProfileView';
 import UserReferals from './Components/UserIconsExtends/UserReferrals/UserReferals';
 import RewarsScratchCards from './Components/UserIconsExtends/UserRewards/RewarsScratchCards';
+import UserEarning from './Components/UserIconsExtends/UserEarnings/UserEarning';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path='/UserDashboardProfile' element={<UserProfileView/>}/>
         <Route path='/UserDashboardReferral' element={<UserReferals/>}/>
         <Route path='/UserRewardsScratchCard' element={<RewarsScratchCards/>}/>
+        <Route path='/UserEarnings' element={<UserEarning/>}/>
       </Routes>
       <OtherService/>
       <MainAdvert/>
