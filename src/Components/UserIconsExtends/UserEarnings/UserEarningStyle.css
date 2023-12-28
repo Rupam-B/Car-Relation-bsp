@@ -79,8 +79,7 @@
         position: absolute;
         right: 5vw;
         top: 2vh;
-        width: auto;
-        border: 2px solid red;
+        width: 90%;
     }
     .Earning-h4-span{
         color: rgb(0, 0, 0,0.7);
@@ -92,7 +91,7 @@
     .Earning-tx-no-para{
         position: absolute;
         right: 5vw;
-        top: 50%;
+        top: 55%;
         width: 90%;
         font-weight: bold;
     }
