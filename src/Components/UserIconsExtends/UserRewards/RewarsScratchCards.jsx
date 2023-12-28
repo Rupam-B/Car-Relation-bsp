@@ -53,7 +53,7 @@ const RewarsScratchCards = () => {
           :
           <div className='Tap-to-see-reward-div'>
           <h5 style={{fontSize:'1.5rem'}}>Tap to see Reward</h5>
-          <i style={{fontSize:'2.5rem'}} class="fa-solid fa-hand-point-up"></i>
+          <i style={{fontSize:'2.5rem'}} className="fa-solid fa-hand-point-up"></i>
           </div>
           }
 

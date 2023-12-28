@@ -79,7 +79,8 @@
         position: absolute;
         right: 5vw;
         top: 2vh;
-        width: 90%;
+        width: auto;
+        border: 2px solid red;
     }
     .Earning-h4-span{
         color: rgb(0, 0, 0,0.7);

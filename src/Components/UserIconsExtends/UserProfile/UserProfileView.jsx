@@ -8,7 +8,7 @@ const UserProfileView = () => {
   return (
     <div className='Profile-View-Main-div'>
         <div className='Profile-View-Sub-div'>
-        <Link to={'/UserDashboard'}><i class="fa-solid fa-arrow-left back-to-user-dashboard"></i></Link>    
+        <Link to={'/UserDashboard'}><i className="fa-solid fa-arrow-left back-to-user-dashboard"></i></Link>    
             <div className='Profile-View-top-secton'>
                 <div className='User-profile-image'>
                     <img src="https://img.freepik.com/free-vector/cute-happy-smiling-child-isolated-white_1308-32243.jpg" alt="" />

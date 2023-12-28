@@ -24,7 +24,7 @@ const UserReferals = () => {
                           <p className='refral-share-quantity'>6</p>
                           </div>
                           <div className='refral-Enquiry-icon-div'>
-                          <i style={{color:'green'}} class="fa-solid fa-eye"></i>
+                          <i style={{color:'green'}} className="fa-solid fa-eye"></i>
                           <p className='refral-enquiry-quantity'>4</p>
                           </div>
                           <button>Delete</button>
@@ -44,7 +44,7 @@ const UserReferals = () => {
                           <p className='refral-share-quantity'>8</p>
                           </div>
                           <div className='refral-Enquiry-icon-div'>
-                          <i style={{color:'green'}} class="fa-solid fa-eye"></i>
+                          <i style={{color:'green'}} className="fa-solid fa-eye"></i>
                           <p className='refral-enquiry-quantity'>3</p>
                           </div>
                           <button>Delete</button>
