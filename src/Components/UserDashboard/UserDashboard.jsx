@@ -70,21 +70,27 @@ export const UserDashboard = () => {
         </div>
         <div className='row my-2 grid-row'>
           <div className='col-md-3 col-sm-3 user-options-details'>
-            <div className='user-options-details-inner-div'>
+            <Link to={'/UserAffiliation'} className='user-options-details-inner-div'>
+            <div>
             <i style={{color:'#520099'}} className="fa-brands fa-affiliatetheme"></i>
             </div>
+            </Link>
           <p>Affliation</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
-            <div className='user-options-details-inner-div'>
+            <Link to={'/UserAddUploads'} className='user-options-details-inner-div'>
+            <div >
             <i style={{color:'#955214'}} className="fa-solid fa-upload"></i>
             </div>
+            </Link>
           <p>Uploads</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
-            <div className='user-options-details-inner-div'>
+            <Link to={'/UserRoyality'} className='user-options-details-inner-div'>
+            <div >
             <i style={{color:'#264f36'}} className="fa-solid fa-crown"></i>
             </div>
+            </Link>
           <p>Roaylity</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>

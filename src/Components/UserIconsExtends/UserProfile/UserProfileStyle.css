@@ -141,4 +141,31 @@
             border: 1px solid rgb(128, 128, 128,0.2);
     }
 
+
+
+    .Profile-user-Logout-div{
+        border: 1px solid rgb(0, 0, 0,0.1);
+        padding: 0.9rem;
+        width: 25%;
+        border-radius: 50%;
+        margin-bottom: 4vh;
+        margin-top: 4vh;
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 20% 30%;
+    }
+    .Profile-user-Logout-div i{
+        font-size: 1.4rem;
+        color: rgb(255, 0, 0,0.8);
+        margin-bottom: 1vh;
+        /* margin-top: 5vh; */
+        cursor: pointer;
+    }
+    .Profile-user-Logout-div h6{
+        color: rgb(255, 0, 0,0.8);
+    }
+
 }

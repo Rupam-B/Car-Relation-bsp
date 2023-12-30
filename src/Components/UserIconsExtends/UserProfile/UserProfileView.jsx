@@ -1,10 +1,27 @@
 import React, { useState } from 'react'
 import './UserProfileStyle.css'
-import { Link} from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { toast } from 'react-toastify';
+import { isUserLoggedin } from '../../../Reduxs/action'
 
 const UserProfileView = () => {
     const [passwordChange,setPasswordChnage]=useState(false)
     const [adharVerify,setAdharVerify]=useState(false)
+
+
+
+      const UserProfileDispatch = useDispatch()
+     const UserProfileNavigate = useNavigate()
+
+
+
+  const handleLogOut = ()=>{
+    UserProfileDispatch(isUserLoggedin(0))
+    toast.success("Logged Out Successfully")
+    UserProfileNavigate('/')
+
+  }
   return (
     <div className='Profile-View-Main-div'>
         <div className='Profile-View-Sub-div'>
@@ -40,6 +57,10 @@ const UserProfileView = () => {
                     <button onClick={()=>setPasswordChnage(false)}>Save</button>
                     <button onClick={()=>setPasswordChnage(false)}>Don't Save</button>
 
+                </div>
+                <div onClick={handleLogOut} className='Profile-user-Logout-div'>
+               <i class="fa-solid fa-power-off"></i>
+                <h6>LogOut</h6>
                 </div>
              </div>
         </div>

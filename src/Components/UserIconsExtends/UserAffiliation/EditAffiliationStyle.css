@@ -1,0 +1,68 @@
+/* .User-Affliation-main-div{
+
+} */
+/* .User-Affliation-sub-div{
+
+} */
+
+
+@media screen and (max-width:800px) {
+
+
+    .User-Affliation-main-div{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 50vh;
+        height: auto;
+    }
+    .User-Affliation-sub-div{
+        width: 98vw;
+        height: auto;
+        /* border: 1px solid blue; */
+        padding-top: 3vh;
+        border: 1px solid rgb(128, 128, 128,0.2);
+        margin-top: 3vh;
+        padding-bottom: 45vh;
+        position: relative;
+    }
+    .Affliation-Top-Heading{
+       width: 100%;
+       display: flex;
+       justify-content: center;
+       margin-top: 2vh;
+    }
+    .Affliation-top-head-line{
+        background-color: rgb(128, 128, 128,0.2);
+        width: 70%;
+        height: 0.1vh;
+        margin: auto;
+        margin-top: 2vh;
+        margin-bottom: 3vh;
+
+    }
+    .Affliation-content-div{
+        /* border: 1px solid red; */
+        /* padding: 0 10vw; */
+        margin-top: 5vh;
+    }
+    .Affliation-number-Show-div{
+        /* border: 1px solid red; */
+        display: flex;
+        justify-content: center;
+        margin-bottom: 3vh;
+    }
+    .Affliation-number-Show-div i{
+       font-size: 1.7rem;
+       margin-right: 1vw;
+    }
+    .Affliation-date-span{
+        font-weight: 400;
+        color: rgba(0, 0, 0, 0.6);
+    }
+    .Affliation-date-div{
+        display: flex;
+        justify-content: center;
+    }
+
+}
