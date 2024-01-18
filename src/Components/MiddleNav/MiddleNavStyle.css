@@ -76,6 +76,12 @@
 .mobile-user-login-div p {
     font-size: 0.8rem;
 }
+.user-logged-in-bars{
+    position: absolute;
+    top: 2.2vh;
+    right: 2vw;
+    color: rgb(8, 8, 8);
+}
 
 
 @media screen and (max-width:700px) {

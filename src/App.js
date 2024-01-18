@@ -21,9 +21,10 @@ import UserProfileView from './Components/UserIconsExtends/UserProfile/UserProfi
 import UserReferals from './Components/UserIconsExtends/UserReferrals/UserReferals';
 import RewarsScratchCards from './Components/UserIconsExtends/UserRewards/RewarsScratchCards';
 import UserEarning from './Components/UserIconsExtends/UserEarnings/UserEarning';
-import EditAffiliation from './Components/UserIconsExtends/UserAffiliation/EditAffiliation';
 import UserAddUpload from './Components/UserIconsExtends/UserAddUploads/UserAddUpload';
 import UserRoyality from './Components/UserIconsExtends/UserRoyality/UserRoyality';
+import UserCarList from './Components/UserIconsExtends/UserCarList/UserCarList';
+import EditAffiliation from './Components/UserIconsExtends/UserAffiliationDetails/UserAffiliationDetails';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         <Route path='/UserDashboardReferral' element={<UserReferals/>}/>
         <Route path='/UserRewardsScratchCard' element={<RewarsScratchCards/>}/>
         <Route path='/UserEarnings' element={<UserEarning/>}/>
+        <Route path='/UserCarList' element={<UserCarList/>}/>
         <Route path='/UserAffiliation' element={<EditAffiliation/>}/>
         <Route path='/UserAddUploads' element={<UserAddUpload/>}/>
         <Route path='/UserRoyality' element={<UserRoyality/>}/>

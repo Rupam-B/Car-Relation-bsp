@@ -65,11 +65,11 @@ const UserRoyality = () => {
         <div className='Royality-top-head-line'></div>
         <div className='Royality-points-show'>
             <div className='Royality-points-show-one'>
-            <i class="fa-solid fa-coins"></i>
+            <i className="fa-solid fa-coins"></i>
             <p>collected royality points: <span>60</span></p>
             </div>
             <div className='Royality-points-show-two'>
-            <i class="fa-solid fa-diamond"></i>
+            <i className="fa-solid fa-diamond"></i>
             <p>collected royality diamonds: <span>70</span></p>
             </div>
 
@@ -78,7 +78,7 @@ const UserRoyality = () => {
         {winData.map((winitems)=>(
       <div key={winitems.id} className="Royality-add-content-sub">
         <div  className='Royality-add-showing-div-scratched'>
-        <i  style={{color:winitems.color, fontSize:'2rem', marginLeft:'2vw'}} class={`fa-solid fa-${winitems.icon} Royality-top-icon`}></i>
+        <i  style={{color:winitems.color, fontSize:'2rem', marginLeft:'2vw'}} className={`fa-solid fa-${winitems.icon} Royality-top-icon`}></i>
           <h6 className='Royality-main-description'>You got <span style={{color:winitems.color}}>{winitems.won} {winitems.icon}</span> for your successfull referral with referal id mentioned below </h6>
           <div className='Royality-add-showing-div-below'>
           <p >Ref no: {winitems.Referral}</p>

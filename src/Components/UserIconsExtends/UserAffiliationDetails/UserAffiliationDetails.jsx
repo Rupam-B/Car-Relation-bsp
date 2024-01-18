@@ -1,5 +1,5 @@
 import React from 'react'
-import './EditAffiliationStyle.css'
+import './UserAffiliationStyle.css'
 import { Link } from 'react-router-dom'
 
 const EditAffiliation = () => {

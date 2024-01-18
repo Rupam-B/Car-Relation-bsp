@@ -1,25 +1,9 @@
 import React from 'react'
 import './UserDashboardStyle.css'
 import { Link} from 'react-router-dom'
-// import { Link, useNavigate} from 'react-router-dom'
-// import { isUserLoggedin } from '../../Reduxs/action'
-// import { useDispatch } from 'react-redux'
-// import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const UserDashboard = () => {
-
-  // const UserDashDispatch = useDispatch()
-  // const UserDashNavigate = useNavigate()
-
-
-
-  // const handleLogOut = ()=>{
-  //   UserDashDispatch(isUserLoggedin(0))
-  //   toast.success("Logged Out Successfully")
-  //   UserDashNavigate('/')
-
-  // }
   return (
     <div className='User-Dashboard-main-div'>
     <div className='User-Dashboard-sub-div'>
@@ -72,13 +56,13 @@ export const UserDashboard = () => {
           <div className='col-md-3 col-sm-3 user-options-details'>
             <Link to={'/UserAffiliation'} className='user-options-details-inner-div'>
             <div>
-            <i style={{color:'#520099'}} className="fa-brands fa-affiliatetheme"></i>
+            <i style={{color:'#520099'}} className="fa-solid fa-file-import"></i>
             </div>
             </Link>
-          <p>Affliation</p>
+          <p>Affiliation</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
-            <Link to={'/UserAddUploads'} className='user-options-details-inner-div'>
+            <Link to={'/UserCarList'} className='user-options-details-inner-div'>
             <div >
             <i style={{color:'#955214'}} className="fa-solid fa-upload"></i>
             </div>

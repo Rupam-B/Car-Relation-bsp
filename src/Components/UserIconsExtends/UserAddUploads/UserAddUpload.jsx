@@ -36,7 +36,7 @@ const UserAddUpload = () => {
                           <i 
                           onMouseEnter={()=>handleEditEnter(1)}
                           onMouseLeave={handleEditLeave}
-                          class="fa-solid fa-pen-to-square Uploads-share-icon"></i>
+                          className="fa-solid fa-pen-to-square Uploads-share-icon"></i>
                           </div>
                           <div className='Uploads-Enquiry-icon-div'>
                           <p>valid till</p>
@@ -59,7 +59,7 @@ const UserAddUpload = () => {
                           <i
                           onMouseEnter={()=>handleEditEnter(2)}
                           onMouseLeave={handleEditLeave}
-                           class="fa-solid fa-pen-to-square Uploads-share-icon" ></i>
+                           className="fa-solid fa-pen-to-square Uploads-share-icon" ></i>
                           </div>
                           <div className='Uploads-Enquiry-icon-div'>
                           <p>valid till</p>

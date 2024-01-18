@@ -1,25 +1,33 @@
 import React, { useState } from 'react'
 import './UserProfileStyle.css'
-import { Link, useNavigate} from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { toast } from 'react-toastify';
 import { isUserLoggedin } from '../../../Reduxs/action'
 
 const UserProfileView = () => {
+
+  const Loggedinuser = localStorage.getItem('car-relation-user-name')
+  const LoggedinuserName = JSON.stringify(Loggedinuser)
+
+
     const [passwordChange,setPasswordChnage]=useState(false)
     const [adharVerify,setAdharVerify]=useState(false)
 
 
 
       const UserProfileDispatch = useDispatch()
-     const UserProfileNavigate = useNavigate()
+    //  const UserProfileNavigate = useNavigate()
 
 
 
   const handleLogOut = ()=>{
+    localStorage.removeItem('car-relation-user-token')
+    localStorage.removeItem('car-relation-user-AffId')
+    localStorage.removeItem('car-relation-user-name')
     UserProfileDispatch(isUserLoggedin(0))
     toast.success("Logged Out Successfully")
-    UserProfileNavigate('/')
+    window.location.assign('/')
 
   }
   return (
@@ -31,7 +39,7 @@ const UserProfileView = () => {
                     <img src="https://img.freepik.com/free-vector/cute-happy-smiling-child-isolated-white_1308-32243.jpg" alt="" />
                 </div>
                 <div className='User-profile-name'>
-                    <h4>Siddhi Softwares</h4>
+                    <h4>{LoggedinuserName}</h4>
                 </div>
                
             </div>
@@ -59,7 +67,7 @@ const UserProfileView = () => {
 
                 </div>
                 <div onClick={handleLogOut} className='Profile-user-Logout-div'>
-               <i class="fa-solid fa-power-off"></i>
+               <i className="fa-solid fa-power-off"></i>
                 <h6>LogOut</h6>
                 </div>
              </div>

@@ -1,16 +1,16 @@
 import React from 'react'
 import './MiddleNavStyle.css'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 
 
 const MiddleNavbar = () => {
-  const userVerify =useSelector((state)=>state.verifyingBoolforUser)
+  const userVerify =localStorage.getItem('car-relation-user-token')
   return (
     <div className='Middle-nav-main-div'>
         <div className='Middle-nav-sub-div'>
             <div className='Middle-nav-left-div'>
-              {userVerify===1?<div className='user-logged-in-bars'>
+              {userVerify?<div className='user-logged-in-bars'>
               <Link  to={'/UserDashboard'}><i style={{color:'#eb7a9a', fontSize:'1.3rem'}} className="fa-solid fa-bars "></i></Link>
               </div>:
               <div className='mobile-user-login-div'>

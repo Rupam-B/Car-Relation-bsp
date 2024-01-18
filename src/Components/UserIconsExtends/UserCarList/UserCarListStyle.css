@@ -1,0 +1,268 @@
+/* .User-Affliation-main-div{
+
+} */
+/* .User-Affliation-sub-div{
+
+} */
+
+
+@media screen and (max-width:800px) {
+
+
+    /* =========Delete User add ======== */
+    .User-Affliation-Delete-user-add-div-show{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        /* background-color: white; */
+        background-color: white;
+        z-index: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        /* border: 1px solid red; */
+    }
+    .User-Affliation-Delete-user-add-div-hide{
+        display: none;
+    }
+    .User-Affliation-Delete-user-add-div-show-innerDiv{
+        width: 80%;
+        height: 20%;
+        border: 1px solid rgb(0, 0, 0,0.32);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .User-Affliation-Delete-user-add-div-show-innerDiv p{
+        width: 80%;
+        text-align: center;
+        
+    }
+    /* .User-Affliation-Delete-user-add-div-show-innerDiv button{
+        width: 50%;
+        text-align: center;
+        background-color: transparent;
+        border:  1px solid gray;
+        border-radius: 10px;
+        margin: 2vh 3vw;
+        
+    } */
+
+    .User-Affliation-Delete-user-add-div-show-innerDiv-buttons{
+        /* border:  1px solid red; */
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .User-Affliation-Delete-user-add-div-show-innerDiv-buttons button{
+        width: 45%;
+        background-color: transparent;
+        border: none;
+        border-radius: 10px;
+        padding: 1vh;
+    }
+    
+    /* ============ */
+
+
+
+
+    /* =========Update User add ======== */
+    .User-Affliation-Update-user-add-div-show{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: auto;
+        /* background-color: white; */
+        background-color: white;
+        z-index: 3;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 200vh;
+        padding-top: 10vh;
+    }
+    .User-Affliation-Update-user-add-div-Hide{
+        display: none;
+        position: relative;
+    }
+    .User-Affliation-Update-user-add-div-closeMark{
+        position: absolute;
+        top: 1vh;
+        left: 2vw;
+        color: red;
+    }
+
+
+    /* .User-Affliation-Update-user-add-div-space-adder{
+        height: 300vh;
+    } */
+
+
+    /* ============ */
+
+
+    .User-Affliation-main-div{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 50vh;
+        height: auto;
+    }
+    .User-Affliation-sub-div{
+        width: 98vw;
+        height: auto;
+        /* border: 1px solid blue; */
+        padding-top: 3vh;
+        border: 1px solid rgb(128, 128, 128,0.2);
+        margin-top: 3vh;
+        padding-bottom: 45vh;
+        position: relative;
+    }
+    .Affliation-Top-Heading{
+       width: 100%;
+       display: flex;
+       justify-content: center;
+       margin-top: 2vh;
+    }
+    .Affliation-top-head-line{
+        background-color: rgb(128, 128, 128,0.2);
+        width: 70%;
+        height: 0.1vh;
+        margin: auto;
+        margin-top: 2vh;
+        margin-bottom: 3vh;
+
+    }
+    /* ----- */
+    .User-Adds-List-add-content-sub{
+        width: 100%;
+    margin-bottom: 2vh;
+    /* border: 1px solid red; */
+    overflow: hidden;
+    }
+    .User-Adds-List-add-showing-div{
+        width: 98%;
+    height: 17vh;
+    border: 1px solid rgb(128, 128, 128,0.2);
+    border-radius: 5px;
+    padding: 1vh 1vw;
+    display: flex;
+    margin: 2vh 1vw;
+    position: relative;
+    align-items: flex-start;
+    }
+    /* .User-Adds-List-add-showing-div:hover{
+        box-shadow: inset 1px 1px 4px 0 rgba(68, 22, 22, 0.2);
+     transform: scale(1.05);
+    } */
+    .User-Adds-List-add-showing-div img{
+        width: 28vw;
+        height: 12vh;
+        border-radius: 5px;
+        margin-right: 2vw;
+        /* object-fit: contain; */
+        margin-top: 0.5vh;
+        margin-bottom: 0.5vh;
+    }
+    .User-Adds-List-adds-info-div{
+        width: 56%;
+    margin-left: 0.8vw;
+    }
+    .User-Adds-List-adds-info-div-sub{
+        display: flex;
+        /* flex-direction: column; */
+        width: 99%;
+        height: auto;
+        padding-top: 1vh;
+        /* justify-content: space-between; */
+        /* border: 1px solid blue;s */
+    }
+    .User-Adds-List-share-icon-div{
+        /* border: 1px solid rgb(128, 128, 128,0.2); */
+        position: absolute;
+        right: 3.5vw;
+        top: 1vh;
+        padding: 0.3rem 0.5rem;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .User-Adds-List-share-icon{
+        margin-bottom: 0.5vh;
+        color: rgb(0, 140, 255);
+        
+    }
+    .User-Adds-List-share-quantity{
+       margin-bottom: 0;
+       color: rgb(0, 140, 255);
+    }
+
+    .User-Adds-List-Enquiry-icon-div{
+        /* border: 1px solid rgb(128, 128, 128,0.2); */
+        position: absolute;
+        right: 4vw;
+        bottom: 1vh;
+        padding:0.3rem 0.5rem;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .User-Adds-List-enquiry-quantity{
+        margin-bottom: 0;
+        margin-top: 0.8vh;
+        color: green;
+    }
+    .User-Adds-List-adds-info-div-sub-Delete-button{
+        width: 20%;
+        height: 4vh;
+        background-color: transparent;
+        color: red;
+        border: none;
+        border: 1px solid rgb(255, 0, 0,0.1);
+        border-radius: 5px;
+        padding: 0 !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* margin-bottom: 2.5vh; */
+        margin-left: 3vw;
+        /* display: none; */
+        position: absolute;
+        right: 3vw;
+        top: 25%;
+    }
+    .User-Adds-List-adds-info-div-sub-Update-button{
+        width: 20%;
+        height: 4vh;
+        background-color: transparent;
+        color:green;
+        border: none;
+        border: 1px solid rgb(0, 128, 0,0.1);
+        border-radius: 5px;
+        padding: 0 !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2.5vh;
+        margin-left: 3vw;
+        position: absolute;
+        bottom: 15%;
+        right: 3vw;
+ 
+    }
+    .User-Adds-List-adds-info-div-sub button:hover{
+        transform: scale(1.1);
+    }
+
+
+}

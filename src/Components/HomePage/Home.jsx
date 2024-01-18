@@ -1,17 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './HomeStyle.css'
-import carMainData from './carUrls'
+import BaseUrl from '../../apiconfig'
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { addThisImage } from "../../Reduxs/action";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios'
 
 
 const Home = () => {
   const HomeDispatch = useDispatch()
-  const userVerify =useSelector((state)=>state.verifyingBoolforUser)
-  console.log(userVerify)
+  const userVer =localStorage.getItem('car-relation-user-token')
+  const userVerify =JSON.stringify(userVer)
   const [favouriteactive,setFavouriteactive] = useState(false)
   const [favouriteid,setFavouriteId] = useState('')
   const [bookmarkactive,setBookmarkactive] = useState(false)
@@ -24,6 +25,9 @@ const Home = () => {
   const [phoneId,setPhonneId] = useState("")
   
   const [carQuerry,setCarQuerry] = useState("")
+
+  // Api Data
+  const [apiData,setApiData] = useState([])
 
   const [enqEnable,setEnqEnable] = useState(false)
   
@@ -44,6 +48,7 @@ const Home = () => {
       toast.error("Verification Required")
     }
   };
+  // console.log(BaseUrl)
 
 
 
@@ -78,7 +83,42 @@ const Home = () => {
 
   }
 
-  const carReqData = carMainData.carMainData
+  const carReqData = apiData.data && apiData.data;
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${BaseUrl}/cars`, {
+          mode:'no-cors',
+          headers: {
+            Accept: 'application/json',
+          },
+        });
+  
+        if (response.status >= 200 && response.status < 300) {
+          const data = response.data;
+          if(data){
+            setApiData(data)
+          }
+        } else {
+          throw new Error('Network response was not ok');
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+  
+    fetchData();
+  }, []);
+
+  // useEffect(()=>{
+  //   if(apiData.data){
+  //     console.log(apiData.data);
+  //   }
+  // },[apiData])
+   
+
   return (
     <div className="Home-Main-div">
       <div className="Home-sub-div">
@@ -110,14 +150,17 @@ const Home = () => {
           </div>
         </div>
         <div className="Home-middle-content">
-          {carReqData.map((items)=>(
+          {carReqData && carReqData.length > 0?
+          carReqData.map((items)=>(
           <div key={items.id} className="card card-width-18">
-
-           <Link onClick={()=>HomeDispatch(addThisImage(items.src,items.title))} to={'/DisplayCarDetails'}><img src={items.src} className="card-img-top" alt=""/></Link>
+            <div className='Home-middle-content-image-div'>
+            <Link  onClick={()=>HomeDispatch(addThisImage(items.image,items.make))} to={'/DisplayCarDetails'}><img src={items.image} className="card-img-top" alt="No Images Available"/></Link>
+            </div>
+           
             <div className="card-body home-card-body">
               <div className='car-home-main-title-div'>
-              <h6 className="card-title car-home-main-title">{items.title.length>23?`${items.title.slice(0,23)}...`:items.title}</h6>
-              <i className={userVerify===1?"fa-solid fa-share-nodes share-icon-active":"fa-solid fa-share-nodes share-icon-inactive"}></i>
+              <h6 className="card-title car-home-main-title">{items.make.length>23?`${items.make.slice(0,23)}...`:items.make}</h6>
+              <i className={userVerify?"fa-solid fa-share-nodes share-icon-active":"fa-solid fa-share-nodes share-icon-inactive"}></i>
               <i onClick={()=>handleBookmarkActive(items.id)}
                className=
                 {bookmarkactive&&bookmarkid===items.id?"fa-regular fa-bookmark bookmark-icon-active":'fa-regular fa-bookmark bookmark-icon-inactive'}>
@@ -130,8 +173,8 @@ const Home = () => {
               <div className="card-text">
               {items.model.length>20?`${items.model.slice(0,20)}...`:items.model}
               <div className='car-cost-heading-div'>
-              <h5 className='car-cost-heading5'>₹{items.cost}</h5>
-              <p>{items.kilometres}kms</p>
+              <h5 className='car-cost-heading5'>₹{items.sale_value}</h5>
+              <p>{items.km_driven}kms</p>
               </div>
               </div>
               <div className='car-details-multibtn-div'>
@@ -169,7 +212,9 @@ const Home = () => {
               </div>
             </div>
           </div>
-          ))}
+          )):
+          <h5>Loading...</h5>
+}
         </div>
         <div className="Home-page-navigation-div"></div>
       </div>
@@ -178,3 +223,5 @@ const Home = () => {
 }
 
 export default Home
+
+

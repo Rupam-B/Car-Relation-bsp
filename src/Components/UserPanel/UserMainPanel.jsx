@@ -1,15 +1,20 @@
+
+
+
 // import React, { useEffect, useState } from 'react'
 import React, {useState } from 'react'
 import './UserPanelStyle.css'
-import { Link, useNavigate } from 'react-router-dom'
+import BaseURL from '../../apiconfig'
+import { Link} from 'react-router-dom'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch } from 'react-redux';
 import { isUserLoggedin } from '../../Reduxs/action';
+// import axios from 'axios';
 
 const UserMainPanel = () => {
 
-  const UserNavigate = useNavigate()
+  // const UserNavigate = useNavigate()
   const UserDispatch =useDispatch()
 
 
@@ -21,6 +26,7 @@ const UserMainPanel = () => {
   const [signinPhonenumber, setSigninPhonenumber]=useState('');
   const [signinUserName, setSigninUserName]=useState('');
   const [signinPassword, setSigninPassword]=useState('');
+  const [signinConfirmPassword, setSigninConfirmPassword]=useState('');
 
 const toggleLogin = ()=>{
   setLoginSignup(true)
@@ -28,29 +34,101 @@ const toggleLogin = ()=>{
 const toggleSignup = ()=>{
   setLoginSignup(false)
 }
-const handleLogin = ()=>{
-  if(loginUserName==="U"&&loginPassword==="P"){
-    setLoginUserName('')
-    setLoginPassword('')
-    setIsUserLoggedIn(true)
-    toast.success('Logged In Successfully')
-    UserNavigate("/UserDashboard")
-    UserDispatch(isUserLoggedin(1))
+const handleLogin = async()=>{
+  if(loginUserName!==""&&loginPassword!==""){
+    try {
+      const response = await fetch(`${BaseURL}/login`, {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: loginUserName,
+          password: loginPassword,
+        })
+      });
+
+      const Logindata = await response.json();
+
+      if (response.ok) {
+        // Login Success
+        toast.success(Logindata.message);
+        console.log(Logindata)
+        console.log(Logindata.data.token)
+        console.log(Logindata.data.unique_id)
+        localStorage.setItem('car-relation-user-token',Logindata.data.token)
+        localStorage.setItem('car-relation-user-AffId',Logindata.data.unique_id)
+        localStorage.setItem('car-relation-user-name',Logindata.data.name)
+        
+
+        // Navigated
+        setIsUserLoggedIn(true);
+        window.location.assign("/UserDashboard");
+        UserDispatch(isUserLoggedin(1));
+      } else {
+        // Login failed
+        toast.error(Logindata.message);
+        console.log(Logindata);
+      }
+
+    } catch (error) {
+      console.error("Error during Login:", error);
+      toast.error("An error occurred during Login.");
+    }
   }
-  else{
-    toast.error('Wrong UserName or Password')
-  }
+  
 }
-const handleSignup = ()=>{
-  if(setSigninPhonenumber!==""&&signinUserName !=="" && signinPassword !==""){
-    setLoginUserName('')
-    setLoginPassword('')
-    toast.success('Signed Up Successfully')
+
+
+
+const handleSignup = async () => {
+  if (signinPhonenumber !== "" && signinUserName !== "" && signinPassword !== "" && signinPassword === signinConfirmPassword) {
+    try {
+      const response = await fetch(`${BaseURL}/register`, {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: signinUserName,
+          phone: signinPhonenumber,
+          password: signinPassword,
+          confirm_password: signinConfirmPassword,
+        })
+      });
+
+      const SignUpdata = await response.json();
+
+      if (response.ok) {
+        // Registration Success
+        toast.success(SignUpdata.message);
+        console.log(SignUpdata)
+        console.log(SignUpdata.data.token)
+        console.log(SignUpdata.data.unique_id)
+        localStorage.setItem('car-relation-user-token',SignUpdata.data.token)
+        localStorage.setItem('car-relation-user-AffId',SignUpdata.data.unique_id)
+        localStorage.setItem('car-relation-user-name',SignUpdata.data.name)
+        
+
+        // Navigated
+        setIsUserLoggedIn(true);
+        window.location.assign("/UserDashboard");
+        UserDispatch(isUserLoggedin(1));
+      } else {
+        // Registration failed
+        toast.error(SignUpdata.message);
+        console.log(SignUpdata);
+      }
+
+    } catch (error) {
+      console.error("Error during registration:", error);
+      toast.error("An error occurred during registration.");
+    }
   }
-  else{
-    toast.error('Please Fill Valid Data')
-  }
-}
+};
+
 
 
 
@@ -78,6 +156,7 @@ const handleSignup = ()=>{
                 <input value={signinPhonenumber} onChange={(e)=>setSigninPhonenumber(e.target.value)} type="text" placeholder='Mobile Number'/>
                 <input value={signinUserName} onChange={(e)=>setSigninUserName(e.target.value)} type="text" placeholder='User Name'/>
                 <input value={signinPassword} onChange={(e)=>setSigninPassword(e.target.value)} type="text" placeholder='Password'/>
+                <input value={signinConfirmPassword} onChange={(e)=>setSigninConfirmPassword(e.target.value)} type="text" placeholder='Confirm Password'/>
                 <button onClick={handleSignup}>Sign Up</button>
               </div>
               }
