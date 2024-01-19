@@ -16,6 +16,7 @@ const UserCarList = () => {
 
   const [selectedImages, setSelectedImages] = useState([]);
   const [waitWhileUploading, setWaitWhileUploading] = useState(false);
+  const [waitWhileDeleteing, setWaitWhileDeleteing] = useState(false);
   const [showSelectedImages, setShowSelectedImages] = useState([]);
   const [carCompanyData, setCarCompanyData] = useState([]);
   const [carModelData, setCarModelData] = useState([]);
@@ -108,6 +109,7 @@ const UserCarList = () => {
     );
 
     if (userConfirmation) {
+      setWaitWhileDeleteing(true)
       try {
         const response = await fetch(`${BaseURL}/car/delete/${addDeletingId}`, {
           mode: "cors",
@@ -125,6 +127,7 @@ const UserCarList = () => {
           // Car Delete Success
           toast.success(carDelete.message);
           console.log(carDelete);
+          setWaitWhileDeleteing(false)
           window.location.assign("/UserCarList");
         } else {
           // Car Delete failed
@@ -134,6 +137,7 @@ const UserCarList = () => {
       } catch (error) {
         console.error("Error during Delete:", error);
         toast.error("An error occurred during Delete.");
+        setWaitWhileDeleteing(false)
       }
     }
   };
@@ -257,10 +261,18 @@ const UserCarList = () => {
 
       {/* =========Updating Add Wait Div ========= */}
       <div className={waitWhileUploading?'SellCar-main-wait-while-uploading-di-true':'SellCar-main-wait-while-uploading-di-false'}>
-      {/* <div className='SellCar-main-wait-while-uploading-di-true'> */}
           <h4>Updating...</h4>
       </div>
       {/* ================= */}
+      {/* =========Deleteing Add Wait Div ========= */}
+      <div className={waitWhileDeleteing?'SellCar-main-wait-while-uploading-di-true':'SellCar-main-wait-while-uploading-di-false'}>
+          <h4>Deleting...</h4>
+      </div>
+      {/* ================= */}
+
+
+
+
 
       {/* ======= Delete Add Div ========= */}
       <div
@@ -471,7 +483,7 @@ const UserCarList = () => {
                       onClick={() => UpdateButtonFunction(items.id)}
                       className="User-Adds-List-adds-info-div-sub-Update-button"
                     >
-                      Update
+                      Edit
                     </button>
                   </div>
                 </div>
