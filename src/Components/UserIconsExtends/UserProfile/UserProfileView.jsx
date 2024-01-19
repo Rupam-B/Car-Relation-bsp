@@ -10,6 +10,7 @@ const UserProfileView = () => {
   const Loggedinuser = localStorage.getItem('car-relation-user-name')
   const LoggedinuserAffiliation = localStorage.getItem('car-relation-user-AffId')
   const LoggedinuserName = JSON.stringify(Loggedinuser)
+  const [waitWhileLoggingOut, setWaitWhileLoggingOut] = useState(false)
 
 
     const [passwordChange,setPasswordChnage]=useState(false)
@@ -23,12 +24,18 @@ const UserProfileView = () => {
 
 
   const handleLogOut = ()=>{
+    const userConfirmation = window.confirm(
+      "Are you sure you want to Logout?"
+    );
+    if(userConfirmation){
+      setWaitWhileLoggingOut(true)
     localStorage.removeItem('car-relation-user-token')
     localStorage.removeItem('car-relation-user-AffId')
     localStorage.removeItem('car-relation-user-name')
     UserProfileDispatch(isUserLoggedin(0))
     toast.success("Logged Out Successfully")
     window.location.assign('/')
+    }
 
   }
 
@@ -48,6 +55,11 @@ const UserProfileView = () => {
 
   return (
     <div className='Profile-View-Main-div'>
+      {/* =========Logging Out Add Wait Div ========= */}
+      <div className={waitWhileLoggingOut?'SellCar-main-wait-while-uploading-di-true':'SellCar-main-wait-while-uploading-di-false'}>
+          <h4>Logging Out...</h4>
+      </div>
+      {/* ================= */}
         <div className='Profile-View-Sub-div'>
         <Link to={'/UserDashboard'}><i className="fa-solid fa-arrow-left back-to-user-dashboard"></i></Link>    
             <div className='Profile-View-top-secton'>
