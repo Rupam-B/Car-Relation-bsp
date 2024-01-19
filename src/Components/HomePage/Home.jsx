@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './HomeStyle.css'
 import BaseUrl from '../../apiconfig'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addThisImage } from "../../Reduxs/action";
 import { AddTargetingToDisplay } from '../../Reduxs/action'
@@ -12,6 +12,7 @@ import axios from 'axios'
 
 const Home = () => {
   const HomeDispatch = useDispatch()
+  const homeNavigate = useNavigate()
   const userVerify =localStorage.getItem('car-relation-user-token')
   const [favouriteactive,setFavouriteactive] = useState(false)
   const [favouriteid,setFavouriteId] = useState('')
@@ -73,6 +74,11 @@ const Home = () => {
     setViewToolTip(true)
     setPhonneId(toolid)
   }
+  const handleViewDetailsAction =(id)=>{
+    HomeDispatch(AddTargetingToDisplay(id))
+    homeNavigate('/DisplayCarDetails')
+    
+  }
 
   const HandleEnquiryFunc =(querryData)=>{
     setEnqEnable(true)
@@ -83,6 +89,17 @@ const Home = () => {
     toast.success('Referral service will be available soon')
 
   }
+  // ======Calling and Whatsapp Feature=======
+
+  const initiatePhoneCall = (phoneNumber) => {
+    const telURL = `tel:${phoneNumber}`;
+    window.location.href = telURL;
+  };
+    const openWhatsAppChat = (phoneNumber) => {
+      const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}`;
+      window.open(whatsappURL, '_blank');
+    };
+  // ======Calling and Whatsapp Feature End=======
 
   const carReqData = apiData.data && apiData.data;
 
@@ -183,7 +200,8 @@ const Home = () => {
               </div>
               <div className='car-details-multibtn-div'>
                 <div className='multi-phone-combining-div'>
-                <div className={phoneToolTip&&phoneId===items.id?'phone-tooltip':'phone-tooltip-inactive'}>Call</div>
+                <div onClick={() => initiatePhoneCall('9039065247')}
+                 className={phoneToolTip&&phoneId===items.id?'phone-tooltip':'phone-tooltip-inactive'}>Call</div>
                 <button 
                 onMouseEnter={()=>handlePhoneTooltip(items.id)} 
                 onMouseLeave={()=>setPhonneToolTip(false)} 
@@ -192,22 +210,23 @@ const Home = () => {
                   </button>
                 </div>
                 <div className='multi-whatsapp-combining-div'>
-                <div className={whatsappToolTip&&phoneId===items.id?'phone-tooltip':'phone-tooltip-inactive'}>Whatsapp</div>
+                <div onClick={() => openWhatsAppChat('9039065247')}
+                 className={whatsappToolTip&&phoneId===items.id?'phone-tooltip':'phone-tooltip-inactive'}>Whatsapp</div>
                 <button
                  onMouseEnter={()=>handleWhatsappTooltip(items.id)} 
                  onMouseLeave={()=>setWhatsappToolTip(false)} 
                 className='car-details-multi-btn multi-button-whatsapp'><i style={{fontSize:'1.5rem'}} className="fa-brands fa-whatsapp multi-btn-whatsapp"></i></button>
                 </div>
                 <div className='multi-Enquiry-combining-div'>
-                <div className={enquiryToolTip&&phoneId===items.id?'phone-tooltip':'phone-tooltip-inactive'}>Enquiry</div>
+                <div className={enquiryToolTip&&phoneId===items.id?'enquiry-tooltip':'phone-tooltip-inactive'}>Enquiry</div>
                 <button
                 onMouseEnter={()=>handleEnquiryTooltip(items.id)} 
                 onMouseLeave={()=>setEnquiryToolTip(false)}
-                onClick={()=>HandleEnquiryFunc(items.title)}
+                onClick={()=>HandleEnquiryFunc(items.description)}
                  className='car-details-multi-btn multi-button-enquiry'><i style={{fontSize:'1.5rem'}} className="fa-regular fa-envelope multi-btn-enquiry"></i></button>
                 </div>
                 <div className='multi-Enquiry-combining-div'>
-                <div className={viewToolTip&&phoneId===items.id?'phone-tooltip':'phone-tooltip-inactive'}>View Details</div>
+                <div onClick={()=>handleViewDetailsAction(items.id)} className={viewToolTip&&phoneId===items.id?'enquiry-tooltip':'phone-tooltip-inactive'}>View Details</div>
                 <button
                 onMouseEnter={()=>handleViewTooltip(items.id)} 
                 onMouseLeave={()=>setViewToolTip(false)}

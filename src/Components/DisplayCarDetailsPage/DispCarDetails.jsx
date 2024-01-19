@@ -99,6 +99,17 @@ const DispCarDetails = () => {
 
   // console.log(apiData.data)
 
+// ======Calling and Whatsapp Feature=======
+  const initiatePhoneCall = (phoneNumber) => {
+    const telURL = `tel:${phoneNumber}`;
+    window.location.href = telURL;
+  };
+    const openWhatsAppChat = (phoneNumber) => {
+      const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}`;
+      window.open(whatsappURL, '_blank');
+    };
+  // ======Calling and Whatsapp Feature End=======
+
 
 
   return (
@@ -161,7 +172,8 @@ const DispCarDetails = () => {
         </div>
         <div style={{ marginBottom: '3vh' }} className='car-details-multibtn-div disp-car-extra-class'>
           <div className='multi-phone-combining-div'>
-            <div className={phoneToolTip ? 'phone-tooltip' : 'phone-tooltip-inactive'}>Call</div>
+            <div onClick={() => initiatePhoneCall('9039065247')}
+             className={phoneToolTip ? 'phone-tooltip' : 'phone-tooltip-inactive'}>Call</div>
             <button
               onMouseEnter={() => setPhonneToolTip(true)}
               onMouseLeave={() => setPhonneToolTip(false)}
@@ -170,7 +182,8 @@ const DispCarDetails = () => {
             </button>
           </div>
           <div className='multi-whatsapp-combining-div'>
-            <div className={whatsappToolTip ? 'phone-tooltip' : 'phone-tooltip-inactive'}>Whatsapp</div>
+            <div onClick={() => openWhatsAppChat('9039065247')}
+             className={whatsappToolTip ? 'phone-tooltip' : 'phone-tooltip-inactive'}>Whatsapp</div>
             <button
               onMouseEnter={() => setWhatsappToolTip(true)}
               onMouseLeave={() => setWhatsappToolTip(false)}
