@@ -14,7 +14,9 @@
     width: 100%;
     height: 100%;
     border-radius: 0.2rem;
+    object-fit: contain;
 }
+
 .Display-car-Extended-img-div{
     width: 60vw;
     height: 16vh;
@@ -29,6 +31,10 @@
     height: 15vh;
     border-radius: 0.2rem;
     position: relative;
+    object-fit: cover;
+}
+.Display-car-Extended-img-div img:hover{
+    transform: scale(1.1);
 }
 
 .Car-Details-div{
@@ -134,14 +140,14 @@
 }
 .Car-Features-div{
     width: 60vw;
-    height: 100vh;
+    height: auto;
     background-color: rgb(234, 234, 234,0.8);
     margin-top: 5vh;
     border-radius: 1rem;
     padding-top: 2vh;
 }
 .Car-Details-top-heading{
-    margin: 0 0 0 2vw;
+   margin-bottom: 5vh;
 }
 .Enquiry-Submit-btn{
     margin-top: 5vh;
@@ -182,6 +188,7 @@
         height: auto;
         border-radius: 0.2rem;
         margin-bottom: 5vh;
+        border: none;
     
     }
     .Car-Details-div{
@@ -307,15 +314,31 @@
         width: 17vw;
         height: 8vh;
         border-radius: 0.2rem;
+        border: none;
     
     }
     .Car-Details-div{
         width: 90vw;
-        height: 100vh;
+        height: auto;
         background-color: rgb(236, 236, 236,0.8);
         margin-top: 5vh;
         border-radius: 1rem;
         padding-top: 2vh;
+        padding: 2vh 5vw;
+    }
+    .Car-Details-div p{
+        display: flex;
+        margin: 3vh 0;
+    }
+    .Car-Details-div p span{
+        color: rgb(72, 0, 0,0.8);
+        font-weight: bold;
+        width: 28vw;
+        /* border: 1px solid red; */
+        display: block;
+    }
+    .Car-Details-to4-heading{
+        margin-bottom: 5vh;
     }
 
 
@@ -388,19 +411,21 @@
     }
     .Car-OverView-div{
         width: 90vw;
-        height: 50vh;
+        height: auto;
         background-color: rgb(236, 236, 236,0.8);
         margin-top: 5vh;
         border-radius: 1rem;
         padding-top: 2vh;
+        padding: 2vh 5vw;
     }
     .Car-Features-div{
         width: 90vw;
-        height: 100vh;
+        height: auto;
         background-color: rgb(236, 236, 236,0.8);
         margin-top: 5vh;
         border-radius: 1rem;
         padding-top: 2vh;
+        padding: 2vh 5vw;
     }
     .Enquiry-Submit-btn{
         margin-top: 3vh;   

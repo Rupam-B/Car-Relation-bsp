@@ -25,7 +25,7 @@ export const UserDashboard = () => {
           <p>Profile</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
-            <Link to={'/UserDashboardReferral'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
+            <Link to={'/ServiceNotAvailable'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
             <div >
             {/* <i style={{color:'#44355b'}} className="fa-solid fa-cannabis"></i> */}
             <i style={{color:'white'}} className="fa-solid fa-share"></i>
@@ -34,7 +34,7 @@ export const UserDashboard = () => {
           <p>Referrals</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
-            <Link to={'/UserRewardsScratchCard'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
+            <Link to={'/ServiceNotAvailable'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
             <div>
             <i style={{color:'white'}} className="fa-solid fa-gift"></i>
             </div>
@@ -42,7 +42,7 @@ export const UserDashboard = () => {
           <p>Rewards</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
-            <Link to={'/UserEarnings'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
+            <Link to={'/ServiceNotAvailable'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
             <div >
             {/* <i style={{color:'#4dc47d'}} className="fa-regular fa-money-bill-1"></i> */}
             <i style={{color:'white'}} className="fa-solid fa-indian-rupee-sign"></i>
@@ -70,7 +70,7 @@ export const UserDashboard = () => {
           <p>Uploads</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
-            <Link to={'/UserRoyality'} className='user-options-details-inner-div'>
+            <Link to={'/ServiceNotAvailable'} className='user-options-details-inner-div'>
             <div >
             <i style={{color:'#264f36'}} className="fa-solid fa-crown"></i>
             </div>

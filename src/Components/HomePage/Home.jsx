@@ -79,6 +79,10 @@ const Home = () => {
     setCarQuerry(querryData)
 
   }
+  const HandleShareFunc =()=>{
+    toast.success('Referral service will be available soon')
+
+  }
 
   const carReqData = apiData.data && apiData.data;
 
@@ -157,7 +161,10 @@ const Home = () => {
             <div className="card-body home-card-body">
               <div className='car-home-main-title-div'>
               <h6 className="card-title car-home-main-title">{items.make.length>23?`${items.make.slice(0,23)}...`:items.make}</h6>
-              <i className={userVerify?"fa-solid fa-share-nodes share-icon-active":"fa-solid fa-share-nodes share-icon-inactive"}></i>
+              <i 
+              onClick={HandleShareFunc} 
+              className={userVerify?"fa-solid fa-share-nodes share-icon-active":"fa-solid fa-share-nodes share-icon-inactive"}>
+              </i>
               <i onClick={()=>handleBookmarkActive(items.id)}
                className=
                 {bookmarkactive&&bookmarkid===items.id?"fa-regular fa-bookmark bookmark-icon-active":'fa-regular fa-bookmark bookmark-icon-inactive'}>

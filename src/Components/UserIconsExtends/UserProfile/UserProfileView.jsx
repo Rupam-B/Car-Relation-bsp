@@ -8,6 +8,7 @@ import { isUserLoggedin } from '../../../Reduxs/action'
 const UserProfileView = () => {
 
   const Loggedinuser = localStorage.getItem('car-relation-user-name')
+  const LoggedinuserAffiliation = localStorage.getItem('car-relation-user-AffId')
   const LoggedinuserName = JSON.stringify(Loggedinuser)
 
 
@@ -30,6 +31,21 @@ const UserProfileView = () => {
     window.location.assign('/')
 
   }
+
+
+
+  const handleAdharOption = ()=>{
+    setAdharVerify(false)
+    toast.success('Adhar service will be available soon')
+  }
+  const handlePasswordChangeOption = ()=>{
+    setPasswordChnage(false)
+    toast.success('Password Change service will be available soon')
+  }
+
+
+
+
   return (
     <div className='Profile-View-Main-div'>
         <div className='Profile-View-Sub-div'>
@@ -47,23 +63,23 @@ const UserProfileView = () => {
 
              </div>
              <div className="Profile-User-Details">
-                <p><span>Email </span> siddhisoftwares@gmail.com</p>
-                <p><span>Mobile </span> 9876543210</p>
-                <p><span>Affiliation </span> 876FGY54R</p>
+                <p><span>Email </span> @gmail.com</p>
+                <p><span>Mobile </span> **********</p>
+                <p><span>Affiliation </span>{LoggedinuserAffiliation}</p>
                 <p><span>Level </span> Primary</p>
                 <p><span>Adhar </span> Not Verifed <b onClick={()=>setAdharVerify(true)} className='profile-input-optional'>verify</b></p>
                 <div className={adharVerify?'User-Adhar-input-div-active':'User-Adhar-input-div-inactive'}>
                 <input className='User-Adhar-input' type="text" placeholder='Enter Adhar Number' />
-                <button onClick={()=>setAdharVerify(false)} className='bg-info'>submit</button>
+                <button onClick={handleAdharOption} className='bg-info'>submit</button>
                 </div>
                 <p><span>Password </span> ******** <b onClick={()=>setPasswordChnage(true)} className='profile-input-optional'>Change Password</b></p>
 
                 <div className={passwordChange?'change-user-password-inputs-active':'change-user-password-inputs-inactive'}>
+                    <input type="text" placeholder='Enter old Pasword' />
                     <input type="text" placeholder='Enter New Pasword' />
-                    <input type="text" placeholder='Re-Enter New Pasword' />
                     <br />
-                    <button onClick={()=>setPasswordChnage(false)}>Save</button>
-                    <button onClick={()=>setPasswordChnage(false)}>Don't Save</button>
+                    <button onClick={handlePasswordChangeOption}>Save</button>
+                    <button onClick={handlePasswordChangeOption}>Don't Save</button>
 
                 </div>
                 <div onClick={handleLogOut} className='Profile-user-Logout-div'>

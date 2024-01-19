@@ -3,7 +3,7 @@ import './DispCarStyle.css'
 import { useSelector } from 'react-redux'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Circle } from 'rc-progress';
+// import { Circle } from 'rc-progress';
 import BaseURL from '../../apiconfig';
 import axios from 'axios';
 
@@ -17,11 +17,11 @@ const DispCarDetails = () => {
   const ExtendesAddDispalyId = parseInt(extractExtendesAddDispalyId)
   // console.log(ExtendesAddDispalyId)
 
+  const [dataOfShowingAdd,setDataOfShowingAdd] = useState()
+  // console.log(dataOfShowingAdd, 'Data of showing add')
 
-  const [apiData, setApiData] = useState([]);
-  const dataOfShowingAdd = apiData.data&& apiData.data.find(items=>items.id===ExtendesAddDispalyId)
-  console.log(dataOfShowingAdd, 'Data of showing add')
 
+  const [imageDislayNumber, setImageDisplayNumber] = useState(0);
   const [waitWhileloading, setWaitWhileloading] = useState(true);
   const [phoneToolTip, setPhonneToolTip] = useState(false)
   const [whatsappToolTip, setWhatsappToolTip] = useState(false)
@@ -45,12 +45,34 @@ const DispCarDetails = () => {
     }
   };
 
-  // ======Fetch All Adds Data ========
+
+  const handleSetImage1 =  ()=>{
+    if(dataOfShowingAdd&&dataOfShowingAdd.image[1]){
+      setImageDisplayNumber(1)
+    }
+  }
+  const handleSetImage2 =  ()=>{
+    if(dataOfShowingAdd&&dataOfShowingAdd.image[2]){
+      setImageDisplayNumber(2)
+    }
+  }
+  const handleSetImage3 =  ()=>{
+    if(dataOfShowingAdd&&dataOfShowingAdd.image[3]){
+      setImageDisplayNumber(3)
+    }
+  }
+  const handleSetImage4 =  ()=>{
+    if(dataOfShowingAdd&&dataOfShowingAdd.image[4]){
+      setImageDisplayNumber(4)
+    }
+  }
+
+  // ======Fetch Extended Adds Data ========
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${BaseURL}/cars`, {
+        const response = await axios.get(`${BaseURL}/car/${ExtendesAddDispalyId}`, {
           method:'GET',
           headers: {
             Accept: 'application/json',
@@ -58,9 +80,9 @@ const DispCarDetails = () => {
         });
   
         if (response.status >= 200 && response.status < 300) {
-          const data = response.data;
-          if(data){
-            setApiData(data)
+          const targetCardata = response.data;
+          if(targetCardata){
+            setDataOfShowingAdd(targetCardata.data)
             setWaitWhileloading(false)
           }
         } else {
@@ -73,7 +95,7 @@ const DispCarDetails = () => {
     };
   
     fetchData();
-  }, []);
+  }, [ExtendesAddDispalyId]);
 
   // console.log(apiData.data)
 
@@ -91,8 +113,10 @@ const DispCarDetails = () => {
       {/* ================= */}
       <div className='DisplayCar-Sub-div'>
         <div className='Display-car-main-img-div'>
-          <img src={dataOfShowingAdd&&dataOfShowingAdd.image[0]} alt="" />
+          <img src={dataOfShowingAdd&&dataOfShowingAdd.image[imageDislayNumber]} alt="" />
         </div>
+
+        {/* ====== Enquiry Form ========= */}
         <div className={enqEnable ? 'Enquiry-form active' : 'Enquiry-form-inactive'}>
           <div className='Enquiry-form-sub-div'>
             <h3>Enquiry</h3>
@@ -118,13 +142,22 @@ const DispCarDetails = () => {
             </form>
           </div>
         </div>
-        <div className='Display-car-Extended-img-div'>
-        {dataOfShowingAdd && dataOfShowingAdd.image.map((items, index) => (
-          <React.Fragment key={index}>
-            <img src={items} alt="" />
-          </React.Fragment>
-        ))}
+        {/* ============ */}
 
+        
+        <div className='Display-car-Extended-img-div'>
+          {dataOfShowingAdd?<>
+            <img onClick={()=>setImageDisplayNumber(0)}
+             src={dataOfShowingAdd.image[0]&&dataOfShowingAdd.image[0]} alt="" />
+            <img onClick={handleSetImage1}
+             src={dataOfShowingAdd.image[1]&&dataOfShowingAdd.image[1]} alt="" />
+            <img onClick={handleSetImage2}
+             src={dataOfShowingAdd.image[2]&&dataOfShowingAdd.image[2]} alt="" />
+            <img onClick={handleSetImage3}
+             src={dataOfShowingAdd.image[3]&&dataOfShowingAdd.image[3]} alt="" />
+            <img onClick={handleSetImage4}
+             src={dataOfShowingAdd.image[4]&&dataOfShowingAdd.image[4]} alt="" />
+             </>:''}
         </div>
         <div style={{ marginBottom: '3vh' }} className='car-details-multibtn-div disp-car-extra-class'>
           <div className='multi-phone-combining-div'>
@@ -154,8 +187,7 @@ const DispCarDetails = () => {
         </div>
 
         {/* ----------------------Disp-Condition-div----------------- */}
-        <div className='Disp-car-condition-div border'>
-          {/* <div className="row"> */}
+        {/* <div className='Disp-car-condition-div border'>
           <div className=" text-center circular-progress-main-div border mx-3" style={{boxShadow:'inset 1px 1px 5px 0 #aea400',borderRadius:'5px'}}>
             <div className='circular-progress-upper-div'>
               <div className='circular-circle-div'>
@@ -235,22 +267,38 @@ const DispCarDetails = () => {
             <div className="knob-label">
               <p><b>AC</b></p>
             </div>
-            {/* </div> */}
           </div>
-        </div>
+        </div> */}
       </div>
       {/* ----------------------********----------------- */}
 
       <div className='Car-Details-div'>
         <h4 className='Car-Details-to4-heading'>Details</h4>
 
+        {dataOfShowingAdd?(
+          <>
+          <p><span>Make: </span>{dataOfShowingAdd.make}</p>
+          <p><span>Model: </span>{dataOfShowingAdd.model}</p>
+          <p><span>Mfg Year: </span>{dataOfShowingAdd.mfg_year}</p>
+          <p><span>Kilometers: </span>{dataOfShowingAdd.km_driven}</p>
+          <p><span>Owner sr: </span>{dataOfShowingAdd.owners}</p>
+          <p><span>Price: </span>{dataOfShowingAdd.sale_value}</p>
+          <p><span>Description: </span>{dataOfShowingAdd.description}</p>
+          </>
+
+        ):
+            <h6>Loading</h6>
+        }
+
       </div>
       <div className='Car-OverView-div'>
         <h4 className='Car-Details-top-heading'>OverView</h4>
+        <p>Good</p>
 
       </div>
       <div className='Car-Features-div'>
         <h4 className='Car-Details-top-heading'>Features</h4>
+        <p>Automatic</p>
 
       </div>
       {/* <div className='Car-EnquiryForm-div'>
