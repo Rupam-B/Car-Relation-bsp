@@ -1,22 +1,34 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './DispCarStyle.css'
 import { useSelector } from 'react-redux'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Circle } from 'rc-progress';
+import BaseURL from '../../apiconfig';
+import axios from 'axios';
 
 
 const DispCarDetails = () => {
+  const gwtExtendesAddDispalyId = useSelector((state) => state.TargetingWhichAddToDisplay)
+  if(gwtExtendesAddDispalyId){
+  localStorage.setItem('car-relation-Add-showing-Id', JSON.stringify(gwtExtendesAddDispalyId))
+  }
+  const extractExtendesAddDispalyId = localStorage.getItem('car-relation-Add-showing-Id')
+  const ExtendesAddDispalyId = parseInt(extractExtendesAddDispalyId)
+  // console.log(ExtendesAddDispalyId)
 
-  const imageDispaly = useSelector((state) => state.imageAdder)
 
+  const [apiData, setApiData] = useState([]);
+  const dataOfShowingAdd = apiData.data&& apiData.data.find(items=>items.id===ExtendesAddDispalyId)
+  console.log(dataOfShowingAdd, 'Data of showing add')
+
+  const [waitWhileloading, setWaitWhileloading] = useState(true);
   const [phoneToolTip, setPhonneToolTip] = useState(false)
   const [whatsappToolTip, setWhatsappToolTip] = useState(false)
   const [enquiryToolTip, setEnquiryToolTip] = useState(false)
-
   const [enqEnable, setEnqEnable] = useState(false)
-
   const [termsChecked, setTermsChecked] = useState(false);
+  
 
   const handleCheckboxChange = () => {
     setTermsChecked(!termsChecked);
@@ -33,13 +45,53 @@ const DispCarDetails = () => {
     }
   };
 
+  // ======Fetch All Adds Data ========
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${BaseURL}/cars`, {
+          method:'GET',
+          headers: {
+            Accept: 'application/json',
+          },
+        });
+  
+        if (response.status >= 200 && response.status < 300) {
+          const data = response.data;
+          if(data){
+            setApiData(data)
+            setWaitWhileloading(false)
+          }
+        } else {
+          throw new Error('Network response was not ok');
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setWaitWhileloading(false)
+      }
+    };
+  
+    fetchData();
+  }, []);
+
+  // console.log(apiData.data)
+
 
 
   return (
     <div className='DisplayCar-Main-div'>
+
+
+       {/* =========Uploading Add Wait Div ========= */}
+       <div className={waitWhileloading?'SellCar-main-wait-while-uploading-di-true':'SellCar-main-wait-while-uploading-di-false'}>
+      {/* <div className='SellCar-main-wait-while-uploading-di-true'> */}
+          <h4>Loading...</h4>
+      </div>
+      {/* ================= */}
       <div className='DisplayCar-Sub-div'>
         <div className='Display-car-main-img-div'>
-          <img src={imageDispaly.src} alt="" />
+          <img src={dataOfShowingAdd&&dataOfShowingAdd.image[0]} alt="" />
         </div>
         <div className={enqEnable ? 'Enquiry-form active' : 'Enquiry-form-inactive'}>
           <div className='Enquiry-form-sub-div'>
@@ -51,7 +103,7 @@ const DispCarDetails = () => {
               <label htmlFor="User-Mobile">Mobile no.</label>
               <input type="text" id="User-Mobile" name="Kilo-meters" />
               <label htmlFor="User-Querry">Querry</label>
-              <input type="text" defaultValue={imageDispaly.title} id="User-Querry" />
+              <input type="text" defaultValue={dataOfShowingAdd&&dataOfShowingAdd.description} id="User-Querry" />
               <button onClick={handleSubmit} className='btn enquiry-form-submit-btn'>Submit</button>
               <div className='captcha-div'>
                 <input
@@ -67,11 +119,11 @@ const DispCarDetails = () => {
           </div>
         </div>
         <div className='Display-car-Extended-img-div'>
-          <img src={imageDispaly.src} alt="" />
-          <img src={imageDispaly.src} alt="" />
-          <img src={imageDispaly.src} alt="" />
-          <img src={imageDispaly.src} alt="" />
-          <img src={imageDispaly.src} alt="" />
+        {dataOfShowingAdd && dataOfShowingAdd.image.map((items, index) => (
+          <React.Fragment key={index}>
+            <img src={items} alt="" />
+          </React.Fragment>
+        ))}
 
         </div>
         <div style={{ marginBottom: '3vh' }} className='car-details-multibtn-div disp-car-extra-class'>

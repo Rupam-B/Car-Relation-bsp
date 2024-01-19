@@ -4,6 +4,7 @@ import BaseUrl from '../../apiconfig'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addThisImage } from "../../Reduxs/action";
+import { AddTargetingToDisplay } from '../../Reduxs/action'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios'
@@ -11,8 +12,7 @@ import axios from 'axios'
 
 const Home = () => {
   const HomeDispatch = useDispatch()
-  const userVer =localStorage.getItem('car-relation-user-token')
-  const userVerify =JSON.stringify(userVer)
+  const userVerify =localStorage.getItem('car-relation-user-token')
   const [favouriteactive,setFavouriteactive] = useState(false)
   const [favouriteid,setFavouriteId] = useState('')
   const [bookmarkactive,setBookmarkactive] = useState(false)
@@ -28,16 +28,17 @@ const Home = () => {
 
   // Api Data
   const [apiData,setApiData] = useState([])
-
   const [enqEnable,setEnqEnable] = useState(false)
-  
-  
   const [termsChecked, setTermsChecked] = useState(false);
+
+  const handleNavigateToExtendSelectedAdd =(id, image, make)=>{
+    HomeDispatch(addThisImage(image, make))
+    HomeDispatch(AddTargetingToDisplay(id))
+  }
 
   const handleCheckboxChange = () => {
     setTermsChecked(!termsChecked);
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -48,10 +49,6 @@ const Home = () => {
       toast.error("Verification Required")
     }
   };
-  // console.log(BaseUrl)
-
-
-
   const handleFavouriteActive =(favid)=>{
     setFavouriteactive(!favouriteactive)
     setFavouriteId(favid)
@@ -154,7 +151,7 @@ const Home = () => {
           carReqData.map((items)=>(
           <div key={items.id} className="card card-width-18">
             <div className='Home-middle-content-image-div'>
-            <Link  onClick={()=>HomeDispatch(addThisImage(items.image,items.make))} to={'/DisplayCarDetails'}><img src={items.image} className="card-img-top" alt="No Images Available"/></Link>
+            <Link  onClick={()=>handleNavigateToExtendSelectedAdd(items.id,items.image,items.make)} to={'/DisplayCarDetails'}><img src={items.image[0]} className="card-img-top" alt="No Images Available"/></Link>
             </div>
            
             <div className="card-body home-card-body">

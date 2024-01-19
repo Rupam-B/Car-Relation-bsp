@@ -22,3 +22,9 @@ export const isUserLoggedin = (bool)=>{
         payload:bool
     }
 }
+export const AddTargetingToDisplay = (addId)=>{
+    return{
+        type:'DETECT-ADD-ID',
+        payload:addId
+    }
+}

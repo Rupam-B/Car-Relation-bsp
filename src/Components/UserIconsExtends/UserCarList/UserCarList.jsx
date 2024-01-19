@@ -15,6 +15,8 @@ const UserCarList = () => {
   const [deletingAdd, setDeletingAdd] = useState(false);
 
   const [selectedImages, setSelectedImages] = useState([]);
+  const [waitWhileUploading, setWaitWhileUploading] = useState(false);
+  const [showSelectedImages, setShowSelectedImages] = useState([]);
   const [carCompanyData, setCarCompanyData] = useState([]);
   const [carModelData, setCarModelData] = useState([]);
 
@@ -48,34 +50,32 @@ const UserCarList = () => {
 
   //   ====== Update Add =============
   const UpdateAdd = async () => {
-    if (
-      kmDriven &&
-      description &&
-      saleValue &&
-      createdBy !== "" &&
-      selectedImages.length > 0
-    ) {
+    if (kmDriven &&description &&saleValue &&createdBy !== "" &&selectedImages.length > 0) {
+      setWaitWhileUploading(true)
+      console.log(waitWhileUploading)
       try {
+        const formData = new FormData();
+        formData.append("make", carCompanySelectData);
+        formData.append("model", carModelSelectData);
+        formData.append("mfg_year", mfgYear);
+        formData.append("km_driven", kmDriven);
+        formData.append("description", description);
+        formData.append("owner", ownerSerial);
+        formData.append("sale_value", saleValue);
+        formData.append("insurance", Insurance);
+        formData.append("created_by", createdBy);
+        //it is Appending each image to the form data
+        for(let i =0; i<selectedImages.length;i++){
+          formData.append(`pic[${i}]` ,selectedImages[i])
+        }
         const response = await fetch(`${BaseURL}/car/update/${updatingId}`, {
           mode: "cors",
           method: "POST",
           headers: {
             Accept: "application/json",
             Authorization: `Bearer ${userToken}`,
-            "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            make: carCompanySelectData,
-            model: carModelSelectData,
-            mfg_year: mfgYear,
-            km_driven: kmDriven,
-            description: description,
-            owner: ownerSerial,
-            sale_value: saleValue,
-            insurance: Insurance,
-            created_by: createdBy,
-            pic: selectedImages[0],
-          }),
+          body: formData,
         });
 
         const carUpdate = await response.json();
@@ -85,10 +85,12 @@ const UserCarList = () => {
           toast.success(carUpdate.message);
           console.log(carUpdate);
           setUpdatingAdd(false);
+          window.location.assign('/UserCarList')
         } else {
           // car Upload failed
           toast.error(carUpdate.message);
           console.log(carUpdate);
+          setWaitWhileUploading(false)
         }
       } catch (error) {
         console.error("Error during Upload:", error);
@@ -142,12 +144,21 @@ const UserCarList = () => {
   // ======For Uploading Images======
   const handleFileChange = (event) => {
     const files = event.target.files;
-    const selectedImagesArray = [];
-    for (let i = 0; i < files.length; i++) {
-      const imageUrl = URL.createObjectURL(files[i]);
-      selectedImagesArray.push(imageUrl);
+    
+    if (files.length > 5) {
+      // Display an error message or take any other action
+      alert("You can only upload up to 5 images.");
+      return;
+    } else {
+      setSelectedImages(files);
+  
+      const showSelectedImagesArray = [];
+      for (let i = 0; i < files.length; i++) {
+        const imageUrl = URL.createObjectURL(files[i]);
+        showSelectedImagesArray.push(imageUrl);
+      }
+      setShowSelectedImages(showSelectedImagesArray);
     }
-    setSelectedImages(selectedImagesArray);
   };
   // ==============
 
@@ -243,6 +254,15 @@ const UserCarList = () => {
 
   return (
     <div className="User-Affliation-main-div">
+
+      {/* =========Updating Add Wait Div ========= */}
+      <div className={waitWhileUploading?'SellCar-main-wait-while-uploading-di-true':'SellCar-main-wait-while-uploading-di-false'}>
+      {/* <div className='SellCar-main-wait-while-uploading-di-true'> */}
+          <h4>Updating...</h4>
+      </div>
+      {/* ================= */}
+
+      {/* ======= Delete Add Div ========= */}
       <div
         className={
           deletingAdd
@@ -266,6 +286,10 @@ const UserCarList = () => {
         </div>
       </div>
       {/* ======== */}
+
+
+
+      {/* ======= Update Add Div ========= */}
       <div
         className={
           updatingAdd
@@ -283,9 +307,11 @@ const UserCarList = () => {
               onClick={handleClickOnImagediv}
               className="show-uploaded-image"
             >
-              {selectedImages.length > 0 ? (
-                selectedImages.map((imageUrl, index) => (
-                  <img key={index} src={imageUrl} alt={`uploaded-${index}`} />
+              {showSelectedImages.length > 0 ? (
+                showSelectedImages.map((imageUrl, index) => (
+                  <React.Fragment key={index}>
+                  <img  src={imageUrl} alt={`uploaded-${index}`} />
+                  </React.Fragment>
                 ))
               ) : (
                 <h3 className="substitute-image-text">Add Images here</h3>
@@ -400,6 +426,9 @@ const UserCarList = () => {
       </div>
       {/* ========== */}
 
+
+
+        
       <div className="User-Affliation-sub-div">
         <Link to={"/UserDashboard"}>
           <i className="fa-solid fa-arrow-left back-to-user-dashboard"></i>
@@ -412,7 +441,7 @@ const UserCarList = () => {
           {userStoredAdds.length > 0 ? (
             userStoredAdds.map((items) => (
               <div key={items.id} className="User-Adds-List-add-showing-div">
-                <img src={items.image} alt="" />
+                <img src={items.image[0]} alt="" />
                 <div className="User-Adds-List-adds-info-div">
                   <h6>
                     {items.description.length > 15

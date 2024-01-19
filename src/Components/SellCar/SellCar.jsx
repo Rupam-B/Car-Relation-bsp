@@ -1,3 +1,6 @@
+
+
+
 import React, { useEffect, useRef, useState } from 'react'
 import './sellcarStyle.css'
 // import { Link } from 'react-router-dom'
@@ -13,7 +16,10 @@ const SellCar = () => {
 
   const userToken = localStorage.getItem('car-relation-user-token')
   const [selectedImages, setSelectedImages] = useState([]);
-  console.log(selectedImages, 'Images Details')
+  const [showSelectedImages, setShowSelectedImages] = useState([]);
+  const [waitWhileUploading, setWaitWhileUploading] = useState(false);
+  // console.log(selectedImages, 'Images Details')
+  // console.log(showSelectedImages, 'Mapped Images Details')
   const [carCompanyData, setCarCompanyData] = useState([]);
   const [carModelData, setCarModelData] = useState([]);
 
@@ -54,40 +60,55 @@ const SellCar = () => {
 
   const handleFileChange = (event) => {
     const files = event.target.files;
-    const selectedImagesArray = [];
-    for (let i = 0; i < files.length; i++) {
-      const imageUrl = URL.createObjectURL(files[i]);
-      selectedImagesArray.push(imageUrl);
+    
+    if (files.length > 5) {
+      // Display an error message or take any other action
+      alert("You can only upload up to 5 images.");
+      return;
+    } else {
+      setSelectedImages(files);
+  
+      const showSelectedImagesArray = [];
+      for (let i = 0; i < files.length; i++) {
+        const imageUrl = URL.createObjectURL(files[i]);
+        showSelectedImagesArray.push(imageUrl);
+      }
+      setShowSelectedImages(showSelectedImagesArray);
     }
-    setSelectedImages(selectedImagesArray);
   };
+  
+  
   // ==============
 
 
 
   // ====== For Posting Add =============
+
   const UploadApp = async () => {
-    if (kmDriven&&description&&saleValue&&createdBy !== "" &&selectedImages.length>0) {
+    if (kmDriven && description && saleValue && createdBy !== "" && selectedImages.length > 0) {
+      setWaitWhileUploading(true)
       try {
+        const formData = new FormData();
+        formData.append("make", carCompanySelectData);
+        formData.append("model", carModelSelectData);
+        formData.append("mfg_year", mfgYear);
+        formData.append("km_driven", kmDriven);
+        formData.append("description", description);
+        formData.append("owner", ownerSerial);
+        formData.append("sale_value", saleValue);
+        formData.append("insurance", Insurance);
+        formData.append("created_by", createdBy);
+        //it is Appending each image to the form data
+        for(let i =0; i<selectedImages.length;i++){
+          formData.append(`pic[${i}]` ,selectedImages[i])
+        }
+  
         const response = await fetch(`${BaseUrl}/car/create`, {
           method: "POST",
           headers: {
-            Accept: 'application/json',
-            Authorization:`Bearer ${userToken}`,
-            'Content-Type': "application/json",
+            Authorization: `Bearer ${userToken}`,
           },
-          body: JSON.stringify({
-            make: carCompanySelectData,
-            model: carModelSelectData,
-            mfg_year: mfgYear,
-            km_driven: kmDriven,
-            description: description,
-            owner: ownerSerial,
-            sale_value: saleValue,
-            insurance: Insurance,
-            created_by: createdBy,
-            pic:selectedImages
-          })
+          body: formData,
         });
   
         const carCreate = await response.json();
@@ -95,25 +116,24 @@ const SellCar = () => {
         if (response.ok) {
           // Car Upload Success
           toast.success(carCreate.message);
-          console.log(carCreate)
-          SellNavigate('/')
+          console.log(carCreate);
           
+          SellNavigate('/');
         } else {
           // car Upload failed
           toast.error(carCreate.message);
           console.log(carCreate);
         }
-  
       } catch (error) {
+        setWaitWhileUploading(false)
         console.error("Error during Upload:", error);
         toast.error("An error occurred during Upload.");
       }
-    }
-    else{
+    } else {
       toast.error("Please Fill All The Details");
     }
-    
-  }
+  };
+  
 
 // ==================
 
@@ -190,6 +210,15 @@ const SellCar = () => {
   // console.log(carCompanySelectData)
   return (
     <div className='SellCar-main-div'>
+      
+      {/* =========Uploading Add Wait Div ========= */}
+      <div className={waitWhileUploading?'SellCar-main-wait-while-uploading-di-true':'SellCar-main-wait-while-uploading-di-false'}>
+      {/* <div className='SellCar-main-wait-while-uploading-di-true'> */}
+          <h4>Uploading...</h4>
+      </div>
+      {/* ================= */}
+
+
       <div className='SellCar-sub-div'>
         <div className='SellCar-top-heading'>
           <h1>Enter Car Details</h1>
@@ -198,9 +227,11 @@ const SellCar = () => {
         <div className='Sell-car-main-content'>
           <div className='Sell-car-image-upload'>
             <div onClick={handleClickOnImagediv} className='show-uploaded-image'>
-              {selectedImages.length > 0 ? selectedImages.map((imageUrl, index) => (
-                <img key={index} src={imageUrl} alt={`uploaded-${index}`} />
-              )) : <h3 className='substitute-image-text'>Add Images here</h3>}
+            {showSelectedImages && showSelectedImages.length > 0 ? showSelectedImages.map((imageUrl, index) => (
+            <img key={index} src={imageUrl} alt={`uploaded-${index}`} />
+            )) : <h3 className='substitute-image-text'>Add Images here</h3>}
+
+              {/* <h3 className='substitute-image-text'>Add Images here</h3> */}
             </div>
             <input type="file" placeholder='image' multiple onChange={handleFileChange} ref={inputRef} />
           </div>
