@@ -26,6 +26,7 @@ const DispCarDetails = () => {
   // console.log(dataOfShowingAdd, 'Data of showing add')
 
   const [sharetooltipVisible, setShareTooltipVisible] = useState(false);
+  const [isShareIdCopied, setIsShareIdCopied] = useState(false);
   const [imageDislayNumber, setImageDisplayNumber] = useState(0);
   const [waitWhileloading, setWaitWhileloading] = useState(true);
   const [phoneToolTip, setPhonneToolTip] = useState(false)
@@ -74,6 +75,13 @@ const DispCarDetails = () => {
 
   const HandleShareFunc =()=>{
     setShareTooltipVisible(true)
+    setTimeout(() => {
+      setShareTooltipVisible(false)
+      setIsShareIdCopied(false)
+      
+    }, 2000);
+
+
   }
 
   const handleCopyToClipboard = () => {
@@ -81,11 +89,10 @@ const DispCarDetails = () => {
     navigator.clipboard.writeText(dynamicLink).then(
       ()=>{
         console.log('copied')
-        setShareTooltipVisible(false)
+        setIsShareIdCopied(true)
       },
       (err)=>{
         console.log(err)
-        setShareTooltipVisible(false)
       }
     );
     
@@ -188,7 +195,7 @@ const DispCarDetails = () => {
               <div onClick={handleCopyToClipboard}
                  className={sharetooltipVisible?'share-tooltip':'phone-tooltip-inactive'}>
                   <i className="fa-solid fa-link"></i>
-                  {sharetooltipVisible?' Copy Link':' Copied'}
+                  {isShareIdCopied?' Copied':' Copy Link'}
                  </div>
                 <i
                   onClick={HandleShareFunc}

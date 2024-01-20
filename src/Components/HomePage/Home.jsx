@@ -19,6 +19,7 @@ const Home = () => {
   // console.log(userAffiliationNo)
 
   const [sharetooltipVisible, setShareTooltipVisible] = useState(false);
+  const [isShareIdCopied, setIsShareIdCopied] = useState(false);
   const [favouriteactive,setFavouriteactive] = useState(false)
   const [favouriteid,setFavouriteId] = useState('')
   const [bookmarkactive,setBookmarkactive] = useState(false)
@@ -89,12 +90,19 @@ const Home = () => {
     setCarQuerry(querryData)
     setEnqEnable(true)
 
+   
   }
 
 
   const HandleShareFunc =(id)=>{
     setShareTooltipVisible(true)
     setPhonneId(id)
+    setTimeout(() => {
+      setShareTooltipVisible(false)
+      setIsShareIdCopied(false)
+      
+    }, 2000);
+
 
   }
 
@@ -103,11 +111,12 @@ const Home = () => {
     navigator.clipboard.writeText(dynamicLink).then(
       ()=>{
         console.log('copied')
-        setShareTooltipVisible(false)
+        // setShareTooltipVisible(false)
+        setIsShareIdCopied(true)
       },
       (err)=>{
         console.log(err)
-        setShareTooltipVisible(false)
+        // setShareTooltipVisible(false)
       }
     );
     
@@ -212,7 +221,7 @@ const Home = () => {
               <div onClick={() => handleCopyToClipboard(items.id)}
                  className={sharetooltipVisible&&phoneId===items.id?'share-tooltip':'phone-tooltip-inactive'}>
                   <i className="fa-solid fa-link"></i>
-                  {sharetooltipVisible?' Copy Link':' Copied'}
+                  {isShareIdCopied?' Copied':' Copy Link'}
                  </div>
                 <i
                   onClick={() =>HandleShareFunc(items.id)}
