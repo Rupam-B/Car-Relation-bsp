@@ -89,6 +89,10 @@ const Home = () => {
   const HandleEnquiryFunc =(querryData)=>{
     setCarQuerry(querryData)
     setEnqEnable(true)
+    setTimeout(() => {
+      setEnquiryToolTip(false)
+      
+    }, 2000);
 
    
   }
@@ -129,15 +133,19 @@ const Home = () => {
   const initiatePhoneCall = (phoneNumber) => {
     const telURL = `tel:${phoneNumber}`;
     window.location.href = telURL;
+    setTimeout(() => {
+      setPhonneToolTip(false)
+      
+    }, 2000);
   };
     const openWhatsAppChat = (phoneNumber) => {
       const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}`;
       window.open(whatsappURL, '_blank');
+      setTimeout(() => {
+        setWhatsappToolTip(false)
+        
+      }, 2000);
     };
-
-    // const openEnquiryForm = () => {
-    //   setEnqEnable(true)
-    // };
   // ======Calling and Whatsapp EnquiryForm Feature End=======
 
   const carReqData = apiData.data && apiData.data;
@@ -221,7 +229,7 @@ const Home = () => {
               <div onClick={() => handleCopyToClipboard(items.id)}
                  className={sharetooltipVisible&&phoneId===items.id?'share-tooltip':'phone-tooltip-inactive'}>
                   <i className="fa-solid fa-link"></i>
-                  {isShareIdCopied?' Copied':' Copy Link'}
+                  {isShareIdCopied?' Copied':' Copy Affiliation Link'}
                  </div>
                 <i
                   onClick={() =>HandleShareFunc(items.id)}
@@ -247,23 +255,25 @@ const Home = () => {
               </div>
               <div className='car-details-multibtn-div'>
                 <div className='multi-phone-combining-div'>
-                <div onClick={() => initiatePhoneCall('9039065247')}
+                <div 
                  className={phoneToolTip&&phoneId===items.id?'phone-tooltip':'phone-tooltip-inactive'}>Call
                  </div>
                 <button 
                 onMouseEnter={()=>handlePhoneTooltip(items.id)} 
                 onMouseLeave={()=>setPhonneToolTip(false)} 
+                onClick={() => initiatePhoneCall('9039065247')}
                 className='car-details-multi-btn multi-button-phone'>
                   <i
                    style={{fontSize:'1.4rem'}} className="fa-solid fa-phone multi-btn-phone"></i>
                   </button>
                 </div>
                 <div className='multi-whatsapp-combining-div'>
-                <div onClick={() => openWhatsAppChat('9039065247')}
+                <div 
                  className={whatsappToolTip&&phoneId===items.id?'phone-tooltip':'phone-tooltip-inactive'}>Whatsapp</div>
                 <button
                  onMouseEnter={()=>handleWhatsappTooltip(items.id)} 
                  onMouseLeave={()=>setWhatsappToolTip(false)} 
+                 onClick={() => openWhatsAppChat('9039065247')}
                 className='car-details-multi-btn multi-button-whatsapp'><i style={{fontSize:'1.5rem'}} className="fa-brands fa-whatsapp multi-btn-whatsapp"></i></button>
                 </div>
                 <div className='multi-Enquiry-combining-div'>
@@ -275,10 +285,11 @@ const Home = () => {
                  className='car-details-multi-btn multi-button-enquiry'><i style={{fontSize:'1.5rem'}} className="fa-regular fa-envelope multi-btn-enquiry"></i></button>
                 </div>
                 <div className='multi-Enquiry-combining-div'>
-                <div onClick={()=>handleViewDetailsAction(items.id)} className={viewToolTip&&phoneId===items.id?'enquiry-tooltip':'phone-tooltip-inactive'}>View Details</div>
+                <div  className={viewToolTip&&phoneId===items.id?'enquiry-tooltip':'phone-tooltip-inactive'}>View Details</div>
                 <button
                 onMouseEnter={()=>handleViewTooltip(items.id)} 
                 onMouseLeave={()=>setViewToolTip(false)}
+                onClick={()=>handleViewDetailsAction(items.id)}
                  className='car-details-multi-btn multi-button-enquiry'><i style={{fontSize:'1.45rem'}} className="fa-solid fa-eye multi-btn-View"></i></button>
                 </div>
               </div>

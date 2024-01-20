@@ -25,6 +25,7 @@ const SellCar = () => {
 
 
 
+  const [proceedToConfirmaion, setProceedToConfirmation] = useState(false);
   const [carCompanySelectData, setCarCompanySelectData] = useState(2);
   const [carModelSelectData, setCarModelSelectData] = useState(2);
 
@@ -54,6 +55,19 @@ const SellCar = () => {
   const handleClickOnImagediv = () => {
     inputRef.current.click()
   }
+
+  const handleProceedToSell = () => {
+    if (kmDriven && description && saleValue && createdBy !== "" && selectedImages.length > 0) {
+    setProceedToConfirmation(true);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth', 
+    });
+  }
+  else {
+    toast.error("Please Fill All The Details");
+  }
+}
 
 
   // ======For Uploading Images======
@@ -219,9 +233,73 @@ const SellCar = () => {
       {/* ================= */}
 
 
+      {/* =========Show Upload Data  ======= */}
+      <div className={proceedToConfirmaion?'SellCar-Show-data-to-Upload':'SellCar-Show-data-to-Upload-False'}>
       <div className='SellCar-sub-div'>
         <div className='SellCar-top-heading'>
-          <h1>Enter Car Details</h1>
+          <h1>Upload Confirmation</h1>
+        </div>
+
+        <div className='Sell-car-main-content'>
+          <div className='Sell-car-image-upload'>
+            <div onClick={handleClickOnImagediv} className='show-uploaded-image'>
+            {showSelectedImages && showSelectedImages.length > 0 ? showSelectedImages.map((imageUrl, index) => (
+            <img key={index} src={imageUrl} alt={`uploaded-${index}`} />
+            )) : <h3 className='substitute-image-text'>Images</h3>}
+
+              {/* <h3 className='substitute-image-text'>Add Images here</h3> */}
+            </div>
+          </div>
+          <div className='Sell-car-details-fill'>
+            <div className='Sell-car-details-fill-main-div'>
+              <h6>Company</h6>
+              <p>{carCompanySelectData===2?"Nissan":"Tata"}</p>
+
+              <h6>Car Model</h6>
+              <p>{carModelSelectData===2?"Nissan AZ":"Nissan MZ"}</p>
+
+
+              <h6>Mfg Year</h6>
+              <p>{mfgYear}</p>
+
+              <h6>KM Driven</h6>
+              <p>{kmDriven}</p>
+
+              <div className='description-text-area-div'>
+              <h6>Description</h6>
+              <p>{description}</p>
+              </div>
+
+
+              <h6>Owner Serial</h6>
+              <p>{ownerSerial}</p>
+
+              <h6>Sale Value INR</h6>
+              <p>{saleValue}</p>
+
+              <h6>Insurance</h6>
+              <p>{Insurance===1?"Yes":"No"}</p>
+
+              <h6>Created By</h6>
+              <p>{createdBy}</p>
+            </div>
+            <div className='Upload-btn'>
+              {/* <button onClick={UploadApp} className='Add-Upload-button'>Confirm</button> */}
+              <button onClick={UploadApp} className='Add-Upload-button Add-Upload-button-confirm'>Confirm</button>
+              <button onClick={()=>setProceedToConfirmation(false)} className='Add-Upload-button Add-Upload-button-Edit'>Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      </div>
+
+
+      <div className='SellCar-sub-div'>
+        <div className='SellCar-top-heading'>
+          <h1>Upload Your Car Details</h1>
         </div>
 
         <div className='Sell-car-main-content'>
@@ -295,7 +373,8 @@ const SellCar = () => {
               <input onChange={(e)=>setCreatedBy(e.target.value)} type="text" id="Kilo-meters" name="CreatedBy" />
             </div>
             <div className='Upload-btn'>
-              <button onClick={UploadApp} className='Add-Upload-button'>Proceed To Sell</button>
+              {/* <button onClick={UploadApp} className='Add-Upload-button'>Proceed To Sell</button> */}
+              <button onClick={handleProceedToSell} className='Add-Upload-button'>Proceed To Sell</button>
             </div>
           </div>
         </div>

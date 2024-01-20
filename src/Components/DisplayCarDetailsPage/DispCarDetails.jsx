@@ -134,14 +134,27 @@ const DispCarDetails = () => {
   const initiatePhoneCall = (phoneNumber) => {
     const telURL = `tel:${phoneNumber}`;
     window.location.href = telURL;
+    setTimeout(() => {
+      setPhonneToolTip(false)
+      
+    }, 2000);
   };
     const openWhatsAppChat = (phoneNumber) => {
       const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}`;
       window.open(whatsappURL, '_blank');
+      setTimeout(() => {
+        setWhatsappToolTip(false)
+        
+      }, 2000);
+    };
+    const openEnquiryForm = () => {
+      setEnqEnable(true)
+      setTimeout(() => {
+        setEnquiryToolTip(false)
+        
+      }, 2000);
     };
   // ======Calling and Whatsapp Feature End=======
-
-
 
 
 
@@ -195,7 +208,7 @@ const DispCarDetails = () => {
               <div onClick={handleCopyToClipboard}
                  className={sharetooltipVisible?'share-tooltip':'phone-tooltip-inactive'}>
                   <i className="fa-solid fa-link"></i>
-                  {isShareIdCopied?' Copied':' Copy Link'}
+                  {isShareIdCopied?' Copied':' Copy Affiliation Link'}
                  </div>
                 <i
                   onClick={HandleShareFunc}
@@ -222,29 +235,31 @@ const DispCarDetails = () => {
         </div>
         <div style={{ marginBottom: '3vh' }} className='car-details-multibtn-div disp-car-extra-class'>
           <div className='multi-phone-combining-div'>
-            <div onClick={() => initiatePhoneCall('9039065247')}
+            <div 
              className={phoneToolTip ? 'phone-tooltip' : 'phone-tooltip-inactive'}>Call</div>
             <button
               onMouseEnter={() => setPhonneToolTip(true)}
               onMouseLeave={() => setPhonneToolTip(false)}
+              onClick={() => initiatePhoneCall('9039065247')}
               className='car-details-multi-btn multi-button-phone'>
               <i style={{ fontSize: '1.4rem' }} className="fa-solid fa-phone multi-btn-phone"></i>
             </button>
           </div>
           <div className='multi-whatsapp-combining-div'>
-            <div onClick={() => openWhatsAppChat('9039065247')}
+            <div 
              className={whatsappToolTip ? 'phone-tooltip' : 'phone-tooltip-inactive'}>Whatsapp</div>
             <button
               onMouseEnter={() => setWhatsappToolTip(true)}
               onMouseLeave={() => setWhatsappToolTip(false)}
+              onClick={() => openWhatsAppChat('9039065247')}
               className='car-details-multi-btn multi-button-whatsapp'><i style={{ fontSize: '1.5rem' }} className="fa-brands fa-whatsapp multi-btn-whatsapp"></i></button>
           </div>
           <div className='multi-Enquiry-combining-div'>
-            <div onClick={() => setEnqEnable(true)} className={enquiryToolTip ? 'enquiry-tooltip' : 'phone-tooltip-inactive'}>Enquiry</div>
+            <div className={enquiryToolTip ? 'enquiry-tooltip' : 'phone-tooltip-inactive'}>Enquiry</div>
             <button 
               onMouseEnter={() => setEnquiryToolTip(true)}
               onMouseLeave={() => setEnquiryToolTip(false)}
-              onClick={()=>setEnqEnable(true)}
+              onClick={openEnquiryForm}
               className='car-details-multi-btn multi-button-enquiry'><i style={{ fontSize: '1.5rem' }} className="fa-regular fa-envelope multi-btn-enquiry"></i></button>
           </div>
         </div>

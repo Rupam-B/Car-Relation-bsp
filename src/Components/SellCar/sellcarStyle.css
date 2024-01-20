@@ -185,5 +185,39 @@
         font-weight: bolder;
         border: none;
     }
+
+
+
+    /* ///////show data to Upload========= */
+    .SellCar-Show-data-to-Upload{
+        position: absolute;
+        width: 100vw;
+        height: auto;
+        padding-bottom: 300vh;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        background-color: white;
+    }
+   
+    .SellCar-Show-data-to-Upload-False{
+        display: none;
+        overflow: hidden;
+    }
+    .SellCar-Show-data-to-Upload h6{
+        color: #be0027;
+    }
+    .Add-Upload-button-confirm{
+        background-color:transparent;
+        color: green;
+        margin-top: 5vh;
+        border: 1px solid rgb(128, 128, 128,0.2);
+    }
+    .Add-Upload-button-Edit{
+        background-color:transparent;
+        color: blue;
+        margin-top: 5vh;
+        border: 1px solid rgb(128, 128, 128,0.2);
+    }
     
     }
