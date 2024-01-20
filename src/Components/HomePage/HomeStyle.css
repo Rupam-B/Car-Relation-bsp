@@ -111,6 +111,22 @@
     width: 10vw;
     box-shadow: inset 0 0 3px 0.5px greenyellow;
 }
+/* .share-icon-with-tooltip-div{
+    position: relative;
+} */
+.share-tooltip{
+    position: absolute;
+    top: 10%;
+    right: 0;
+    background-color: whitesmoke;
+    font-weight: 900;
+    z-index: 1;
+    padding: 1vh 1vw;
+    border: 1px solid rgb(10, 10, 10,0.1);
+    border-radius: 4px;
+    width: 10vw;
+    box-shadow: inset 0 0 3px 0.5px greenyellow;
+}
 .phone-tooltip-inactive{
     display: none;
 }
@@ -374,11 +390,23 @@
         right: -70%;
         width: 36vw;
         padding: 1vh 2vw;
+        box-shadow: none;
+        background-color: white;
     }
     .enquiry-tooltip{
         right: 0;
         width: 36vw;
         padding: 1vh 2vw;
+        box-shadow: none;
+        background-color: white;
+    }
+    .share-tooltip{
+        top: 20%;
+        right: 10%;
+        width: 60vw;
+        padding: 1vh 2vw;
+        box-shadow: none;
+        background-color: white;
     }
 
     /* ----------Enquary Form -------- */

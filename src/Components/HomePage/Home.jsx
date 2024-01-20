@@ -13,7 +13,12 @@ import axios from 'axios'
 const Home = () => {
   const HomeDispatch = useDispatch()
   const homeNavigate = useNavigate()
+
   const userVerify =localStorage.getItem('car-relation-user-token')
+  const userAffiliationNo =localStorage.getItem('car-relation-user-AffId')
+  // console.log(userAffiliationNo)
+
+  const [sharetooltipVisible, setShareTooltipVisible] = useState(false);
   const [favouriteactive,setFavouriteactive] = useState(false)
   const [favouriteid,setFavouriteId] = useState('')
   const [bookmarkactive,setBookmarkactive] = useState(false)
@@ -85,10 +90,31 @@ const Home = () => {
     setCarQuerry(querryData)
 
   }
-  const HandleShareFunc =()=>{
-    toast.success('Referral service will be available soon')
+
+
+  const HandleShareFunc =(id)=>{
+    setShareTooltipVisible(true)
+    setPhonneId(id)
 
   }
+
+  const handleCopyToClipboard = (carId) => {
+    const dynamicLink = `https://car-relation-bsp-3396.netlify.app/DisplayCarDetailsAffiliation/${userAffiliationNo}/${carId}`;
+    navigator.clipboard.writeText(dynamicLink).then(
+      ()=>{
+        console.log('copied')
+        setShareTooltipVisible(false)
+      },
+      (err)=>{
+        console.log(err)
+        setShareTooltipVisible(false)
+      }
+    );
+    
+  };
+  
+
+
   // ======Calling and Whatsapp Feature=======
 
   const initiatePhoneCall = (phoneNumber) => {
@@ -178,10 +204,18 @@ const Home = () => {
             <div className="card-body home-card-body">
               <div className='car-home-main-title-div'>
               <h6 className="card-title car-home-main-title">{items.make.length>23?`${items.make.slice(0,23)}...`:items.make}</h6>
-              <i 
-              onClick={HandleShareFunc} 
-              className={userVerify?"fa-solid fa-share-nodes share-icon-active":"fa-solid fa-share-nodes share-icon-inactive"}>
-              </i>
+              <div className='share-icon-with-tooltip-div'>
+              <div onClick={() => handleCopyToClipboard(items.id)}
+                 className={sharetooltipVisible&&phoneId===items.id?'share-tooltip':'phone-tooltip-inactive'}>
+                  <i className="fa-solid fa-link"></i>
+                  {sharetooltipVisible?' Copy Link':' Copied'}
+                 </div>
+                <i
+                  onClick={() =>HandleShareFunc(items.id)}
+                  className={userVerify ? "fa-solid fa-share-nodes share-icon-active" : "fa-solid fa-share-nodes share-icon-inactive"}
+                  data-tip="Copy link to clipboard"
+                 ></i>
+              </div>
               <i onClick={()=>handleBookmarkActive(items.id)}
                className=
                 {bookmarkactive&&bookmarkid===items.id?"fa-regular fa-bookmark bookmark-icon-active":'fa-regular fa-bookmark bookmark-icon-inactive'}>
@@ -201,7 +235,8 @@ const Home = () => {
               <div className='car-details-multibtn-div'>
                 <div className='multi-phone-combining-div'>
                 <div onClick={() => initiatePhoneCall('9039065247')}
-                 className={phoneToolTip&&phoneId===items.id?'phone-tooltip':'phone-tooltip-inactive'}>Call</div>
+                 className={phoneToolTip&&phoneId===items.id?'phone-tooltip':'phone-tooltip-inactive'}>Call
+                 </div>
                 <button 
                 onMouseEnter={()=>handlePhoneTooltip(items.id)} 
                 onMouseLeave={()=>setPhonneToolTip(false)} 

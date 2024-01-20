@@ -26,6 +26,7 @@ import UserRoyality from './Components/UserIconsExtends/UserRoyality/UserRoyalit
 import UserCarList from './Components/UserIconsExtends/UserCarList/UserCarList';
 import EditAffiliation from './Components/UserIconsExtends/UserAffiliationDetails/UserAffiliationDetails';
 import ServiceNotAvailable from './Components/ServiceNotAvailable/ServiceNotAvailable';
+import ProductAffiliationPage from './Components/ProductAffiliationPage/ProductAffiliationPage';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route path='/' element={<Home/>}/>      
         <Route path='/ServiceNotAvailable' element={<ServiceNotAvailable/>}/>      
         <Route path='/DisplayCarDetails' element={<DispCarDetails/>}/>
+        <Route path={'/DisplayCarDetailsAffiliation/:affiliationId/:carId'} element={<ProductAffiliationPage/>}/>
         <Route path='/SellCarPortal' element={<SellCar/>}/>
         <Route path='/FinancePage' element={<Financepage/>}/>
         <Route path='/InsurancePage' element={<Insurancepage/>}/>
