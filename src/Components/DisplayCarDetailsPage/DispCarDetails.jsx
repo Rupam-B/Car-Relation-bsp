@@ -9,6 +9,11 @@ import axios from 'axios';
 
 
 const DispCarDetails = () => {
+
+  const userVerify =localStorage.getItem('car-relation-user-token')
+  const userAffiliationNo =localStorage.getItem('car-relation-user-AffId')
+
+
   const gwtExtendesAddDispalyId = useSelector((state) => state.TargetingWhichAddToDisplay)
   if(gwtExtendesAddDispalyId){
   localStorage.setItem('car-relation-Add-showing-Id', JSON.stringify(gwtExtendesAddDispalyId))
@@ -20,7 +25,7 @@ const DispCarDetails = () => {
   const [dataOfShowingAdd,setDataOfShowingAdd] = useState()
   // console.log(dataOfShowingAdd, 'Data of showing add')
 
-
+  const [sharetooltipVisible, setShareTooltipVisible] = useState(false);
   const [imageDislayNumber, setImageDisplayNumber] = useState(0);
   const [waitWhileloading, setWaitWhileloading] = useState(true);
   const [phoneToolTip, setPhonneToolTip] = useState(false)
@@ -67,6 +72,25 @@ const DispCarDetails = () => {
     }
   }
 
+  const HandleShareFunc =()=>{
+    setShareTooltipVisible(true)
+  }
+
+  const handleCopyToClipboard = () => {
+    const dynamicLink = `https://car-relation-bsp-3396.netlify.app/DisplayCarDetailsAffiliation/${userAffiliationNo}/${ExtendesAddDispalyId}`;
+    navigator.clipboard.writeText(dynamicLink).then(
+      ()=>{
+        console.log('copied')
+        setShareTooltipVisible(false)
+      },
+      (err)=>{
+        console.log(err)
+        setShareTooltipVisible(false)
+      }
+    );
+    
+  };
+
   // ======Fetch Extended Adds Data ========
 
   useEffect(() => {
@@ -112,23 +136,20 @@ const DispCarDetails = () => {
 
 
 
+
+
   return (
     <div className='DisplayCar-Main-div'>
-
-
+      
        {/* =========Uploading Add Wait Div ========= */}
        <div className={waitWhileloading?'SellCar-main-wait-while-uploading-di-true':'SellCar-main-wait-while-uploading-di-false'}>
       {/* <div className='SellCar-main-wait-while-uploading-di-true'> */}
           <h4>Loading...</h4>
       </div>
       {/* ================= */}
-      <div className='DisplayCar-Sub-div'>
-        <div className='Display-car-main-img-div'>
-          <img src={dataOfShowingAdd&&dataOfShowingAdd.image[imageDislayNumber]} alt="" />
-        </div>
 
-        {/* ====== Enquiry Form ========= */}
-        <div className={enqEnable ? 'Enquiry-form active' : 'Enquiry-form-inactive'}>
+      {/* ====== Enquiry Form ========= */}
+      <div className={enqEnable ? 'Enquiry-form active' : 'Enquiry-form-inactive'}>
           <div className='Enquiry-form-sub-div'>
             <h3>Enquiry</h3>
             <form className='Enquiry-form-tag' action="">
@@ -155,6 +176,28 @@ const DispCarDetails = () => {
         </div>
         {/* ============ */}
 
+
+
+
+
+
+      {/* ====Main Content Start ====== */}
+      <div className='DisplayCar-Sub-div'>
+        <div className='Display-car-main-img-div'>
+        <div className='share-icon-with-tooltip-div'>
+              <div onClick={handleCopyToClipboard}
+                 className={sharetooltipVisible?'share-tooltip':'phone-tooltip-inactive'}>
+                  <i className="fa-solid fa-link"></i>
+                  {sharetooltipVisible?' Copy Link':' Copied'}
+                 </div>
+                <i
+                  onClick={HandleShareFunc}
+                  className={userVerify ? "fa-solid fa-share-nodes share-icon-active" : "fa-solid fa-share-nodes share-icon-inactive"}
+                  data-tip="Copy link to clipboard"
+                 ></i>
+              </div>
+          <img src={dataOfShowingAdd&&dataOfShowingAdd.image[imageDislayNumber]} alt="" />
+        </div>
         
         <div className='Display-car-Extended-img-div'>
           {dataOfShowingAdd?<>
@@ -190,11 +233,10 @@ const DispCarDetails = () => {
               className='car-details-multi-btn multi-button-whatsapp'><i style={{ fontSize: '1.5rem' }} className="fa-brands fa-whatsapp multi-btn-whatsapp"></i></button>
           </div>
           <div className='multi-Enquiry-combining-div'>
-            <div className={enquiryToolTip ? 'phone-tooltip' : 'phone-tooltip-inactive'}>Enquiry</div>
-            <button
+            <div onClick={() => setEnqEnable(true)} className={enquiryToolTip ? 'enquiry-tooltip' : 'phone-tooltip-inactive'}>Enquiry</div>
+            <button 
               onMouseEnter={() => setEnquiryToolTip(true)}
               onMouseLeave={() => setEnquiryToolTip(false)}
-              onClick={() => setEnqEnable(true)}
               className='car-details-multi-btn multi-button-enquiry'><i style={{ fontSize: '1.5rem' }} className="fa-regular fa-envelope multi-btn-enquiry"></i></button>
           </div>
         </div>

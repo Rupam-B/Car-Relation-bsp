@@ -89,43 +89,43 @@
     position: absolute;
     top: -130%;
     right: 0;
-    background-color: whitesmoke;
+    background-color: white;
     font-weight: 900;
     z-index: 1;
     padding: 1vh 1vw;
     border: 1px solid rgb(10, 10, 10,0.1);
     border-radius: 4px;
     width: 10vw;
-    box-shadow: inset 0 0 3px 0.5px greenyellow;
 }
 .enquiry-tooltip{
     position: absolute;
     top: -130%;
     right: 0;
-    background-color: whitesmoke;
+    background-color: white;
     font-weight: 900;
     z-index: 1;
     padding: 1vh 1vw;
     border: 1px solid rgb(10, 10, 10,0.1);
     border-radius: 4px;
     width: 10vw;
-    box-shadow: inset 0 0 3px 0.5px greenyellow;
 }
 /* .share-icon-with-tooltip-div{
     position: relative;
 } */
 .share-tooltip{
     position: absolute;
-    top: 10%;
-    right: 0;
-    background-color: whitesmoke;
+    top: 23%;
+    right: 10%;
+    background-color:white;
     font-weight: 900;
     z-index: 1;
     padding: 1vh 1vw;
     border: 1px solid rgb(10, 10, 10,0.1);
     border-radius: 4px;
     width: 10vw;
-    box-shadow: inset 0 0 3px 0.5px greenyellow;
+}
+.share-icon-inactive{
+    display: none !important;
 }
 .phone-tooltip-inactive{
     display: none;
@@ -326,6 +326,15 @@
 
 .share-icon-active{
     display: block;
+    position: absolute;
+        display: block;
+        top: 8vh;
+        right: 1vw;
+        color: #00aaff;
+        border: 1px solid rgb(135, 206, 235,0.8);
+        padding: 0.5rem;
+        border-radius: 50%;
+        background-color: white;
 }
 .share-icon-inactive{
     display: none;
@@ -451,6 +460,8 @@
         font-weight: bold;
         margin-top: 2vh;
     }
-    
+    .share-icon-inactive{
+        display: none !important;
+    }
 
   }
