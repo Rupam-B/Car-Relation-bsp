@@ -39,12 +39,24 @@
 
 .Car-Details-div{
     width: 60vw;
-    height: 100vh;
+    height: auto;
     background-color: rgb(234, 234, 234,0.8);
     margin-top: 5vh;
     border-radius: 1rem;
     padding-top: 2vh;
+    padding: 2vh 2vw;
     /* position: relative; */
+}
+.Car-Details-div p{
+    display: flex;
+    margin: 3vh 0;
+}
+.Car-Details-div p span{
+    color: rgb(72, 0, 0,0.8);
+    font-weight: bold;
+    width: 20vw;
+    /* border: 1px solid red; */
+    display: block;
 }
 
 
@@ -132,11 +144,12 @@
 }
 .Car-OverView-div{
     width: 60vw;
-    height: 40vh;
+    height: auto;
     background-color: rgba(212, 212, 212, 0.8);
     margin-top: 5vh;
     border-radius: 1rem;
     padding-top: 2vh;
+    padding: 2vh 2vw;
 }
 .Car-Features-div{
     width: 60vw;
@@ -145,6 +158,7 @@
     margin-top: 5vh;
     border-radius: 1rem;
     padding-top: 2vh;
+    padding: 2vh 2vw;
 }
 .Car-Details-top-heading{
    margin-bottom: 5vh;
@@ -179,7 +193,7 @@
 .Enquiry-form-tag p span{
     /* display: block; */
     font-size: 1rem;
-    color: white;
+    color: black;
 }
 
 @media screen and (min-width: 601px) and (max-width: 1280px) {

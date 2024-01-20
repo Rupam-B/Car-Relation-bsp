@@ -264,11 +264,11 @@
 }
 .Enquiry-form-sub-div{
     width: auto;
-    background-color: rgb(0, 0, 0,0.9);
+    background-color: white;
     display: flex;
     align-items: center;
     flex-direction: column;
-    color: whitesmoke;
+    color: black;
     border-radius: 12px;
     position: relative;
     height: auto;
@@ -304,11 +304,12 @@
     padding: 0.3rem;
 }
 .enquiry-form-submit-btn{
-    background-color: rgb(245, 244, 244,0.8);
+    background-color: transparent;
     width:  50%;
     margin: auto;
     margin-top: 3vh;
     font-weight: bold;
+    border: 1px solid rgb(128, 128, 128,0.2);
 }
 .enquiry-form-submit-btn:hover{
     border: 2px solid white;
