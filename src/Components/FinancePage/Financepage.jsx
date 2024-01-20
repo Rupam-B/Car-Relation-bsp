@@ -30,6 +30,20 @@ const Financepage = () => {
     }
   };
 
+
+  // ======Calling and Whatsapp EnquiryForm Feature=======
+
+  const initiatePhoneCall = (phoneNumber) => {
+    const telURL = `tel:${phoneNumber}`;
+    window.location.href = telURL;
+  };
+    const openWhatsAppChat = (phoneNumber) => {
+      const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}`;
+      window.open(whatsappURL, '_blank');
+    };
+
+  // ======Calling and Whatsapp EnquiryForm Feature End=======
+
   return (
     <div className='Finance-page-main-div'>
       <div className={enqEnable?'Enquiry-form active':'Enquiry-form-inactive'}>
@@ -79,7 +93,8 @@ const Financepage = () => {
 
             <div className='car-details-multibtn-div Finance-comp-multi-btn'>
                 <div className='multi-phone-combining-div'>
-                <div className={phoneToolTip?'phone-tooltip':'phone-tooltip-inactive'}>Call</div>
+                <div onClick={() => initiatePhoneCall('9039065247')}
+                 className={phoneToolTip?'phone-tooltip':'phone-tooltip-inactive'}>Call</div>
                 <button 
                 onMouseEnter={()=>setPhonneToolTip(true)} 
                 onMouseLeave={()=>setPhonneToolTip(false)} 
@@ -88,7 +103,8 @@ const Financepage = () => {
                   </button>
                 </div>
                 <div className='multi-whatsapp-combining-div'>
-                <div className={whatsappToolTip?'phone-tooltip':'phone-tooltip-inactive'}>Whatsapp</div>
+                <div onClick={() => openWhatsAppChat('9039065247')}
+                 className={whatsappToolTip?'phone-tooltip':'phone-tooltip-inactive'}>Whatsapp</div>
                 <button
                  onMouseEnter={()=>setWhatsappToolTip(true)} 
                  onMouseLeave={()=>setWhatsappToolTip(false)} 

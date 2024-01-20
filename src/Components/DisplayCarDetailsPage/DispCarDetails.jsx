@@ -237,6 +237,7 @@ const DispCarDetails = () => {
             <button 
               onMouseEnter={() => setEnquiryToolTip(true)}
               onMouseLeave={() => setEnquiryToolTip(false)}
+              onClick={()=>setEnqEnable(true)}
               className='car-details-multi-btn multi-button-enquiry'><i style={{ fontSize: '1.5rem' }} className="fa-regular fa-envelope multi-btn-enquiry"></i></button>
           </div>
         </div>

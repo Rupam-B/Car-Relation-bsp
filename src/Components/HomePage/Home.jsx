@@ -87,6 +87,7 @@ const Home = () => {
 
   const HandleEnquiryFunc =(querryData)=>{
     setCarQuerry(querryData)
+    setEnqEnable(true)
 
   }
 
@@ -125,9 +126,9 @@ const Home = () => {
       window.open(whatsappURL, '_blank');
     };
 
-    const openEnquiryForm = (phoneNumber) => {
-      setEnqEnable(true)
-    };
+    // const openEnquiryForm = () => {
+    //   setEnqEnable(true)
+    // };
   // ======Calling and Whatsapp EnquiryForm Feature End=======
 
   const carReqData = apiData.data && apiData.data;
@@ -244,7 +245,8 @@ const Home = () => {
                 onMouseEnter={()=>handlePhoneTooltip(items.id)} 
                 onMouseLeave={()=>setPhonneToolTip(false)} 
                 className='car-details-multi-btn multi-button-phone'>
-                  <i style={{fontSize:'1.4rem'}} className="fa-solid fa-phone multi-btn-phone"></i>
+                  <i
+                   style={{fontSize:'1.4rem'}} className="fa-solid fa-phone multi-btn-phone"></i>
                   </button>
                 </div>
                 <div className='multi-whatsapp-combining-div'>
@@ -256,7 +258,7 @@ const Home = () => {
                 className='car-details-multi-btn multi-button-whatsapp'><i style={{fontSize:'1.5rem'}} className="fa-brands fa-whatsapp multi-btn-whatsapp"></i></button>
                 </div>
                 <div className='multi-Enquiry-combining-div'>
-                <div onClick={openEnquiryForm} className={enquiryToolTip&&phoneId===items.id?'enquiry-tooltip':'phone-tooltip-inactive'}>Enquiry</div>
+                <div className={enquiryToolTip&&phoneId===items.id?'enquiry-tooltip':'phone-tooltip-inactive'}>Enquiry</div>
                 <button
                 onMouseEnter={()=>handleEnquiryTooltip(items.id)} 
                 onMouseLeave={()=>setEnquiryToolTip(false)}
