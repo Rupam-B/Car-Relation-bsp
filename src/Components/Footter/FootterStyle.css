@@ -44,6 +44,10 @@
         align-items: center;
         text-align: center;
     }
+    .footter-bottom-one p{
+        margin-bottom: 0.2rem;
+        
+    }
     .footter-bottom-one input{
         width: 28vw;
     }

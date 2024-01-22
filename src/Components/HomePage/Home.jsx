@@ -261,7 +261,7 @@ const Home = () => {
                 <button 
                 onMouseEnter={()=>handlePhoneTooltip(items.id)} 
                 onMouseLeave={()=>setPhonneToolTip(false)} 
-                onClick={() => initiatePhoneCall('9039065247')}
+                onClick={() => initiatePhoneCall('9300007780')}
                 className='car-details-multi-btn multi-button-phone'>
                   <i
                    style={{fontSize:'1.4rem'}} className="fa-solid fa-phone multi-btn-phone"></i>
@@ -273,7 +273,7 @@ const Home = () => {
                 <button
                  onMouseEnter={()=>handleWhatsappTooltip(items.id)} 
                  onMouseLeave={()=>setWhatsappToolTip(false)} 
-                 onClick={() => openWhatsAppChat('9039065247')}
+                 onClick={() => openWhatsAppChat('9300007780')}
                 className='car-details-multi-btn multi-button-whatsapp'><i style={{fontSize:'1.5rem'}} className="fa-brands fa-whatsapp multi-btn-whatsapp"></i></button>
                 </div>
                 <div className='multi-Enquiry-combining-div'>
