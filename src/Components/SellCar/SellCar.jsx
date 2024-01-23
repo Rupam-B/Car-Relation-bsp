@@ -70,10 +70,12 @@ const SellCar = () => {
   const handleProceedToSell = () => {
     if (kmDriven && description && saleValue && createdBy !== "" && selectedImages.length > 0) {
     setProceedToConfirmation(true);
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth', 
-    });
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }, 100);
   }
   else {
     toast.error("Please Fill All The Details");
