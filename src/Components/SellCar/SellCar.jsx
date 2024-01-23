@@ -26,10 +26,9 @@ const SellCar = () => {
 
 
   const [proceedToConfirmaion, setProceedToConfirmation] = useState(false);
-  const [carCompanySelectData, setCarCompanySelectData] = useState(2);
-  const [carModelSelectData, setCarModelSelectData] = useState(2);
+  const [carCompanySelectData, setCarCompanySelectData] = useState();
+  const [carModelSelectData, setCarModelSelectData] = useState();
 
-  const sendCompanyId = carCompanySelectData?carCompanySelectData:2
   const inputRef = useRef(null);
 
 
@@ -183,6 +182,7 @@ const SellCar = () => {
           const Companydata = response.data;
           if(Companydata){
             setCarCompanyData(Companydata.data)
+            setCarCompanySelectData(Companydata.data[0].id)
           }
         } else {
           throw new Error('Network response was not ok');
@@ -205,7 +205,7 @@ const SellCar = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${BaseUrl}/carmodels/${sendCompanyId}`, {
+        const response = await axios.get(`${BaseUrl}/carmodels/${carCompanySelectData}`, {
           mode:'no-cors',
           headers: {
             Accept: 'application/json',
