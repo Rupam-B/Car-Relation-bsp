@@ -293,7 +293,9 @@ const SellCar = () => {
               <p>{saleValue}</p>
 
               <h6>Insurance</h6>
-              <p>{Insurance===1?"Yes":"No"}</p>
+
+              {/* eslint-disable-next-line */}
+              <p>{Insurance==1?"Yes":"No"}</p>
 
               <h6>Created By</h6>
               <p>{createdBy}</p>
