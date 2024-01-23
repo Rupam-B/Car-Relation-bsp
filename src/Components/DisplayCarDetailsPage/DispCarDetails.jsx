@@ -139,8 +139,8 @@ const DispCarDetails = () => {
       
     }, 2000);
   };
-    const openWhatsAppChat = (phoneNumber) => {
-      const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}`;
+    const openWhatsAppChat = () => {
+      const whatsappURL = `https://api.whatsapp.com/send?phone=${encodeURIComponent('+919300007780')}`;
       window.open(whatsappURL, '_blank');
       setTimeout(() => {
         setWhatsappToolTip(false)
@@ -251,7 +251,7 @@ const DispCarDetails = () => {
             <button
               onMouseEnter={() => setWhatsappToolTip(true)}
               onMouseLeave={() => setWhatsappToolTip(false)}
-              onClick={() => openWhatsAppChat('9300007780')}
+              onClick={openWhatsAppChat}
               className='car-details-multi-btn multi-button-whatsapp'><i style={{ fontSize: '1.5rem' }} className="fa-brands fa-whatsapp multi-btn-whatsapp"></i></button>
           </div>
           <div className='multi-Enquiry-combining-div'>
