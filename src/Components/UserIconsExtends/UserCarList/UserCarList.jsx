@@ -456,9 +456,9 @@ const UserCarList = () => {
                 <img src={items.image[0]} alt="" />
                 <div className="User-Adds-List-adds-info-div">
                   <h6>
-                    {items.description.length > 15
-                      ? `${items.description.slice(0, 15)}...`
-                      : items.description}
+                    {items.make.length > 15
+                      ? `${items.make.slice(0, 15)}...`
+                      : items.make}
                   </h6>
                   <h6>
                     {items.make} {items.model}
