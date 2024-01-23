@@ -34,13 +34,25 @@ const SellCar = () => {
 
 
   // =========Car State Data =============
-  const [mfgYear, setMfgYear] = useState("2023")
+  const [mfgYear, setMfgYear] = useState("")
   const [kmDriven, setKmDriven] = useState("")
   const [description, setDescription] = useState("")
   const [ownerSerial, setOwnerSerial] = useState("1")
   const [saleValue, setSaleValue] = useState("")
   const [Insurance, setInsurance] = useState("1")
   const [createdBy, setCreatedBy] = useState("")
+
+
+  // eslint-disable-next-line
+  const showCompanyData =carCompanyData&&carCompanyData.find((items)=>items.id == carCompanySelectData)
+  // eslint-disable-next-line
+  const showModelData =carModelData&&carModelData.find((items)=>items.id == carModelSelectData)
+  // console.log(showCompanyData, 'filteredCompany Data')
+  // console.log(carModelSelectData,'Model Select data')
+  // console.log(showModelData&&showModelData.model)
+  // console.log(carCompanySelectData,'CarCompanySelectData')
+
+
   // ========= =============
   // console.log(carCompanySelectData, 'carCompanySelectData')
   // console.log(carModelSelectData, 'carModelSelectData')
@@ -183,6 +195,8 @@ const SellCar = () => {
     fetchData();
     // eslint-disable-next-line
   }, []);
+  // console.log(carCompanyData, 'Fetched Compay Data')
+  // console.log(carModelData, 'Fetched Model Data')
 
 
 
@@ -203,6 +217,7 @@ const SellCar = () => {
           const Modeldata = response.data;
           if(Modeldata){
             setCarModelData(Modeldata.data)
+            setCarModelSelectData(Modeldata.data[0].id)
           }
         } else {
           throw new Error('Network response was not ok');
@@ -214,7 +229,7 @@ const SellCar = () => {
   
     fetchData();
     // eslint-disable-next-line
-  }, []);
+  }, [carCompanySelectData]);
 
 
   // useEffect(()=>{
@@ -253,10 +268,10 @@ const SellCar = () => {
           <div className='Sell-car-details-fill'>
             <div className='Sell-car-details-fill-main-div'>
               <h6>Company</h6>
-              <p>{carCompanySelectData===2?"Nissan":"Tata"}</p>
+              <p>{showCompanyData&&showCompanyData.make}</p>
 
               <h6>Car Model</h6>
-              <p>{carModelSelectData===2?"Nissan AZ":"Nissan MZ"}</p>
+              <p>{showModelData ? `${showModelData.make} ${showModelData.model}` : 'Not available'}</p>
 
 
               <h6>Mfg Year</h6>
@@ -337,12 +352,13 @@ const SellCar = () => {
 
 
               <label htmlFor="year">Mfg Year</label>
-              <select onChange={(e)=>setMfgYear(e.target.value)}  id="year" >
+              {/* <select onChange={(e)=>setMfgYear(e.target.value)}  id="year" >
               <option value="2023">2023</option>
                 <option value="2022">2022</option>
                 <option value="2021">2021</option>
                 <option value="2020">2020</option>
-              </select>
+              </select> */}
+              <input onChange={(e)=>setMfgYear(e.target.value)} type="number" name='year' />
 
               <label htmlFor="Kilo-meters">KM Driven</label>
               <input onChange={(e)=>setKmDriven(e.target.value)} type="number" id="Kilo-meters" name="Kilo-meters" />
