@@ -203,9 +203,9 @@ const ProductDetailsOnlyView = () => {
        <p><span>Model: </span>{dataOfShowingAdd.model}</p>
        <p><span>Mfg Year: </span>{dataOfShowingAdd.mfg_year}</p>
        <p><span>Kilometers: </span>{dataOfShowingAdd.km_driven}</p>
-       <p><span>Owner sr: </span>{dataOfShowingAdd.owners}</p>
+       <p><span>Owner: </span>{dataOfShowingAdd.owners}</p>
        <p><span>Price: </span>{dataOfShowingAdd.sale_value}</p>
-       <p><span>Description: </span>{dataOfShowingAdd.description}</p>
+       <p><span>Details: </span>{dataOfShowingAdd.description}</p>
        </>
 
      ):
