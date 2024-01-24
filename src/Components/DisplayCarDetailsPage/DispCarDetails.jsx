@@ -139,14 +139,20 @@ const DispCarDetails = () => {
       
     }, 2000);
   };
-    const openWhatsAppChat = () => {
-      const whatsappURL = `https://api.whatsapp.com/send?phone=${encodeURIComponent('+919300007780')}`;
-      window.open(whatsappURL, '_blank');
-      setTimeout(() => {
-        setWhatsappToolTip(false)
-        
-      }, 2000);
-    };
+  const openWhatsAppChat = () => {
+    const phoneNumber = '+919300007780';
+    const message = `Hello, I have an inquiry regarding you add of ${dataOfShowingAdd.make}${dataOfShowingAdd.model}`;
+
+    const encodedPhoneNumber = encodeURIComponent(phoneNumber);
+    const encodedMessage = encodeURIComponent(message);
+
+    const whatsappURL = `https://api.whatsapp.com/send?phone=${encodedPhoneNumber}&text=${encodedMessage}`;
+  
+    window.open(whatsappURL, '_blank');
+    setTimeout(() => {
+      setWhatsappToolTip(false);
+    }, 2000);
+  };
     const openEnquiryForm = () => {
       setEnqEnable(true)
       setTimeout(() => {
