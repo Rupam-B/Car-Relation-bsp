@@ -85,7 +85,7 @@ const DispCarDetails = () => {
   }
 
   const handleCopyToClipboard = () => {
-    const dynamicLink = `https://car-relation-bsp-3396.netlify.app/DisplayCarDetailsAffiliation/${userAffiliationNo}/${ExtendesAddDispalyId}`;
+    const dynamicLink = `https://play.google.com/store/apps/details?id=carrelation.development.com/DisplayCarDetailsAffiliation/${userAffiliationNo}/${ExtendesAddDispalyId}`;
     navigator.clipboard.writeText(dynamicLink).then(
       ()=>{
         console.log('copied')
