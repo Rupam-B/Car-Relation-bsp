@@ -142,7 +142,7 @@ const DispCarDetails = () => {
   };
   const openWhatsAppChat = () => {
     const phoneNumber = '+919300007780';
-    const message = `Hello, I am reaching out via Car Relation App. I like to know more the listed ${dataOfShowingAdd.make}  ${dataOfShowingAdd.model}  ${dataOfShowingAdd.mfg_year}  link: https://car-relation-bsp-3396.netlify.app//DisplayCarDetailsOnlyView/${ExtendesAddDispalyId}`;
+    const message = `Hello, I am reaching out via Car Relation App. I like to know more the listed ${dataOfShowingAdd.make}  ${dataOfShowingAdd.model}  ${dataOfShowingAdd.mfg_year}  link: https://car-relation-bsp-3396.netlify.app/DisplayCarDetailsOnlyView/${ExtendesAddDispalyId}`;
     const encodedPhoneNumber = encodeURIComponent(phoneNumber);
     const encodedMessage = encodeURIComponent(message);
 
