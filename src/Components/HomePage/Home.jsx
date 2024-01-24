@@ -86,8 +86,8 @@ const Home = () => {
     
   }
 
-  const HandleEnquiryFunc =(querryData)=>{
-    setCarQuerry(querryData)
+  const HandleEnquiryFunc =(make, model,year)=>{
+    setCarQuerry(`${make} ${model} ${year}`)
     setEnqEnable(true)
     setTimeout(() => {
       setEnquiryToolTip(false)
@@ -142,7 +142,7 @@ const Home = () => {
     const whatsappMessageDataFind =apiData.data.find((items)=>items.id === id)
     const phoneNumber = '+919300007780';
     const message = `Hello, I have an inquiry regarding you add of ${whatsappMessageDataFind?whatsappMessageDataFind.make:''}  ${whatsappMessageDataFind?whatsappMessageDataFind.model:''}  ${whatsappMessageDataFind?whatsappMessageDataFind.mfg_year:''}`;
-    
+
     setTimeout(() => {
     const encodedPhoneNumber = encodeURIComponent(phoneNumber);
     const encodedMessage = encodeURIComponent(message);
@@ -291,7 +291,7 @@ const Home = () => {
                 <button
                 onMouseEnter={()=>handleEnquiryTooltip(items.id)} 
                 onMouseLeave={()=>setEnquiryToolTip(false)}
-                onClick={()=>HandleEnquiryFunc(items.description)}
+                onClick={()=>HandleEnquiryFunc(items.make,items.model,items.mfg_year)}
                  className='car-details-multi-btn multi-button-enquiry'><i style={{fontSize:'1.5rem'}} className="fa-regular fa-envelope multi-btn-enquiry"></i></button>
                 </div>
                 <div className='multi-Enquiry-combining-div'>

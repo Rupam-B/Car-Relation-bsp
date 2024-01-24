@@ -33,6 +33,7 @@ const DispCarDetails = () => {
   const [whatsappToolTip, setWhatsappToolTip] = useState(false)
   const [enquiryToolTip, setEnquiryToolTip] = useState(false)
   const [enqEnable, setEnqEnable] = useState(false)
+  const [enqDefaultvalue, setEnqDefaultValue] = useState('')
   const [termsChecked, setTermsChecked] = useState(false);
   
 
@@ -152,7 +153,8 @@ const DispCarDetails = () => {
       setWhatsappToolTip(false);
     }, 2000);
   };
-    const openEnquiryForm = () => {
+    const openEnquiryForm = (make,model,year) => {
+      setEnqDefaultValue(`${make} ${model} ${year}`)
       setEnqEnable(true)
       setTimeout(() => {
         setEnquiryToolTip(false)
@@ -184,7 +186,7 @@ const DispCarDetails = () => {
               <label htmlFor="User-Mobile">Mobile no.</label>
               <input type="text" id="User-Mobile" name="Kilo-meters" />
               <label htmlFor="User-Querry">Querry</label>
-              <input type="text" defaultValue={dataOfShowingAdd&&dataOfShowingAdd.description} id="User-Querry" />
+              <input type="text" defaultValue={enqDefaultvalue} id="User-Querry" />
               <button onClick={handleSubmit} className='btn enquiry-form-submit-btn'>Submit</button>
               <div className='captcha-div'>
                 <input
@@ -264,7 +266,7 @@ const DispCarDetails = () => {
             <button 
               onMouseEnter={() => setEnquiryToolTip(true)}
               onMouseLeave={() => setEnquiryToolTip(false)}
-              onClick={openEnquiryForm}
+              onClick={()=>openEnquiryForm(dataOfShowingAdd.make,dataOfShowingAdd.model,dataOfShowingAdd.mfg_year)}
               className='car-details-multi-btn multi-button-enquiry'><i style={{ fontSize: '1.5rem' }} className="fa-regular fa-envelope multi-btn-enquiry"></i></button>
           </div>
         </div>
