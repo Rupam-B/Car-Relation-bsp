@@ -153,8 +153,8 @@ const DispCarDetails = () => {
       setWhatsappToolTip(false);
     }, 2000);
   };
-    const openEnquiryForm = (make,model,year) => {
-      setEnqDefaultValue(`${make} ${model} ${year}`)
+    const openEnquiryForm = (make,model,year,carEid) => {
+      setEnqDefaultValue(`${make} ${model} ${year} link: https://car-relation-bsp-3396.netlify.app/DisplayCarDetailsOnlyView/${carEid}`)
       setEnqEnable(true)
       setTimeout(() => {
         setEnquiryToolTip(false)
@@ -266,7 +266,7 @@ const DispCarDetails = () => {
             <button 
               onMouseEnter={() => setEnquiryToolTip(true)}
               onMouseLeave={() => setEnquiryToolTip(false)}
-              onClick={()=>openEnquiryForm(dataOfShowingAdd.make,dataOfShowingAdd.model,dataOfShowingAdd.mfg_year)}
+              onClick={()=>openEnquiryForm(dataOfShowingAdd.make,dataOfShowingAdd.model,dataOfShowingAdd.mfg_year,dataOfShowingAdd.id)}
               className='car-details-multi-btn multi-button-enquiry'><i style={{ fontSize: '1.5rem' }} className="fa-regular fa-envelope multi-btn-enquiry"></i></button>
           </div>
         </div>

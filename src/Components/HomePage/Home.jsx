@@ -86,8 +86,8 @@ const Home = () => {
     
   }
 
-  const HandleEnquiryFunc =(make, model,year)=>{
-    setCarQuerry(`${make} ${model} ${year}`)
+  const HandleEnquiryFunc =(make, model,year,carEid)=>{
+    setCarQuerry(`${make} ${model} ${year} link: https://car-relation-bsp-3396.netlify.app/DisplayCarDetailsOnlyView/${carEid}`)
     setEnqEnable(true)
     setTimeout(() => {
       setEnquiryToolTip(false)
@@ -291,7 +291,7 @@ const Home = () => {
                 <button
                 onMouseEnter={()=>handleEnquiryTooltip(items.id)} 
                 onMouseLeave={()=>setEnquiryToolTip(false)}
-                onClick={()=>HandleEnquiryFunc(items.make,items.model,items.mfg_year)}
+                onClick={()=>HandleEnquiryFunc(items.make,items.model,items.mfg_year,items.id)}
                  className='car-details-multi-btn multi-button-enquiry'><i style={{fontSize:'1.5rem'}} className="fa-regular fa-envelope multi-btn-enquiry"></i></button>
                 </div>
                 <div className='multi-Enquiry-combining-div'>
