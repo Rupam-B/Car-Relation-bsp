@@ -38,13 +38,6 @@ const Home = () => {
   const [enqEnable,setEnqEnable] = useState(false)
   const [termsChecked, setTermsChecked] = useState(false);
 
-
-  // Whatsapp Message find
-  const [whatsappMessageFindId, setWhatsappMessageFindId] = useState()
-  // eslint-disable-next-line
-  const whatsappMessageDataFind =apiData.data&&apiData.data.find((items)=>items.id === whatsappMessageFindId)
-  console.log(whatsappMessageDataFind)
-
   const handleNavigateToExtendSelectedAdd =(id, image, make)=>{
     HomeDispatch(addThisImage(image, make))
     HomeDispatch(AddTargetingToDisplay(id))
@@ -145,16 +138,14 @@ const Home = () => {
       
     }, 2000);
   };
-  const openWhatsAppChat = (whatsapDataId) => {
-    setWhatsappMessageFindId(whatsapDataId)
+  const openWhatsAppChat = (id) => {
+    const whatsappMessageDataFind =apiData.data.find((items)=>items.id === id)
     const phoneNumber = '+919300007780';
-    const message = `Hello, I have an inquiry regarding you add of ${whatsappMessageDataFind&&whatsappMessageDataFind.make}  ${whatsappMessageDataFind&&whatsappMessageDataFind.model}  ${whatsappMessageDataFind&&whatsappMessageDataFind.mfg_year}`;
+    const message = `Hello, I have an inquiry regarding you add of ${whatsappMessageDataFind?whatsappMessageDataFind.make:''}  ${whatsappMessageDataFind?whatsappMessageDataFind.model:''}  ${whatsappMessageDataFind?whatsappMessageDataFind.mfg_year:''}`;
     
     setTimeout(() => {
-    // console.log(message)
     const encodedPhoneNumber = encodeURIComponent(phoneNumber);
     const encodedMessage = encodeURIComponent(message);
-
     const whatsappURL = `https://api.whatsapp.com/send?phone=${encodedPhoneNumber}&text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
       
