@@ -304,7 +304,7 @@ const ProductAffiliationPage = () => {
         }
 
       </div>
-      <div className='Car-OverView-div'>
+      {/* <div className='Car-OverView-div'>
         <h4 className='Car-Details-top-heading'>OverView</h4>
         <p>Good</p>
 
@@ -313,7 +313,7 @@ const ProductAffiliationPage = () => {
         <h4 className='Car-Details-top-heading'>Features</h4>
         <p>Automatic</p>
 
-      </div>
+      </div> */}
     </div>
   )
 }

@@ -142,7 +142,7 @@ const DispCarDetails = () => {
   };
   const openWhatsAppChat = () => {
     const phoneNumber = '+919300007780';
-    const message = `Hello, I am reaching out via Car Relation App. I like to know more the listed ${dataOfShowingAdd.make}  ${dataOfShowingAdd.model}  ${dataOfShowingAdd.mfg_year}`;
+    const message = `Hello, I am reaching out via Car Relation App. I like to know more the listed ${dataOfShowingAdd.make}  ${dataOfShowingAdd.model}  ${dataOfShowingAdd.mfg_year}  link: https://car-relation-bsp-3396.netlify.app//DisplayCarDetailsOnlyView/${ExtendesAddDispalyId}`;
     const encodedPhoneNumber = encodeURIComponent(phoneNumber);
     const encodedMessage = encodeURIComponent(message);
 
@@ -376,7 +376,7 @@ const DispCarDetails = () => {
         }
 
       </div>
-      <div className='Car-OverView-div'>
+      {/* <div className='Car-OverView-div'>
         <h4 className='Car-Details-top-heading'>OverView</h4>
         <p>Good</p>
 
@@ -385,7 +385,7 @@ const DispCarDetails = () => {
         <h4 className='Car-Details-top-heading'>Features</h4>
         <p>Automatic</p>
 
-      </div>
+      </div> */}
       {/* <div className='Car-EnquiryForm-div'>
                 <h3>Enquire Now</h3>
                 <input type="text" placeholder='Name' />

@@ -27,6 +27,7 @@ import UserCarList from './Components/UserIconsExtends/UserCarList/UserCarList';
 import EditAffiliation from './Components/UserIconsExtends/UserAffiliationDetails/UserAffiliationDetails';
 import ServiceNotAvailable from './Components/ServiceNotAvailable/ServiceNotAvailable';
 import ProductAffiliationPage from './Components/ProductAffiliationPage/ProductAffiliationPage';
+import ProductDetailsOnlyView from './Components/ProductDetailsOnlyView/ProductDetailsOnlyView';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
         <Route path='/ServiceNotAvailable' element={<ServiceNotAvailable/>}/>      
         <Route path='/DisplayCarDetails' element={<DispCarDetails/>}/>
         <Route path={'/DisplayCarDetailsAffiliation/:affiliationId/:carId'} element={<ProductAffiliationPage/>}/>
+        <Route path={'/DisplayCarDetailsOnlyView/:carId'} element={<ProductDetailsOnlyView/>}/>
         <Route path='/SellCarPortal' element={<SellCar/>}/>
         <Route path='/FinancePage' element={<Financepage/>}/>
         <Route path='/InsurancePage' element={<Insurancepage/>}/>
