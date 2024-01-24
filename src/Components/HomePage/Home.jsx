@@ -141,7 +141,7 @@ const Home = () => {
   const openWhatsAppChat = (id) => {
     const whatsappMessageDataFind =apiData.data.find((items)=>items.id === id)
     const phoneNumber = '+919300007780';
-    const message = `Hello, I have an inquiry regarding you add of ${whatsappMessageDataFind?whatsappMessageDataFind.make:''}  ${whatsappMessageDataFind?whatsappMessageDataFind.model:''}  ${whatsappMessageDataFind?whatsappMessageDataFind.mfg_year:''}`;
+    const message = `Hello, I am reaching out via Car Relation App. I like to know more the listed  ${whatsappMessageDataFind?whatsappMessageDataFind.make:''}  ${whatsappMessageDataFind?whatsappMessageDataFind.model:''}  ${whatsappMessageDataFind?whatsappMessageDataFind.mfg_year:''}`;
 
     setTimeout(() => {
     const encodedPhoneNumber = encodeURIComponent(phoneNumber);

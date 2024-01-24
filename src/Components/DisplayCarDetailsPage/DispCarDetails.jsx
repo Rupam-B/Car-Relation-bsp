@@ -142,7 +142,7 @@ const DispCarDetails = () => {
   };
   const openWhatsAppChat = () => {
     const phoneNumber = '+919300007780';
-    const message = `Hello, I have an Enquiry regarding your add of ${dataOfShowingAdd.make}  ${dataOfShowingAdd.model}  ${dataOfShowingAdd.mfg_year}`;
+    const message = `Hello, I am reaching out via Car Relation App. I like to know more the listed ${dataOfShowingAdd.make}  ${dataOfShowingAdd.model}  ${dataOfShowingAdd.mfg_year}`;
     const encodedPhoneNumber = encodeURIComponent(phoneNumber);
     const encodedMessage = encodeURIComponent(message);
 
