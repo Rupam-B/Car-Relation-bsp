@@ -85,7 +85,7 @@ const DispCarDetails = () => {
   }
 
   const handleCopyToClipboard = () => {
-    const dynamicLink = `https://play.google.com/store/apps/details?id=carrelation.development.com/DisplayCarDetailsAffiliation/${userAffiliationNo}/${ExtendesAddDispalyId}`;
+    const dynamicLink = `https://car-relation-bsp-3396.netlify.app/DisplayCarDetailsAffiliation/${userAffiliationNo}/${ExtendesAddDispalyId}`;
     navigator.clipboard.writeText(dynamicLink).then(
       ()=>{
         console.log('copied')
@@ -141,7 +141,7 @@ const DispCarDetails = () => {
   };
   const openWhatsAppChat = () => {
     const phoneNumber = '+919300007780';
-    const message = `Hello, I have an inquiry regarding you add of ${dataOfShowingAdd.make}${dataOfShowingAdd.model}`;
+    const message = `Hello, I have an inquiry regarding you add of ${dataOfShowingAdd.make}  ${dataOfShowingAdd.model}  ${dataOfShowingAdd.mfg_year}`;
 
     const encodedPhoneNumber = encodeURIComponent(phoneNumber);
     const encodedMessage = encodeURIComponent(message);
