@@ -21,16 +21,15 @@ const UserCarList = () => {
   const [carCompanyData, setCarCompanyData] = useState([]);
   const [carModelData, setCarModelData] = useState([]);
 
-  const [carCompanySelectData, setCarCompanySelectData] = useState(2);
-  const [carModelSelectData, setCarModelSelectData] = useState(2);
+  const [carCompanySelectData, setCarCompanySelectData] = useState();
+  const [carModelSelectData, setCarModelSelectData] = useState();
 
-  const sendCompanyId = carCompanySelectData ? carCompanySelectData : 2;
   const inputRef = useRef(null);
 
   // =========Car State Data =============
   const [addDeletingId, setAddDeletingId] = useState(0);
   const [updatingId, setUpdatingId] = useState(0);
-  const [mfgYear, setMfgYear] = useState("2023");
+  const [mfgYear, setMfgYear] = useState("");
   const [kmDriven, setKmDriven] = useState("");
   const [description, setDescription] = useState("");
   const [ownerSerial, setOwnerSerial] = useState("1");
@@ -182,6 +181,7 @@ const UserCarList = () => {
           const Companydata = response.data;
           if (Companydata) {
             setCarCompanyData(Companydata.data);
+            setCarCompanySelectData(Companydata.data[0].id)
           }
         } else {
           throw new Error("Network response was not ok");
@@ -200,7 +200,7 @@ const UserCarList = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${BaseURL}/carmodels/${sendCompanyId}`,
+          `${BaseURL}/carmodels/${carCompanySelectData}`,
           {
             mode: "no-cors",
             headers: {
@@ -214,6 +214,7 @@ const UserCarList = () => {
           const Modeldata = response.data;
           if (Modeldata) {
             setCarModelData(Modeldata.data);
+            setCarModelSelectData(Modeldata.data[0].id)
           }
         } else {
           throw new Error("Network response was not ok");
@@ -225,7 +226,7 @@ const UserCarList = () => {
 
     fetchData();
     // eslint-disable-next-line
-  }, []);
+  }, [carCompanySelectData]);
 
   // For Fetching User Added Car List
   useEffect(() => {
@@ -367,12 +368,13 @@ const UserCarList = () => {
               </select>
 
               <label htmlFor="year">Mfg Year</label>
-              <select onChange={(e) => setMfgYear(e.target.value)} id="year">
+              {/* <select onChange={(e) => setMfgYear(e.target.value)} id="year">
                 <option value="2023">2023</option>
                 <option value="2022">2022</option>
                 <option value="2021">2021</option>
                 <option value="2020">2020</option>
-              </select>
+              </select> */}
+              <input onChange={(e)=>setMfgYear(e.target.value)} type="number" name='year' />
 
               <label htmlFor="Kilo-meters">KM Driven</label>
               <input
