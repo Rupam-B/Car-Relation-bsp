@@ -338,7 +338,12 @@
         display: block;
     }
     .Car-Details-div-description-span{
-        width: 45vw !important;
+        width: 34% !important;
+        /* border: 1px solid red; */
+    }
+    .Car-Details-div-description-span-next{
+        width: 66% !important;
+        /* border: 1px solid green; */
     }
     .Car-Details-to4-heading{
         margin-bottom: 5vh;

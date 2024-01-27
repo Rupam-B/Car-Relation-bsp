@@ -410,7 +410,7 @@ const DispCarDetails = () => {
           <p><span>Kilometers: </span>{dataOfShowingAdd.km_driven}</p>
           <p><span>Owner sr: </span>{dataOfShowingAdd.owners}</p>
           <p><span>Price: </span>{dataOfShowingAdd.sale_value}</p>
-          <p><span className='Car-Details-div-description-span'>Details: </span>{dataOfShowingAdd.description}</p>
+          <p><span className='Car-Details-div-description-span'>Details: </span><span className='Car-Details-div-description-span-next'>{dataOfShowingAdd.description}</span></p>
           </>
 
         ):

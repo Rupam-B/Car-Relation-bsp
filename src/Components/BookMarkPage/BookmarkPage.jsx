@@ -11,8 +11,8 @@ import { AddTargetingToDisplay } from "../../Reduxs/action";
 const BookmarkPage = () => {
 
     const userToken = localStorage.getItem("car-relation-user-token");
-    const FavouriteDispatch = useDispatch()
-    const FavouriteNavigate = useNavigate()
+    const BookmarkDispatch = useDispatch()
+    const BookmarkNavigate = useNavigate()
 
   const [userStoredAdds, setUserStoredAdds] = useState([]);
   const [waitWhileDeleteing, setWaitWhileDeleteing] = useState(false);
@@ -26,8 +26,8 @@ const BookmarkPage = () => {
     // console.log(id, 'items id')
   };
   const ViewButtonFunction = (id) => {
-    FavouriteDispatch(AddTargetingToDisplay(id))
-    FavouriteNavigate('/DisplayCarDetails')
+    BookmarkDispatch(AddTargetingToDisplay(id))
+    BookmarkNavigate('/DisplayCarDetails')
   };
 
 

@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
 // import "./UserCarListStyle.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BaseURL from "../../apiconfig";
+import { useDispatch } from "react-redux";
+import { AddTargetingToDisplay } from "../../Reduxs/action";
 
 const FavouritePage = () => {
 
     
     const userToken = localStorage.getItem("car-relation-user-token");
+    const FavouriteDispatch = useDispatch()
+    const FavouriteNavigate = useNavigate()
 
   const [userStoredAdds, setUserStoredAdds] = useState([]);
   const [waitWhileDeleteing, setWaitWhileDeleteing] = useState(false);
@@ -22,19 +26,23 @@ const FavouritePage = () => {
     setAddDeletingId(id);
     // console.log(id, 'items id')
   };
+  const ViewButtonFunction = (id) => {
+    FavouriteDispatch(AddTargetingToDisplay(id))
+    FavouriteNavigate('/DisplayCarDetails')
+  };
 
 
 
   //   ====== Delete Add =============
   const DeleteAdd = async () => {
     const userConfirmation = window.confirm(
-      "Are you sure you want to Remove this add from Bokmark?"
+      "Are you sure you want to Remove this add from Favourite?"
     );
 
     if (userConfirmation) {
       setWaitWhileDeleteing(true)
       try {
-        const response = await fetch(`${BaseURL}/car/bookmark-remove/${addDeletingId}`, {
+        const response = await fetch(`${BaseURL}/car/favourite-remove/${addDeletingId}`, {
           mode: "cors",
           method: "DELETE",
           headers: {
@@ -51,7 +59,7 @@ const FavouritePage = () => {
           console.log(carDelete);
           setDeletingAdd(false);
           setWaitWhileDeleteing(false)
-          window.location.assign("/UserBookMarkPage");
+          window.location.assign("/UserFavouritePage");
         } else {
           // Car Delete failed
           toast.error(carDelete.message); // Fix here
@@ -67,11 +75,11 @@ const FavouritePage = () => {
 
 
 
-  // For Fetching User Added Bookmarked Car List
+  // For Fetching User Added Favourite Car List
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${BaseURL}/car/bookmarked/list`, {
+        const response = await axios.get(`${BaseURL}/car/favourite/list`, {
           mode: "no-cors",
           headers: {
             Accept: "application/json",
@@ -178,7 +186,7 @@ const FavouritePage = () => {
                       Remove
                     </button>
                     <button
-                    //   onClick={() => UpdateButtonFunction(items.id)}
+                      onClick={() => ViewButtonFunction(items.id)}
                       className="User-Adds-List-adds-info-div-sub-Update-button"
                     >
                       View
