@@ -42,24 +42,24 @@ export const UserDashboard = () => {
           <p>Rewards</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
-            <Link to={'/ServiceNotAvailable'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
+            <Link to={'/UserAffiliation'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
             <div >
             {/* <i style={{color:'#4dc47d'}} className="fa-regular fa-money-bill-1"></i> */}
-            <i style={{color:'white'}} className="fa-solid fa-indian-rupee-sign"></i>
+            <i style={{color:'white'}} className="fa-solid fa-file-import"></i>
             </div>
             </Link>
-          <p>Earnings</p>
+          <p>Affiliation</p>
           </div>
           
         </div>
         <div className='row my-2 grid-row'>
           <div className='col-md-3 col-sm-3 user-options-details'>
-            <Link to={'/UserAffiliation'} className='user-options-details-inner-div'>
+            <Link to={'/UserFavouritePage'} className='user-options-details-inner-div'>
             <div>
-            <i style={{color:'#520099'}} className="fa-solid fa-file-import"></i>
+            <i style={{color:'#ff0000'}} className="fa-solid fa-heart"></i>
             </div>
             </Link>
-          <p>Affiliation</p>
+          <p>Favourites</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
             <Link to={'/UserCarList'} className='user-options-details-inner-div'>
@@ -70,12 +70,12 @@ export const UserDashboard = () => {
           <p>Uploads</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
-            <Link to={'/ServiceNotAvailable'} className='user-options-details-inner-div'>
+            <Link to={'/UserBookMarkPage'} className='user-options-details-inner-div'>
             <div >
-            <i style={{color:'#264f36'}} className="fa-solid fa-crown"></i>
+            <i style={{color:'#264f36'}} className="fa-regular fa-bookmark"></i>
             </div>
             </Link>
-          <p>Roaylity</p>
+          <p>Bookmarks</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
           <Link to={'/SellCarPortal'} className='user-options-details-inner-div'> <div>

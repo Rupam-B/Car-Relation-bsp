@@ -71,6 +71,7 @@ const ProductAffiliationPage = () => {
   // ======Fetch Extended Adds Data ========
 
   useEffect(() => {
+
     const fetchData = async () => {
       try {
         const response = await axios.get(`${BaseURL}/car/${carId}`, {
@@ -110,6 +111,7 @@ const ProductAffiliationPage = () => {
       window.open(whatsappURL, '_blank');
     };
   // ======Calling and Whatsapp Feature End=======
+
 
   return (
 

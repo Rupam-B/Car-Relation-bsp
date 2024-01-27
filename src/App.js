@@ -28,6 +28,8 @@ import EditAffiliation from './Components/UserIconsExtends/UserAffiliationDetail
 import ServiceNotAvailable from './Components/ServiceNotAvailable/ServiceNotAvailable';
 import ProductAffiliationPage from './Components/ProductAffiliationPage/ProductAffiliationPage';
 import ProductDetailsOnlyView from './Components/ProductDetailsOnlyView/ProductDetailsOnlyView';
+import BookmarkPage from './Components/BookMarkPage/BookmarkPage';
+import FavouritePage from './Components/FavouritesPage/FavouritePage';
 
 function App() {
   return (
@@ -56,6 +58,8 @@ function App() {
         <Route path='/UserAffiliation' element={<EditAffiliation/>}/>
         <Route path='/UserAddUploads' element={<UserAddUpload/>}/>
         <Route path='/UserRoyality' element={<UserRoyality/>}/>
+        <Route path='/UserBookMarkPage' element={<BookmarkPage/>}/>
+        <Route path='/UserFavouritePage' element={<FavouritePage/>}/>
       </Routes>
       <OtherService/>
       <MainAdvert/>

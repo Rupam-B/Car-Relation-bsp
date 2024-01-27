@@ -30,8 +30,14 @@ const Home = () => {
   const [enquiryToolTip,setEnquiryToolTip] = useState(false)
   const [viewToolTip,setViewToolTip] = useState(false)
   const [phoneId,setPhonneId] = useState("")
+  const [enqCarId,setEnqCarId] = useState("")
+  const [enqCustomerName,setEnqCustomerName] = useState("")
+  // console.log(enqCustomerName,'customer name')
+  const [enqCustomerMob,setEnqCustomerMob] = useState("")
+  // console.log(enqCustomerMob, 'customer mob')
   
   const [carQuerry,setCarQuerry] = useState("")
+  // console.log(favouriteactive)
 
   // Api Data
   const [apiData,setApiData] = useState([])
@@ -46,24 +52,84 @@ const Home = () => {
   const handleCheckboxChange = () => {
     setTermsChecked(!termsChecked);
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
 
-    if (termsChecked) {
-      toast.success("Enquiry Subbmitted")
-      setTermsChecked(false)
-    } else {
-      toast.error("Verification Required")
-    }
-  };
-  const handleFavouriteActive =(favid)=>{
-    setFavouriteactive(!favouriteactive)
+  const handleFavouriteActive =async(favid)=>{
     setFavouriteId(favid)
+    if(userVerify){
+      try {
+        const response = await fetch(`${BaseUrl}/car/favourite/${favid}`, {
+          method: "POST",
+          headers: {
+            Accept:'application/json',
+            Authorization: `Bearer ${userVerify}`,
+          }
+        });
+  
+        const FavouriteData = await response.json();
+  
+        if (response.ok) {
+          // bookmarked succesfuly
+          toast.success(FavouriteData.message);
+          console.log(FavouriteData);
+          setFavouriteactive(true)
+          setTimeout(() => {
+            setFavouriteactive(false)
+          }, 2000);
+        } else {
+          // bookmark failed
+          toast.error(FavouriteData.message);
+          console.log(FavouriteData);
+        }
+      } catch (error) {
+        console.error("Error during Subbmision:", error);
+        toast.error("An error occurred during Submission.");
+      }
+
+    }
+    else{
+      homeNavigate('/UserMainPanel')
+    }
+    
   }
-  const handleBookmarkActive =(favid)=>{
-    setBookmarkactive(!bookmarkactive)
-    setBookmarkId(favid)
+  const handleBookmarkActive =async (bookid)=>{
+    setBookmarkId(bookid)
+    if(userVerify){
+      try {
+        const response = await fetch(`${BaseUrl}/car/bookmark/${bookid}`, {
+          method: "POST",
+          headers: {
+            Accept:'application/json',
+            Authorization: `Bearer ${userVerify}`,
+          }
+        });
+  
+        const BookmarkData = await response.json();
+  
+        if (response.ok) {
+          // bookmarked succesfuly
+          toast.success(BookmarkData.message);
+          // console.log(BookmarkData);
+          setBookmarkactive(true)
+          setTimeout(() => {
+            setBookmarkactive(false)
+          }, 2000);
+        } else {
+          // bookmark failed
+          toast.error(BookmarkData.message);
+          console.log(BookmarkData);
+        }
+      } catch (error) {
+        console.error("Error during Subbmision:", error);
+        toast.error("An error occurred during Submission.");
+      }
+
+    }
+    else{
+      homeNavigate('/UserMainPanel')
+    }
+
   }
+
   const handlePhoneTooltip =(toolid)=>{
     setPhonneToolTip(true)
     setPhonneId(toolid)
@@ -89,6 +155,7 @@ const Home = () => {
   const HandleEnquiryFunc =(make, model,year,carEid)=>{
     setCarQuerry(`${make} ${model} ${year} link: https://car-relation-bsp-3396.netlify.app/DisplayCarDetailsOnlyView/${carEid}`)
     setEnqEnable(true)
+    setEnqCarId(carEid)
     setTimeout(() => {
       setEnquiryToolTip(false)
       
@@ -192,6 +259,55 @@ const Home = () => {
   //     console.log(apiData.data);
   //   }
   // },[apiData])
+
+  const generateEnquiry = async (e) => {
+    e.preventDefault();
+    if (enqCustomerName && enqCustomerMob && carQuerry !== "") {
+      if(termsChecked){     
+      try {
+        // const userAffiliationDetails = userAffiliationNo&&userAffiliationNo.toString()
+        const formData = new FormData();
+        formData.append("car_id", enqCarId);
+        formData.append("name", enqCustomerName);
+        formData.append("phone", enqCustomerMob);
+        formData.append("enquiry", carQuerry);
+        // formData.append("aff_user_id",userAffiliationDetails&&userAffiliationDetails);
+        // formData.append("user_id", ownerSerial);
+  
+        const response = await fetch(`${BaseUrl}/car/enquiry`, {
+          method: "POST",
+          headers: {
+            Accept:'application/json',
+          },
+          body: formData,
+        });
+  
+        const EnqSubmitted = await response.json();
+  
+        if (response.ok) {
+          // Enq Subbmitted succesfuly
+          toast.success(EnqSubmitted.message);
+          console.log(EnqSubmitted);
+          setEnqEnable(false)
+          setEnqCustomerName('')
+          setEnqCustomerMob('')
+        } else {
+          // Enq Subbmision failed
+          toast.error(EnqSubmitted.message);
+          console.log(EnqSubmitted);
+        }
+      } catch (error) {
+        console.error("Error during Subbmision:", error);
+        toast.error("An error occurred during Submission.");
+      }
+    }
+    else{
+      toast.error("Verification Required")
+    }
+    } else {
+      toast.error("Please Fill All The Details");
+    }
+  };
    
 
   return (
@@ -204,12 +320,12 @@ const Home = () => {
               <form className='Enquiry-form-tag' action="">
               <i onClick={()=>setEnqEnable(false)} className="fa-solid fa-xmark enquiry-close-icon"></i>
               <label htmlFor="User-Name">Name</label>
-              <input type="text" id="User-Name" name="Kilo-meters" />
+              <input onChange={(e)=>setEnqCustomerName(e.target.value)} type="text" id="User-Name" name="Kilo-meters" />
               <label htmlFor="User-Mobile">Mobile no.</label>
-              <input type="text" id="User-Mobile" name="Kilo-meters" />
+              <input onChange={(e)=>setEnqCustomerMob(e.target.value)} type="text" id="User-Mobile" name="Kilo-meters" />
               <label htmlFor="User-Querry">Querry</label>
-              <input type="text" defaultValue={carQuerry}  id="User-Querry" />
-              <button onClick={handleSubmit} className='btn enquiry-form-submit-btn'>Submit</button>
+              <input type="text" onChange={(e)=>setCarQuerry(e.target.value)} defaultValue={carQuerry}  id="User-Querry" />
+              <button onClick={generateEnquiry} className='btn enquiry-form-submit-btn'>Submit</button>
               <div className='captcha-div'>
               <input
               className='Terms-conditions-checkbox'
@@ -254,7 +370,7 @@ const Home = () => {
                
               </div>
               <i onClick={()=>handleFavouriteActive(items.id)}
-              className={favouriteactive&&favouriteid===items.id?"fa-solid fa-heart favourites-icon-active":'fa-solid fa-heart favourites-icon-inactive'}></i>
+              className={favouriteactive&&favouriteid===items.id?"fa-solid fa-heart favourites-icon-active":'fa-regular fa-heart favourites-icon-inactive'}></i>
               
               <div className="card-text">
               {items.model.length>20?`${items.model.slice(0,20)}...`:items.model}

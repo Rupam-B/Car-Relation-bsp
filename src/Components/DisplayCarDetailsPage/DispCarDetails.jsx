@@ -35,23 +35,16 @@ const DispCarDetails = () => {
   const [enqEnable, setEnqEnable] = useState(false)
   const [enqDefaultvalue, setEnqDefaultValue] = useState('')
   const [termsChecked, setTermsChecked] = useState(false);
+
+  const [enqCustomerName,setEnqCustomerName] = useState("")
+  // console.log(enqCustomerName,'customer name')
+  const [enqCustomerMob,setEnqCustomerMob] = useState("")
+  // console.log(enqCustomerMob, 'customer mob')
   
 
   const handleCheckboxChange = () => {
     setTermsChecked(!termsChecked);
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (termsChecked) {
-      toast.success("Enquiry Subbmitted")
-      setTermsChecked(false)
-    } else {
-      toast.error("Verification Required")
-    }
-  };
-
 
   const handleSetImage1 =  ()=>{
     if(dataOfShowingAdd&&dataOfShowingAdd.image[1]){
@@ -163,6 +156,55 @@ const DispCarDetails = () => {
     };
   // ======Calling and Whatsapp Feature End=======
 
+  const generateEnquiry = async (e) => {
+    e.preventDefault();
+    if (enqCustomerName && enqCustomerMob && enqDefaultvalue !== "") {
+      if(termsChecked){     
+      try {
+        // const userAffiliationDetails = userAffiliationNo&&userAffiliationNo.toString()
+        const formData = new FormData();
+        formData.append("car_id", ExtendesAddDispalyId);
+        formData.append("name", enqCustomerName);
+        formData.append("phone", enqCustomerMob);
+        formData.append("enquiry", enqDefaultvalue);
+        // formData.append("aff_user_id",userAffiliationDetails&&userAffiliationDetails);
+        // formData.append("user_id", ownerSerial);
+  
+        const response = await fetch(`${BaseURL}/car/enquiry`, {
+          method: "POST",
+          headers: {
+            Accept:'application/json',
+          },
+          body: formData,
+        });
+  
+        const EnqSubmitted = await response.json();
+  
+        if (response.ok) {
+          // Enq Subbmitted succesfuly
+          toast.success(EnqSubmitted.message);
+          console.log(EnqSubmitted);
+          setEnqEnable(false)
+          setEnqCustomerName('')
+          setEnqCustomerMob('')
+        } else {
+          // Enq Subbmision failed
+          toast.error(EnqSubmitted.message);
+          console.log(EnqSubmitted);
+        }
+      } catch (error) {
+        console.error("Error during Subbmision:", error);
+        toast.error("An error occurred during Submission.");
+      }
+    }
+    else{
+      toast.error("Verification Required")
+    }
+    } else {
+      toast.error("Please Fill All The Details");
+    }
+  };
+
 
 
   return (
@@ -182,12 +224,12 @@ const DispCarDetails = () => {
             <form className='Enquiry-form-tag' action="">
               <i onClick={() => setEnqEnable(false)} className="fa-solid fa-xmark enquiry-close-icon"></i>
               <label htmlFor="User-Name">Name</label>
-              <input type="text" id="User-Name" name="Kilo-meters" />
+              <input onChange={(e)=>setEnqCustomerName(e.target.value)} type="text" id="User-Name" name="Kilo-meters" />
               <label htmlFor="User-Mobile">Mobile no.</label>
-              <input type="text" id="User-Mobile" name="Kilo-meters" />
+              <input onChange={(e)=>setEnqCustomerMob(e.target.value)} type="text" id="User-Mobile" name="Kilo-meters" />
               <label htmlFor="User-Querry">Querry</label>
-              <input type="text" defaultValue={enqDefaultvalue} id="User-Querry" />
-              <button onClick={handleSubmit} className='btn enquiry-form-submit-btn'>Submit</button>
+              <input onChange={(e)=>setEnqDefaultValue(e.target.value)} type="text" defaultValue={enqDefaultvalue} id="User-Querry" />
+              <button onClick={generateEnquiry} className='btn enquiry-form-submit-btn'>Submit</button>
               <div className='captcha-div'>
                 <input
                   className='Terms-conditions-checkbox'
