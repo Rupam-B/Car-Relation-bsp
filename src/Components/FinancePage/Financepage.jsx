@@ -32,10 +32,26 @@ const Financepage = () => {
   const initiatePhoneCall = (phoneNumber) => {
     const telURL = `tel:${phoneNumber}`;
     window.location.href = telURL;
+    setTimeout(() => {
+      setPhonneToolTip(false)
+      
+    }, 2000);
   };
-    const openWhatsAppChat = (phoneNumber) => {
-      const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}`;
+    const openWhatsAppChat = () => {
+      const phoneNumber = '+919300007780';
+      const message = `Hello, I am reaching out via Car Relation App. I like to know more the finance Details`
+    setTimeout(() => {
+      const encodedPhoneNumber = encodeURIComponent(phoneNumber);
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappURL = `https://api.whatsapp.com/send?phone=${encodedPhoneNumber}&text=${encodedMessage}`;
       window.open(whatsappURL, '_blank');
+        
+      }, 500);
+  
+      
+      setTimeout(() => {
+        setWhatsappToolTip(false);
+      }, 2000);
     };
 
   // ======Calling and Whatsapp EnquiryForm Feature End=======
@@ -171,21 +187,23 @@ const Financepage = () => {
 
             <div className='car-details-multibtn-div Finance-comp-multi-btn'>
                 <div className='multi-phone-combining-div'>
-                <div onClick={() => initiatePhoneCall('9039065247')}
+                <div
                  className={phoneToolTip?'phone-tooltip':'phone-tooltip-inactive'}>Call</div>
                 <button 
                 onMouseEnter={()=>setPhonneToolTip(true)} 
                 onMouseLeave={()=>setPhonneToolTip(false)} 
+                onClick={() => initiatePhoneCall('9300007780')}
                 className='car-details-multi-btn multi-button-phone'>
                   <i style={{fontSize:'1.4rem'}} className="fa-solid fa-phone multi-btn-phone"></i>
                   </button>
                 </div>
                 <div className='multi-whatsapp-combining-div'>
-                <div onClick={() => openWhatsAppChat('9039065247')}
+                <div
                  className={whatsappToolTip?'phone-tooltip':'phone-tooltip-inactive'}>Whatsapp</div>
                 <button
                  onMouseEnter={()=>setWhatsappToolTip(true)} 
                  onMouseLeave={()=>setWhatsappToolTip(false)} 
+                 onClick={openWhatsAppChat}
                 className='car-details-multi-btn multi-button-whatsapp'><i style={{fontSize:'1.5rem'}} className="fa-brands fa-whatsapp multi-btn-whatsapp"></i></button>
                 </div>
                 <div className='multi-Enquiry-combining-div'>
