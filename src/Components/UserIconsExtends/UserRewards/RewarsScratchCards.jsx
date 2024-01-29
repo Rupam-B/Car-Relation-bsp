@@ -68,3 +68,9 @@ const RewarsScratchCards = () => {
 
 export default RewarsScratchCards
 
+
+
+
+
+
+
