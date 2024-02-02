@@ -1,1 +1,13 @@
 this is a simple test file
+
+
+
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "carrelation.development.com",
+      "sha256_cert_fingerprints":
+      ["CD:B0:5E:2B:E2:42:6A:00:E8:0B:EC:39:CA:3A:ED:BB:F1:DB:06:89:92:CB:CA:BE:89:75:77:33:7A:C7:7B:68"]
+    }
+  }]
