@@ -243,7 +243,7 @@ const openWhatsAppChat = () => {
             <button
               onMouseEnter={() => setPhonneToolTip(true)}
               onMouseLeave={() => setPhonneToolTip(false)}
-              onClick={initiatePhoneCall}
+              onClick={initiatePhoneCall('+919300007780')}
               className='car-details-multi-btn multi-button-phone'>
               <i style={{ fontSize: '1.4rem' }} className="fa-solid fa-phone multi-btn-phone"></i>
             </button>
