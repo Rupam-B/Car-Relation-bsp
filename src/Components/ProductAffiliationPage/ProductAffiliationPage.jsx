@@ -29,23 +29,17 @@ const ProductAffiliationPage = () => {
   const [enquiryToolTip, setEnquiryToolTip] = useState(false)
   const [enqEnable, setEnqEnable] = useState(false)
   const [termsChecked, setTermsChecked] = useState(false);
+
+  const [enqDefaultvalue, setEnqDefaultValue] = useState('')
+  const [enqCustomerName,setEnqCustomerName] = useState("")
+  // console.log(enqCustomerName,'customer name')
+  const [enqCustomerMob,setEnqCustomerMob] = useState("")
+  // console.log(enqCustomerMob, 'customer mob')
   
 
   const handleCheckboxChange = () => {
     setTermsChecked(!termsChecked);
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (termsChecked) {
-      toast.success("Enquiry Subbmitted")
-      setTermsChecked(false)
-    } else {
-      toast.error("Verification Required")
-    }
-  };
-
 
   const handleSetImage1 =  ()=>{
     if(dataOfShowingAdd&&dataOfShowingAdd.image[1]){
@@ -102,15 +96,85 @@ const ProductAffiliationPage = () => {
   // console.log(apiData.data)
 
 // ======Calling and Whatsapp Feature=======
-  const initiatePhoneCall = (phoneNumber) => {
-    const telURL = `tel:${phoneNumber}`;
-    window.location.href = telURL;
-  };
-    const openWhatsAppChat = (phoneNumber) => {
-      const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}`;
-      window.open(whatsappURL, '_blank');
-    };
+const initiatePhoneCall = (phoneNumber) => {
+  const telURL = `tel:${phoneNumber}`;
+  window.location.href = telURL;
+  setTimeout(() => {
+    setPhonneToolTip(false)
+    
+  }, 2000);
+};
+const openWhatsAppChat = () => {
+  const phoneNumber = '+919300007780';
+  const message = `Hello, I am reaching out via Car Relation App. I like to know more the listed ${dataOfShowingAdd.make}  ${dataOfShowingAdd.model}  ${dataOfShowingAdd.mfg_year}  link: https://car-relation-bsp-3396.netlify.app/DisplayCarDetailsOnlyView/${carId}`;
+  const encodedPhoneNumber = encodeURIComponent(phoneNumber);
+  const encodedMessage = encodeURIComponent(message);
+
+  const whatsappURL = `https://api.whatsapp.com/send?phone=${encodedPhoneNumber}&text=${encodedMessage}`;
+
+  window.open(whatsappURL, '_blank');
+  setTimeout(() => {
+    setWhatsappToolTip(false);
+  }, 2000);
+};
   // ======Calling and Whatsapp Feature End=======
+  const openEnquiryForm = (make,model,year,carEid) => {
+    setEnqDefaultValue(`${make} ${model} ${year} link: https://car-relation-bsp-3396.netlify.app/DisplayCarDetailsOnlyView/${carEid}`)
+    setEnqEnable(true)
+    setTimeout(() => {
+      setEnquiryToolTip(false)
+      
+    }, 2000);
+  };
+
+  const generateEnquiry = async (e) => {
+    e.preventDefault();
+    if (enqCustomerName && enqCustomerMob && enqDefaultvalue !== "") {
+      if(termsChecked){     
+      try {
+        // const userAffiliationDetails = userAffiliationNo&&userAffiliationNo.toString()
+        const formData = new FormData();
+        formData.append("car_id", carId);
+        formData.append("name", enqCustomerName);
+        formData.append("phone", enqCustomerMob);
+        formData.append("enquiry", enqDefaultvalue);
+        // formData.append("aff_user_id",userAffiliationDetails&&userAffiliationDetails);
+        // formData.append("user_id", ownerSerial);
+  
+        const response = await fetch(`${BaseURL}/car/enquiry`, {
+          method: "POST",
+          headers: {
+            Accept:'application/json',
+          },
+          body: formData,
+        });
+  
+        const EnqSubmitted = await response.json();
+  
+        if (response.ok) {
+          // Enq Subbmitted succesfuly
+          toast.success(EnqSubmitted.message);
+          console.log(EnqSubmitted);
+          setEnqEnable(false)
+          setEnqCustomerName('')
+          setEnqCustomerMob('')
+        } else {
+          // Enq Subbmision failed
+          toast.error(EnqSubmitted.message);
+          console.log(EnqSubmitted);
+        }
+      } catch (error) {
+        console.error("Error during Subbmision:", error);
+        toast.error("An error occurred during Submission.");
+      }
+    }
+    else{
+      toast.error("Verification Required")
+    }
+    } else {
+      toast.error("Please Fill All The Details");
+    }
+  };
 
 
   return (
@@ -135,13 +199,13 @@ const ProductAffiliationPage = () => {
             <form className='Enquiry-form-tag' action="">
               <i onClick={() => setEnqEnable(false)} className="fa-solid fa-xmark enquiry-close-icon"></i>
               <label htmlFor="User-Name">Name</label>
-              <input type="text" id="User-Name" name="Kilo-meters" />
+              <input onChange={(e)=>setEnqCustomerName(e.target.value)} type="text" id="User-Name" name="Kilo-meters" />
               <label htmlFor="User-Mobile">Mobile no.</label>
-              <input type="text" id="User-Mobile" name="Kilo-meters" />
+              <input  onChange={(e)=>setEnqCustomerMob(e.target.value)} type="text" id="User-Mobile" name="Kilo-meters" />
               <p><span>ProductAfId: </span>{affiliationId}</p>
               <label htmlFor="User-Querry">Querry</label>
-              <input type="text" defaultValue={dataOfShowingAdd&&dataOfShowingAdd.description} id="User-Querry" />
-              <button onClick={handleSubmit} className='btn enquiry-form-submit-btn'>Submit</button>
+              <input onChange={(e)=>setEnqDefaultValue(e.target.value)} type="text" defaultValue={enqDefaultvalue} id="User-Querry" />
+              <button onClick={generateEnquiry} className='btn enquiry-form-submit-btn'>Submit</button>
               <div className='captcha-div'>
                 <input
                   className='Terms-conditions-checkbox'
@@ -174,21 +238,23 @@ const ProductAffiliationPage = () => {
         </div>
         <div style={{ marginBottom: '3vh' }} className='car-details-multibtn-div disp-car-extra-class'>
           <div className='multi-phone-combining-div'>
-            <div onClick={() => initiatePhoneCall('9039065247')}
+            <div
              className={phoneToolTip ? 'phone-tooltip' : 'phone-tooltip-inactive'}>Call</div>
             <button
               onMouseEnter={() => setPhonneToolTip(true)}
               onMouseLeave={() => setPhonneToolTip(false)}
+              onClick={initiatePhoneCall}
               className='car-details-multi-btn multi-button-phone'>
               <i style={{ fontSize: '1.4rem' }} className="fa-solid fa-phone multi-btn-phone"></i>
             </button>
           </div>
           <div className='multi-whatsapp-combining-div'>
-            <div onClick={() => openWhatsAppChat('9039065247')}
+            <div
              className={whatsappToolTip ? 'phone-tooltip' : 'phone-tooltip-inactive'}>Whatsapp</div>
             <button
               onMouseEnter={() => setWhatsappToolTip(true)}
               onMouseLeave={() => setWhatsappToolTip(false)}
+              onClick={openWhatsAppChat}
               className='car-details-multi-btn multi-button-whatsapp'><i style={{ fontSize: '1.5rem' }} className="fa-brands fa-whatsapp multi-btn-whatsapp"></i></button>
           </div>
           <div className='multi-Enquiry-combining-div'>
@@ -196,7 +262,7 @@ const ProductAffiliationPage = () => {
             <button
               onMouseEnter={() => setEnquiryToolTip(true)}
               onMouseLeave={() => setEnquiryToolTip(false)}
-              onClick={() => setEnqEnable(true)}
+              onClick={()=>openEnquiryForm(dataOfShowingAdd.make,dataOfShowingAdd.model,dataOfShowingAdd.mfg_year,dataOfShowingAdd.id)}
               className='car-details-multi-btn multi-button-enquiry'><i style={{ fontSize: '1.5rem' }} className="fa-regular fa-envelope multi-btn-enquiry"></i></button>
           </div>
         </div>
@@ -298,7 +364,7 @@ const ProductAffiliationPage = () => {
           <p><span>Kilometers: </span>{dataOfShowingAdd.km_driven}</p>
           <p><span>Owner: </span>{dataOfShowingAdd.owners}</p>
           <p><span>Price: </span>{dataOfShowingAdd.sale_value}</p>
-          <p><span>Details: </span>{dataOfShowingAdd.description}</p>
+          <p><span className='Car-Details-div-description-span'>Details: </span><span className='Car-Details-div-description-span-next'>{dataOfShowingAdd.description}</span></p>
           </>
 
         ):
