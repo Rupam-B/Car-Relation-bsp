@@ -106,7 +106,7 @@ const initiatePhoneCall = (phoneNumber) => {
 };
 const openWhatsAppChat = () => {
   const phoneNumber = '+919300007780';
-  const message = `Hello, I am reaching out via Car Relation App. I like to know more the listed ${dataOfShowingAdd.make}  ${dataOfShowingAdd.model}  ${dataOfShowingAdd.mfg_year}  link: https://car-relation-bsp-3396.netlify.app/DisplayCarDetailsOnlyView/${carId}`;
+  const message = `Hello, I am reaching out via Car Relation App. I like to know more the listed ${dataOfShowingAdd.make}  ${dataOfShowingAdd.model}  ${dataOfShowingAdd.mfg_year} ${affiliationId}  link: https://car-relation-bsp-3396.netlify.app/DisplayCarDetailsOnlyView/${carId}`;
   const encodedPhoneNumber = encodeURIComponent(phoneNumber);
   const encodedMessage = encodeURIComponent(message);
 
