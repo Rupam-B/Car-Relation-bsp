@@ -1,5 +1,5 @@
 
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import Home from './Components/HomePage/Home';
 import LowerNavBar from './Components/LowerNav/LowerNavBar';
 import MiddleNavbar from './Components/MiddleNav/MiddleNavbar';
@@ -31,7 +31,22 @@ import ProductDetailsOnlyView from './Components/ProductDetailsOnlyView/ProductD
 import BookmarkPage from './Components/BookMarkPage/BookmarkPage';
 import FavouritePage from './Components/FavouritesPage/FavouritePage';
 
+function isWebView() {
+  // Check if the user agent includes specific keywords that indicate a WebView
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
 function App() {
+
+  const navigate = useNavigate()
+
+  const handleRedirect = (path) => {
+    if (isWebView()) {
+      navigate(path);
+    } else {
+      navigate('/UserReferals'); // Redirect to UserReferals for non-WebView requests
+    }
+  };
   return (
     <div className="App">
       <UpperNavbar/>
@@ -43,7 +58,13 @@ function App() {
         <Route path='/' element={<Home/>}/>      
         <Route path='/ServiceNotAvailable' element={<ServiceNotAvailable/>}/>      
         <Route path='/DisplayCarDetails' element={<DispCarDetails/>}/>
-        <Route path={'/DisplayCarDetailsAffiliation/:affiliationId/:carId'} element={<ProductAffiliationPage/>}/>
+        {/* <Route path={'/DisplayCarDetailsAffiliation/:affiliationId/:carId'} element={<ProductAffiliationPage/>}/> */}
+
+        <Route
+          path={'/DisplayCarDetailsAffiliation/:affiliationId/:carId'}
+          element={<ProductAffiliationPage />}
+          navigate={handleRedirect} // Pass the custom navigate function
+        />
         <Route path={'/DisplayCarDetailsOnlyView/:carId'} element={<ProductDetailsOnlyView/>}/>
         <Route path='/SellCarPortal' element={<SellCar/>}/>
         <Route path='/FinancePage' element={<Financepage/>}/>
