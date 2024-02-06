@@ -13,6 +13,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 const ProductAffiliationPage = () => {
      const navigate = useNavigate()
+     console.log(navigate)
     const { affiliationId, carId } = useParams();
 
     // console.log(affiliationId, 'AffiliationId')
@@ -177,21 +178,21 @@ const openWhatsAppChat = () => {
   };
 
 
-  function isWebView() {
-    // Check if the user agent includes specific keywords that indicate a WebView
-    return /Android/i.test(navigator.userAgent);
-  }
+  // function isWebView() {
+  //   // Check if the user agent includes specific keywords that indicate a WebView
+  //   return /Android/i.test(navigator.userAgent);
+  // }
 
-  useEffect(() => {
-    const handleWebViewLogic = () => {
-      if (!isWebView()) {
-        // Redirect to /UserReferals for non-WebView requests
-        navigate('/FinancePage');
-      }
-    };
+  // useEffect(() => {
+  //   const handleWebViewLogic = () => {
+  //     if (!isWebView()) {
+  //       // Redirect to /UserReferals for non-WebView requests
+  //       navigate('/FinancePage');
+  //     }
+  //   };
 
-    handleWebViewLogic();
-  }, [navigate]);
+  //   handleWebViewLogic();
+  // }, [navigate]);
 
 
   return (
