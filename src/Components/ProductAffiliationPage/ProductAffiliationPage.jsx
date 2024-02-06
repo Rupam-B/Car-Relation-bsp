@@ -9,10 +9,10 @@ import 'react-toastify/dist/ReactToastify.css';
 // import { Circle } from 'rc-progress';
 import BaseURL from '../../apiconfig';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const ProductAffiliationPage = () => {
-
+     const navigate = useNavigate()
     const { affiliationId, carId } = useParams();
 
     // console.log(affiliationId, 'AffiliationId')
@@ -175,6 +175,23 @@ const openWhatsAppChat = () => {
       toast.error("Please Fill All The Details");
     }
   };
+
+
+  function isWebView() {
+    // Check if the user agent includes specific keywords that indicate a WebView
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  }
+
+  useEffect(() => {
+    const handleWebViewLogic = () => {
+      if (!isWebView()) {
+        // Redirect to /UserReferals for non-WebView requests
+        navigate('/FinancePage');
+      }
+    };
+
+    handleWebViewLogic();
+  }, [navigate]);
 
 
   return (
