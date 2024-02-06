@@ -1,9 +1,11 @@
-[{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": {
-    "namespace": "android_app",
-    "package_name": "carrelation.development.com",
-    "sha256_cert_fingerprints":
-    ["CD:B0:5E:2B:E2:42:6A:00:E8:0B:EC:39:CA:3A:ED:BB:F1:DB:06:89:92:CB:CA:BE:89:75:77:33:7A:C7:7B:68"]
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "carrelation.development.com",
+      "sha256_cert_fingerprints":
+        ["11:E9:BD:92:C0:E8:37:AD:FA:0B:AC:E9:4A:3E:BE:37:20:7A:1C:44:DE:FA:D3:95:F4:2B:85:24:53:AA:39:AE"]
+    }
   }
-}]
+]
