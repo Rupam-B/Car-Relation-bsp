@@ -179,7 +179,7 @@ const openWhatsAppChat = () => {
 
   function isWebView() {
     // Check if the user agent includes specific keywords that indicate a WebView
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    return /Android/i.test(navigator.userAgent);
   }
 
   useEffect(() => {
