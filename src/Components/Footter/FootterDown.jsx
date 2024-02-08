@@ -22,12 +22,12 @@ const FootterDown = () => {
             <p>9300005262</p>
             <p>7566557464</p>
           </div>
-          <div className='footter-bottom-one'>
+          <div className='footter-bottom-one footter-bottom-one-dnone'>
           <h5>Opening Hours</h5>
             <p>All Days</p>
             <p>10:00AM – 08:00PM</p>
           </div>
-          <div className='footter-bottom-one'>
+          <div className='footter-bottom-one footter-bottom-one-dnone'>
           <h5>Website </h5>
           <p>https://carrelation.net/</p>
           </div>
