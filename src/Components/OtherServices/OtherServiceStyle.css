@@ -5,19 +5,22 @@
     
     .Other-services-sub-div{
         margin-top: 5vh;
-        padding: 1vh 5vw;
-        background-color: #003366;
-        color: white;
+        padding: 3vh 0;
+        /* background-color: #003366; */
     }
     .Finance-sector p{
          color:rgb(255, 255, 255,0.7);
     }
-    .Exchange-sector p{
-         color: rgb(250, 235, 215,0.7);
+    .Finance-sector h1{
+         margin-left: 5vw;
     }
+
     .Insurance-sector p{
          color: rgb(250, 235, 215,0.7);
     }
+    .Insurance-sector h1{
+     margin-left: 5vw;
+}
     .Finance-sector-sub{
      position: relative;
       display: flex;
