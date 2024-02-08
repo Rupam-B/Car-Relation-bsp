@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import BaseURL from '../../apiconfig';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import { isWebview } from '@dvlden/is-webview'
 
 const ProductAffiliationPage = () => {
      const navigate = useNavigate()
@@ -193,6 +194,13 @@ const openWhatsAppChat = () => {
 
   //   handleWebViewLogic();
   // }, [navigate]);
+
+
+  if (isWebview(window.navigator.userAgent)) {
+    alert("This is a webview")
+  }else{
+    alert('This is browser')
+  }
 
 
   return (
