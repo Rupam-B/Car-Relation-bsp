@@ -197,13 +197,9 @@ const openWhatsAppChat = () => {
 
   useEffect(()=>{
   if (!isWebview(window.navigator.userAgent)) {
-      // Use the Play Store app intent URI
-    const playStoreAppURI = 'market://details?id=carrelation.development.com';
-
-    // Attempt to open the Play Store app
-    window.location.assign(playStoreAppURI);
+    history.push('https://play.google.com/store/apps/details?id=carrelation.development.com');
   }
-},[navigate])
+},[history])
 
 
   return (
