@@ -197,9 +197,9 @@ const openWhatsAppChat = () => {
 
   useEffect(()=>{
   if (!isWebview(window.navigator.userAgent)) {
-    history.push('https://play.google.com/store/apps/details?id=carrelation.development.com');
+    window.location.navigate('https://play.google.com/store/apps/details?id=carrelation.development.com')
   }
-},[history])
+},[navigate])
 
 
   return (
