@@ -31,6 +31,7 @@ const ProductAffiliationPage = () => {
   const [enquiryToolTip, setEnquiryToolTip] = useState(false)
   const [enqEnable, setEnqEnable] = useState(false)
   const [termsChecked, setTermsChecked] = useState(false);
+  const [isNavigating, setIsNavigating] = useState(false);
 
   const [enqDefaultvalue, setEnqDefaultValue] = useState('')
   const [enqCustomerName,setEnqCustomerName] = useState("")
@@ -197,7 +198,11 @@ const openWhatsAppChat = () => {
 
   useEffect(()=>{
   if (!isWebview(window.navigator.userAgent)) {
+    setIsNavigating(true)
     window.location.href ='https://play.google.com/store/apps/details?id=carrelation.development.com'
+    setTimeout(()=>{
+      setIsNavigating(false)
+    },3000)
   }
 },[navigate])
 
@@ -206,6 +211,10 @@ const openWhatsAppChat = () => {
 
     <div className='DisplayCar-Main-div'>
 
+       {/* =========Uploading Add Wait Div ========= */}
+       <div className={isNavigating?'SellCar-main-wait-while-uploading-di-true':'SellCar-main-wait-while-uploading-di-false'}>
+          <h4>Download App...</h4>
+      </div>
        {/* =========Uploading Add Wait Div ========= */}
        <div className={waitWhileloading?'SellCar-main-wait-while-uploading-di-true':'SellCar-main-wait-while-uploading-di-false'}>
       {/* <div className='SellCar-main-wait-while-uploading-di-true'> */}
