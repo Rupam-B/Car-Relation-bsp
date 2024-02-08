@@ -195,12 +195,11 @@ const openWhatsAppChat = () => {
   //   handleWebViewLogic();
   // }, [navigate]);
 
-
-  if (isWebview(window.navigator.userAgent)) {
-    alert("This is a webview")
-  }else{
-    alert('This is browser')
+  useEffect(()=>{
+  if (!isWebview(window.navigator.userAgent)) {
+      navigate('/UserRoyality')
   }
+},[navigate])
 
 
   return (
