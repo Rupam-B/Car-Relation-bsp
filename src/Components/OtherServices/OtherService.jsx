@@ -8,6 +8,8 @@ const OtherService = () => {
 
   const [userStoreAdds,setUserStoredAdds] = useState()
   const [userInsuranceStoreAdds,setUserInsuranceStoredAdds] = useState()
+  const [financeDocShow,setFinanceDocShow] = useState(false)
+  const [insuranceDocShow,setInsuranceDocShow] = useState(false)
 
 //    For Finance Fetch
   useEffect(() => {
@@ -85,7 +87,8 @@ const OtherService = () => {
                   <img src={userStoreAdds&&userStoreAdds.advertisement_image} alt="" />
                 </div>
             </div>
-            <div className='Finance-Documents-Req-div'>
+            <div onClick={()=>setFinanceDocShow(!financeDocShow)} className="OtherServices-description-extended"><i class={financeDocShow?"fa-solid fa-angle-up":"fa-solid fa-angle-down"}></i></div>
+            <div className={financeDocShow?'Finance-Documents-Req-div':"Finance-Documents-Req-div-hide-for"}>
                 <h4>Documents Required</h4>
                 <div dangerouslySetInnerHTML={{ __html: userStoreAdds && userStoreAdds.details }} />
             </div>
@@ -107,7 +110,8 @@ const OtherService = () => {
                   <img src={userInsuranceStoreAdds&&userInsuranceStoreAdds.advertisement_image} alt="" />
                 </div>
             </div>
-            <div className='Finance-Documents-Req-div'>
+            <div onClick={()=>setInsuranceDocShow(!insuranceDocShow)} className="OtherServices-description-extended"><i class={insuranceDocShow?"fa-solid fa-angle-up":"fa-solid fa-angle-down"}></i></div>
+            <div className={insuranceDocShow?'Finance-Documents-Req-div':"Finance-Documents-Req-div-hide-for"}>
                 <h4>Documents Required</h4>
                 <div dangerouslySetInnerHTML={{ __html: userInsuranceStoreAdds && userInsuranceStoreAdds.details }} />
             </div>
