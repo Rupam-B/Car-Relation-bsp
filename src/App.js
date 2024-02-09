@@ -37,9 +37,11 @@ function App() {
   const navigate = useNavigate();
   useEffect(() => {
     const handleBackButton = () => {
-      navigate.goBack();
+      navigate(-1); // Equivalent to history.goBack()
     };
+
     document.addEventListener('backbutton', handleBackButton);
+
     return () => {
       document.removeEventListener('backbutton', handleBackButton);
     };
