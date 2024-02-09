@@ -1,5 +1,5 @@
 
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import Home from './Components/HomePage/Home';
 import LowerNavBar from './Components/LowerNav/LowerNavBar';
 import MiddleNavbar from './Components/MiddleNav/MiddleNavbar';
@@ -30,8 +30,20 @@ import ProductAffiliationPage from './Components/ProductAffiliationPage/ProductA
 import ProductDetailsOnlyView from './Components/ProductDetailsOnlyView/ProductDetailsOnlyView';
 import BookmarkPage from './Components/BookMarkPage/BookmarkPage';
 import FavouritePage from './Components/FavouritesPage/FavouritePage';
+import { useEffect } from 'react';
 
 function App() {
+  // const history = useHistory();
+  const navigate = useNavigate();
+  useEffect(() => {
+    const handleBackButton = () => {
+      navigate.goBack();
+    };
+    document.addEventListener('backbutton', handleBackButton);
+    return () => {
+      document.removeEventListener('backbutton', handleBackButton);
+    };
+  }, [navigate]);
   return (
     <div className="App">
       <UpperNavbar/>
