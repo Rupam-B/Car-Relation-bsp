@@ -96,12 +96,39 @@
     margin-top: 5vh;
     width: 12vw;
     height: 5vh;
-    background-color: rgba(12, 12, 12, 0.7);
+    background-color: #e01a42;
     color: white;
     border-radius: 3px;
     font-size:1rem;
     font-weight: bolder;
     border: none;
+}
+.SellCar-Show-data-to-Upload{
+    position: absolute;
+    width: 100vw;
+    height: auto;
+    padding-bottom: 300vh;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background-color: white;
+}
+
+.SellCar-Show-data-to-Upload-False{
+    display: none;
+    overflow: hidden;
+}
+.Add-Upload-button-confirm{
+    background-color:transparent;
+    color: green;
+    margin-top: 5vh;
+    border: 1px solid rgb(128, 128, 128,0.2);
+}
+.Add-Upload-button-Edit{
+    background-color:transparent;
+    color: #e01a42;
+    margin-top: 5vh;
+    border: 1px solid rgb(128, 128, 128,0.2);
 }
 
 
@@ -178,9 +205,9 @@
         margin-top: 3vh;
         width: 40vw;
         height: 5vh;
-        background-color: rgba(12, 12, 12, 0.7);
+        background-color:#e01a42;
         color: white;
-        border-radius: 3px;
+        border-radius: 5px;
         font-size: 1rem;
         font-weight: bolder;
         border: none;
@@ -215,7 +242,7 @@
     }
     .Add-Upload-button-Edit{
         background-color:transparent;
-        color: blue;
+        color: #e01a42;
         margin-top: 5vh;
         border: 1px solid rgb(128, 128, 128,0.2);
     }

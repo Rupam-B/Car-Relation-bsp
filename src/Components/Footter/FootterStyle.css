@@ -4,7 +4,7 @@
     height:auto;
 }
 .Footter-Sub-Top{
-    height: 15vh;
+    height: 7vh;
 }
 .Footter-Sub-Bottom{
     display: flex;
@@ -13,9 +13,9 @@
 }
 .footter-bottom-one{
     width: 22vw;
-    height:50vh;
+    height:35vh;
     color: white;
-    padding-top: 10vh;
+    padding-top: 5vh;
     padding-left: 1vw;
     display: flex;
     flex-direction: column;
@@ -53,7 +53,7 @@
         width: 28vw;
     }
     .Footter-Sub-Top{
-        height: 10vh;
+        height: 5vh;
     }
     .footter-bottom-one-dnone{
         display: none;

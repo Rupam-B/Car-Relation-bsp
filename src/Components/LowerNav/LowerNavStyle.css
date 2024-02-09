@@ -51,6 +51,6 @@
     .Lowenav-add-showing-div img{
         height: auto;
         width: 95vw;
-        border: 1px solid red;
+        /* border: 1px solid red; */
     }
 }
