@@ -42,7 +42,7 @@
         justify-content: center;
         height:auto;
         margin-bottom: 2vh;
-        margin-top: 1vh;
+        /* margin-top: 1vh; */
     }
     
     .Lowenav-add-showing-div{
@@ -52,5 +52,6 @@
     .Lowenav-add-showing-div img{
         height: auto;
         width: 95vw;
+        border: 1px solid red;
     }
 }
