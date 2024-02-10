@@ -14,7 +14,6 @@ import { isWebview } from '@dvlden/is-webview'
 
 const ProductAffiliationPage = () => {
      const navigate = useNavigate()
-     console.log(navigate)
     const { affiliationId, carId } = useParams();
 
     // console.log(affiliationId, 'AffiliationId')
@@ -32,6 +31,8 @@ const ProductAffiliationPage = () => {
   const [enqEnable, setEnqEnable] = useState(false)
   const [termsChecked, setTermsChecked] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
+  const [inValidLink, setInValidLink] = useState(false);
+
 
   const [enqDefaultvalue, setEnqDefaultValue] = useState('')
   const [enqCustomerName,setEnqCustomerName] = useState("")
@@ -67,11 +68,46 @@ const ProductAffiliationPage = () => {
 
   // ======Fetch Extended Adds Data ========
 
+  // useEffect(() => {
+
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get(`${BaseURL}/car/${carId}`, {
+  //         method:'GET',
+  //         headers: {
+  //           Accept: 'application/json',
+  //         },
+  //       });
+  
+  //       if (response.status >= 200 && response.status < 300) {
+  //         const targetCardata = response.data;
+  //         if(targetCardata){
+  //           setDataOfShowingAdd(targetCardata.data)
+  //           setWaitWhileloading(false)
+  //           // console.log(targetCardata.data)
+  //         }
+  //       } else {
+  //         throw new Error('Network response was not ok');
+  //       }
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //       setWaitWhileloading(false)
+  //       setInValidLink(true)
+  //     }
+  //   };
+  
+  //   fetchData();
+  // }, [carId]);
+
+
+
+
+
   useEffect(() => {
 
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${BaseURL}/car/${carId}`, {
+        const response = await axios.get(`${BaseURL}/aflink/car/${affiliationId}/${carId}`, {
           method:'GET',
           headers: {
             Accept: 'application/json',
@@ -81,20 +117,23 @@ const ProductAffiliationPage = () => {
         if (response.status >= 200 && response.status < 300) {
           const targetCardata = response.data;
           if(targetCardata){
-            setDataOfShowingAdd(targetCardata.data)
+            setDataOfShowingAdd(targetCardata.data.car)
             setWaitWhileloading(false)
+            console.log(targetCardata.data.car)
           }
         } else {
           throw new Error('Network response was not ok');
         }
       } catch (error) {
         console.error('Error fetching data:', error);
+        console.log(error)
         setWaitWhileloading(false)
+        setInValidLink(true)
       }
     };
   
     fetchData();
-  }, [carId]);
+  }, [carId,affiliationId]);
 
   // console.log(apiData.data)
 
@@ -180,22 +219,6 @@ const openWhatsAppChat = () => {
   };
 
 
-  // function isWebView() {
-  //   // Check if the user agent includes specific keywords that indicate a WebView
-  //   return /Android/i.test(navigator.userAgent);
-  // }
-
-  // useEffect(() => {
-  //   const handleWebViewLogic = () => {
-  //     if (!isWebView()) {
-  //       // Redirect to /UserReferals for non-WebView requests
-  //       navigate('/FinancePage');
-  //     }
-  //   };
-
-  //   handleWebViewLogic();
-  // }, [navigate]);
-
   useEffect(()=>{
   if (!isWebview(window.navigator.userAgent)) {
     setIsNavigating(true)
@@ -211,6 +234,11 @@ const openWhatsAppChat = () => {
 
     <div className='DisplayCar-Main-div'>
 
+       {/* =========Uploading Add Wait Div ========= */}
+       <div className={inValidLink?'SellCar-main-invalid-Link-di-true':'SellCar-main-invalid-Link-di-false'}>
+          <h4>Invalid Link !!!</h4>
+          <p>Page not Found      <h1>404</h1></p>
+      </div>
        {/* =========Uploading Add Wait Div ========= */}
        <div className={isNavigating?'SellCar-main-wait-while-uploading-di-true':'SellCar-main-wait-while-uploading-di-false'}>
           <h4>Download App...</h4>
