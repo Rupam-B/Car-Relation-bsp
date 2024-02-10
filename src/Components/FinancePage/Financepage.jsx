@@ -9,6 +9,7 @@ import axios from 'axios';
 const Financepage = () => {
 
   // const CompanyDetails = FinanceCompanyImages
+  const UserPersonalId = localStorage.getItem('car-relation-user-personal-Id')
 
   const [phoneToolTip,setPhonneToolTip] = useState(false)
   const [whatsappToolTip,setWhatsappToolTip] = useState(false)
@@ -95,6 +96,9 @@ const Financepage = () => {
         formData.append("name", enqCustomerName);
         formData.append("phone", enqCustomerMob);
         formData.append("enquiry", enqCustomerEnquiry);
+        if(UserPersonalId){
+          formData.append("user_id", UserPersonalId);
+        }
   
         const response = await fetch(`${BaseURL}/service/finance/enquiry`, {
           method: "POST",

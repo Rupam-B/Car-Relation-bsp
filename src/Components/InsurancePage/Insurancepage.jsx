@@ -11,6 +11,7 @@ import BaseURL from '../../apiconfig';
 const Insurancepage = () => {
 
   // const CompanyDetails = InsuranceCompanyImages
+  const UserPersonalId = localStorage.getItem('car-relation-user-personal-Id')
 
   const [phoneToolTip,setPhonneToolTip] = useState(false)
   const [whatsappToolTip,setWhatsappToolTip] = useState(false)
@@ -97,6 +98,9 @@ const Insurancepage = () => {
         formData.append("name", enqCustomerName);
         formData.append("phone", enqCustomerMob);
         formData.append("enquiry", enqCustomerEnquiry);
+        if(UserPersonalId){
+          formData.append("user_id", UserPersonalId);
+        }
   
         const response = await fetch(`${BaseURL}/service/insurance/enquiry`, {
           method: "POST",

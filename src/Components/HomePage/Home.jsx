@@ -16,6 +16,8 @@ const Home = () => {
 
   const userVerify =localStorage.getItem('car-relation-user-token')
   const userAffiliationNo =localStorage.getItem('car-relation-user-AffId')
+
+  const UserPersonalId = localStorage.getItem('car-relation-user-personal-Id')
   // console.log(userAffiliationNo)
 
   const [sharetooltipVisible, setShareTooltipVisible] = useState(false);
@@ -272,7 +274,9 @@ const Home = () => {
         formData.append("phone", enqCustomerMob);
         formData.append("enquiry", carQuerry);
         // formData.append("aff_user_id",userAffiliationDetails&&userAffiliationDetails);
-        // formData.append("user_id", ownerSerial);
+        if(UserPersonalId){
+          formData.append("user_id", UserPersonalId);
+        }
   
         const response = await fetch(`${BaseUrl}/car/enquiry`, {
           method: "POST",

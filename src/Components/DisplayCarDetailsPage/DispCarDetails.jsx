@@ -12,6 +12,7 @@ const DispCarDetails = () => {
 
   const userVerify =localStorage.getItem('car-relation-user-token')
   const userAffiliationNo =localStorage.getItem('car-relation-user-AffId')
+  const UserPersonalId = localStorage.getItem('car-relation-user-personal-Id')
 
 
   const gwtExtendesAddDispalyId = useSelector((state) => state.TargetingWhichAddToDisplay)
@@ -168,7 +169,9 @@ const DispCarDetails = () => {
         formData.append("phone", enqCustomerMob);
         formData.append("enquiry", enqDefaultvalue);
         // formData.append("aff_user_id",userAffiliationDetails&&userAffiliationDetails);
-        // formData.append("user_id", ownerSerial);
+        if(UserPersonalId){
+          formData.append("user_id", UserPersonalId);
+        }
   
         const response = await fetch(`${BaseURL}/car/enquiry`, {
           method: "POST",
