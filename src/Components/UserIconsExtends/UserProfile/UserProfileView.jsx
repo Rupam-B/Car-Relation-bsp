@@ -43,9 +43,15 @@ const UserProfileView = () => {
     localStorage.removeItem('car-relation-user-name')
     localStorage.removeItem('car-relation-user-email')
     localStorage.removeItem('car-relation-user-aadhaar')
-    UserProfileDispatch(isUserLoggedin(0))
+    localStorage.removeItem('car-relation-user-personal-Id')
+
+    setTimeout(()=>{
+      UserProfileDispatch(isUserLoggedin(0))
     toast.success("Logged Out Successfully")
     window.location.assign('/')
+
+    },1500)
+    
     }
 
   }

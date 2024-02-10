@@ -16,6 +16,8 @@ const ProductAffiliationPage = () => {
      const navigate = useNavigate()
     const { affiliationId, carId } = useParams();
 
+    const UserPersonalId = localStorage.getItem('car-relation-user-personal-Id')
+
     // console.log(affiliationId, 'AffiliationId')
     // console.log(carId, 'Carid')
 
@@ -32,6 +34,7 @@ const ProductAffiliationPage = () => {
   const [termsChecked, setTermsChecked] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
   const [inValidLink, setInValidLink] = useState(false);
+  const [enqUserAffId, setEnqUserAffId] = useState();
 
 
   const [enqDefaultvalue, setEnqDefaultValue] = useState('')
@@ -119,7 +122,8 @@ const ProductAffiliationPage = () => {
           if(targetCardata){
             setDataOfShowingAdd(targetCardata.data.car)
             setWaitWhileloading(false)
-            console.log(targetCardata.data.car)
+            setEnqUserAffId(targetCardata.data.af_user.id)
+            // console.log(targetCardata.data)
           }
         } else {
           throw new Error('Network response was not ok');
@@ -180,8 +184,10 @@ const openWhatsAppChat = () => {
         formData.append("name", enqCustomerName);
         formData.append("phone", enqCustomerMob);
         formData.append("enquiry", enqDefaultvalue);
-        // formData.append("aff_user_id",userAffiliationDetails&&userAffiliationDetails);
-        // formData.append("user_id", ownerSerial);
+        formData.append("aff_user_id",enqUserAffId);
+        if(UserPersonalId){
+          formData.append("user_id", UserPersonalId);
+        }
   
         const response = await fetch(`${BaseURL}/car/enquiry`, {
           method: "POST",
@@ -264,7 +270,7 @@ const openWhatsAppChat = () => {
               <input onChange={(e)=>setEnqCustomerName(e.target.value)} type="text" id="User-Name" name="Kilo-meters" />
               <label htmlFor="User-Mobile">Mobile no.</label>
               <input  onChange={(e)=>setEnqCustomerMob(e.target.value)} type="text" id="User-Mobile" name="Kilo-meters" />
-              <p><span>ProductAfId: </span>{affiliationId}</p>
+              {/* <p><span>ProductAfId: </span>{affiliationId}</p> */}
               <label htmlFor="User-Querry">Querry</label>
               <input onChange={(e)=>setEnqDefaultValue(e.target.value)} type="text" defaultValue={enqDefaultvalue} id="User-Querry" />
               <button onClick={generateEnquiry} className='btn enquiry-form-submit-btn'>Submit</button>

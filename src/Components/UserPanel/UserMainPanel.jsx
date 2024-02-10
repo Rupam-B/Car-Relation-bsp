@@ -55,11 +55,12 @@ const handleLogin = async()=>{
         // Login Success
         toast.success(Logindata.message);
         console.log(Logindata)
-        console.log(Logindata.data.token)
-        console.log(Logindata.data.unique_id)
+        // console.log(Logindata.data.token)
+        // console.log(Logindata.data.unique_id)
         localStorage.setItem('car-relation-user-token',Logindata.data.token)
         localStorage.setItem('car-relation-user-AffId',Logindata.data.unique_id)
         localStorage.setItem('car-relation-user-name',Logindata.data.name)
+        localStorage.setItem('car-relation-user-personal-Id',Logindata.data.id)
         
 
         // Navigated
@@ -110,6 +111,7 @@ const handleSignup = async () => {
         localStorage.setItem('car-relation-user-token',SignUpdata.data.token)
         localStorage.setItem('car-relation-user-AffId',SignUpdata.data.unique_id)
         localStorage.setItem('car-relation-user-name',SignUpdata.data.name)
+        localStorage.setItem('car-relation-user-personal-Id',SignUpdata.data.id)
         
 
         // Navigated
