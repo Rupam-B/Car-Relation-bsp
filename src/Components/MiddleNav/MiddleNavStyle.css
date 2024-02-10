@@ -87,8 +87,9 @@
 @media screen and (max-width:700px) {
     .Middle-nav-sub-div {
         padding: 0 1vw;
-        height: 25vh;
+        height: 22vh;
         position: relative;
+        padding-top: 3vh;
     }
 
     .Middle-nav-left-div {

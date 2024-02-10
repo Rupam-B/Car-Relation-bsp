@@ -8,15 +8,9 @@
         padding: 3vh 0;
         /* background-color: #003366; */
     }
-    .Finance-sector p{
-         color:rgb(255, 255, 255,0.7);
-    }
+
     .Finance-sector h1{
          margin-left: 5vw;
-    }
-
-    .Insurance-sector p{
-         color: rgb(250, 235, 215,0.7);
     }
     .Insurance-sector h1{
      margin-left: 5vw;

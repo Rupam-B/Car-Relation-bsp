@@ -20,7 +20,7 @@ const LowerNavBar = () => {
         if (response.status >= 200 && response.status < 300) {
           const data = response.data;
           if (data) {
-            console.log(data.data.header_img)
+            // console.log(data.data.header_img)
             setHeaderImage(data.data.header_img)
           }
         } else {

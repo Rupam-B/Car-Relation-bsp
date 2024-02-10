@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './UserProfileStyle.css'
 import { Link} from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { toast } from 'react-toastify';
 import { isUserLoggedin } from '../../../Reduxs/action'
 import BaseURL from '../../../apiconfig';
+import axios from 'axios';
 
 const UserProfileView = () => {
 
@@ -193,6 +194,36 @@ const UserProfileView = () => {
     }
   }
 
+  // Fetch User Email, AAdhar etc
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${BaseURL}/getuserinfo`, {
+          mode: "no-cors",
+          headers: {
+            Accept: "application/json",
+            Authorization:`Bearer ${userToken}`
+          },
+        });
+
+        if (response.status >= 200 && response.status < 300) {
+          const data = response.data;
+          if (data) {
+            console.log(data.data)
+            localStorage.setItem('car-relation-user-email', data.data.email)
+            localStorage.setItem('car-relation-user-aadhaar', data.data.aadhaar)
+          }
+        } else {
+          throw new Error("Network response was not ok");
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, [userToken]);
+
 
 
 
@@ -218,7 +249,7 @@ const UserProfileView = () => {
 
              </div>
              <div className="Profile-User-Details">
-                <p><span>Email </span>{userEmail?userEmail:'@gmail.com'}<b onClick={()=>setEmailVerify(!emailVerify)} className='profile-input-optional'>{emailVerify?'^':'update'}</b></p>
+                <p><span>Email </span>{userEmail?userEmail:'@gmail.com'}<b style={{width:'17vw', backgroundColor:'white', paddingLeft:'2vw'}} onClick={()=>setEmailVerify(!emailVerify)} className='profile-input-optional'>{emailVerify?'  close':'update'}</b></p>
                 <div className={emailVerify?'User-Email-input-div-active':'User-Email-input-div-inactive'}>
                 <input onChange={(e)=>setNewEmail(e.target.value)} value={newEmail} className='User-Email-input' type="text" placeholder='Enter Email address' />
                 <button onClick={handleEmailOption} className='bg-info'>submit</button>
