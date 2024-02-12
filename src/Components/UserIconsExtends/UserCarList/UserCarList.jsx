@@ -17,6 +17,7 @@ const UserCarList = () => {
   const [selectedImages, setSelectedImages] = useState([]);
   const [waitWhileUploading, setWaitWhileUploading] = useState(false);
   const [waitWhileDeleteing, setWaitWhileDeleteing] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [showSelectedImages, setShowSelectedImages] = useState([]);
   const [carCompanyData, setCarCompanyData] = useState([]);
   const [carModelData, setCarModelData] = useState([]);
@@ -232,6 +233,7 @@ const UserCarList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true)
         const response = await axios.get(`${BaseURL}/usercars`, {
           mode: "no-cors",
           headers: {
@@ -251,6 +253,9 @@ const UserCarList = () => {
         }
       } catch (error) {
         console.error("Error fetching data:", error);
+      }
+      finally{
+        setIsLoading(false)
       }
     };
 
@@ -491,9 +496,9 @@ const UserCarList = () => {
                 </div>
               </div>
             ))
-          ) : (
-            <h6>Loding...</h6>
-          )}
+          ) : (isLoading?<h6 style={{width:'100vw',margin:'auto',textAlign:'center'}}>Loading...</h6>:
+          <h6 style={{width:'100vw',margin:'auto',textAlign:'center'}}>No Uploads</h6>
+        )}
         </div>
       </div>
     </div>

@@ -17,6 +17,7 @@ const FavouritePage = () => {
 
   const [userStoredAdds, setUserStoredAdds] = useState([]);
   const [waitWhileDeleteing, setWaitWhileDeleteing] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [deletingAdd, setDeletingAdd] = useState(false);
   const [addDeletingId, setAddDeletingId] = useState(0);
   // =========Car State Data =============
@@ -79,6 +80,7 @@ const FavouritePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true)
         const response = await axios.get(`${BaseURL}/car/favourite/list`, {
           mode: "no-cors",
           headers: {
@@ -90,7 +92,7 @@ const FavouritePage = () => {
         if (response.status >= 200 && response.status < 300) {
           const data = response.data;
           if (data) {
-            // console.log(data.data)
+            console.log(data.data)
             setUserStoredAdds(data.data);
           }
         } else {
@@ -98,6 +100,9 @@ const FavouritePage = () => {
         }
       } catch (error) {
         console.error("Error fetching data:", error);
+      }
+      finally{
+        setIsLoading(false)
       }
     };
 
@@ -195,8 +200,8 @@ const FavouritePage = () => {
                 </div>
               </div>
             ))
-          ) : (
-            <h6>Loding...</h6>
+          ) : (isLoading?<h6 style={{width:'100vw',margin:'auto',textAlign:'center'}}>Loading...</h6>:
+            <h6 style={{width:'100vw',margin:'auto',textAlign:'center'}}>No Favourites</h6>
           )}
         </div>
       </div>
