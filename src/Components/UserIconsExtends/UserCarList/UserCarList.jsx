@@ -481,7 +481,7 @@ const UserCarList = () => {
                           <p className='User-Adds-List-enquiry-quantity'>4</p>
                           </div> */}
                         
-                          {items.is_sold===false?(
+                          {items.is_sold===true?(
                             <img className="User-Adds-List-sold-image" src={process.env.PUBLIC_URL + '/Sold-image.jpeg'} alt="" />
                           ):
                             (
