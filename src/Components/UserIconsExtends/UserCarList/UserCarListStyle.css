@@ -263,6 +263,13 @@
     .User-Adds-List-adds-info-div-sub button:hover{
         transform: scale(1.1);
     }
+    .User-Adds-List-sold-image{
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 10%;
+        border-radius: 50%;
+    }
 
 
 }

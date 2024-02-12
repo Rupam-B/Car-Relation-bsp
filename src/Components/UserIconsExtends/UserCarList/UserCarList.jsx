@@ -480,7 +480,14 @@ const UserCarList = () => {
                           <i style={{color:'green'}} className="fa-solid fa-eye"></i>
                           <p className='User-Adds-List-enquiry-quantity'>4</p>
                           </div> */}
-                    <button
+                        
+                          {items.is_sold===false?(
+                            <img className="User-Adds-List-sold-image" src={process.env.PUBLIC_URL + '/Sold-image.jpeg'} alt="" />
+                          ):
+                            (
+                              <>
+                             
+                              <button
                       onClick={() => DeleteButtonFunction(items.id)}
                       className="User-Adds-List-adds-info-div-sub-Delete-button"
                     >
@@ -492,6 +499,10 @@ const UserCarList = () => {
                     >
                       Edit
                     </button>
+                    </>
+                            )
+                          
+                          }
                   </div>
                 </div>
               </div>

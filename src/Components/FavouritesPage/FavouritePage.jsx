@@ -92,7 +92,7 @@ const FavouritePage = () => {
         if (response.status >= 200 && response.status < 300) {
           const data = response.data;
           if (data) {
-            console.log(data.data)
+            // console.log(data.data)
             setUserStoredAdds(data.data);
           }
         } else {
