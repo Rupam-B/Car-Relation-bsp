@@ -15,12 +15,13 @@ const UserProfileView = () => {
   const Loggedinuser = localStorage.getItem('car-relation-user-name')
   const LoggedinuserAffiliation = localStorage.getItem('car-relation-user-AffId')
   const userToken = localStorage.getItem('car-relation-user-token')
-  const userEmail = localStorage.getItem('car-relation-user-email')
-  const userAadhaar = localStorage.getItem('car-relation-user-aadhaar')
+  // const userEmail = localStorage.getItem('car-relation-user-email')
+  // const userAadhaar = localStorage.getItem('car-relation-user-aadhaar')
   const LoggedinuserName = JSON.stringify(Loggedinuser)
   const [waitWhileLoggingOut, setWaitWhileLoggingOut] = useState(false)
 
-
+    const [userEmail, setUserEmail]= useState()
+    const [userAadhaar, setUserAadhaar]= useState()
     const [passwordChange,setPasswordChnage]=useState(false)
     const [oldPassword,setOldPassword]=useState("")
     const [newPassword,setNewPassword]=useState("")
@@ -77,6 +78,7 @@ const UserProfileView = () => {
   
         if (response.ok) {
           // password changed succesfuly
+          setUserAadhaar(AdharChangeData.data.aadhaar)
           localStorage.setItem('car-relation-user-aadhaar', AdharChangeData.data.aadhaar)
           toast.success(AdharChangeData.message);
           // console.log(AdharChangeData);
@@ -119,6 +121,7 @@ const UserProfileView = () => {
 
       if (response.ok) {
         // password changed succesfuly
+        setUserEmail(EmalChangeData.data.email)
         localStorage.setItem('car-relation-user-email', EmalChangeData.data.email)
         toast.success(EmalChangeData.message);
         // console.log(EmalChangeData);
@@ -209,9 +212,11 @@ const UserProfileView = () => {
         if (response.status >= 200 && response.status < 300) {
           const data = response.data;
           if (data) {
-            console.log(data.data)
+            // console.log(data.data)
             localStorage.setItem('car-relation-user-email', data.data.email)
             localStorage.setItem('car-relation-user-aadhaar', data.data.aadhaar)
+            setUserEmail(data.data.email)
+            setUserAadhaar(data.data.aadhaar)
           }
         } else {
           throw new Error("Network response was not ok");
@@ -222,7 +227,7 @@ const UserProfileView = () => {
     };
 
     fetchData();
-  });
+  },[userToken]);
 
 
 
