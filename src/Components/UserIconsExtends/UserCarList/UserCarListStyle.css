@@ -270,6 +270,16 @@
         top: 10%;
         border-radius: 50%;
     }
+    .User-Adds-List-update-pending-button{
+        position: absolute;
+        right:3vw;
+        top: 50%;
+        border: none;
+        background: transparent;
+        width: 25vw;
+        color: orange;
+        font-weight: bolder;
+    }
 
 
 }

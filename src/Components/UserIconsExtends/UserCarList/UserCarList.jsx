@@ -245,7 +245,7 @@ const UserCarList = () => {
         if (response.status >= 200 && response.status < 300) {
           const data = response.data;
           if (data) {
-            // console.log(data.data)
+            console.log(data.data)
             setUserStoredAdds(data.data);
           }
         } else {
@@ -484,9 +484,9 @@ const UserCarList = () => {
                           {items.is_sold===true?(
                             <img className="User-Adds-List-sold-image" src={process.env.PUBLIC_URL + '/Sold-image.jpeg'} alt="" />
                           ):
-                            (
-                              <>
-                             
+                            (items.is_update_req_pending===true?
+                              <><button className="User-Adds-List-update-pending-button">Update Pending</button></>:
+                              <>                            
                               <button
                       onClick={() => DeleteButtonFunction(items.id)}
                       className="User-Adds-List-adds-info-div-sub-Delete-button"
