@@ -222,7 +222,7 @@ const UserProfileView = () => {
     };
 
     fetchData();
-  }, [userToken]);
+  });
 
 
 

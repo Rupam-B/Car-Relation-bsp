@@ -12,7 +12,7 @@ const FootterDown = () => {
         <div className='Footter-Sub-Bottom'>
           <div className='footter-bottom-one'>
             <h5>OFFICE</h5>
-            <p>Car Relation Vyapar</p>
+            <p>Car Relation, Vyapar</p>
             <p>Vihar, Beside AU</p>
             <p> Bank, Bilaspur Cg</p>
           </div>

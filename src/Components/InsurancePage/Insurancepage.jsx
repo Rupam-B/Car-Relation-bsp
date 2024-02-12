@@ -224,7 +224,7 @@ const Insurancepage = () => {
               </div>
 
             <div className='Finance-Documents-Req-div'>
-                <h4>Documents Required</h4>
+                {/* <h4>Documents Required</h4> */}
                 <div dangerouslySetInnerHTML={{ __html: userStoreAdds && userStoreAdds.details }} />
             </div>
         </div>
