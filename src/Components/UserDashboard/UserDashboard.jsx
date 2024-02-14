@@ -25,7 +25,7 @@ export const UserDashboard = () => {
           <p>Profile</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
-            <Link to={'/ServiceNotAvailable'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
+            <Link to={'/UserDashboardReferral'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
             <div >
             {/* <i style={{color:'#44355b'}} className="fa-solid fa-cannabis"></i> */}
             <i style={{color:'white'}} className="fa-solid fa-share"></i>

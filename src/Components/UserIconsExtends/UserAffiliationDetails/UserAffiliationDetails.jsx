@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 const EditAffiliation = () => {
 
     const UserAffiliationDetails = localStorage.getItem('car-relation-user-AffId')
+    const UserAffiliationDate = localStorage.getItem('car-relation-user-create-date')
     return (
         <div className='User-Affliation-main-div'>
             <div className='User-Affliation-sub-div'>
@@ -19,7 +20,7 @@ const EditAffiliation = () => {
                 <h4><span className='Affliation-date-span'>Affiliation no : </span> {UserAffiliationDetails}</h4>
                 </div>
                 <div className='Affliation-date-div'>
-                <h4><span className='Affliation-date-span'>Affiliated Since :  </span>22 Jan 2024</h4>
+                <h4><span className='Affliation-date-span'>Affiliated Since :  </span>{UserAffiliationDate}</h4>
                 </div>
                 </div>
             </div>

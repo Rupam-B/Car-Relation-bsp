@@ -13,7 +13,7 @@
         display: flex;
         justify-content: center;
         margin-bottom: 50vh;
-        height: 100vh;
+        height: auto;
     }
     .User-Referrals-sub-div{
         width: 98vw;
@@ -138,6 +138,12 @@
     }
     .Referal-adds-info-div-sub button:hover{
         transform: scale(1.1);
+    }
+    .Referral-sold-image{
+        position: absolute;
+        top: 20%;
+        right: 0;
+        width: 10vw;
     }
 
 

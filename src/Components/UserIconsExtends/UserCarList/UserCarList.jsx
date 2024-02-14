@@ -38,9 +38,13 @@ const UserCarList = () => {
   const [Insurance, setInsurance] = useState("1");
   const [createdBy, setCreatedBy] = useState("");
 
-  const UpdateButtonFunction = (id) => {
+  const UpdateButtonFunction = (id,kilometer,manufacture,price,desc) => {
     setUpdatingAdd(true);
     setUpdatingId(id);
+    setKmDriven(kilometer)
+    setDescription(desc)
+    setSaleValue(price)
+    setMfgYear(manufacture)
     // console.log(id, 'items id')
   };
   const DeleteButtonFunction = (id) => {
@@ -494,7 +498,7 @@ const UserCarList = () => {
                       Delete
                     </button>
                     <button
-                      onClick={() => UpdateButtonFunction(items.id)}
+                      onClick={() => UpdateButtonFunction(items.id,items.km_driven,items.mfg_year,items.sale_value,items.description)}
                       className="User-Adds-List-adds-info-div-sub-Update-button"
                     >
                       Edit

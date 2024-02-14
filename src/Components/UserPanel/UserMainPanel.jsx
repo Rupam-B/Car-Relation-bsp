@@ -61,6 +61,7 @@ const handleLogin = async()=>{
         localStorage.setItem('car-relation-user-AffId',Logindata.data.unique_id)
         localStorage.setItem('car-relation-user-name',Logindata.data.name)
         localStorage.setItem('car-relation-user-personal-Id',Logindata.data.id)
+        localStorage.setItem('car-relation-user-create-date',Logindata.data.created_at)
         
 
         // Navigated
@@ -112,6 +113,7 @@ const handleSignup = async () => {
         localStorage.setItem('car-relation-user-AffId',SignUpdata.data.unique_id)
         localStorage.setItem('car-relation-user-name',SignUpdata.data.name)
         localStorage.setItem('car-relation-user-personal-Id',SignUpdata.data.id)
+        localStorage.setItem('car-relation-user-create-date',SignUpdata.data.created_at)
         
 
         // Navigated
