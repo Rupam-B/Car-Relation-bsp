@@ -34,12 +34,12 @@ export const UserDashboard = () => {
           <p>Referrals</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
-            <Link to={'/ServiceNotAvailable'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
+            <Link to={'/EmployeeMainPanel'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
             <div>
             <i style={{color:'white'}} className="fa-solid fa-gift"></i>
             </div>
             </Link>
-          <p>Rewards</p>
+          <p>Employee</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
             <Link to={'/UserAffiliation'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>

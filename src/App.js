@@ -31,6 +31,7 @@ import ProductDetailsOnlyView from './Components/ProductDetailsOnlyView/ProductD
 import BookmarkPage from './Components/BookMarkPage/BookmarkPage';
 import FavouritePage from './Components/FavouritesPage/FavouritePage';
 import { useEffect } from 'react';
+import EmployeeMainPanel from './Components/EmployeeSection/EmployeeMainPanel/EmployeeMainPanel';
 
 function App() {
   // const history = useHistory();
@@ -74,6 +75,7 @@ function App() {
         <Route path='/UserRoyality' element={<UserRoyality/>}/>
         <Route path='/UserBookMarkPage' element={<BookmarkPage/>}/>
         <Route path='/UserFavouritePage' element={<FavouritePage/>}/>
+        <Route path='/EmployeeMainPanel' element={<EmployeeMainPanel/>}/>
       </Routes>
       <OtherService/>
       <MainAdvert/>
