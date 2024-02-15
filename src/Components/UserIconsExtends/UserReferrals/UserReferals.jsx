@@ -10,12 +10,13 @@ const UserReferals = () => {
 
   const userToken = localStorage.getItem("car-relation-user-token");
 
-  const [affilEnquiries,setAffilEnquiries] = useState()
+  const [affilEnquiries,setAffilEnquiries] = useState([])
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // setIsLoading(true)
+        setIsLoading(true)
         const response = await axios.get(`${BaseURL}/aflink/enquiries`, {
           mode: "no-cors",
           headers: {
@@ -37,9 +38,9 @@ const UserReferals = () => {
         console.error("Error fetching data:", error);
         toast.error(error)
       }
-      // finally{
-      //   setIsLoading(false)
-      // }
+      finally{
+        setIsLoading(false)
+      }
     };
 
     fetchData();
@@ -53,8 +54,8 @@ const UserReferals = () => {
         </div>
         <div className='Referal-top-head-line'></div>
         <div className="Referal-add-content-sub">
-          {
-            affilEnquiries&&affilEnquiries.map((items)=>(
+          {affilEnquiries.length>0?(
+            affilEnquiries.map((items)=>(
               <div key={items.id} className='Referal-add-showing-div' >
                       <img src={items.car_images[0]} alt="" />
                       <div className='Referal-adds-info-div'>
@@ -83,7 +84,9 @@ const UserReferals = () => {
                     </div>
 
             ))
-          }
+          ):(isLoading?<h6 style={{width:'100vw',margin:'auto',textAlign:'center'}}>Loading...</h6>:
+          <h6 style={{width:'100vw',margin:'auto',textAlign:'center'}}>No Referral Enquires</h6>
+        )}
                     
                 </div>
       </div>
