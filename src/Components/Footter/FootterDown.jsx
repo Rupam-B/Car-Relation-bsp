@@ -15,7 +15,7 @@ const FootterDown = () => {
             <h5>OFFICE</h5>
             <p>Car Relation, Vyapar</p>
             <p>Vihar, Beside AU</p>
-            <p> Bank, Bilaspur Cg</p>
+            <p> Bank, Bilaspur CG</p>
           </div>
           <div className='footter-bottom-one'>
           <h5>CONTACT</h5>
@@ -27,7 +27,7 @@ const FootterDown = () => {
           <h5>OFFICE</h5>
           <p>Car Relation, Under</p>
             <p>over bridge</p>
-            <p> Lalkhadan, Bilaspur Cg</p>
+            <p> Lalkhadan, Bilaspur CG</p>
           </div>
           <div className='footter-bottom-one'>
           <h5>LOCATION </h5>
