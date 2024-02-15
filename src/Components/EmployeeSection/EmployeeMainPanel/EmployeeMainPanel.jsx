@@ -18,7 +18,10 @@ const EmployeeMainPanel = () => {
           <i className="fa-solid fa-arrow-left back-to-user-dashboard"></i>
         </Link>
         <div className="Employee-panel-Top-Heading">
-          <h1>Employee</h1>
+          <h1>Gaurav</h1>
+          <div className="Employee-panel-Top-Image-div">
+            <img src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg" alt="" />
+          </div>
         </div>
         <div className="Employee-panel-attendance-button-div">
           <button className={resizingAttButton?'Employee-panel-attendance-button-small':'Employee-panel-attendance-button-large'}><i className="fa-regular fa-hand-pointer"></i></button>
