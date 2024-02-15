@@ -59,13 +59,14 @@
         background-color: transparent;
         border-radius: 50%;
         border: 1px solid lightcoral;
+        transition: width 0.5s ease-in, height 0.5s ease-in;
         
         
 
     }
     .Employee-panel-attendance-button-large{
         width: 50%;
-        height: 70%;
+        height: 75%;
         border: none;
         background-color: transparent;
         border-radius: 50%;
