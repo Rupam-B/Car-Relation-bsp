@@ -66,7 +66,8 @@
     .Employee-Salary-show-salary-div-interior{
         width: 100%;
         display: flex;
-        margin-bottom: 5vh;
+        margin-bottom: 2.5vh;
+        margin-top: 2.5vh;
     }
     .Employee-Salary-show-para-one{
         width: 70%;

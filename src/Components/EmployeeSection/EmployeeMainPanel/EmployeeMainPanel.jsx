@@ -85,11 +85,11 @@ const EmployeeMainPanel = () => {
 
         <div className="Employee-panel-salary-section-div">
         <Link to={'/EmployeeSalarySection'} className="Employee-panel-salary-div"><h6>Salary</h6></Link>
-          <Link className="Employee-panel-salary-div"><h6>Attendance</h6></Link>
+          <Link to={'/EmployeeAttendanceSection'} className="Employee-panel-salary-div"><h6>Attendance</h6></Link>
         </div>
         <div style={{marginBottom:'5vh'}} className="Employee-panel-salary-section-div">
-        <div className="Employee-panel-salary-div"><h6>Documents</h6></div>
-          <div className="Employee-panel-salary-div"><h6>Apply Leave</h6></div>
+        <Link to={'/EmployeeDocumentSection'} className="Employee-panel-salary-div"><h6>Documents</h6></Link>
+          <Link to={'/EmployeeApplyLeaveSection'} className="Employee-panel-salary-div"><h6>Apply Leave</h6></Link>
         </div>
 
 

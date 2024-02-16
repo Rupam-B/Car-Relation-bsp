@@ -1,0 +1,38 @@
+@media screen and (max-width:800px) {
+
+    .Employee-Leave-mid-panel{
+        /* border:  1px solid red; */
+        padding: 2vh 5vw;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 5vh;
+    }
+    .Employee-Leave-apply-button{
+        width: 30vw;
+        height: 45px;
+        background-color: rgb(195, 16, 16);
+        color: white;
+        border: navajowhite;
+        border-radius: 10px;
+        font-weight: bold;
+        margin-top: 5vh;
+    }
+    .Employee-Leave-mid-panel input{
+        width:80vw;
+        padding: 1vh 2vw;
+        border-radius: 10px;
+        border: none;
+        border: 1px solid rgb(139, 138, 138,0.8);
+        margin: 2vh 0;
+    }
+    .Employee-Leave-mid-panel textarea{
+        width:80vw;
+        padding: 1vh 2vw;
+        border-radius: 10px;
+        border: none;
+        border: 1px solid rgb(139, 138, 138,0.8);
+        margin: 2vh 0;
+    }
+    }

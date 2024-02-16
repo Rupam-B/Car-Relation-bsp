@@ -33,6 +33,9 @@ import FavouritePage from './Components/FavouritesPage/FavouritePage';
 import { useEffect } from 'react';
 import EmployeeMainPanel from './Components/EmployeeSection/EmployeeMainPanel/EmployeeMainPanel';
 import EmployeeSalarySection from './Components/EmployeeSection/EmployeeSubPanel/EmployeeSalarysection/EmployeeSalarySection';
+import EmployeeAttendance from './Components/EmployeeSection/EmployeeSubPanel/EmployeeAttendanceSection/EmployeeAttendance';
+import EmployeeDocument from './Components/EmployeeSection/EmployeeSubPanel/EmployeeDocumentSection/EmployeeDocument';
+import EmployeeLeave from './Components/EmployeeSection/EmployeeSubPanel/EmployeeLeave/EmployeeLeave';
 
 function App() {
   // const history = useHistory();
@@ -78,6 +81,9 @@ function App() {
         <Route path='/UserFavouritePage' element={<FavouritePage/>}/>
         <Route path='/EmployeeMainPanel' element={<EmployeeMainPanel/>}/>
         <Route path='/EmployeeSalarySection' element={<EmployeeSalarySection/>}/>
+        <Route path='/EmployeeAttendanceSection' element={<EmployeeAttendance/>}/>
+        <Route path='/EmployeeDocumentSection' element={<EmployeeDocument/>}/>
+        <Route path='/EmployeeApplyLeaveSection' element={<EmployeeLeave/>}/>
       </Routes>
       <OtherService/>
       <MainAdvert/>
