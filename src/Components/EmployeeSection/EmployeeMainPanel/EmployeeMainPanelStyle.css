@@ -7,6 +7,7 @@
         justify-content: center;
         margin-bottom: 50vh;
         height: auto;
+
     }
     .Employee-panel-sub-div{
         width: 98vw;
@@ -17,6 +18,7 @@
         margin-top: 3vh;
         padding-bottom: 5vh;
         position: relative;
+
     }
     .Employee-panel-Top-Heading{
        width: 100%;
@@ -57,12 +59,14 @@
     .Employee-panel-attendance-button-div{
         /* border: 1px solid red; */
         width: 100%;
-        height: 30vh;
+        height: 40vh;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         margin-top: 5vh;
+        margin-bottom: 3vh;
+        position: relative;
 
     }
     .Employee-panel-attendance-button-div p{
@@ -72,20 +76,28 @@
         bottom: 0;
     }
     .Employee-panel-attendance-button-small{
-        width: 40%;
-        height: 60%;
+        width: 140px;
+        height: 140px;
         border: none;
         background-color: transparent;
         border-radius: 50%;
         border: 1px solid lightcoral;
-        transition: width 0.5s ease-in, height 0.5s ease-in;
-        
-        
+        transition: width 0.5s ease-in, height 0.5s ease-in;   
+
+    }
+    .Employee-panel-attendance-button-deactive{
+        width: 140px;
+        height: 140px;
+        border: none;
+        background-color: transparent;
+        border-radius: 50%;
+        border: 1px solid rgb(98, 98, 98,0.2);
+        transition: width 0.5s ease-in, height 0.5s ease-in;   
 
     }
     .Employee-panel-attendance-button-large{
-        width: 50%;
-        height: 75%;
+        width: 180px;
+        height: 180px;
         border: none;
         background-color: transparent;
         border-radius: 50%;
@@ -94,14 +106,153 @@
         transition: width 1s ease-in, height 1s ease-in; 
 
     }
-    .Employee-panel-attendance-button-div button:hover{
+    .Employee-panel-attendance-button-small:hover{
         transform: scale(1.1);
         transition: transform 1s ease-out;
 
     }
-    .Employee-panel-attendance-button-div button i{
+    .fa-hand-pointer-active{
         font-size: 2rem;
         color: lightcoral;
+    }
+    .fa-hand-pointer-inactive{
+        font-size: 2rem;
+        color: rgb(98, 98, 98,0.2);
+    }
 
+    /* ---------- */
+
+    .Employee-panel-salary-section-div{
+        /* border: 1px solid red; */
+        width: 100%;
+        height: 12vh;
+        display: flex;
+        justify-content: space-between;
+        padding: 1vh 2vw;
+        margin-top: 3vh;
+    }
+    .Employee-panel-salary-div{
+        border: 1px solid rgb(52, 52, 63,0.2);
+        width: 48%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        padding: 0;
+    }
+
+
+
+    /* ------- */
+    .Employee-panel-Personal-section-div{
+        padding-top: 10vh;
+        padding-left: 10vw;
+        /* border: 1px solid red; */
+        position: relative;
+        margin-top: 5vh;
+    }
+    .Employee-panel-Personal-section-Edit-icon{
+        position: absolute;
+        top: 0;
+        right: 5vw;
+        font-size: 1.5rem;
+        color: rgb(0, 0, 0,0.5);;
+    }
+    .Employee-panel-Personal-section-div p{
+        border: 1px solid rgb(0, 0, 0,0.5);
+        padding: 1rem;
+        width: 85%;
+        border-radius: 10px;
+        position: relative;
+        margin-bottom: 4vh;
+        position: relative;
+    }
+
+    .Employee-panel-Personal-section-div p span{
+        position: absolute;
+        /* border: 1px solid red; */
+        top: -15px;
+        left: 5%;
+        background-color: white;
+        padding: 0 1.5vw;
+        font-weight: 600;
+        color: black;
+    }
+
+
+
+    /* ------ */
+    .Employee-panel-Personal-section-Edit-div{
+        position: absolute;
+        background-color: white;
+        top: 0;
+        left: 0;
+        height: 200vh;
+        width: 100vw;
+        padding-top: 10vh;
+        padding-left: 10vw;
+        /* border: 1px solid red; */
+        z-index: 5;
+    }
+    .Employee-panel-Personal-section-Edit-div-false{
+        display: none;
+        overflow: hidden;
+    }
+
+
+    .Employee-panel-Personal-section-Edit-div-icon{
+        position: absolute;
+        top: 3vh;
+        right: 5vw;
+        font-size: 1.5rem;
+        color: rgb(0, 0, 0,0.5);;
+    }
+    .Employee-panel-Personal-section-Edit-div input{
+        border: 1px solid rgb(0, 0, 0,0.5);
+        padding: 1rem;
+        width: 85%;
+        border-radius: 10px;
+        position: relative;
+        margin-bottom: 4vh;
+        position: relative;
+        display: block;
+    }
+    .Employee-panel-Personal-section-Edit-div textarea{
+        border: 1px solid rgb(0, 0, 0,0.5);
+        padding: 1rem;
+        width: 85%;
+        border-radius: 10px;
+        position: relative;
+        margin-bottom: 4vh;
+        position: relative;
+        display: block;
+    }
+
+    .Employee-panel-Personal-section-Edit-div input span{
+        position: absolute;
+        /* border: 1px solid red; */
+        top: -15px;
+        left: 5%;
+        background-color: white;
+        padding: 0 1.5vw;
+        font-weight: 600;
+        color: black;
+    }
+    .Employee-panel-Personal-section-Edit-div-button{
+        width: 85%;
+        display: flex;
+        justify-content: center;
+    }
+    .Employee-panel-Personal-section-Edit-div button{
+        margin: auto;
+        width: 30vw;
+        height: 45px;
+        background-color: rgb(195, 16, 16);
+        color: white;
+        border: navajowhite;
+        border-radius: 10px;
+        font-weight: bold;
+        margin-top: 5vh;
     }
 }
