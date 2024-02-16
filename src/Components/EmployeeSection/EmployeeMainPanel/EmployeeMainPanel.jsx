@@ -23,7 +23,7 @@ const EmployeeMainPanel = () => {
 
           console.log('Location:', { latitude, longitude, formattedDate, formattedTime });
           setShouldBlink(false)
-          toast.success(`Attendance Succesfull on ${formattedDate}`)
+          toast.success(`Attendance Succesfull on ${formattedDate} time : ${formattedTime}`)
 
           // setAttendanceDetails({
           //     latitude,
@@ -84,12 +84,12 @@ const EmployeeMainPanel = () => {
         <hr style={{width:'90%', margin:'auto'}} />
 
         <div className="Employee-panel-salary-section-div">
-        <div className="Employee-panel-salary-div"><h6>Salary</h6></div>
-          <div className="Employee-panel-salary-div"><h6>Attendance</h6></div>
+        <Link to={'/EmployeeSalarySection'} className="Employee-panel-salary-div"><h6>Salary</h6></Link>
+          <Link className="Employee-panel-salary-div"><h6>Attendance</h6></Link>
         </div>
         <div style={{marginBottom:'5vh'}} className="Employee-panel-salary-section-div">
         <div className="Employee-panel-salary-div"><h6>Documents</h6></div>
-          <div className="Employee-panel-salary-div"><h6>Bank Details</h6></div>
+          <div className="Employee-panel-salary-div"><h6>Apply Leave</h6></div>
         </div>
 
 
