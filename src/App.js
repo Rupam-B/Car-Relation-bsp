@@ -36,6 +36,9 @@ import EmployeeSalarySection from './Components/EmployeeSection/EmployeeSubPanel
 import EmployeeAttendance from './Components/EmployeeSection/EmployeeSubPanel/EmployeeAttendanceSection/EmployeeAttendance';
 import EmployeeDocument from './Components/EmployeeSection/EmployeeSubPanel/EmployeeDocumentSection/EmployeeDocument';
 import EmployeeLeave from './Components/EmployeeSection/EmployeeSubPanel/EmployeeLeave/EmployeeLeave';
+import AdvisorMainPanel from './Components/AdvisorSection/AdvisorMainPanel/AdvisorMainPanel';
+import AdvisorDocuments from './Components/AdvisorSection/AdvisorSubPanel/AdvisorDocuments';
+import AdvisorIncentive from './Components/AdvisorSection/AdvisorSubPanel/AdvisorIncentive';
 
 function App() {
   // const history = useHistory();
@@ -67,6 +70,7 @@ function App() {
         <Route path='/SellCarPortal' element={<SellCar/>}/>
         <Route path='/FinancePage' element={<Financepage/>}/>
         <Route path='/InsurancePage' element={<Insurancepage/>}/>
+
         <Route path='/UserMainPanel' element={<UserMainPanel/>}/>
         <Route path='/UserDashboard' element={<UserDashboard/>}/>
         <Route path='/UserDashboardProfile' element={<UserProfileView/>}/>
@@ -79,11 +83,16 @@ function App() {
         <Route path='/UserRoyality' element={<UserRoyality/>}/>
         <Route path='/UserBookMarkPage' element={<BookmarkPage/>}/>
         <Route path='/UserFavouritePage' element={<FavouritePage/>}/>
+
         <Route path='/EmployeeMainPanel' element={<EmployeeMainPanel/>}/>
         <Route path='/EmployeeSalarySection' element={<EmployeeSalarySection/>}/>
         <Route path='/EmployeeAttendanceSection' element={<EmployeeAttendance/>}/>
         <Route path='/EmployeeDocumentSection' element={<EmployeeDocument/>}/>
         <Route path='/EmployeeApplyLeaveSection' element={<EmployeeLeave/>}/>
+
+        <Route path='/AdvisorMainPanel' element={<AdvisorMainPanel/>}/>
+        <Route path='/AdvisorDocumentSection' element={<AdvisorDocuments/>}/>
+        <Route path='/AdvisorIncentiveSection' element={<AdvisorIncentive/>}/>
       </Routes>
       <OtherService/>
       <MainAdvert/>

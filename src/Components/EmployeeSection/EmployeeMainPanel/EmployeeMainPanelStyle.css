@@ -20,6 +20,17 @@
         position: relative;
 
     }
+    .Employee-panel-sub-div{
+        width: 98vw;
+        height: auto;
+        /* border: 1px solid blue; */
+        padding-top: 3vh;
+        border: 1px solid rgb(128, 128, 128,0.2);
+        margin-top: 3vh;
+        padding-bottom: 5vh;
+        position: relative;
+
+    }
     .Employee-panel-Top-Heading{
        width: 100%;
        display: flex;
@@ -56,6 +67,23 @@
         height: 100%;
         object-fit: cover;
     }
+    .Advisor-photo-change{
+        position: absolute;
+        top: 7%;
+        right: 1.5vw;
+        font-size: 1.5rem;
+        color: rgb(75, 75, 104,0.7);
+
+    }
+    .Employee-photo-change{
+        position: absolute;
+        top: 4%;
+        right: 1.5vw;
+        font-size: 1.5rem;
+        color: rgb(75, 75, 104,0.7);
+
+    }
+
     .Employee-panel-attendance-button-div{
         /* border: 1px solid red; */
         width: 100%;
@@ -67,7 +95,6 @@
         margin-top: 5vh;
         margin-bottom: 3vh;
         position: relative;
-
     }
     .Employee-panel-attendance-button-div p{
         margin-top: 5%;
