@@ -47,15 +47,15 @@ const AdvisorIncentive = () => {
 {isLoading?(<div className='Employee-Salary-Loading-div'><h6>Loading...</h6></div>):(<>
 
     <div style={{backgroundColor:'transparent', fontWeight:'bold',marginBottom:'0'}} className='Employee-Salary-show-salary-div'>
-        <div  style={{marginBottom:'0'}} className='Employee-Salary-show-salary-div-interior'><p className='Employee-Salary-show-para-one'>Deals</p> <p className='Employee-Salary-show-para-two'>Amount</p></div>
+        <div  style={{marginBottom:'0'}} className='Employee-Salary-show-salary-div-interior'><p style={{border:'none'}}className='Employee-Salary-show-para-one-advisor'>Deals</p><p style={{border:'none'}} className='Employee-Salary-show-para-three-advisor'>Type</p> <p className='Employee-Salary-show-para-two-advisor'>Amount</p></div>
       </div>
 
       <div style={{marginTop:'0'}} className='Employee-Salary-show-salary-div'>
-        <div className='Employee-Salary-show-salary-div-interior'><p className='Employee-Salary-show-para-one'>Mahindra XUV Altroz CG10AB2060</p> <p className='Employee-Salary-show-para-two'>500</p></div>
-        <div className='Employee-Salary-show-salary-div-interior'><p className='Employee-Salary-show-para-one'>Tata XUV Altroz CG10AB2065</p> <p className='Employee-Salary-show-para-two'>1500</p></div>
-        <div className='Employee-Salary-show-salary-div-interior'><p className='Employee-Salary-show-para-one'>Nissan Ounch CG10AB2069</p> <p className='Employee-Salary-show-para-two'>800</p></div>
-        <div className='Employee-Salary-show-salary-div-interior'><p className='Employee-Salary-show-para-one'>Net Commision</p> 
-        <p style={{fontWeight:'bold'}} className='Employee-Salary-show-para-two'>26,200</p></div>
+        <div className='Employee-Salary-show-salary-div-interior'><p className='Employee-Salary-show-para-one-advisor'>Mahindra XUV Altroz CG10AB2060</p><p className='Employee-Salary-show-para-three-advisor'>Car</p> <p className='Employee-Salary-show-para-two-advisor'>500</p></div>
+        <div className='Employee-Salary-show-salary-div-interior'><p className='Employee-Salary-show-para-one-advisor'>Tata XUV Altroz CG10AB2065</p><p className='Employee-Salary-show-para-three-advisor'>Finance</p> <p className='Employee-Salary-show-para-two-advisor'>1500</p></div>
+        <div className='Employee-Salary-show-salary-div-interior'><p className='Employee-Salary-show-para-one-advisor'>Nissan Ounch CG10AB2069</p><p className='Employee-Salary-show-para-three-advisor'>Insurance</p> <p className='Employee-Salary-show-para-two-advisor'>800</p></div>
+        <div className='Employee-Salary-show-salary-div-interior'><p className='Employee-Salary-show-para-one-advisor'>Nissan Ounch CG10AB2069</p><p className='Employee-Salary-show-para-three-advisor'>Car</p> <p className='Employee-Salary-show-para-two-advisor'>800</p></div>
+        
       </div>
 
 

@@ -73,6 +73,26 @@
         width: 70%;
         
     }
+    .Employee-Salary-show-para-one-advisor{
+        width: 50%;
+        /* border: 1px solid red; */
+        padding-right: 2vw;
+        border-right: 1px solid rgb(128, 128, 128,0.5);
+    }
+    .Employee-Salary-show-para-two-advisor{
+        width: 20%;
+        text-align: right;
+        /* border: 1px solid green; */
+      
+
+    }
+    .Employee-Salary-show-para-three-advisor{
+        width: 30%;
+        /* border: 1px solid rgb(0, 0, 255); */
+        text-align: center;
+        border-right: 1px solid rgb(128, 128, 128,0.5);
+
+    }
     .Employee-Salary-show-para-two{
         width: 30%;
         text-align: right;
