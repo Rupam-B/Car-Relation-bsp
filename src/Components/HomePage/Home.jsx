@@ -42,6 +42,7 @@ const Home = () => {
   // console.log(favouriteactive)
 
   // Api Data
+  const [isLoading, setIsLoading] = useState(false);
   const [apiData,setApiData] = useState([])
   const [enqEnable,setEnqEnable] = useState(false)
   const [termsChecked, setTermsChecked] = useState(false);
@@ -233,6 +234,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true)
         const response = await axios.get(`${BaseUrl}/cars`, {
           mode:'no-cors',
           headers: {
@@ -250,6 +252,9 @@ const Home = () => {
         }
       } catch (error) {
         console.error('Error fetching data:', error);
+      }
+      finally{
+        setIsLoading(false)
       }
     };
   
@@ -426,7 +431,9 @@ const Home = () => {
             </div>
           </div>
           )):
-          <h5>Loading...</h5>
+          (isLoading?<h6 style={{width:'100vw',margin:'auto',textAlign:'center'}}>Loading...</h6>:
+            <h6 style={{width:'100vw',margin:'auto',textAlign:'center'}}>404 : Error Fetching Adds</h6>
+          )
 }
         </div>
         <div className="Home-page-navigation-div"></div>

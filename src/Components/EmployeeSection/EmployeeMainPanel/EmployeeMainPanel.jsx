@@ -33,6 +33,7 @@ const EmployeeMainPanel = () => {
           // });
       } catch (error) {
           console.error('Error getting location:', error);
+          toast.error('Attendance Submission Failed')
       }
   };
 

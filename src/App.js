@@ -39,6 +39,7 @@ import EmployeeLeave from './Components/EmployeeSection/EmployeeSubPanel/Employe
 import AdvisorMainPanel from './Components/AdvisorSection/AdvisorMainPanel/AdvisorMainPanel';
 import AdvisorDocuments from './Components/AdvisorSection/AdvisorSubPanel/AdvisorDocuments';
 import AdvisorIncentive from './Components/AdvisorSection/AdvisorSubPanel/AdvisorIncentive';
+import PrivateComponent from './Components/PrivateComponent/PrivateComponent';
 
 function App() {
   // const history = useHistory();
@@ -67,11 +68,12 @@ function App() {
         <Route path='/DisplayCarDetails' element={<DispCarDetails/>}/>
         <Route path={'/DisplayCarDetailsAffiliation/:affiliationId/:carId'} element={<ProductAffiliationPage/>}/>
         <Route path={'/DisplayCarDetailsOnlyView/:carId'} element={<ProductDetailsOnlyView/>}/>
-        <Route path='/SellCarPortal' element={<SellCar/>}/>
         <Route path='/FinancePage' element={<Financepage/>}/>
         <Route path='/InsurancePage' element={<Insurancepage/>}/>
-
         <Route path='/UserMainPanel' element={<UserMainPanel/>}/>
+
+        <Route element={<PrivateComponent/>}>
+        <Route path='/SellCarPortal' element={<SellCar/>}/>
         <Route path='/UserDashboard' element={<UserDashboard/>}/>
         <Route path='/UserDashboardProfile' element={<UserProfileView/>}/>
         <Route path='/UserDashboardReferral' element={<UserReferals/>}/>
@@ -93,6 +95,7 @@ function App() {
         <Route path='/AdvisorMainPanel' element={<AdvisorMainPanel/>}/>
         <Route path='/AdvisorDocumentSection' element={<AdvisorDocuments/>}/>
         <Route path='/AdvisorIncentiveSection' element={<AdvisorIncentive/>}/>
+        </Route>
       </Routes>
       <OtherService/>
       <MainAdvert/>

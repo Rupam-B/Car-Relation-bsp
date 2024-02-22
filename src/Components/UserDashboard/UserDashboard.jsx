@@ -35,7 +35,7 @@ export const UserDashboard = () => {
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
             {/* <Link to={'/EmployeeMainPanel'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'> */}
-            <Link to={'/AdvisorMainPanel'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
+            <Link to={'/EmployeeMainPanel'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
             <div>
             <i style={{color:'white'}} className="fa-regular fa-circle-user"></i>
             </div>
