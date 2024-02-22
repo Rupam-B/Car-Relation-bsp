@@ -79,7 +79,7 @@ const Financepage = () => {
         }
       } catch (error) {
         console.error("Error fetching data:", error);
-        toast.error(error)
+        toast.error(error.message)
       }
     };
 
