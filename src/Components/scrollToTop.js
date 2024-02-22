@@ -9,7 +9,7 @@ const ScrollToTop = () => {
     useEffect(()=>{
 
       const windowWidth = window.innerWidth;
-      const yValue =windowWidth<500? 400 : 680;
+      const yValue =windowWidth<500? 320 : 680;
 
       if(pathname!=="/"){
         window.scrollTo(0,yValue);
