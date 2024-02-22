@@ -191,6 +191,7 @@ const SellCar = () => {
         }
       } catch (error) {
         console.error('Error fetching data:', error);
+        toast.error(error.message)
       }
     };
   
