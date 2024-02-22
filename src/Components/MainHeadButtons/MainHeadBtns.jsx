@@ -42,6 +42,11 @@ const MainHeadBtns = () => {
     setBuyButtonActive(false)
     localStorage.setItem('activeButton', 'insurance');
   }
+  const setBuyButtonInactive =()=>{
+    setTimeout(()=>{
+      setBuyButtonActive(false)
+    },1000)
+  }
 
 
   useEffect(() => {
@@ -83,6 +88,8 @@ const MainHeadBtns = () => {
           handleInsuranceButton();
           break;
         default:
+          handleBuyButton()
+          setBuyButtonInactive()
           break;
       }
     }
