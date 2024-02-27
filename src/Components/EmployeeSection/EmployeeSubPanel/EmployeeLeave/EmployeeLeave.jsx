@@ -32,7 +32,7 @@ const EmployeeLeave = () => {
       <label htmlFor="reasonForLeave"></label>
       <textarea type="text" id='reasonForLeave' placeholder='Reason for leave' />
 
-      <button className='Employee-Leave-apply-button'>Apply Now</button>
+      <button className='Employee-Leave-apply-button-button'>Apply Now</button>
 
       </div>
       </div>

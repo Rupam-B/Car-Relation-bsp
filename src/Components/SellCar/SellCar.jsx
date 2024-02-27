@@ -240,6 +240,7 @@ const SellCar = () => {
   // },[carCompanyData])
 
   // console.log(carCompanySelectData)
+  console.log(selectedImages)
   return (
     <div className='SellCar-main-div'>
       

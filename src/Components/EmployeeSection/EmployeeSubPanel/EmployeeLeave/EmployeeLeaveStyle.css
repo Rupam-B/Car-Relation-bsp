@@ -9,7 +9,7 @@
         align-items: center;
         margin-top: 5vh;
     }
-    .Employee-Leave-apply-button{
+    .Employee-Leave-apply-button-button{
         width: 30vw;
         height: 45px;
         background-color: rgb(195, 16, 16);
@@ -34,5 +34,16 @@
         border: none;
         border: 1px solid rgb(139, 138, 138,0.8);
         margin: 2vh 0;
+    }
+    .Employee-panel-Personal-section-Edit-div-button-button{
+        margin: auto;
+        width: 30vw;
+        height: 45px;
+        background-color: rgb(195, 16, 16);
+        color: white;
+        border: navajowhite;
+        border-radius: 10px;
+        font-weight: bold;
+        margin-top: 5vh;
     }
     }
