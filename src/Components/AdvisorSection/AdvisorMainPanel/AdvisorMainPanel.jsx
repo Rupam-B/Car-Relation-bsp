@@ -97,7 +97,7 @@ const handleImageChange = (event) => {
   const files = event.target.files;
   
   if (files.length > 1) {
-    alert("You can only upload up to 1 images.");
+    toast.error("You can only upload up to 1 images.");
     return;
   } else {
     setEmployeeChangeImage(files)
@@ -193,7 +193,7 @@ const changeEmployeeImage = async()=>{
         onChange={handleImageChange} 
         type="file" 
         accept="image/*"
-        capture="camera"
+        // capture="camera"
         style={{ display: 'none' }}
         id="inputImage"
         />
