@@ -1,7 +1,7 @@
-import axios from 'axios'
+
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import BaseURL from '../../../../apiconfig'
+
 
 const EmployeeAttendance = () => {
 
@@ -13,27 +13,7 @@ const EmployeeAttendance = () => {
       },2000)
     },[isLoading])
 
-    useEffect(()=>{
-      const fetchEmployeeAttendance = async()=>{
-        try{
-          const res = await axios.get(`${BaseURL}/cars`, {
-            mode:'no-cors',
-            headers:{
-              Accept:'application/json'
-            }
-          })
-          .then((res)=>res.json())
-          .then(console.log(res))
-          .catch((error)=>console.log(error))
-
-        }
-        catch(error){
-            console.log(error)
-        }
-      }
-
-      fetchEmployeeAttendance();
-    })
+   
   return (
     <div className='Employee-Salary-main-div'>
     <div className='Employee-Salary-sub-div'>

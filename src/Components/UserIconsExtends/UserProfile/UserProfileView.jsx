@@ -245,7 +245,10 @@ const UserProfileView = () => {
             <div className='Profile-View-top-secton'>
                 <div className='User-profile-image'>
                     <img src="https://img.freepik.com/free-vector/cute-happy-smiling-child-isolated-white_1308-32243.jpg" alt="" />
+                    {/* <i  className="fa-solid fa-camera Profile-photo-change"></i> */}
+                    {/* <i onClick={()=>setEmployeeImageChanging(true)} className="fa-solid fa-camera Advisor-photo-change"></i> */}
                 </div>
+
                 <div className='User-profile-name'>
                     <h4>{LoggedinuserName}</h4>
                 </div>
