@@ -22,6 +22,7 @@ const UserProfileView = () => {
 
     const [userEmail, setUserEmail]= useState()
     const [userAadhaar, setUserAadhaar]= useState()
+    const [userProfilePhoto, setUserProfilePhoto]= useState()
     const [passwordChange,setPasswordChnage]=useState(false)
     const [oldPassword,setOldPassword]=useState("")
     const [newPassword,setNewPassword]=useState("")
@@ -270,9 +271,10 @@ const changeEmployeeImage = async()=>{
         if (response.status >= 200 && response.status < 300) {
           const data = response.data;
           if (data) {
-            // console.log(data.data)
+            console.log(data.data)
             localStorage.setItem('car-relation-user-email', data.data.email)
             localStorage.setItem('car-relation-user-aadhaar', data.data.aadhaar)
+            setUserProfilePhoto(data.data.photo)
             setUserEmail(data.data.email)
             setUserAadhaar(data.data.aadhaar)
           }
@@ -331,10 +333,10 @@ const changeEmployeeImage = async()=>{
         <Link to={'/UserDashboard'}><i className="fa-solid fa-arrow-left back-to-user-dashboard"></i></Link>    
             <div className='Profile-View-top-secton'>
                 <div className='User-profile-image'>
-                    <img src="https://img.freepik.com/free-vector/cute-happy-smiling-child-isolated-white_1308-32243.jpg" alt="" />
+                    <img src={userProfilePhoto?userProfilePhoto:"https://img.freepik.com/free-vector/cute-happy-smiling-child-isolated-white_1308-32243.jpg"} alt="" />
                     {/* <i  className="fa-solid fa-camera Profile-photo-change"></i> */}
-                    <i onClick={()=>setEmployeeImageChanging(true)} className="fa-solid fa-camera Profile-photo-change"></i>
                 </div>
+                    <i onClick={()=>setEmployeeImageChanging(true)} className="fa-solid fa-camera Profile-photo-change"></i>
 
                 <div className='User-profile-name'>
                     <h4>{LoggedinuserName}</h4>

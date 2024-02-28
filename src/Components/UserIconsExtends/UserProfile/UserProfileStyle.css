@@ -48,22 +48,22 @@
         border-radius: 50%;
         overflow: hidden;
         box-shadow: 1px 1px 8px 1px gray;
-        padding: 0.1rem;
+        /* padding: 0.1rem; */
         position: relative;
     }
     .User-profile-image img{
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
         position: relative;
     }
 
     .Profile-photo-change{
         position: absolute;
-        top: 75%;
-        right: 35%;
+        top: 5%;
+        right: 30%;
         font-size: 2.2rem;
-        color: rgba(0, 0, 0, 0.5);
+        color: rgba(0, 0, 0, 0.4);
     }
 
     .profile-line-down{
