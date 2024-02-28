@@ -98,7 +98,7 @@ const changeEmployeeData = async()=>{
             if(response.status>=200&&response.status<300){
               const data = response.data
             if(data){
-              console.log(data)
+              // console.log(data)
               setEmployeeDetails(data.data)
             }    
             }

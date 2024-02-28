@@ -41,31 +41,26 @@ const EmployeeMainPanel = () => {
 
 
 
-    const submitAttendance = async () => {
-      try {
-          const position = await Geolocation.getCurrentPosition();
-          const { latitude, longitude } = position.coords;
-          const timestamp = new Date().toISOString();
+  //   const submitAttendance = async () => {
+  //     try {
+  //         const position = await Geolocation.getCurrentPosition();
+  //         const { latitude, longitude } = position.coords;
+  //         const timestamp = new Date().toISOString();
 
-          const date = new Date(timestamp);
-          const formattedDate = `${date.getDate().toString().padStart(2, '0')}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getFullYear()}`;
-          const formattedTime = `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`;
+  //         const date = new Date(timestamp);
+  //         const formattedDate = `${date.getDate().toString().padStart(2, '0')}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getFullYear()}`;
+  //         const formattedTime = `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`;
 
-          console.log('Location:', { latitude, longitude, formattedDate, formattedTime });
-          setShouldBlink(false)
-          toast.success(`Attendance Succesfull on ${formattedDate} time : ${formattedTime}`)
+  //         console.log('Location:', { latitude, longitude, formattedDate, formattedTime });
+  //         setShouldBlink(false)
+  //         toast.success(`Attendance Succesfull on ${formattedDate} time : ${formattedTime}`)
 
-          // setAttendanceDetails({
-          //     latitude,
-          //     longitude,
-          //     date: formattedDate,
-          //     time: formattedTime,
-          // });
-      } catch (error) {
-          console.error('Error getting location:', error);
-          toast.error('Attendance Submission Failed')
-      }
-  };
+
+  //     } catch (error) {
+  //         console.error('Error getting location:', error);
+  //         toast.error('Attendance Submission Failed')
+  //     }
+  // };
 
   const handleEditInfo =()=>{
     setIsPersonalEdit(true)
@@ -218,7 +213,7 @@ const changeEmployeeImage = async()=>{
         if(response.status>=200&&response.status<300){
           const data = response.data
         if(data){
-          console.log(data)
+          // console.log(data)
           setEmployeeDetails(data.data)
         }    
         }
@@ -238,38 +233,82 @@ const changeEmployeeImage = async()=>{
   },[userToken])
 
 
+
+
+  // Attendance Submit
+  const AttendanceSubmitFunc = async()=>{
+    setWaitWhileUpdating(true)
+    try{
+      const position = await Geolocation.getCurrentPosition();
+          const { latitude, longitude } = position.coords;
+      const formData = new FormData();
+      formData.append('latitude',latitude)
+      formData.append('longitude',longitude)
+  
+      const response = await fetch (`${BaseURL}/emp/attendance-submit`,{
+        method:'POST',
+        headers:{
+          Accept:'application/json',
+          Authorization: `Bearer ${userToken}`,
+        },
+        body:formData
+      })
+  
+      const EmployeeRecdata = await response.json();
+  
+      if(response.ok){
+        // console.log(EmployeeRecdata)
+        toast.success(`Attendance Successful on ${EmployeeRecdata.data.date} at time : ${EmployeeRecdata.data.time}`)
+        window.location.reload()
+      }
+      else{
+        console.log(EmployeeRecdata)
+        toast.error(EmployeeRecdata.message)
+      }
+    }
+    catch(error){
+      console.log(error)
+     toast.error(error.message)
+    }
+    finally{
+      setWaitWhileUpdating(false)
+    }
+  }
+
 // ForFetching Attendance Valid Time
-  // useEffect(()=>{
-  //   const fetchEmployeeDtails = async ()=>{
-  //     try{
-  //       const response = await axios.get(`${BaseURL}/emp/attendance-validtime`,{
-  //         mode:'no-cors',
-  //         headers:{
-  //             Accept:'application/json',
-  //             Authorization: `Bearer ${userToken}`,
-  //         }
-  //       })
-  //       if(response.status>=200&&response.status<300){
-  //         const data = response.data
-  //       if(data){
-  //         console.log(data, 'Valid time')
-  //         // setEmployeeDetails(data.data)
-  //       }    
-  //       }
-  //       else{
-  //         console.log('Network status was not OK')
-  //       }
-  //     }
-  //     catch(error){
-  //       console.log(error)
-  //       toast.error(error.message)
-  //     }
+  useEffect(()=>{
+    const fetchEmployeeDtails = async ()=>{
+      try{
+        const response = await axios.get(`${BaseURL}/emp/attendance-validtime`,{
+          mode:'no-cors',
+          headers:{
+              Accept:'application/json',
+              Authorization: `Bearer ${userToken}`,
+          }
+        })
+        if(response.status>=200&&response.status<300){
+          const data = response.data
+        if(data){
+          // console.log(data, 'Valid time')
+          setShouldBlink(data.data.is_valid)
+        }    
+        }
+        else{
+          console.log('Network status was not OK')
+        }
+      }
+      catch(error){
+        console.log(error)
+        toast.error(error.message)
+      }
 
-  //   }
+    }
 
-  //   fetchEmployeeDtails();
+    fetchEmployeeDtails();
 
-  // },[userToken])
+  },[userToken])
+
+
   // console.log(employeeDetails.dob)
   // console.log(employeeChangeImage)
   return (
@@ -318,13 +357,13 @@ const changeEmployeeImage = async()=>{
         <div className="Employee-panel-attendance-button-div">
         <button
           disabled={!shouldBlink}
-          onClick={submitAttendance}
+          onClick={AttendanceSubmitFunc}
           className={shouldBlink? resizingAttButton? 'Employee-panel-attendance-button-small': 'Employee-panel-attendance-button-large'
           : 'Employee-panel-attendance-button-deactive'}
 >
   <i className={shouldBlink?"fa-regular fa-hand-pointer fa-hand-pointer-active":'fa-regular fa-hand-pointer fa-hand-pointer-inactive'}></i>
 </button>
-          <p>click to submit attendance</p>
+          <p>{shouldBlink?'click to submit attendance':''}</p>
         </div>
 
         <hr style={{width:'90%', margin:'auto'}} />
