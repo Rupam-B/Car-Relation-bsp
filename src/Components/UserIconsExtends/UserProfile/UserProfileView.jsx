@@ -30,6 +30,11 @@ const UserProfileView = () => {
     const [adharVerify,setAdharVerify]=useState(false)
     const [emailVerify,setEmailVerify]=useState(false)
 
+    const [employeeChangeImage, setEmployeeChangeImage]= useState()
+    const [employeeChangeImageshow, setEmployeeChangeImageshow]= useState()
+    const [employeeImageChanging, setEmployeeImageChanging]= useState(false)
+    const [waitWhileUploading, setWaitWhileUploading] = useState(false);
+
   
 
 
@@ -46,6 +51,7 @@ const UserProfileView = () => {
     localStorage.removeItem('car-relation-user-email')
     localStorage.removeItem('car-relation-user-aadhaar')
     localStorage.removeItem('car-relation-user-personal-Id')
+    localStorage.removeItem('car-relation-user-get-role')
 
     setTimeout(()=>{
       UserProfileDispatch(isUserLoggedin(0))
@@ -197,6 +203,58 @@ const UserProfileView = () => {
     }
   }
 
+  const handleImageChange = (event) => {
+    const files = event.target.files;
+    
+    if (files.length > 1) {
+      
+      toast.error("You can only upload up to 1 images.");
+      return;
+    } else {
+      setEmployeeChangeImage(files)
+        const imageUrl = URL.createObjectURL(files[0]);
+      setEmployeeChangeImageshow(imageUrl);
+    }
+  };
+
+  // For Employee Photo Change
+const changeEmployeeImage = async()=>{
+  setWaitWhileUploading(true)
+  try{
+    const formData = new FormData();
+    formData.append('photo',employeeChangeImage[0])
+
+    const response = await fetch (`${BaseURL}/profile/update-image`,{
+      method:'POST',
+      headers:{
+        Accept:'application/json',
+        Authorization: `Bearer ${userToken}`,
+      },
+      body:formData
+    })
+
+    const EmployeeRecdata = await response.json();
+
+    if(response.ok){
+      console.log(EmployeeRecdata)
+      toast.success('Image Changed Succesfully')
+      setEmployeeImageChanging(false)
+      window.location.reload()
+    }
+    else{
+      console.log(EmployeeRecdata)
+      toast.error(EmployeeRecdata.message)
+    }
+  }
+  catch(error){
+    console.log(error)
+   toast.error(error.message)
+  }
+  finally{
+    setWaitWhileUploading(false)
+  }
+}
+
   // Fetch User Email, AAdhar etc
   useEffect(() => {
     const fetchData = async () => {
@@ -240,13 +298,42 @@ const UserProfileView = () => {
           <h4>Logging Out...</h4>
       </div>
       {/* ================= */}
+
+      {/* =========== */}
+      <div className={employeeImageChanging?"ChooseEmployee-Image-div":"ChooseEmployee-Image-div-inactive"}>
+      <i onClick={()=>setEmployeeImageChanging(false)} className="fa-solid fa-xmark ChooseEmployee-Image-div-close-icon"></i>
+        <div className="ChooseEmployee-Image-div-sub">
+        <div>
+          <img className="ChooseEmployee-Image-div-sub-image" src={employeeChangeImageshow} alt="" />
+        </div>
+        <label htmlFor="inputImage">Choose File</label>
+        <input 
+        onChange={handleImageChange} 
+        type="file" 
+        accept="image/*"
+        // capture="camera"
+        style={{ display: 'none' }}
+        id="inputImage"
+        />
+        <button onClick={changeEmployeeImage} className={employeeChangeImageshow?"ChooseEmployee-Image-div-button":"ChooseEmployee-Image-div-button-inactive"}>Upload</button>
+        </div>
+      </div>
+
+      <div className={waitWhileUploading?'SellCar-main-wait-while-uploading-di-true':'SellCar-main-wait-while-uploading-di-false'}>
+      {/* <div className='SellCar-main-wait-while-uploading-di-true'> */}
+          <h4>Uploading...</h4>
+      </div>
+      {/* =================== */}
+
+
+
         <div className='Profile-View-Sub-div'>
         <Link to={'/UserDashboard'}><i className="fa-solid fa-arrow-left back-to-user-dashboard"></i></Link>    
             <div className='Profile-View-top-secton'>
                 <div className='User-profile-image'>
                     <img src="https://img.freepik.com/free-vector/cute-happy-smiling-child-isolated-white_1308-32243.jpg" alt="" />
                     {/* <i  className="fa-solid fa-camera Profile-photo-change"></i> */}
-                    {/* <i onClick={()=>setEmployeeImageChanging(true)} className="fa-solid fa-camera Advisor-photo-change"></i> */}
+                    <i onClick={()=>setEmployeeImageChanging(true)} className="fa-solid fa-camera Profile-photo-change"></i>
                 </div>
 
                 <div className='User-profile-name'>

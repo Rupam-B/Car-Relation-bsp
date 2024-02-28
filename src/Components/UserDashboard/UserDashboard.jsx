@@ -4,6 +4,9 @@ import { Link} from 'react-router-dom'
 import 'react-toastify/dist/ReactToastify.css';
 
 export const UserDashboard = () => {
+  const whichRole =localStorage.getItem('car-relation-user-get-role')
+
+  
   return (
     <div className='User-Dashboard-main-div'>
     <div className='User-Dashboard-sub-div'>
@@ -34,14 +37,14 @@ export const UserDashboard = () => {
           <p>Referrals</p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
-            <Link to={'/AdvisorMainPanel'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
+            <Link to={ whichRole==='Employee'?'/EmployeeMainPanel':whichRole==='Advisor'?'/AdvisorMainPanel':'/ServiceNotAvailable'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
             {/* <Link to={'/EmployeeMainPanel'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'> */}
             <div>
             <i style={{color:'white'}} className="fa-regular fa-circle-user"></i>
             </div>
             </Link>
           {/* <p>Employee</p> */}
-          <p>Advisor</p>
+          <p>{ whichRole==='Employee'?'Employee':whichRole==='Advisor'?'Advisor':'User'} </p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
             <Link to={'/UserAffiliation'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
