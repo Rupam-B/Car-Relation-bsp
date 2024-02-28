@@ -271,7 +271,7 @@ const changeEmployeeImage = async()=>{
         if (response.status >= 200 && response.status < 300) {
           const data = response.data;
           if (data) {
-            console.log(data.data)
+            // console.log(data.data)
             localStorage.setItem('car-relation-user-email', data.data.email)
             localStorage.setItem('car-relation-user-aadhaar', data.data.aadhaar)
             setUserProfilePhoto(data.data.photo)

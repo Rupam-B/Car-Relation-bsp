@@ -68,6 +68,7 @@ const changeEmployeeData = async()=>{
     if(response.ok){
       // console.log(EmployeeRecdata)
       setIsPersonalEdit(false)
+      localStorage.setItem('car-relation-user-aadhaar', EmployeeRecdata.data.aadhaar)
       window.location.reload()
     }
     else{

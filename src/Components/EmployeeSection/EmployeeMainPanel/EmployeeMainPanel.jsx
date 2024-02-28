@@ -150,6 +150,7 @@ const changeEmployeeData = async()=>{
       console.log(EmployeeRecdata)
       setIsPersonalEdit(false)
       window.location.reload()
+      localStorage.setItem('car-relation-user-name',EmployeeRecdata.data.first_name)
     }
     else{
       console.log(EmployeeRecdata)
@@ -235,6 +236,40 @@ const changeEmployeeImage = async()=>{
     fetchEmployeeDtails();
 
   },[userToken])
+
+
+// ForFetching Attendance Valid Time
+  // useEffect(()=>{
+  //   const fetchEmployeeDtails = async ()=>{
+  //     try{
+  //       const response = await axios.get(`${BaseURL}/emp/attendance-validtime`,{
+  //         mode:'no-cors',
+  //         headers:{
+  //             Accept:'application/json',
+  //             Authorization: `Bearer ${userToken}`,
+  //         }
+  //       })
+  //       if(response.status>=200&&response.status<300){
+  //         const data = response.data
+  //       if(data){
+  //         console.log(data, 'Valid time')
+  //         // setEmployeeDetails(data.data)
+  //       }    
+  //       }
+  //       else{
+  //         console.log('Network status was not OK')
+  //       }
+  //     }
+  //     catch(error){
+  //       console.log(error)
+  //       toast.error(error.message)
+  //     }
+
+  //   }
+
+  //   fetchEmployeeDtails();
+
+  // },[userToken])
   // console.log(employeeDetails.dob)
   // console.log(employeeChangeImage)
   return (

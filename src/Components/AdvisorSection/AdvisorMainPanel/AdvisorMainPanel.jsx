@@ -75,9 +75,10 @@ const changeEmployeeData = async()=>{
     const EmployeeRecdata = await response.json();
 
     if(response.ok){
-      // console.log(EmployeeRecdata)
+      console.log(EmployeeRecdata)
       setIsPersonalEdit(false)
       window.location.reload()
+      localStorage.setItem('car-relation-user-name',EmployeeRecdata.data.first_name)
     }
     else{
       console.log(EmployeeRecdata)
