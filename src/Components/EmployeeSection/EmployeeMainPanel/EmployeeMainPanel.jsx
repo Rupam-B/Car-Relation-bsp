@@ -14,7 +14,7 @@ const EmployeeMainPanel = () => {
 
   const userToken = localStorage.getItem("car-relation-user-token");
     const [resizingAttButton, setResizingAttButton]= useState(false)
-    const [shouldBlink, setShouldBlink]= useState(true)
+    const [shouldBlink, setShouldBlink]= useState(false)
     const [isPersonalEdit, setIsPersonalEdit]= useState(false)
 
 
