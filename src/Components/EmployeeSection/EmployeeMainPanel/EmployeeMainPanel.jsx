@@ -37,14 +37,28 @@ const EmployeeMainPanel = () => {
     const [waitWhileUpdating, setWaitWhileUpdating] = useState(false);
 
 
-  //   const [currentTime, setCurrentTime] = useState(false);
-  //   console.log(currentTime)
+    const [currentTime, setCurrentTime] = useState();
+    const [currentMinutes, setCurrentMinutes] = useState();
 
-  //   setInterval(() => {
-  //     const getTime = new Date().getHours()
-  //  setCurrentTime(getTime)
+    console.log(currentMinutes, 'Minutes')
+    console.log(currentTime, 'Hrs')
+
+    setInterval(() => {
+      const getTime = new Date().getHours()
+      const getMinute = new Date().getMinutes()
+      // eslint-disable-next-line
+      if(getTime==10&&getMinute==0){
+        setCurrentTime(getTime)
+        setCurrentMinutes(getMinute)
+      }
+      // eslint-disable-next-line
+      else if(getTime==11&&getMinute==0){
+        setCurrentTime(getTime)
+        setCurrentMinutes(getMinute)
+      }
+   
       
-  //   }, 1000);
+    }, 10000);
 
 
   const handleEditInfo =()=>{
@@ -263,6 +277,7 @@ const changeEmployeeImage = async()=>{
 // ForFetching Attendance Valid Time
   useEffect(()=>{
     const fetchEmployeeDtails = async ()=>{
+      toast.success('Use Effect Runs')
       try{
         const response = await axios.get(`${BaseURL}/emp/attendance-validtime`,{
           mode:'no-cors',
@@ -291,11 +306,10 @@ const changeEmployeeImage = async()=>{
 
     fetchEmployeeDtails();
 
-  },[userToken])
+  },[userToken,currentTime])
 
 
-  // console.log(employeeDetails.dob)
-  // console.log(employeeChangeImage)
+
   return (
     <div className="Employee-panel-main-div">
 
