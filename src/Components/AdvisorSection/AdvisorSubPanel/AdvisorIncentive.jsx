@@ -29,7 +29,6 @@ const AdvisorIncentive = () => {
     try{
       const formData = new FormData();
       formData.append('month',chooseMonth)
-      console.log(chooseMonth)
   
       const response = await fetch (`${BaseURL}/adv/get-incentive`,{
         method:'POST',
@@ -48,7 +47,7 @@ const AdvisorIncentive = () => {
         
       }
       else{
-        console.log(EmployeeRecdata)
+        // console.log(EmployeeRecdata)
         toast.error(EmployeeRecdata.message)
       }
     }
@@ -76,8 +75,6 @@ const AdvisorIncentive = () => {
     // eslint-disable-next-line
   }, [chooseMonth]);
 
-
-  console.log(incentiveData, 'Incentive Data')
 
 
   return (
