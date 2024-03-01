@@ -40,9 +40,6 @@ const EmployeeMainPanel = () => {
     const [currentTime, setCurrentTime] = useState();
     const [currentMinutes, setCurrentMinutes] = useState();
 
-    console.log(currentMinutes, 'Minutes')
-    console.log(currentTime, 'Hrs')
-
     setInterval(() => {
       const getTime = new Date().getHours()
       const getMinute = new Date().getMinutes()
@@ -277,7 +274,6 @@ const changeEmployeeImage = async()=>{
 // ForFetching Attendance Valid Time
   useEffect(()=>{
     const fetchEmployeeDtails = async ()=>{
-      toast.success('Use Effect Runs')
       try{
         const response = await axios.get(`${BaseURL}/emp/attendance-validtime`,{
           mode:'no-cors',
@@ -306,7 +302,7 @@ const changeEmployeeImage = async()=>{
 
     fetchEmployeeDtails();
 
-  },[userToken,currentTime])
+  },[userToken,currentTime,currentMinutes])
 
 
 
