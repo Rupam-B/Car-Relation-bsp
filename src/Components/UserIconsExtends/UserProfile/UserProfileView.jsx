@@ -12,14 +12,13 @@ const UserProfileView = () => {
   const UserProfileDispatch = useDispatch()
   //  const UserProfileNavigate = useNavigate()
 
-  const Loggedinuser = localStorage.getItem('car-relation-user-name')
+  // const Loggedinuser = localStorage.getItem('car-relation-user-name')
   const LoggedinuserAffiliation = localStorage.getItem('car-relation-user-AffId')
   const userToken = localStorage.getItem('car-relation-user-token')
-  // const userEmail = localStorage.getItem('car-relation-user-email')
-  // const userAadhaar = localStorage.getItem('car-relation-user-aadhaar')
-  const LoggedinuserName = JSON.stringify(Loggedinuser)
+
   const [waitWhileLoggingOut, setWaitWhileLoggingOut] = useState(false)
 
+    const [userProfileName, setUserProfileName]= useState()
     const [userEmail, setUserEmail]= useState()
     const [userAadhaar, setUserAadhaar]= useState()
     const [userProfilePhoto, setUserProfilePhoto]= useState()
@@ -277,6 +276,7 @@ const changeEmployeeImage = async()=>{
             setUserProfilePhoto(data.data.photo)
             setUserEmail(data.data.email)
             setUserAadhaar(data.data.aadhaar)
+            setUserProfileName(data.data.name)
           }
         } else {
           throw new Error("Network response was not ok");
@@ -339,7 +339,7 @@ const changeEmployeeImage = async()=>{
                     <i onClick={()=>setEmployeeImageChanging(true)} className="fa-solid fa-camera Profile-photo-change"></i>
 
                 <div className='User-profile-name'>
-                    <h4>{LoggedinuserName}</h4>
+                    <h4>{userProfileName}</h4>
                 </div>
                
             </div>

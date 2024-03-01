@@ -36,31 +36,16 @@ const EmployeeMainPanel = () => {
     const [waitWhileUploading, setWaitWhileUploading] = useState(false);
     const [waitWhileUpdating, setWaitWhileUpdating] = useState(false);
 
-    // console.log(formattedsubmitDate)
 
+  //   const [currentTime, setCurrentTime] = useState(false);
+  //   console.log(currentTime)
 
+  //   setInterval(() => {
+  //     const getTime = new Date().getHours()
+  //  setCurrentTime(getTime)
+      
+  //   }, 1000);
 
-
-  //   const submitAttendance = async () => {
-  //     try {
-  //         const position = await Geolocation.getCurrentPosition();
-  //         const { latitude, longitude } = position.coords;
-  //         const timestamp = new Date().toISOString();
-
-  //         const date = new Date(timestamp);
-  //         const formattedDate = `${date.getDate().toString().padStart(2, '0')}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getFullYear()}`;
-  //         const formattedTime = `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`;
-
-  //         console.log('Location:', { latitude, longitude, formattedDate, formattedTime });
-  //         setShouldBlink(false)
-  //         toast.success(`Attendance Succesfull on ${formattedDate} time : ${formattedTime}`)
-
-
-  //     } catch (error) {
-  //         console.error('Error getting location:', error);
-  //         toast.error('Attendance Submission Failed')
-  //     }
-  // };
 
   const handleEditInfo =()=>{
     setIsPersonalEdit(true)

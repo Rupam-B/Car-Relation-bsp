@@ -1,14 +1,85 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import BaseURL from '../../../apiconfig';
 
 const AdvisorIncentive = () => {
+
+  const userToken = localStorage.getItem("car-relation-user-token");
+
     const [isLoading, setIsLoading] = useState(false)
+    const [chooseMonth, setChooseMonth] = useState()
+
+    const [incentiveData, setIncentiveData] = useState()
+  
 
   useEffect(()=>{
     setTimeout(()=>{
       setIsLoading(false)
-    },2000)
+    },500)
   },[isLoading])
+
+
+
+
+  const FetchsIncentiveData = async()=>{
+    setIsLoading(true)
+    
+    try{
+      const formData = new FormData();
+      formData.append('month',chooseMonth)
+      console.log(chooseMonth)
+  
+      const response = await fetch (`${BaseURL}/adv/get-incentive`,{
+        method:'POST',
+        headers:{
+          Accept:'application/json',
+          Authorization: `Bearer ${userToken}`,
+        },
+        body:formData
+      })
+  
+      const EmployeeRecdata = await response.json();
+  
+      if(response.ok){
+        console.log(EmployeeRecdata)
+        setIncentiveData(EmployeeRecdata.data)
+        
+      }
+      else{
+        console.log(EmployeeRecdata)
+        toast.error(EmployeeRecdata.message)
+      }
+    }
+    catch(error){
+      console.log(error)
+     toast.error(error.message)
+    }
+    finally{
+      setIsLoading(false)
+    }
+  
+  }
+
+  const FetchAttendance = (e)=>{
+    setChooseMonth(e.target.value)
+  }
+
+
+  useEffect(() => {
+    if (chooseMonth) {
+      setTimeout(() => {
+        FetchsIncentiveData();
+      }, 1000);
+    }
+    // eslint-disable-next-line
+  }, [chooseMonth]);
+
+
+  console.log(incentiveData, 'Incentive Data')
+
+
   return (
     <div className='Employee-Salary-main-div'>
     <div className='Employee-Salary-sub-div'>
@@ -24,49 +95,59 @@ const AdvisorIncentive = () => {
 
 
         <div className='Employee-Salary-select-div-interior'>
-        <label htmlFor="selectMonth">Select Month : </label>
-        <select name="selectMonth" id="selectMonth" onChange={()=>setIsLoading(true)}>
-            <option value="January">January</option>
-            <option value="January">February</option>
-            <option value="January">March</option>
-            <option value="January">April</option>
-            <option value="January">May</option>
-            <option value="January">June</option>
-            <option value="January">July</option>
-            <option value="January">August</option>
-            <option value="January">September</option>
-            <option value="January">October</option>
-            <option value="January">November</option>
-            <option value="January">December</option>
-
-        </select>
+        <input type="month" onChange={FetchAttendance}/>
         </div>
       </div>
 
 
-{isLoading?(<div className='Employee-Salary-Loading-div'><h6>Loading...</h6></div>):(<>
+{isLoading?(<div className='Employee-Salary-Loading-div'><h6>Loading...</h6></div>):(
 
-    <div style={{backgroundColor:'transparent', fontWeight:'bold',marginBottom:'0'}} className='Employee-Salary-show-salary-div'>
+incentiveData?(
+
+  incentiveData&&incentiveData.length>0?
+        (
+          
+
+        <div>
+      <div style={{backgroundColor:'transparent', fontWeight:'bold',marginBottom:'0'}} className='Employee-Salary-show-salary-div'>
         <div  style={{marginBottom:'0'}} className='Employee-Salary-show-salary-div-interior'><p style={{border:'none'}}className='Employee-Salary-show-para-one-advisor'>Deals</p><p style={{border:'none'}} className='Employee-Salary-show-para-three-advisor'>Type</p> <p className='Employee-Salary-show-para-two-advisor'>Amount</p></div>
       </div>
-
-      <div style={{marginTop:'0'}} className='Employee-Salary-show-salary-div'>
-        <div className='Employee-Salary-show-salary-div-interior'><p className='Employee-Salary-show-para-one-advisor'>Mahindra XUV Altroz CG10AB2060</p><p className='Employee-Salary-show-para-three-advisor'>Car</p> <p className='Employee-Salary-show-para-two-advisor'>500</p></div>
-        <div className='Employee-Salary-show-salary-div-interior'><p className='Employee-Salary-show-para-one-advisor'>Tata XUV Altroz CG10AB2065</p><p className='Employee-Salary-show-para-three-advisor'>Finance</p> <p className='Employee-Salary-show-para-two-advisor'>1500</p></div>
-        <div className='Employee-Salary-show-salary-div-interior'><p className='Employee-Salary-show-para-one-advisor'>Nissan Ounch CG10AB2069</p><p className='Employee-Salary-show-para-three-advisor'>Insurance</p> <p className='Employee-Salary-show-para-two-advisor'>800</p></div>
-        <div className='Employee-Salary-show-salary-div-interior'><p className='Employee-Salary-show-para-one-advisor'>Nissan Ounch CG10AB2069</p><p className='Employee-Salary-show-para-three-advisor'>Car</p> <p className='Employee-Salary-show-para-two-advisor'>800</p></div>
-        
+      {incentiveData.map((items, index)=>(
+      <div key={index} style={{marginTop:'0'}} className='Employee-Salary-show-salary-div'>
+        <div className='Employee-Salary-show-salary-div-interior'><p className='Employee-Salary-show-para-one-advisor'>{items.description}</p><p className='Employee-Salary-show-para-three-advisor'>{items.service}</p> <p className='Employee-Salary-show-para-two-advisor'>{items.incentive_amount}</p></div>
       </div>
-
-
-     
-
-
+      ))
+      }
       <div className='Employee-Salary-show-salary-div'>
         <div className='Employee-Salary-show-salary-div-interior'><p style={{fontWeight:'bold',fontSize:'1.2rem'}} className='Employee-Salary-show-para-one'>Total Released</p> 
-        <p style={{fontWeight:'bold',fontSize:'1.2rem'}} className='Employee-Salary-show-para-two'>31,200</p></div>
+        <p style={{fontWeight:'bold',fontSize:'1.2rem'}} className='Employee-Salary-show-para-two'>
+        {
+        incentiveData.map((items) => {
+          return Number(items.incentive_amount) || 0;
+        }).reduce((acc, amount) => acc + amount, 0)
+      }
+          </p>
+          </div>
       </div>
-      </>)}
+      </div>
+
+      
+      )
+    :(
+    <div style={{height:'30vh', display:'flex',justifyContent:'center',alignItems:'center'}}>
+    <h6>Incentive Not Generated For This Month !!</h6>
+    </div>
+    )
+
+    ):(
+    <div style={{height:'30vh', display:'flex',justifyContent:'center',alignItems:'center'}}>Choose Month !!!</div>
+    )
+
+
+      
+      
+      
+      )}
 
       </div>
       </div>
