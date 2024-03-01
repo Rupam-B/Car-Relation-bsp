@@ -12,7 +12,7 @@ const ServiceNotAvailable = () => {
 
   return (
     <div className='ServiceNotAvailable-main-div'>
-        <h5>This Service Will be available soon!!</h5>
+        <h5 style={{textAlign:'center'}}>This Service is Only for <br /> Advisor/ Employee!!</h5>
         <button onClick={handleCloseButtonClick}>Close</button>
     </div>
   )

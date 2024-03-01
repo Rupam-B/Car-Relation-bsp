@@ -44,7 +44,7 @@ export const UserDashboard = () => {
             </div>
             </Link>
           {/* <p>Employee</p> */}
-          <p>{ whichRole==='Employee'?'Employee':whichRole==='Advisor'?'Advisor':'User'} </p>
+          <p>{ whichRole==='Employee'?'Employee':whichRole==='Advisor'?'Advisor':'Adv/Emp'} </p>
           </div>
           <div className='col-md-3 col-sm-3 user-options-details'>
             <Link to={'/UserAffiliation'} style={{backgroundColor:'#00387b',border:'none'}} className='user-options-details-inner-div'>
