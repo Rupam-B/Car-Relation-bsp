@@ -92,8 +92,8 @@ const EmployeeAttendance = () => {
 
 
         <div className='Employee-Salary-select-div-interior'>
+        <label htmlFor="SelectAttendance">Month</label>
         <input id='SelectAttendance' type="month" onChange={FetchAttendance}/>
-        <label htmlFor="SelectAttendance">Select</label>
         </div>
       </div>
 

@@ -86,9 +86,8 @@ const EmployeeSalarySection = () => {
 
 
         <div className='Employee-Salary-select-div-interior'>
-          <>
-        <input type="month" onChange={(e)=>setChooseMonth(e.target.value)}/>
-          </>
+        <label htmlFor="SelectSalary">Month</label>
+        <input id='SelectSalary' type="month" onChange={(e)=>setChooseMonth(e.target.value)}/>
         </div>
       </div>
 

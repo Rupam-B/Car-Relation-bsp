@@ -92,8 +92,8 @@ const AdvisorIncentive = () => {
 
 
         <div className='Employee-Salary-select-div-interior'>
-        <label htmlFor="SelectAttendance">Select</label>
-        <input id='SelectAttendance' type="month" onChange={FetchAttendance}/>
+        <label htmlFor="SelectIncentive">Month</label>
+        <input id='SelectIncentive' type="month" onChange={FetchAttendance}/>
         </div>
       </div>
 
