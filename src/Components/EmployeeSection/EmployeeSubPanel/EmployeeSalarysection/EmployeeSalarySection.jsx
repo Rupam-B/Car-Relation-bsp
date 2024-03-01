@@ -11,17 +11,20 @@ const EmployeeSalarySection = () => {
 
   const [isLoading, setIsLoading] = useState(false)
   const [chooseMonth, setChooseMonth] = useState()
+  const [currentYear, setCurrentYear] = useState()
+
+
   const [salaryData, setSalaryData] = useState()
 
 
 
-  useEffect(()=>{
-    setTimeout(()=>{
-      setIsLoading(false)
-    },2000)
-  },[isLoading])
-
-  
+      useEffect(()=>{
+      setTimeout(()=>{
+        if(chooseMonth){
+          setCurrentYear(chooseMonth.slice(0,4))
+        }
+      },1000)
+    },[chooseMonth])
 
 
   const FetchsalaryData = async()=>{
@@ -82,7 +85,7 @@ const EmployeeSalarySection = () => {
       <hr style={{width:'90%', margin:'auto',marginTop:'3vh', marginBottom:'3vh'}} />
 
       <div className='Employee-Salary-select-div'>
-        <p>Year : 2024</p>
+        <p>Year : {currentYear?currentYear:''}</p>
 
 
         <div className='Employee-Salary-select-div-interior'>
