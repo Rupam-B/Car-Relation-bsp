@@ -40,6 +40,7 @@ import AdvisorMainPanel from './Components/AdvisorSection/AdvisorMainPanel/Advis
 import AdvisorDocuments from './Components/AdvisorSection/AdvisorSubPanel/AdvisorDocuments';
 import AdvisorIncentive from './Components/AdvisorSection/AdvisorSubPanel/AdvisorIncentive';
 import PrivateComponent from './Components/PrivateComponent/PrivateComponent';
+import NotificationPage from './Components/NotificationsPage/NotificationPage';
 
 function App() {
   // const history = useHistory();
@@ -63,7 +64,7 @@ function App() {
       <ScrollToTop/>
       <MainHeadBtns/>
       <Routes>
-        <Route path='/' element={<Home/>}/>      
+        <Route path='/' element={<Home/>}/>          
         <Route path='/ServiceNotAvailable' element={<ServiceNotAvailable/>}/>      
         <Route path='/DisplayCarDetails' element={<DispCarDetails/>}/>
         <Route path={'/DisplayCarDetailsAffiliation/:affiliationId/:carId'} element={<ProductAffiliationPage/>}/>
@@ -73,6 +74,7 @@ function App() {
         <Route path='/UserMainPanel' element={<UserMainPanel/>}/>
 
         <Route element={<PrivateComponent/>}>
+        <Route path='/NotificationPage' element={<NotificationPage/>}/>  
         <Route path='/SellCarPortal' element={<SellCar/>}/>
         <Route path='/UserDashboard' element={<UserDashboard/>}/>
         <Route path='/UserDashboardProfile' element={<UserProfileView/>}/>

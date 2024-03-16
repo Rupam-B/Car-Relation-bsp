@@ -1,0 +1,30 @@
+.Notifications-heading-divs{
+    height: 50px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+    text-align: center;
+}
+.Notifications-heading-divs-active{
+    height: 50px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+    text-align: center;
+    transform: scale(1.05);
+    border: 2px solid rgb(216, 112, 147,0.2);
+}
+
+.Notifications-content-Close{
+    display: none;
+}
+
+.Notification-tab-div{
+    /* background-color: blue; */
+    display: flex;
+    justify-content: space-between;
+}

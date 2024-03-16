@@ -82,9 +82,35 @@
     right: 2vw;
     color: rgb(8, 8, 8);
 }
+.Middle-nav-main-div-notification-icon-deactive{
+    display: none;
+}
+.Middle-nav-main-div-notification-icon{
+    display: none;
+}
 
 
 @media screen and (max-width:700px) {
+
+    .Middle-nav-main-div-notification-icon-deactive{
+        display: none;
+    }
+    .Middle-nav-main-div-notification-icon{
+        display: flex;
+        /* display: block; */
+        position: absolute;
+        top: 5px;
+        right: 20px;
+        font-size: 1.2rem;
+        color: rgb(140, 139, 139);
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        /* background-color: blue; */
+        justify-content: center;
+        align-items: center;
+
+    }
     .Middle-nav-sub-div {
         padding: 0 1vw;
         height: 22vh;

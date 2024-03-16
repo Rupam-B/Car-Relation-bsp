@@ -9,6 +9,9 @@ const MiddleNavbar = () => {
   return (
     <div className='Middle-nav-main-div'>
         <div className='Middle-nav-sub-div'>
+        <div className={userVerify?'Middle-nav-main-div-notification-icon':'Middle-nav-main-div-notification-icon-deactive'}>
+      <Link style={{color:'gray'}} to={'/NotificationPage'}><i className="fa-regular fa-bell"></i></Link>
+      </div>
             <div className='Middle-nav-left-div'>
               {userVerify?<div className='user-logged-in-bars'>
               <Link  to={'/UserDashboard'}><i style={{color:'#eb7a9a', fontSize:'1.3rem'}} className="fa-solid fa-bars "></i></Link>
