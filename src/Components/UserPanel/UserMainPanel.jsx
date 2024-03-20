@@ -154,7 +154,7 @@ const handleSignup = async () => {
               <div className='Login-Signup-Content-inputs-div'>
               {loginSignup?
               <div className='Login-inputs-user'>
-                <input value={loginUserName} onChange={(e)=>setLoginUserName(e.target.value)} type="text" placeholder='Mobile No'/>
+                <input value={loginUserName} onChange={(e)=>setLoginUserName(e.target.value)} type="text" placeholder='User Name'/>
                 <input value={loginPassword} onChange={(e)=>setLoginPassword(e.target.value)} type="text" placeholder='Password'/>
                 <button onClick={handleLogin}>Login</button>
               </div>:
