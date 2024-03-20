@@ -322,6 +322,12 @@ const Home = () => {
 
   return (
     <div className="Home-Main-div">
+      <div className='Home-Search-div'>
+      <Link to={'/SearchFunction'}><i className="fa-solid fa-magnifying-glass Home-Search-icon"></i></Link>
+      {/* <input  type="text" /> */}
+      <Link to={'/FilterSection'}><i className="fa-solid fa-chart-simple Home-Filter-icon"></i></Link>
+        
+      </div>
       <div className="Home-sub-div">
         <div className="Home-Listing-Header">
           <div className={enqEnable?'Enquiry-form active':'Enquiry-form-inactive'}>

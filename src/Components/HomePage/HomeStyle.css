@@ -344,9 +344,59 @@
     display: none;
 }
 
+.Home-Search-div{
+    display: none;
+ }
+
 
 
 @media screen and (max-width: 600px) {
+
+    .Home-Search-div{
+        display: block;
+        border: 1px solid rgb(15, 15, 15,0.2);
+        height: 30px;
+        width: 90vw;
+        margin-top: 15px;
+        border-radius: 10px;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 0;
+    }
+    .Home-Search-div input{
+        /* border: 1px solid rgb(15, 15, 15,0.2); */
+        border: none;
+        height: 100%;
+        width: 85%;
+        
+    }
+    .Home-Search-div select{
+        /* border: 1px solid rgb(15, 15, 15,0.2); */
+        border: none;
+        height: 100%;
+        width: 95%;
+        
+    }
+    .Home-Search-icon{
+        position: absolute;
+        top: 6px; 
+        left: 10px;
+        /* background-color: blue; */
+        width: 75vw;
+        color: gray;
+    }
+    .Home-Filter-icon{
+        position: absolute;
+        top: 6px; 
+        right: 15px;
+        color: gray;
+    }
+
+    
+    .Home-Listing-Header{
+        margin: 0 0 4vh 0;
+    }
+    
 
     .Home-middle-content{
         display: grid;

@@ -41,6 +41,8 @@ import AdvisorDocuments from './Components/AdvisorSection/AdvisorSubPanel/Adviso
 import AdvisorIncentive from './Components/AdvisorSection/AdvisorSubPanel/AdvisorIncentive';
 import PrivateComponent from './Components/PrivateComponent/PrivateComponent';
 import NotificationPage from './Components/NotificationsPage/NotificationPage';
+import SearchFunction from './Components/HomePage/SearchSection/SearchFunction';
+import FilterSection from './Components/HomePage/FilterSection/FilterSection';
 
 function App() {
   // const history = useHistory();
@@ -65,6 +67,8 @@ function App() {
       <MainHeadBtns/>
       <Routes>
         <Route path='/' element={<Home/>}/>          
+        <Route path='/SearchFunction' element={<SearchFunction/>}/>          
+        <Route path='/FilterSection' element={<FilterSection/>}/>          
         <Route path='/ServiceNotAvailable' element={<ServiceNotAvailable/>}/>      
         <Route path='/DisplayCarDetails' element={<DispCarDetails/>}/>
         <Route path={'/DisplayCarDetailsAffiliation/:affiliationId/:carId'} element={<ProductAffiliationPage/>}/>
