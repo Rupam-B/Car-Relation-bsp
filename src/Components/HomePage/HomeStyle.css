@@ -368,6 +368,8 @@
         border: none;
         height: 100%;
         width: 85%;
+        background-color: transparent;
+        outline: none;
         
     }
     .Home-Search-div select{
@@ -375,6 +377,8 @@
         border: none;
         height: 100%;
         width: 95%;
+        background-color: transparent;
+        outline: none;
         
     }
     .Home-Search-icon{
